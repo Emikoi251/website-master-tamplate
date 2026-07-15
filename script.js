@@ -1,6 +1,6 @@
 // Content lives in data.js (window.NaviData); site settings in config.js
 // (window.SiteConfig). Both load before this file. Rendering/logic stays here.
-const { products, categoryDescriptions, services, references, news, industriesHome, industries } = window.NaviData;
+const { products, categoryDescriptions, productCategories, services, references, news, industriesHome, industries } = window.NaviData;
 const config = window.SiteConfig || {};
 
 // A section is enabled unless config.sections explicitly turns it off.
@@ -216,6 +216,29 @@ function renderStaticLists() {
   fill("[data-industries]", industries.map((item, i) => createIndustry(item, i, "card")));
   renderProducts("All");
   renderFilters();
+  renderProductMenu();
+}
+
+// Header product mega-menu + footer product list, generated from
+// data.js productCategories (filtered to categories that actually have
+// products), so they can never drift out of sync with the product data.
+function renderProductMenu() {
+  const activeCategories = new Set(products.map((item) => item.category));
+  const categories = productCategories.filter((entry) => activeCategories.has(entry.key));
+
+  fill("[data-products-menu]", [
+    el("a", { href: "#products" }, [el("strong", {}, ["All products"]), el("span", {}, ["Browse the full portfolio"])]),
+    ...categories.map((entry) =>
+      el("a", { href: `#products/${encodeURIComponent(entry.key)}` }, [
+        el("strong", {}, [entry.label]),
+        el("span", {}, [entry.menuBlurb])
+      ])
+    )
+  ]);
+
+  fill("[data-products-footer]", categories.map((entry) =>
+    el("a", { href: `#products/${encodeURIComponent(entry.key)}` }, [entry.label])
+  ));
 }
 
 function renderFilters() {

@@ -232,6 +232,21 @@ window.NaviData = (function () {
     Modules: "Operational modules that extend tracking, monitoring, replay, routing, rescue and simulation workflows."
   };
 
+  // --- Product categories: drives the header product mega-menu and the footer
+  // product list (see renderProductMenu in script.js). Order here is the display
+  // order in both places. menuBlurb is the short line shown only in the header
+  // dropdown; label is the visible category name (may differ from the category
+  // key used on products, e.g. Tactical Display Framework -> "Software Platform").
+  const productCategories = [
+    { key: "Systems", label: "Systems", menuBlurb: "Situational awareness & command" },
+    { key: "Modules", label: "Modules", menuBlurb: "Operational workflow modules" },
+    { key: "Sensors", label: "Sensors", menuBlurb: "Radar, CCTV & optronics" },
+    { key: "Security", label: "Security", menuBlurb: "Cyber & infrastructure protection" },
+    { key: "Weather", label: "Weather", menuBlurb: "Environmental information" },
+    { key: "Voice Communication", label: "Voice Communication", menuBlurb: "Control room & tactical voice" },
+    { key: "Tactical Display Framework", label: "Software Platform", menuBlurb: "Tactical Display Framework" }
+  ];
+
   // --- Services (Services page + featured on home; drive service detail pages)
   const services = [
     {
@@ -351,6 +366,7 @@ window.NaviData = (function () {
   return {
     products,
     categoryDescriptions,
+    productCategories,
     services,
     references,
     news,
