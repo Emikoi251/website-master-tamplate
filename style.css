@@ -1040,6 +1040,13 @@ h3 {
   text-transform: uppercase;
 }
 
+/* Red eyebrow text fails WCAG AA on the dark navy-deep hero/proof-section
+   backgrounds (~3.2:1) — same light treatment as .subpage-hero .eyebrow. */
+.hero .eyebrow,
+.proof-section .eyebrow {
+  color: rgba(255, 255, 255, 0.82);
+}
+
 .button {
   display: inline-flex;
   align-items: center;
