@@ -372,6 +372,7 @@ function closeMobileMenu() {
   mobileMenu.classList.remove("is-open");
   mobileMenu.setAttribute("aria-hidden", "true");
   mobileToggle.setAttribute("aria-expanded", "false");
+  mobileToggle.setAttribute("aria-label", "Open menu");
   document.body.classList.remove("menu-open");
   if (mobileSearch) mobileSearch.value = "";
   if (mobileSearchPanel) {
@@ -384,7 +385,42 @@ function openMobileMenu() {
   mobileMenu.classList.add("is-open");
   mobileMenu.setAttribute("aria-hidden", "false");
   mobileToggle.setAttribute("aria-expanded", "true");
+  mobileToggle.setAttribute("aria-label", "Close menu");
   document.body.classList.add("menu-open");
+}
+
+// Keeps aria-expanded on each dropdown trigger in sync with the CSS-driven
+// :hover / :focus-within visibility (true while the nav-item is hovered or
+// contains focus, false only once both have left it). Escape moves focus
+// back to the trigger link without forcing aria-expanded to a value that
+// would contradict the still-visible :focus-within panel; the existing
+// focus handlers settle it to the correct state. Does not alter link
+// click/navigation behaviour (Enter still activates the link; Space is
+// left unbound).
+function bindDropdownAccessibility() {
+  document.querySelectorAll(".nav-item.has-menu").forEach((navItem) => {
+    const trigger = navItem.querySelector(":scope > a");
+    if (!trigger) return;
+
+    const setExpanded = (value) => trigger.setAttribute("aria-expanded", String(value));
+
+    navItem.addEventListener("mouseenter", () => setExpanded(true));
+    navItem.addEventListener("mouseleave", () => {
+      if (!navItem.contains(document.activeElement)) setExpanded(false);
+    });
+    navItem.addEventListener("focusin", () => setExpanded(true));
+    navItem.addEventListener("focusout", (event) => {
+      if (!navItem.contains(event.relatedTarget) && !navItem.matches(":hover")) setExpanded(false);
+    });
+    navItem.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        // Moving focus back to the trigger re-fires focusin (or, if focus was
+        // already on the trigger, leaves its already-correct state alone) —
+        // no explicit aria-expanded write needed here.
+        trigger.focus();
+      }
+    });
+  });
 }
 
 function renderSearchResults(query, targetPanel = searchPanel, controlInput = searchInput) {
@@ -423,6 +459,7 @@ function renderSearchResults(query, targetPanel = searchPanel, controlInput = se
 
 applyConfig();
 renderStaticLists();
+bindDropdownAccessibility();
 route();
 
 document.querySelector("[data-year]").textContent = new Date().getFullYear();

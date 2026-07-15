@@ -39,7 +39,7 @@
     <nav class="desktop-nav" aria-label="Primary navigation">
       <!-- About: grouped dropdown (Company + News). Static content. -->
       <div class="nav-item has-menu">
-        <a href="#about" data-route="about" data-nav-label="about">About</a>
+        <a href="#about" data-route="about" data-nav-label="about" aria-haspopup="true" aria-expanded="false">About</a>
         <div class="dropdown dropdown--groups" aria-label="About menu">
           <div class="dropdown__group">
             <p class="dropdown__heading">About <span data-site-name>Navielektro</span></p>
@@ -57,12 +57,12 @@
       <a href="#industries" data-route="industries" data-nav-label="industries" data-optional="industries">Industries</a>
       <!-- Products: dropdown generated from product categories (see renderProductMenu). -->
       <div class="nav-item has-menu">
-        <a href="#products" data-route="products" data-nav-label="products">Products</a>
+        <a href="#products" data-route="products" data-nav-label="products" aria-haspopup="true" aria-expanded="false">Products</a>
         <div class="dropdown dropdown--wide" aria-label="Products menu" data-products-menu></div>
       </div>
       <!-- Services: dropdown links to real service pages. -->
       <div class="nav-item has-menu" data-optional="services">
-        <a href="#services" data-route="services" data-nav-label="services">Services</a>
+        <a href="#services" data-route="services" data-nav-label="services" aria-haspopup="true" aria-expanded="false">Services</a>
         <div class="dropdown" aria-label="Services menu">
           <a href="#services" data-route="services">
             <strong>Service overview</strong>
