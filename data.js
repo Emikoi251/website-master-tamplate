@@ -18,10 +18,78 @@ window.NaviData = (function () {
     },
     {
       slug: "matis",
-      title: "MATIS",
+      title: "MATIS C2",
       category: "Systems",
-      summary: "Part of Navielektro's Systems portfolio — a full overview, specifications and documentation will be available here soon.",
-      sourceUrl: "https://www.navielektro.fi/matis.html"
+      summary: "MATIS C2 is Navielektro's Maritime Awareness Tactical Information System for command and control - an integrated, federated platform that brings situational awareness, surveillance, messaging, planning and voice applications together in one system for naval, joint, air and army operations.",
+      image: {
+        src: "assets/products/matis/matis-hero.webp",
+        alt: "Operator standing before a wall of chart displays in a MATIS C2 operations center",
+        width: 1600,
+        height: 1067
+      },
+      highlights: [
+        "Federated information sharing without a single point of control - a truly network-enabled framework",
+        "Reliable, high-quality integrated situation picture and user-defined common operational picture (UCOP)",
+        "Designed for secure and classified operating environments",
+        "Customizable look and feel of the common operational picture",
+        "Tracks air, land and naval assets from live data feeds, with rapid manual creation and updates",
+        "Decision-making aids that support the OODA loop, reducing operator workload and response times",
+        "Secure information exchange between agents, including across security domains via the Navielektro enGuard Cross Domain Solution",
+        "Capable of running the most vital operations from a single system, with low life-cycle cost"
+      ],
+      overview: [
+        "Modern military forces face an increasing range of missions and tactical scenarios, with operational needs and scale varying greatly from one deployment to the next. Navielektro built MATIS C2 as a common platform for situational awareness, surveillance, command and control and voice applications, deployable to meet Naval, Joint, Air and Army requirements alike.",
+        "MATIS C2 is a comprehensive, operationally flexible solution - the same system supports mission planning and surveillance as well as tactical, targeting, intelligence and federated information exchange activities. It is integrated, open and extendable, designed to ease operator workload and facilitate federated information sharing rather than locking customers into a single fixed configuration.",
+        "MATIS C2 has been developed with a strong emphasis on Network Enabled Capability (NEC), offering a large number of interfaces so the system can exchange data with other security, safety or allied systems. This interoperability has been tested every year since 2008 in the NATO CWIX and Bold Quest exercises to confirm it holds up in real-world coalition environments."
+      ],
+      overviewImage: {
+        src: "assets/products/matis/matis-integrated-services.webp",
+        alt: "Diagram showing chat, MMHS, LDAP, VTC/VoIP, GPS timing, geospatial services, data link, RMP and FFT services feeding into MATIS C2 to produce a compiled situation picture",
+        width: 1200,
+        height: 1140
+      },
+      operationalUse: [
+        {
+          heading: "Unified operator support",
+          text: "Instead of switching between separate stovepiped workstations to compile a situation picture by hand, operators work from one integrated user interface that provides the tools needed to accomplish the task at hand. Automated alarms alert the operator to safety and security-related conflicts as they arise in the situation picture, supported by intuitive window layouts and controls.",
+          image: {
+            src: "assets/products/matis/matis-alarms.webp",
+            alt: "MATIS C2 alarms panel listing unacknowledged operational alarms alongside the chart view",
+            width: 1346,
+            height: 827
+          }
+        },
+        {
+          heading: "Situational awareness and the common operational picture",
+          text: "MATIS C2 fuses data from AIS, radar, weather sources and manual entry into a User-defined Common Operational Picture (UCOP), letting operators decide what information is essential to the mission at hand. Track location, status and other relevant factors are displayed in real time, and any operator at any workstation can access the same picture when swift action is required."
+        },
+        {
+          heading: "Resource management and ORBAT",
+          text: "The ORBAT system can import an order-of-battle hierarchy from a file or another compliant system and present resource use in a time-based synchronization matrix. It integrates ORBAT data, platform and equipment database information and MMHS status messages automatically, avoiding the tedious manual data entry that this kind of resource tracking would otherwise require.",
+          image: {
+            src: "assets/products/matis/matis-orbat.webp",
+            alt: "MATIS C2 logistics support panel showing an ORBAT unit hierarchy alongside a topographic chart view",
+            width: 1600,
+            height: 968
+          }
+        },
+        {
+          heading: "Secure messaging, reporting and cross-domain collaboration",
+          text: "An integrated Military Message Handling System lets authorized users send and receive messages directly from the workstation, while war diary and incident management tools log actions and events for later review. Built-in military briefing support lets a duty officer present the situation picture directly to senior leaders, and the Navielektro enGuard Cross Domain Solution extends secure collaboration across separate security domains."
+        }
+      ],
+      typicalApplications: [
+        "Naval, joint, air and army command and control",
+        "Maritime and coastal surveillance",
+        "Mission planning and briefing",
+        "Federated and coalition information sharing",
+        "Incident and resource management",
+        "Cross-domain operations"
+      ],
+      integration: [
+        "MATIS C2 is the platform that Navielektro's other products build on and connect to: JADIS extends it with joint all-domain capabilities, NaviLink handles its tactical data link connectivity, EOS and other sensors feed directly into its situation picture, and the Deployed Soldier tablet framework carries MATIS C2 out to the individual soldier.",
+        "The system can be deployed on Linux, Windows or cloud infrastructure, either as a turnkey solution with hardened, rugged hardware or on lightweight hardware for smaller installations. Its component-based, open architecture and software development kit let new sensors, processors and third-party extensions be added as requirements evolve, keeping deployment costs down over the system's life cycle."
+      ]
     },
     {
       slug: "jadis",
