@@ -436,6 +436,81 @@ window.NaviData = (function () {
       category: "Modules",
       summary: "Part of Navielektro's Modules portfolio — a full overview, specifications and documentation will be available here soon.",
       sourceUrl: "https://www.navielektro.fi/monitoring.html"
+    },
+    {
+      slug: "atak-integration",
+      title: "MATIS/JADIS ATAK Integration",
+      category: "Modules",
+      summary: "MATIS/JADIS ATAK Integration connects the Navielektro MATIS/JADIS C2 solution with the widely used Android Tactical Assault Kit (ATAK), sharing tracks, tactical drawings, video and chat between the two platforms so every echelon - from the operations center to the individual soldier - works from the same common operating picture.",
+      image: {
+        src: "assets/products/atak-integration/atak-integration-hero.webp",
+        alt: "Diagram of a NaviLink CoT Router with ATAK Gateway connecting WinTAK and ATAK/CoT users to the MATIS/JADIS C2 DCIMS",
+        width: 1600,
+        height: 1067
+      },
+      highlights: [
+        "WinTAK-like operation within the JADIS platform, with all of JADIS's own functionality retained",
+        "Real-time tracking of both platforms' users on a single shared map",
+        "Usable at every level, from the operations center to the MATIS dismounted soldier tablet",
+        "Brings MATIS/JADIS-supported sensors and systems into the ATAK ecosystem",
+        "Secure information sharing across security domains via the Navielektro enGuard Cross Domain Solution",
+        "Bidirectional translation between ATAK binary data and CoT for high interoperability",
+        "Chat bridging between MATIS/JADIS XMPP chat rooms and ATAK Teams",
+        "Shares track data, tactical drawings and video feed between the two systems, with optional NaviCall voice integration"
+      ],
+      overview: [
+        "In modern tactical environments, mission success depends on real-time situational awareness and communication reaching every domain, down to the lowest tactical level. Collaboration between the field and command and control relies on a clear Common Operating Picture (COP) that can be shared across every connected system and user - and ATAK, the Android Tactical Assault Kit, has become one of the most widely used tools for exactly that, giving every warfighter access to real-time situational awareness from an Android device.",
+        "MATIS/JADIS ATAK Integration connects the Navielektro MATIS/JADIS C2 solution to ATAK, letting the C2 system operate in a similar fashion to ATAK while keeping the full functionality of the JADIS platform. The integration can be used at any level of the MATIS/JADIS system, from the operations center to a deployed or dismounted MATIS soldier system, enhancing situational awareness through communication, coordination and information sharing between users of the two platforms.",
+        "Because ATAK is used so widely across allied militaries, the integration is particularly valuable in joint and coalition operations, where the Navielektro enGuard Cross Domain Solution lets MATIS/JADIS and ATAK systems operating in different security domains exchange critical information safely and consistently - extending MATIS/JADIS interoperability and ISR information to the hands of every warfighter."
+      ],
+      overviewImage: {
+        src: "assets/products/atak-integration/atak-integration-crossdomain.webp",
+        alt: "Diagram showing a UAV feed and ATAK/CoT users on both sides of an enGuard Cross Domain Solution reaching a MATIS/JADIS C2 DCIMS and operations center",
+        width: 1600,
+        height: 914
+      },
+      operationalUse: [
+        {
+          heading: "Shared common operating picture",
+          text: "The integration provides bidirectional sharing of track and target data using the standard CoT message, so track information generated on MATIS/JADIS appears on ATAK devices and vice versa, with detailed access control over the message flow based on team membership and message sender or recipient.",
+          image: {
+            src: "assets/products/atak-integration/atak-integration-track-sharing.webp",
+            alt: "ATAK device displaying track data sent from the MATIS/JADIS track service",
+            width: 1762,
+            height: 832
+          }
+        },
+        {
+          heading: "Chat, tactical drawings and video",
+          text: "Chat between named MATIS/JADIS XMPP chat rooms and ATAK Teams is bridged automatically, and users can share tactical drawings and geographical areas between the two systems. MATIS/JADIS-supported sensors and systems can also be brought into the ATAK ecosystem, including Full Motion Video with an associated CoT data feed.",
+          image: {
+            src: "assets/products/atak-integration/atak-integration-tactical-drawings.webp",
+            alt: "MATIS/JADIS tactical drawing layers displayed alongside the same drawings shown on an ATAK device",
+            width: 1600,
+            height: 836
+          }
+        },
+        {
+          heading: "Cross-domain operation",
+          text: "The Navielektro enGuard Cross Domain Solution lets track data, video feed, tactical drawings, chat messages, voice and other situational awareness information move safely between security domains, so the right people can access it at the right time regardless of the environment, security domain or platform they are operating on."
+        },
+        {
+          heading: "Available at every echelon",
+          text: "A MATIS tablet user can compile a situation picture in the field and operate as a forward or deployed tactical command post, correlating and fusing it in cooperation with an operations center, and can verify and augment a picture from an unclassified ATAK system before relaying it onward to other echelons or security domains."
+        }
+      ],
+      typicalApplications: [
+        "Joint and coalition operations",
+        "Cross-domain information sharing",
+        "Dismounted and deployed units",
+        "Full Motion Video and ISR sharing",
+        "Tactical chat and messaging",
+        "Common Operating Picture at every echelon"
+      ],
+      integration: [
+        "The CoT Router and ATAK Gateway functionality behind the integration are built into the NaviLink TDL solution, translating between ATAK's binary data format and CoT so that MATIS/JADIS- and ATAK-connected users and units can exchange track and target data regardless of which format they use.",
+        "For joint and coalition use cases, the integration works together with the Navielektro enGuard Cross Domain Solution to move track data, video, tactical drawings, chat and voice safely between security domains, and connects with NaviCall to enable voice communication between ATAK users and other voice system users."
+      ]
     }
   ];
 
