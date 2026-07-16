@@ -170,6 +170,85 @@ window.NaviData = (function () {
       ]
     },
     {
+      slug: "deployed-soldier",
+      title: "Deployed Soldier",
+      category: "Systems",
+      summary: "Deployed Soldier is a rugged tablet system that extends Navielektro's situational awareness and command-and-control capabilities to the individual warfighter, sharing a common operating picture between every echelon from the deployed soldier to headquarters.",
+      image: {
+        src: "assets/products/deployed-soldier/deployed-soldier-hero.webp",
+        alt: "Soldier reading a rugged tablet in the field",
+        width: 1600,
+        height: 1067
+      },
+      highlights: [
+        "Puts situational awareness and command-and-control capabilities directly in the hands of every warfighter",
+        "Shares time-critical information between command levels to support faster, better-informed decisions",
+        "Standards-based approach built around the OODA loop",
+        "Designed for secure and classified operating environments",
+        "Operates over virtually any communications network, including bandwidth-constrained links",
+        "Can work as a standalone fire-spotting solution, compiling and sharing its own situation picture",
+        "Optional built-in NaviCall secure video and voice calling",
+        "Easy deployment and information sharing from the highest command authority to the lowest"
+      ],
+      overview: [
+        "In military missions, the ability to act faster and more accurately than the opponent depends on how quickly time-critical information moves between command levels. Sharing that information across every echelon shortens the OODA (Observe, Orient, Decide, Act) loop and improves the odds of mission success.",
+        "Deployed Soldier extends Navielektro's MATIS-based situational awareness and command-and-control capabilities to a rugged tablet carried by the individual soldier. It can operate as part of the overall picture compilation - identifying tracks and platforms for the wider operating picture - or as a standalone fire-spotting solution that compiles its own situation picture from manually entered information, connected sensors, or cross-bearing data shared between several units.",
+        "The system provides FMN-compliant communication and is built to operate over virtually any communications network, from tactical radios to cellular and satellite links, and is optimized for the bandwidth-constrained conditions typical of deployed operations."
+      ],
+      overviewImage: {
+        src: "assets/products/deployed-soldier/deployed-soldier-network.webp",
+        alt: "Diagram showing a deployed soldier's tablet connected to sensors such as radar, laser range finder and GPS, and to headquarters via field radio, tactical radio network, LTE and Iridium satcom",
+        width: 1600,
+        height: 1348
+      },
+      operationalUse: [
+        {
+          heading: "Situation picture and Blue Force tracking",
+          text: "The tablet shows the position of friendly forces operating on the same network alongside anything shared from the operations center, and the soldier can compile and transmit their own situation picture back to headquarters at any time.",
+          image: {
+            src: "assets/products/deployed-soldier/deployed-soldier-tablet-ui.webp",
+            alt: "Rugged Navielektro tablet displaying a satellite map with tracked units",
+            width: 964,
+            height: 840
+          }
+        },
+        {
+          heading: "Targeting, mapping and sensor integration",
+          text: "Forward-based spotter teams can measure range and bearing to a target and report it straight to the fire coordination center, supported by vector and raster maps and satellite or aerial imagery. The tablet connects to a wide range of track sources - including radar, AIS, ADS-B and laser range finders - and can be extended with CoT support through MATIS/JADIS ATAK integration."
+        },
+        {
+          heading: "Communications in any environment",
+          text: "Deployed Soldier is designed to keep working when bandwidth is scarce, operating over legacy radios, cellular networks, tactical radio systems or satellite communications, with an optional built-in secure video and voice calling capability for when a richer connection is available."
+        },
+        {
+          heading: "Military messaging, chat and MEDEVAC",
+          text: "Soldiers can exchange formal military messages and chat with each other and with the operations center over any available communication channel, including a low-bandwidth radio gateway. Built-in 9-liner reporting lets a soldier report incidents such as Troops in Contact or MEDEVAC needs in a few keypresses, feeding directly into the relevant incident reporting systems at headquarters.",
+          image: {
+            src: "assets/products/deployed-soldier/deployed-soldier-medevac.webp",
+            alt: "Diagram showing a MEDEVAC report flowing from a wounded soldier's tablet through radio and XMPP service to an operator at headquarters",
+            width: 1600,
+            height: 537
+          }
+        },
+        {
+          heading: "Security and mission planning",
+          text: "The tablet is designed for secure and classified operating environments, with smart-card based user authentication and a self-destruct capability that erases data and destroys encryption keys if the device is at risk of falling into the wrong hands. An optional mission planning tool can pre-load each tablet with an encrypted mission kit covering radio frequencies, crypto definitions, maps and unit assignments."
+        }
+      ],
+      typicalApplications: [
+        "Forward-deployed and dismounted units",
+        "Fire spotting and targeting support",
+        "Blue Force tracking",
+        "Military messaging and chat",
+        "TIC and MEDEVAC reporting",
+        "Bandwidth-constrained tactical communications"
+      ],
+      integration: [
+        "Deployed Soldier is built on the Navielektro MATIS platform, extending its situational awareness and command-and-control capabilities down to the individual soldier, and supports MATIS/JADIS ATAK integration for chat, tactical drawings, video and CoT track sharing with Android ATAK systems.",
+        "The tablet connects to legacy sensors and radios through the Navielektro Tactical Radio Interface (NETRI), alongside built-in support for cellular, tactical radio and Iridium satellite communications, letting it operate across FMN-compliant mission networks and existing military infrastructure."
+      ]
+    },
+    {
       slug: "trafficaware",
       title: "TrafficAware",
       category: "Systems",
