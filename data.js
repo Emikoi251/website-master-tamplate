@@ -24,11 +24,10 @@ window.NaviData = (function () {
       sourceUrl: "https://www.navielektro.fi/matis.html"
     },
     {
-      slug: "tacis",
-      title: "TACIS",
+      slug: "jadis",
+      title: "JADIS",
       category: "Systems",
-      summary: "Part of Navielektro's Systems portfolio — a full overview, specifications and documentation will be available here soon.",
-      sourceUrl: "https://www.navielektro.fi/tacis.html"
+      summary: "JADIS brings situational awareness, command and control, secure communications and interoperability together in one NATO FMN-compatible platform for coalition and multi-domain operations."
     },
     {
       slug: "trafficaware",
@@ -271,7 +270,7 @@ window.NaviData = (function () {
       category: "Advisory",
       summary: "Early-stage planning, architecture, requirements and feasibility support for complex projects.",
       tags: ["Services", "Consulting"],
-      relatedProducts: ["TACIS", "CISE", "Critical Infrastructure Protection"]
+      relatedProducts: ["JADIS", "CISE", "Critical Infrastructure Protection"]
     },
     {
       slug: "training",
