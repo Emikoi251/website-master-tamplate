@@ -1,6 +1,6 @@
 // Content lives in data.js (window.NaviData); site settings in config.js
 // (window.SiteConfig). Both load before this file. Rendering/logic stays here.
-const { products, categoryDescriptions, productCategories, services, references, news, industriesHome, industries } = window.NaviData;
+const { products, productCategories, services, references, news, industriesHome, industries } = window.NaviData;
 const config = window.SiteConfig || {};
 
 // A section is enabled unless config.sections explicitly turns it off.
@@ -311,39 +311,47 @@ function renderDetail(kind, slug) {
   }
 
   const related = item.related || item.relatedProducts || ["Related content coming soon"];
-  const detailSummary = kind === "product" ? categoryDescriptions[item.category] || item.summary : item.summary;
+  const detailSummary = item.summary;
+  const fallbackHighlight = ["Additional product highlights will be added soon."];
   const detailBullets = kind === "product"
-    ? ["Product overview", "Technical imagery", "Specifications & documents"]
+    ? (item.highlights && item.highlights.length ? item.highlights : fallbackHighlight)
     : kind === "service"
       ? ["Scope and deliverables", "Related products", "How to get in touch"]
       : ["Article overview", "Publishing details", "Related links"];
+  const checklistHeading = kind === "product" ? "Key capabilities" : "What you'll find here";
   const visualLabel = kind === "product" ? "Product Image / 3D Render" : kind === "service" ? "Service Illustration" : "News Image";
 
   const panelChildren = [
     el("p", { class: "eyebrow" }, ["Overview"]),
-    el("h2", {}, ["Key information"]),
-    el("p", {}, ["Detailed specifications and documentation will be available here soon."])
+    el("h2", {}, ["Key information"])
   ];
+  if (kind !== "product") {
+    panelChildren.push(el("p", {}, ["Detailed specifications and documentation will be available here soon."]));
+  }
   if (item.sourceUrl) {
     panelChildren.push(el("a", { class: "text-link", href: item.sourceUrl, target: "_blank", rel: "noopener" }, ["Original product page"]));
   }
   panelChildren.push(
-    el("h3", {}, ["What you'll find here"]),
+    el("h3", {}, [checklistHeading]),
     el("ul", { class: "detail-checklist" }, detailBullets.map((entry) => el("li", {}, [entry]))),
     el("ul", { class: "tag-list" }, (item.tags || [item.category]).map((tag) => el("li", {}, [tag]))),
     el("h3", {}, ["Related"]),
     el("ul", { class: "tag-list" }, related.map((tag) => el("li", {}, [tag])))
   );
 
+  const copyChildren = [
+    el("p", { class: "eyebrow" }, [kind === "product" ? item.category : kind]),
+    el("h1", {}, [item.title]),
+    el("div", { class: "visual-placeholder visual-placeholder--detail" }, [el("span", {}, [visualLabel])]),
+    el("p", {}, [detailSummary])
+  ];
+  if (kind !== "product") {
+    copyChildren.push(el("p", {}, [`A detailed overview, use cases and integration notes for this ${kind} will be added here.`]));
+  }
+  copyChildren.push(el("a", { class: "button button--primary", href: "#contact" }, [`Contact about this ${kind}`]));
+
   const shell = el("article", { class: "detail-shell" }, [
-    el("div", { class: "detail-copy" }, [
-      el("p", { class: "eyebrow" }, [kind]),
-      el("h1", {}, [item.title]),
-      el("div", { class: "visual-placeholder visual-placeholder--detail" }, [el("span", {}, [visualLabel])]),
-      el("p", {}, [detailSummary]),
-      el("p", {}, [`A detailed overview, use cases and integration notes for this ${kind} will be added here.`]),
-      el("a", { class: "button button--primary", href: "#contact" }, [`Contact about this ${kind}`])
-    ]),
+    el("div", { class: "detail-copy" }, copyChildren),
     el("aside", { class: "detail-panel" }, panelChildren)
   ]);
 

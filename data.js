@@ -27,7 +27,14 @@ window.NaviData = (function () {
       slug: "jadis",
       title: "JADIS",
       category: "Systems",
-      summary: "JADIS brings situational awareness, command and control, secure communications and interoperability together in one NATO FMN-compatible platform for coalition and multi-domain operations."
+      summary: "JADIS brings situational awareness, command and control, secure communications and interoperability together in one NATO FMN-compatible platform for coalition and multi-domain operations.",
+      highlights: [
+        "Joint all-domain situational awareness",
+        "Command and control",
+        "Secure communications and collaboration",
+        "NATO FMN compatibility",
+        "Deployable rack-mount solution"
+      ]
     },
     {
       slug: "trafficaware",
@@ -220,17 +227,6 @@ window.NaviData = (function () {
     }
   ];
 
-  // --- Short intro shown for each product category (cards + detail summary) ---
-  const categoryDescriptions = {
-    Systems: "Integrated operational systems for situational awareness, traffic awareness and command environments.",
-    "Tactical Display Framework": "Software platform products prepared for operator interfaces, integration work and application development.",
-    Security: "Security-focused products and modules for information sharing, cyber resilience and infrastructure protection.",
-    Sensors: "Radar, CCTV and optronics product pages prepared for future specifications, imagery and technical documentation.",
-    Weather: "Weather and environmental information products prepared for operational planning and decision support.",
-    "Voice Communication": "Voice communication products prepared for control room and tactical communication content.",
-    Modules: "Operational modules that extend tracking, monitoring, replay, routing, rescue and simulation workflows."
-  };
-
   // --- Product categories: drives the header product mega-menu and the footer
   // product list (see renderProductMenu in script.js). Order here is the display
   // order in both places. menuBlurb is the short line shown only in the header
@@ -364,7 +360,6 @@ window.NaviData = (function () {
 
   return {
     products,
-    categoryDescriptions,
     productCategories,
     services,
     references,
