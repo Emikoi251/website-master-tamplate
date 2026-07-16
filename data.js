@@ -91,6 +91,85 @@ window.NaviData = (function () {
       ]
     },
     {
+      slug: "navilink",
+      title: "NaviLink",
+      category: "Systems",
+      summary: "NaviLink is a tactical data link gateway that lets a single operator manage Link 16, VMF, CoT, FFT and JREAP-C traffic from one system, with seamless integration into the Navielektro MATIS/JADIS common operational picture and enGuard Cross Domain Solution.",
+      image: {
+        src: "assets/products/navilink/navilink-hero.webp",
+        alt: "Diagram of the NaviLink system architecture showing data link protocols, the NaviLink Manager, sensor and shooter platforms, and JADIS C2 integration",
+        width: 1600,
+        height: 1067
+      },
+      highlights: [
+        "All-in-one functionality across all datalink information sources",
+        "Easy deployment with a low installation footprint",
+        "Ease of operation - one operator can run all Links from a single system and UI",
+        "Designed for secure and classified operating environments",
+        "Optional support for security labelling",
+        "Seamless integration with the Navielektro enGuard Cross Domain Solution",
+        "High level of integration with Navielektro MATIS/JADIS C2 track management",
+        "Deployable as a hardened embedded appliance or a virtualized solution"
+      ],
+      overview: [
+        "A key requirement for any modern fighting force is an integrated communications network that lets every asset share tactical information with each other and with other branches or allied forces. Interoperable Tactical Data Link (TDL) systems are a key component of that integration - virtually all major systems rely on TDL to convey the critical tactical data behind a common view of the battle space.",
+        "Many existing TDL deployments only support single-domain operation, depend on third-party functionality that adds cost and complexity, and require specialized technicians to operate - leaving operational gaps during deployment. Navielektro built NaviLink so war fighters can run all Link-type communications from a single platform, with one operator, one system and one UI.",
+        "NaviLink is part of the Navielektro MATIS and JADIS product family but runs as a fully autonomous subsystem - usable standalone or integrated with MATIS/JADIS. By consolidating functionality that would otherwise require several separate systems, NaviLink reduces the installation footprint, the number of operators needed to run it, and the overall integration complexity, and it has been built from the ground up for use by a small team."
+      ],
+      overviewImage: {
+        src: "assets/products/navilink/navilink-domains.webp",
+        alt: "Diagram showing sensor and shooter platforms connected through national and coalition mission network security domains",
+        width: 1600,
+        height: 1137
+      },
+      operationalUse: [
+        {
+          heading: "Data link and protocol support",
+          text: "NaviLink supports the most critical data links used to compile the situation picture, including FFT, JREAP-C, VMF, CoT and ASTERIX, and is extendable to further data links and domain-specific solutions. The feature set and the number of simultaneous Link endpoints depend on the license provided."
+        },
+        {
+          heading: "Common operational picture and C2 integration",
+          text: "NaviLink integrates seamlessly with Navielektro C2 systems so the MATIS/JADIS common operational picture can receive information from the configured Data Links, fusing and correlating track information with the overall picture. Selected details from the COP can also be transmitted back to a Link system to enhance the situational awareness of its users."
+        },
+        {
+          heading: "Centralized management and monitoring",
+          text: "The NaviLink Manager software suite configures every supported Data Link system, gives a high-level dashboard view of operational status and key performance indicators, and lets operators with sufficient access rights monitor the actual message flow through the system for each supported Link. Access rights can be set per operator depending on whether they monitor and operate the system or configure additional connectivity.",
+          image: {
+            src: "assets/products/navilink/navilink-manager-ui.webp",
+            alt: "Screenshot of the NaviLink Manager's Tactical Datalink Configurator showing configured data links and their status",
+            width: 1548,
+            height: 477
+          }
+        },
+        {
+          heading: "Optional link forwarding and translation",
+          text: "NaviLink can forward and translate information between FFT, JREAP-C, VMF and CoT - for example relaying legacy NFFI or interoperable radio data into the FFT system, or translating CoT and VMF messages to and from the J-Series link systems. Forwarding rules can be adjusted with predefined translation rules or extended with plugins to meet mission-specific needs.",
+          image: {
+            src: "assets/products/navilink/navilink-forwarding-matrix.webp",
+            alt: "Screenshot of the NaviLink Manager's transmit/receive forwarding matrix for configuring which data link participants exchange information",
+            width: 695,
+            height: 560
+          }
+        },
+        {
+          heading: "Information assurance",
+          text: "NaviLink is built on the Navielektro Common Service Framework and designed for secure and classified operating environments. Security relies heavily on PKI, with a separate management network protected by two-factor authentication and TLS-encrypted control connectivity, and the system security log records all activity."
+        }
+      ],
+      typicalApplications: [
+        "Joint and coalition C2 networks",
+        "Link 16 interoperability",
+        "VMF and CoT/ATAK integration",
+        "Friendly Force Tracking (FFT)",
+        "Cross-domain (CDS) data exchange",
+        "Deployed and shipboard tactical networks"
+      ],
+      integration: [
+        "NaviLink integrates with the Navielektro MATIS/JADIS C2 system's track management, fusing configured Data Link information into the common operational picture. User access and authorization can be managed through MATIS/JADIS, or NaviLink can run as a standalone system with its own supporting services.",
+        "For cross-domain environments, NaviLink offers seamless integration with the Navielektro enGuard Cross Domain Solution, enabling the exchange of Link-16, FFT, VMF and CoT information between separate security domains depending on system licensing, with forwarding and translation rules that can be extended with plugins for mission-specific requirements."
+      ]
+    },
+    {
       slug: "trafficaware",
       title: "TrafficAware",
       category: "Systems",
