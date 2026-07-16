@@ -805,6 +805,27 @@ h3 {
   min-height: 360px;
 }
 
+/* Real product photo in the detail hero slot: fixed aspect-ratio + cover so
+   the box never grows taller than intended, and the decorative placeholder
+   pattern/pseudo-elements (only meaningful for the empty state) are hidden. */
+.visual-placeholder--photo {
+  aspect-ratio: 3 / 2;
+  background: none;
+  display: block;
+}
+
+.visual-placeholder--photo::before,
+.visual-placeholder--photo::after {
+  display: none;
+}
+
+.visual-placeholder--photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .section,
 .cta-band {
   max-width: var(--max);
@@ -1386,6 +1407,18 @@ h3 {
   color: var(--muted);
   font-size: 1.08rem;
   line-height: 1.75;
+}
+
+.detail-figure {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.detail-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .detail-panel {

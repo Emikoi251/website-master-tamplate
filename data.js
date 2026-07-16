@@ -28,6 +28,12 @@ window.NaviData = (function () {
       title: "JADIS",
       category: "Systems",
       summary: "JADIS brings situational awareness, command and control, secure communications and interoperability together in one NATO FMN-compatible platform for coalition and multi-domain operations.",
+      image: {
+        src: "assets/products/jadis/jadis-hero.webp",
+        alt: "Silhouette of a soldier with tactical equipment against a dramatic sky",
+        width: 1600,
+        height: 1067
+      },
       highlights: [
         "Joint all-domain situational awareness",
         "Command and control",
@@ -40,6 +46,12 @@ window.NaviData = (function () {
         "Built on the Navielektro MATIS foundation and extended with joint all-domain capabilities, JADIS is designed to support the full sense-make sense-act operational cycle. It scales from headquarters environments with large-screen displays to deployed soldiers using ruggedized tactical tablets, giving every echelon of an organization access to the same shared operational picture through one common user interface.",
         "JADIS is developed for defence forces, maritime and coastal authorities, and multi-agency operations centers that depend on secure, timely information sharing across domains and coalition partners. The system is compliant with NATO FMN and can be deployed for hundreds of operators from a single rack-mount case, reducing the equipment, staff and integration effort typically required to reach day-zero mission readiness."
       ],
+      overviewImage: {
+        src: "assets/products/jadis/jadis-deployment.webp",
+        alt: "Navielektro's deployable rack-mount hardware case next to a rugged tactical tablet running the JADIS interface",
+        width: 1600,
+        height: 611
+      },
       operationalUse: [
         {
           heading: "Unified situation picture",
@@ -55,7 +67,13 @@ window.NaviData = (function () {
         },
         {
           heading: "Cross-domain and coalition information sharing",
-          text: "JADIS supports a federated, low-hierarchy information network rather than a single central point of control, allowing sensor data, situation pictures and tactical information to be shared securely across domains, agencies, military branches and nations."
+          text: "JADIS supports a federated, low-hierarchy information network rather than a single central point of control, allowing sensor data, situation pictures and tactical information to be shared securely across domains, agencies, military branches and nations.",
+          image: {
+            src: "assets/products/jadis/jadis-federated-network.webp",
+            alt: "Diagram of JADIS's federated all-domain network connecting multiple nations and military branches through a shared mission network",
+            width: 1400,
+            height: 901
+          }
         }
       ],
       typicalApplications: [

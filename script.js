@@ -301,6 +301,14 @@ function inferParent(title) {
   return "";
 }
 
+// Shared figure for the optional supporting images in overview/operationalUse.
+// Always lazy-loaded since these sit further down the page than the main image.
+function detailFigure(image) {
+  return el("div", { class: "detail-figure" }, [
+    el("img", { src: image.src, alt: image.alt, width: image.width, height: image.height, loading: "lazy" })
+  ]);
+}
+
 function renderDetail(kind, slug) {
   const collection = kind === "product" ? products : kind === "service" ? services : news;
   const item = collection.find((entry) => entry.slug === slug);
@@ -339,10 +347,16 @@ function renderDetail(kind, slug) {
     el("ul", { class: "tag-list" }, related.map((tag) => el("li", {}, [tag])))
   );
 
+  const detailVisual = kind === "product" && item.image
+    ? el("div", { class: "visual-placeholder visual-placeholder--detail visual-placeholder--photo" }, [
+        el("img", { src: item.image.src, alt: item.image.alt, width: item.image.width, height: item.image.height })
+      ])
+    : el("div", { class: "visual-placeholder visual-placeholder--detail" }, [el("span", {}, [visualLabel])]);
+
   const copyChildren = [
     el("p", { class: "eyebrow" }, [kind === "product" ? item.category : kind]),
     el("h1", {}, [item.title]),
-    el("div", { class: "visual-placeholder visual-placeholder--detail" }, [el("span", {}, [visualLabel])])
+    detailVisual
   ];
 
   // Optional, product-only long-form sections. Each renders only when the
@@ -350,6 +364,9 @@ function renderDetail(kind, slug) {
   // like today's short detail page.
   if (kind === "product" && item.overview && item.overview.length) {
     item.overview.forEach((paragraph) => copyChildren.push(el("p", {}, [paragraph])));
+    if (item.overviewImage) {
+      copyChildren.push(detailFigure(item.overviewImage));
+    }
   } else {
     copyChildren.push(el("p", {}, [detailSummary]));
   }
@@ -359,6 +376,9 @@ function renderDetail(kind, slug) {
     item.operationalUse.forEach((entry) => {
       const paragraphChildren = entry.heading ? [el("strong", {}, [`${entry.heading}: `]), entry.text] : [entry.text];
       copyChildren.push(el("p", {}, paragraphChildren));
+      if (entry.image) {
+        copyChildren.push(detailFigure(entry.image));
+      }
     });
   }
 
