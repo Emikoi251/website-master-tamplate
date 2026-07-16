@@ -342,9 +342,38 @@ function renderDetail(kind, slug) {
   const copyChildren = [
     el("p", { class: "eyebrow" }, [kind === "product" ? item.category : kind]),
     el("h1", {}, [item.title]),
-    el("div", { class: "visual-placeholder visual-placeholder--detail" }, [el("span", {}, [visualLabel])]),
-    el("p", {}, [detailSummary])
+    el("div", { class: "visual-placeholder visual-placeholder--detail" }, [el("span", {}, [visualLabel])])
   ];
+
+  // Optional, product-only long-form sections. Each renders only when the
+  // corresponding field is present, so products without them look exactly
+  // like today's short detail page.
+  if (kind === "product" && item.overview && item.overview.length) {
+    item.overview.forEach((paragraph) => copyChildren.push(el("p", {}, [paragraph])));
+  } else {
+    copyChildren.push(el("p", {}, [detailSummary]));
+  }
+
+  if (kind === "product" && item.operationalUse && item.operationalUse.length) {
+    copyChildren.push(el("h3", {}, ["Operational use"]));
+    item.operationalUse.forEach((entry) => {
+      const paragraphChildren = entry.heading ? [el("strong", {}, [`${entry.heading}: `]), entry.text] : [entry.text];
+      copyChildren.push(el("p", {}, paragraphChildren));
+    });
+  }
+
+  if (kind === "product" && item.typicalApplications && item.typicalApplications.length) {
+    copyChildren.push(
+      el("h3", {}, ["Typical applications"]),
+      el("ul", { class: "tag-list" }, item.typicalApplications.map((entry) => el("li", {}, [entry])))
+    );
+  }
+
+  if (kind === "product" && item.integration && item.integration.length) {
+    copyChildren.push(el("h3", {}, ["Integration"]));
+    item.integration.forEach((paragraph) => copyChildren.push(el("p", {}, [paragraph])));
+  }
+
   if (kind !== "product") {
     copyChildren.push(el("p", {}, [`A detailed overview, use cases and integration notes for this ${kind} will be added here.`]));
   }
