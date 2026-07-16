@@ -312,11 +312,78 @@ window.NaviData = (function () {
       sourceUrl: "https://www.navielektro.fi/radar-transceivers.html"
     },
     {
-      slug: "cctv",
-      title: "CCTV/Optronics",
+      slug: "eos-sensor",
+      title: "EOS Sensor System",
       category: "Sensors",
-      summary: "Part of Navielektro's Sensors portfolio — a full overview, specifications and documentation will be available here soon.",
-      sourceUrl: "https://www.navielektro.fi/cctv.html"
+      summary: "The EOS Sensor System is a long-range daylight, thermal and laser range-finding camera on a precision pan-and-tilt unit, built for continuous coastal and maritime surveillance and tightly integrated with Navielektro's MATIS system for detection-to-identification workflows.",
+      image: {
+        src: "assets/products/eos-sensor/eos-sensor-hero.webp",
+        alt: "3D render of the Navielektro EOS sensor showing its thermal camera, daylight camera and pan-and-tilt unit",
+        width: 1600,
+        height: 1067
+      },
+      highlights: [
+        "Daylight camera, thermal imaging camera and laser range finder on one precision pan-and-tilt unit",
+        "Built for coastal and maritime surveillance in demanding weather environments",
+        "Full MATIS integration, controllable directly from the MATIS operator interface",
+        "Automatic tracking of MATIS targets sourced from radar, AIS, ADS-B or fused data",
+        "Automatic search of a defined area within the MATIS system",
+        "Camera augmentation projects the situation picture onto the live video feed",
+        "Fast, accurate 360-degree azimuth rotation covering any area of interest"
+      ],
+      overview: [
+        "Situational awareness in any application benefits from high-quality video and precise camera maneuverability, which together support tasks such as object identification and surveillance. Navielektro's objective has been to integrate relevant sensor systems into the MATIS suite to enable a more complete operating picture and a faster OODA loop for the end user.",
+        "The EOS Sensor System is designed for coastal and maritime surveillance, combining a thermal camera, a daylight camera and an optional laser range finder on a high-quality pan-and-tilt unit that provides precise maneuverability and high-resolution imagery. It suits a wide range of maritime and inland applications, including object identification, object tracking, access control, targeting support, accident prevention and patrolling.",
+        "The sensor's role in a MATIS-integrated system is to detect, recognize and identify a target of interest, working alongside other sensors rather than in isolation. A wide-area sensor such as radar is well suited to detecting targets across a large field of view, while the EOS sensor's narrower, high-resolution view makes it the stronger choice for recognizing and identifying a target once detection has pointed it in the right direction - together covering the full detect-recognize-identify sequence more effectively than either sensor alone."
+      ],
+      overviewImage: {
+        src: "assets/products/eos-sensor/eos-sensor-system-overview.webp",
+        alt: "Diagram of the EOS sensor system showing remote surveillance sites with camera and laser range finder sensors connecting through an operation center to workstations, logging and a deployed soldier",
+        width: 1200,
+        height: 1349
+      },
+      operationalUse: [
+        {
+          heading: "Detection to identification through sensor fusion",
+          text: "A radar or ELINT system can flag a target for detection, after which the EOS sensor is slewed to it so the operator can complete recognition and identification. Incorporating civilian transponder data - AIS for ships and ADS-B for air traffic - lets operators quickly verify legitimate contacts and focus attention on unidentified ones, and the sensor can connect to the integrated track fusion and management system for this automatic slewing."
+        },
+        {
+          heading: "Camera augmentation and range finding",
+          text: "Camera augmentation projects objects from the situation picture onto the video image, so operators can see the location of tracks that would otherwise be hidden from the camera view, and can identify tracks directly on the live feed. Where fitted, the laser range finder measures distance to a target of interest, with the result shown on the video feed and passed to MATIS."
+        },
+        {
+          heading: "Unified operator workstation",
+          text: "Camera video can be presented on a separate camera display with video matrix capability or embedded directly in the MATIS operator working position alongside the chart view, with tracks from the situation picture projected onto the video image. Video can optionally be stored through Navielektro's integrated logging system, and the camera system can connect to existing vessel databases to support and confirm track identifications.",
+          image: {
+            src: "assets/products/eos-sensor/eos-sensor-workstation.webp",
+            alt: "MATIS operator interface showing a chart view alongside two live EOS camera feeds and a camera control panel",
+            width: 1800,
+            height: 1819
+          }
+        },
+        {
+          heading: "Flexible and secure control",
+          text: "Operators can control the EOS sensor by joystick, by pointing at a spot in the video feed, by pointing at a coordinate on the map, by entering values or keys in the user interface, or automatically through slewing to a track or a predefined guard area. The system also supports separated information domains, so video and sensor status can flow between an unclassified or restricted domain and a confidential or secret domain in a controlled way.",
+          image: {
+            src: "assets/products/eos-sensor/eos-sensor-domains.webp",
+            alt: "Diagram showing sensor and video data flowing between an unclassified or restricted domain and a confidential or secret domain to deployed operators and logging systems",
+            width: 1600,
+            height: 789
+          }
+        }
+      ],
+      typicalApplications: [
+        "Coastal and maritime surveillance",
+        "Object identification and tracking",
+        "Access control",
+        "Targeting support",
+        "Accident prevention",
+        "Patrolling"
+      ],
+      integration: [
+        "The EOS sensor is a Navielektro product and, by default, can be controlled from the MATIS system, feeding into the same situation picture as radar, AIS, ADS-B and other integrated sensors so operators can build a coherent surveillance picture from a single interface.",
+        "Camera video can be shown on a dedicated display with video matrix capability or embedded in the MATIS operator working position, optionally logged through Navielektro's integrated logging system, and connected to existing vessel databases to support the identification process."
+      ]
     },
     {
       slug: "newis",
