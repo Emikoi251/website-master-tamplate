@@ -366,6 +366,81 @@ window.NaviData = (function () {
       sourceUrl: "https://www.navielektro.fi/infra-protection.html"
     },
     {
+      slug: "enguard",
+      title: "enGuard",
+      category: "Security",
+      summary: "enGuard is Navielektro's family of cross-domain security solutions - a hardware-enforced Cross Domain Solution (CDS) for continuous, real-time information sharing between security domains, and the enGuard Scrubber for secure, air-gapped file transfer, so classified and unclassified systems can exchange information safely without compromising either side.",
+      image: {
+        src: "assets/products/enguard/enguard-hero.webp",
+        alt: "Rugged tablet in the field next to an UNCLASSIFIED label, illustrating enGuard moving information between security domains",
+        width: 1600,
+        height: 1067
+      },
+      highlights: [
+        "Hardware-enforced separation between security domains, including between SECRET and Unclassified",
+        "Continuous, real-time cross-domain sharing (CDS) or manual, air-gapped file transfer (Scrubber) - deployable separately or together",
+        "Three CDS hardware form factors, from national data centers to vehicles and forward operating bases with limited size, weight and power",
+        "Designed for secure and classified operating environments, with TEMPEST-compliant options for demanding deployments",
+        "Centralized policy management keeps every enGuard device on one consistently enforced security policy",
+        "Strong, smartcard-based authentication built on an integrated PKI/Certificate Authority",
+        "Out-of-the-box support for the native protocols used by military C2 and situational awareness systems",
+        "Developed and manufactured in Finland to security-by-design principles"
+      ],
+      overview: [
+        "Military, security and safety-critical systems increasingly need to share information across networks, agencies and security domains - while facing a growing cyber threat landscape where a single successful attack can affect a wide range of critical functions.",
+        "Navielektro's enGuard family addresses this with two complementary solutions under one security architecture: the enGuard Cross Domain Solution (CDS) for continuous, hardware-enforced information exchange between domains, and the enGuard Scrubber for secure, air-gapped file transfer where systems aren't continuously connected. Customers can deploy a CDS, a Scrubber, or both, depending on the use case.",
+        "enGuard supports the native protocols already used by C2, situational awareness and messaging systems, and integrates with Navielektro's MATIS/JADIS product family as well as third-party systems - extending secure information sharing from national data centers down to individual deployed units."
+      ],
+      overviewImage: {
+        src: "assets/products/enguard/enguard-cds-use-case.webp",
+        alt: "Diagram of a typical enGuard CDS deployment on a naval ship, connecting navigation and sensor systems through a CDS to an operations center and a CMS system",
+        width: 1600,
+        height: 828
+      },
+      operationalUse: [
+        {
+          heading: "Continuous cross-domain sharing with the enGuard CDS",
+          text: "The enGuard CDS is a hardware-enforced gateway that continuously and securely moves information such as tracks, chat, sensor data and video between security domains. It is available in three hardware form factors that differ only in performance, TEMPEST protection and ruggedness: enGuard Data Center for national data centers and other large-scale exchange systems, enGuard Deployed for operations centers and major platforms, and enGuard Compact for vehicles, forward operating bases and other platforms with limited size, weight and power.",
+          image: {
+            src: "assets/products/enguard/enguard-cds-hardware.webp",
+            alt: "The three enGuard CDS hardware form factors: enGuard Data Center, enGuard Deployed and enGuard Compact",
+            width: 1200,
+            height: 1534
+          }
+        },
+        {
+          heading: "Centralized and local policy management",
+          text: "A Central Policy Manager defines the security policy, releasability rules and device groupings for an entire enGuard deployment, then distributes a single digitally signed policy to every connected device. On site, a Local Policy Manager gives administrators insight into the data pipelines passing through each CDS, lets them monitor system capacity and resource use, and supports security audit functionality through role-based, strongly authenticated access."
+        },
+        {
+          heading: "Secure, air-gapped file transfer with the enGuard Scrubber",
+          text: "Where a system needs to stay air-gapped rather than continuously connected, the enGuard Scrubber provides a secure way to move files between security domains. Files are virus-scanned, verified and signed before being packed onto an approved, encrypted transfer drive, which is then carried to an IMPEX workstation on the receiving side to complete the import - or the reverse, for exporting data from a higher domain.",
+          image: {
+            src: "assets/products/enguard/enguard-scrubber-hardware.webp",
+            alt: "enGuard Scrubber 1/2U hardware device with separate LOW SIDE and HIGH SIDE ports",
+            width: 1400,
+            height: 552
+          }
+        },
+        {
+          heading: "Deployable across every echelon",
+          text: "Because the same enGuard software suite runs across every hardware variant, it scales from a national data center or defence branch headquarters down to a naval platform, a vehicle or a single forward operating base - giving an organization one consistent security architecture to plan, train and support instead of a different solution for every echelon."
+        }
+      ],
+      typicalApplications: [
+        "Cross-domain information sharing (SECRET / Unclassified)",
+        "National data centers and defence HQs",
+        "Naval and deployed C2 platforms",
+        "Vehicles and forward operating bases",
+        "Secure file import/export between classification levels",
+        "Federated and coalition mission networks"
+      ],
+      integration: [
+        "enGuard CDS connects directly to Navielektro C2 and situational awareness systems such as MATIS/JADIS, letting tracks, chat, messaging, sensor data and video move securely between domains, using the same native protocols shared across the wider Navielektro product family.",
+        "The enGuard Scrubber integrates with MATIS/JADIS but also works as a standalone secure file transfer point for other CIS systems via dedicated IMPEX workstations; both enGuard solutions log all transfer activity and can be brought under one centrally managed security policy."
+      ]
+    },
+    {
       slug: "radar-antennas",
       title: "Radar Antennas",
       category: "Sensors",
