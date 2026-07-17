@@ -489,7 +489,61 @@ window.NaviData = (function () {
       slug: "tdf",
       title: "Software Platform",
       category: "Tactical Display Framework",
-      summary: "Part of Navielektro's Tactical Display Framework portfolio — a full overview, specifications and documentation will be available here soon.",
+      summary: "TDF – Tactical Display Framework.",
+      image: {
+        src: "assets/products/tdf/tdf-hero.webp",
+        alt: "Desktop monitor displaying the TDF map interface with sensor and track icons",
+        width: 480,
+        height: 258
+      },
+      overviewHeading: "TDF – Tactical Display Framework",
+      overview: [
+        "Navielektro's solutions run on a highly efficient user interface platform - TDF (Tactical Display Framework). TDF serves as a base for various software modules, which provide functionality to the system. Together, the software modules provided by TDF meet the requirements of even the most demanding surveillance environments.",
+        "TDF is well suited for virtually any type of GIS-use where real-time performance is of essence. TDF can perform real-time visualization tasks for operationally demanding applications, such as Command and Control, Vessel Traffic Management, homeland defense, surveillance, air traffic monitoring and management security based assets. The major requirement of any system is to receive data from multiple sources and combine it into a unified common operational picture. TDF enables users to access the available data any time, any place – combining the information into a clear and up-to-date presentation."
+      ],
+      overviewImage: {
+        src: "assets/products/tdf/tdf-banner.webp",
+        alt: "Wide banner illustration of a desktop monitor displaying the TDF map interface, with sensor icons and directional markers extending across a gradient background",
+        width: 1600,
+        height: 226
+      },
+      highlights: [
+        "State of the art mapping toolkit",
+        "Presentation of radar video",
+        "Presentation of operator defined geographical objects",
+        "Presentation of weather information",
+        "Presentation of tracks",
+        "Presentation of track history and statistics",
+        "Presentation of replay data",
+        "Sensor control and integration",
+        "Presentation of CCTV video",
+        "Integrated Voice Communication Services",
+        "High information security",
+        "Comprehensive, end-to-end PKI integration"
+      ],
+      operationalUse: [
+        {
+          heading: "A system that grows with you",
+          text: "TDF is component based, which means that functionality can be added in the form of software components, making the system completely scalable according to the needs of each customer. New software modules can be added as new requirements arise, including third-party software. The flexible nature of TDF guarantees a long life cycle for any system based on the platform."
+        },
+        {
+          text: "TDF is widely used for both civilian and military situational awareness. The software platform provides customers with the following functionalities:"
+        },
+        {
+          heading: "Application domains",
+          text: "Navielektro's TDF has been in operational use since 2001, and has been used by hundreds of operators around the world. The continuous development of TDF is based on multiple real-world application scenarios within different application domains, with user feedback and design input as a key part of the development process. TDF has been deployed in a wide variety of different operational scenarios, ranging from VTS, Command & Control, Network Operation & Maintenance, Aids to Navigation Management, Air Traffic Monitoring, Web Services and Mobile C2 platforms. The primary focus has been on maritime applications, although the TDF platform is well suited for virtually any kind of GIS use where real-time performance is of essence. TDF has been localized to 4 different languages and currently supports: English, Swedish, Finnish and Romanian. The system may relatively easily be localized to any UTF-8 supported language, such as Chinese. All system MMI resources are stored in properties files, allowing easy localization."
+        },
+        {
+          heading: "Multi-fuel chart operation",
+          text: "TDF is capable of simultaneously handling a wide variety of different chart formats, such as NGA VPF VMAP, IHO S/57 v3.1, ESRI shapes and other open de-facto industry standard formats. TDF supports the OGC chart data-model, and is capable of presenting multi-fuel information as layers, or by combining the information in an operator-controlled way. TDF is capable of managing different geographical references, and the system is capable of background distribution of the chart database in order to ensure that the operator is always presented with the latest chart information – without user intervention.",
+          image: {
+            src: "assets/products/tdf/tdf-multi-fuel.webp",
+            alt: "Collage of map, satellite, road-camera and weather instrument displays representing TDF's multi-format chart and sensor presentation",
+            width: 600,
+            height: 325
+          }
+        }
+      ],
       sourceUrl: "https://www.navielektro.fi/tdf.html"
     },
     {
