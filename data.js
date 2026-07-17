@@ -103,32 +103,32 @@ window.NaviData = (function () {
         {
           title: "Track Fusion",
           slug: "trackfusion",
-          image: { src: "assets/products/maritas/related-trackfusion.webp", alt: "Track Fusion", width: 480, height: 258 }
+          image: { src: "assets/products/maritas/related-trackfusion.webp", alt: "Communications mast with sensor and network visualization", width: 480, height: 258 }
         },
         {
           title: "AtoN",
           slug: "aton",
-          image: { src: "assets/products/maritas/related-aton.webp", alt: "Aids to Navigation Monitoring", width: 480, height: 258 }
+          image: { src: "assets/products/maritas/related-aton.webp", alt: "Orange aids-to-navigation buoy with a Finnlines vessel in the background", width: 480, height: 258 }
         },
         {
           title: "Weather Information",
           slug: "newis",
-          image: { src: "assets/products/maritas/related-weather-information.webp", alt: "Weather Information", width: 480, height: 258 }
+          image: { src: "assets/products/maritas/related-weather-information.webp", alt: "Close-up view of water droplets and bubbles", width: 480, height: 258 }
         },
         {
           title: "SAR",
           slug: "sar",
-          image: { src: "assets/products/maritas/related-sar.webp", alt: "Search and Rescue", width: 480, height: 258 }
+          image: { src: "assets/products/maritas/related-sar.webp", alt: "Yellow rescue helicopter flying along a coastal cliff", width: 480, height: 258 }
         },
         {
           title: "GMDSS",
           slug: "gmdss",
-          image: { src: "assets/products/maritas/related-gmdss.webp", alt: "GMDSS", width: 480, height: 258 }
+          image: { src: "assets/products/maritas/related-gmdss.webp", alt: "Diagram of maritime distress communication systems including COSPAS-SARSAT, INMARSAT, EPIRB and SART", width: 480, height: 258 }
         },
         {
           title: "Port Management",
           slug: null,
-          image: { src: "assets/products/maritas/related-port-management.webp", alt: "Port Management", width: 480, height: 258 }
+          image: { src: "assets/products/maritas/related-port-management.webp", alt: "Aerial view of a port with containers, cranes and barges", width: 480, height: 258 }
         }
       ],
       sourceUrl: "https://www.navielektro.fi/maritas.html"
