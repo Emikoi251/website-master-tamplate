@@ -544,7 +544,74 @@ window.NaviData = (function () {
       slug: "userinterfaces",
       title: "User Interfaces",
       category: "Tactical Display Framework",
-      summary: "Part of Navielektro's Tactical Display Framework portfolio — a full overview, specifications and documentation will be available here soon.",
+      summary: "User interfaces for every operation.",
+      image: {
+        src: "assets/products/userinterfaces/userinterfaces-hero.webp",
+        alt: "A desktop monitor, rugged laptop, rugged tablet and smartphone all displaying the same tactical situation picture",
+        width: 1200,
+        height: 469
+      },
+      overviewHeading: "User interfaces for every operation",
+      overview: [
+        "Navielektro provides users with user interfaces that are easy to use, regardless of whether the user is working on a fixed workstation, laptop, tablet, smartphone or a web application."
+      ],
+      operationalUse: [
+        {
+          heading: "TDF Operator Workstation",
+          text: "The TDF Operator Workstation (TDF OWS) is well suited for situational awareness and surveillance systems, and runs on high-performance PCs and laptops. Supported operating systems include Windows, Linux and Mac OS X. TDF OWS can present real-time radar video, plot information, CCTV video and is capable of voice and telephony integration. The software is also capable of presenting a wide variety of geospatial information, ranging from OGC standards to equivalent IHO mapping standards. The TDF mapping toolkit is customizable and enables users to adapt the presentation of the situation picture to various missions and operational needs."
+        },
+        {
+          heading: "TDF Large Screen Display",
+          text: "Our situational awareness solution can be extended to include TDF Large Screen Display, which is used for managing display walls in operations centers or rapid deployment environments. Large screen displays make it possible for operators to observe operations and the situation picture at hand on a larger scale, allowing operators to quickly get a general overview of the situation picture.",
+          image: {
+            src: "assets/products/userinterfaces/userinterfaces-lsd.webp",
+            alt: "Silhouette of an operator seated in front of a large multi-panel display wall showing tracks and charts",
+            width: 910,
+            height: 463
+          }
+        },
+        {
+          heading: "High performance, low cost",
+          text: "TDF LSD is deployed using standard PC hardware, making it an affordable and highly flexible solution."
+        },
+        {
+          heading: "TDF Onboard",
+          text: "Navielektro's solution for vessels allows them to carry a mobile operations center that is integrated to the situational awareness system. The vessel solution enables the vessel to produce and maintain an autonomous RMP using its own integrated sensors, but the vessel can also tap into the picture provided by fixed operations centers. Having JMAP TDF on board a vessel allows both operators on board and operators in command centers to consume the Recognized Maritime Picture (RMP) in a distributed fashion. Our solution is versatile, allowing vessels to exchange the situation picture with fixed surveillance centers, but optionally also with vessels acting as Forward Deployment headquarters. Vessels can then further enrich the situation picture while patrolling by providing comments or identification information, which can be shared with other operations centers. Tracks that have been tracked by the sensors of the vessel can be transmitted to the MOC and used as track components, further enhancing the reliability of the compiled situation picture.",
+          image: {
+            src: "assets/products/userinterfaces/userinterfaces-onboard.svg",
+            alt: "Diagram of a mobile operations center showing TDF OWS workstations connected to sensors, data links, navigation and communication equipment, linking back to a shore-based control center",
+            width: 998,
+            height: 1000
+          }
+        },
+        {
+          heading: "TDF Smartphone",
+          text: "Our TDF platform can also be extended to smartphones, where its primary function is to display real-time track information. Using TDF Smartphone, users can access the situation picture directly from their phones. Just like TDF Touch, the smartphone application supports basic track information, information filtering and event reporting. Built-in tracking allows users to report their own position and operational status.",
+          image: {
+            src: "assets/products/userinterfaces/userinterfaces-smartphone.webp",
+            alt: "Smartphone showing a current-position map screen next to icons for reporting, vessels, alerts and filtering",
+            width: 450,
+            height: 308
+          }
+        },
+        {
+          heading: "TDF Mobile",
+          text: "Navielektro also offers an integrated mobile application, which serves as an extension of TDF. TDF Mobile primarily displays real-time track information, so that users can access a comprehensive situational picture on-the-go. Aside from enabling users to view basic track information, the application also allows information filtering and provides a means of reporting events. Thanks to a built-in tracking functionality, users may report their own position and operational status – quickly and accurately. Users can also pass on observations regarding their environment as updates with a tagged position.",
+          image: {
+            src: "assets/products/userinterfaces/userinterfaces-mobile.webp",
+            alt: "Rugged laptop open and displaying a nautical chart application",
+            width: 442,
+            height: 500
+          }
+        }
+      ],
+      typicalApplicationsHeading: "Advantages",
+      typicalApplications: [
+        "All operators with similar assignments are seated in the same direction, facilitating communication between operators",
+        "Operators are given the same view of the situation picture",
+        "Operators can call up virtually any window from their workstation to be presented on the large screen.",
+        "When an operator leaves his/her station, other operators can follow the empty station from their own working position"
+      ],
       sourceUrl: "https://www.navielektro.fi/userinterfaces.html"
     },
     {
