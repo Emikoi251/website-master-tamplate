@@ -437,7 +437,52 @@ window.NaviData = (function () {
       slug: "trafficaware",
       title: "TrafficAware",
       category: "Systems",
-      summary: "Part of Navielektro's Systems portfolio — a full overview, specifications and documentation will be available here soon.",
+      summary: "Intelligent solutions for traffic control.",
+      image: {
+        src: "assets/products/trafficaware/trafficaware-hero.webp",
+        alt: "Long-exposure photo of light trails from vehicles moving through a night-time roundabout and intersection",
+        width: 1600,
+        height: 940
+      },
+      overviewHeading: "Intelligent solutions for traffic control",
+      overview: [
+        "Traffic Information System. Traffic control is facing a myriad of challenges due to the increasing amount of traffic, and traffic surveillance and control systems are in a state of transition. Many operations centers are still using old surveillance systems that are difficult and expensive to develop and maintain, turning integration into a challenge. Flexible, cost-efficient solutions based on open technologies are necessary to match the changing needs of the traffic environment – this is where Navielektro comes in. In order to address the current challenges of ITS environments, Navielektro has developed TrafficAware, a system for intelligent transport and safety. TrafficAware is integrated, open and extendable, and has been designed to ease the operator workload and facilitate federated information sharing."
+      ],
+      highlights: [
+        "Reliable, high-quality integrated situation picture",
+        "Highly efficient – capable of processing over 30,000 moving objects at a time",
+        "Built-in voice communication and messaging",
+        "Reduces operator workload and response times",
+        "User-definable design and window layouts",
+        "Advanced sensor integration and control",
+        "Tools for analysis and presentation of collected information"
+      ],
+      operationalUse: [
+        {
+          heading: "Sensor Management and Presentation",
+          text: "The modern, open architecture of the system allows a large amount of sensors, information sources and different user interfaces to be connected to the system. The system is capable of managing 100,000+ tracks on a standard processing platform with good real-time capability.",
+          image: {
+            src: "assets/products/trafficaware/trafficaware-sensor-management.webp",
+            alt: "Traffic monitoring dashboard showing a map with sensor icons, a live road camera feed and weather instrument readouts",
+            width: 600,
+            height: 292
+          }
+        },
+        {
+          heading: "Environmental information directly on your desktop",
+          text: "Weather information may be viewed directly from a desktop application or as an integrated part of the operational picture. Integration allows users to view weather information on chart, but also to view the data of separate sensors in windows of their own. Sensor information can be presented in varying forms, including graphs and wind dials."
+        },
+        {
+          heading: "Radio and Telephony",
+          text: "Radio communication can be deployed separately or as an integrated part of the TrafficAware software, allowing calls to be visualized as part of the situation picture. Our solution provides the operator with a fast, reliable and flexible means to communicate with other parties, presenting the user with an interface for communication that is efficient, clear, and easy to use.",
+          image: {
+            src: "assets/products/trafficaware/trafficaware-radio-telephony.webp",
+            alt: "Close-up of a person wearing a radio and telephony headset near their ear",
+            width: 450,
+            height: 464
+          }
+        }
+      ],
       sourceUrl: "https://www.navielektro.fi/trafficaware.html"
     },
     {
