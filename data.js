@@ -13,7 +13,53 @@ window.NaviData = (function () {
       slug: "maritas",
       title: "MARITAS",
       category: "Systems",
-      summary: "Part of Navielektro's Systems portfolio — a full overview, specifications and documentation will be available here soon.",
+      summary: "Answering your every traffic management need.",
+      overview: [
+        "Maritime Traffic Authority System. Navielektro has several decades of experience within the field of maritime traffic management. As a result, we have developed a family of advanced traffic information application sensors, which form a system that can be used for VTS (Vessel Traffic Service) or Coastal Surveillance. Our MARITAS system is designed to support the user in on-going operations by providing a situation picture that is accurate and easy to comprehend, be these operations observed by sensors or based on reports or plans. The provided solutions also assist the user in comprehending the situation by providing tools for analysis that either automatically or semi-automatically aid the user in the process of the orientation and decision making process. MARITAS is fully compliant with SafeSeaNet and IALA V-128."
+      ],
+      operationalUse: [
+        {
+          heading: "Aiding the operator",
+          text: "All of the data collected by MARITAS (including AIS track data, radar data, weather data, AtoN data and manual data) is fused into a user-defined common operational picture. Operators are presented with a single, comprehensive picture of the entire surveillance area, enabling them to quickly assess the situation at hand. MARITAS provides the operator with a set of advanced, automated tools that alert the operator regarding various safety and security related conflicts. Performance of surveillance tasks is further ameliorated through intuitive window layouts and controls."
+        },
+        {
+          heading: "Sensor management and presentation",
+          text: "MARITAS provides integration to a very wide variety of sensors, and can be used to control sensors and present sensor information as part of the situation picture. The system is also capable of controlling various sensor systems through middleware services. Sensors can be displayed as part of the situation picture, so users need only select which sensor source to use. This means users can control radar and CCTV directly from the workstation. Integrated camera sleuthing is also possible, so the chart view and sensors can be set to track objects on chart."
+        },
+        {
+          heading: "Click to control",
+          text: "Control radar or camera sensors directly from the chart view simply by clicking a sensor. Adjusting radar controls is as simple as selecting a radar and right-clicking to open its detailed control menu. Because sensors are integrated as part of the user interface, you can adjust settings on the fly, without ever leaving the chart view."
+        },
+        {
+          heading: "e-Navigation",
+          text: "MARITAS assists operators in information sharing, both from ship to shore and shore to ship. Information may be shared between operators and vessels (such as icebreakers) connected to MARITAS, so both parties can view the same situation picture. Vessels not connected to the system can also send their route plans to operators and receive feedback, enhancing the safety at sea."
+        },
+        {
+          heading: "Databases and ship reporting",
+          text: "MARITAS provides operators with multiple solutions for managing and storing vessel information. Users can import data from existing vessel databases or maintain databases of their own. The collected data can be used to identify tracks, sparing the operators from manually entering identification data for each track that enters the recognized maritime picture. To help operators maintain a current view of vessels about to enter the operator's area of responsibility, MARITAS also offers a Ship Reporting System (SRS). The SRS handles an automated flow of ship report information between reporting parties and assists the operator in the completion of ship reports."
+        },
+        {
+          heading: "Port Management",
+          text: "MARITAS can support port authorities in their daily tasks. Navielektro offers a port administration and management system that can be completely integrated with MARITAS, so that operators can manage information and events related to port visits effectively. Navielektro's port management system enables arrival and departure management, vessel port history, cargo and passenger management as well as vessel service order management – all presented as an integrated part of the RMP."
+        }
+      ],
+      typicalApplications: [
+        "Vessel identification",
+        "Voyage management",
+        "Traffic/maritime assistance",
+        "Route assignment and planning",
+        "Aids to Navigation management",
+        "e-Navigation",
+        "Reporting",
+        "Port operations",
+        "Law enforcement",
+        "Customs",
+        "Fleet management",
+        "Search and Rescue",
+        "Pollution control",
+        "Patrol and response, including interdiction, maritime patrol and anti-piracy",
+        "Border control and securing economic interests"
+      ],
       sourceUrl: "https://www.navielektro.fi/maritas.html"
     },
     {
