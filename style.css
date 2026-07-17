@@ -1405,8 +1405,8 @@ h3 {
 
 .detail-shell {
   display: grid;
-  grid-template-columns: minmax(0, 1.18fr) minmax(320px, 0.66fr);
-  gap: clamp(34px, 6vw, 72px);
+  grid-template-columns: minmax(0, 1.45fr) minmax(290px, 0.65fr);
+  gap: clamp(28px, 5vw, 60px);
   align-items: start;
 }
 
@@ -1499,13 +1499,23 @@ h3 {
    operationalUse / typicalApplications / integration / relatedProducts
    content. All rendered as children of .detail-copy (not .detail-shell), so
    .detail-panel's position:sticky keeps tracking the whole page height with
-   no changes to the sidebar itself. Split/tinted/dark/background-image
-   blocks "break out" to the true page edges using the standard nested
-   full-bleed technique (width:100vw + negative margin) - the same visual
-   result as .section--tinted/.proof-section elsewhere on the site, just one
-   extra escape level because these are nested inside .detail-copy. Where a
+   no changes to the sidebar itself.
+
+   tinted/dark/background-image blocks "break out" to the true page edges
+   using the standard nested full-bleed technique (width:100vw + negative
+   margin) - the same visual result as .section--tinted/.proof-section
+   elsewhere on the site, just one extra escape level because these are
+   nested inside .detail-copy. Their own readable text still caps at
+   .detail-block__text's max-width, so it never reaches the sidebar's
+   column - only the background color/image does, which is safe. Where a
    break-out block's background passes behind the sticky panel, the panel
    (own opaque background, higher z-index) simply paints on top of it.
+
+   .detail-block--split deliberately does NOT break out: it stays inside
+   .detail-copy's own (shared, rebalanced) width, so neither column can
+   ever reach the sidebar's column, regardless of imagePosition - this is
+   a structural guarantee, not a viewport calculation.
+
    A block with no variant/theme (the default for every product migrated
    before this system existed) renders at .detail-copy's normal width with
    no background change - unaffected, safe default. ========================== */
@@ -1517,7 +1527,7 @@ h3 {
 }
 
 .detail-block {
-  padding: 40px 0;
+  padding: clamp(56px, 7vw, 88px) 0;
   border-top: 1px solid var(--line-soft);
 }
 
@@ -1537,8 +1547,13 @@ h3 {
   gap: 16px;
 }
 
+.detail-block--text-only .detail-block__text {
+  max-width: 820px;
+}
+
 .detail-block h3 {
-  margin: 0;
+  margin: 0 0 18px;
+  font-size: clamp(1.6rem, 2.4vw, 2.1rem);
 }
 
 .detail-block p {
@@ -1551,24 +1566,27 @@ h3 {
   margin: 0;
 }
 
-.detail-block--split,
+/* :not(.detail-block--split) matters here: a block can be both split AND
+   tinted/dark (e.g. an image-left split with a tinted background). Split
+   must never bleed to the viewport - regardless of theme - since that's
+   what let text reach the sidebar's column. A split+tinted/dark block still
+   gets its background color, just contained within .detail-copy's own
+   (safe) width instead of the true page edges. */
 .detail-block--wide-image,
-.detail-block--tinted,
-.detail-block--dark,
-.detail-block--background-image {
+.detail-block--background-image,
+.detail-block--tinted:not(.detail-block--split),
+.detail-block--dark:not(.detail-block--split) {
   width: 100vw;
   position: relative;
   left: 50%;
   margin-left: -50vw;
   border-top: 0;
-  padding: clamp(48px, 7vw, 84px) 0;
 }
 
-.detail-block--split .detail-block__inner,
 .detail-block--wide-image .detail-block__inner,
-.detail-block--tinted .detail-block__inner,
-.detail-block--dark .detail-block__inner,
-.detail-block--background-image .detail-block__inner {
+.detail-block--background-image .detail-block__inner,
+.detail-block--tinted:not(.detail-block--split) .detail-block__inner,
+.detail-block--dark:not(.detail-block--split) .detail-block__inner {
   max-width: var(--max);
   margin: 0 auto;
   padding: 0 var(--edge);

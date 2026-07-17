@@ -352,6 +352,7 @@ function createDetailBlock({ heading, body, image, variant = "standard", imagePo
   }
 
   const classes = ["detail-block"];
+  if (!image) classes.push("detail-block--text-only");
   if (variant === "split") {
     classes.push("detail-block--split");
     if (imagePosition === "left") classes.push("detail-block--image-left");
@@ -386,12 +387,11 @@ function renderDetail(kind, slug) {
 
   const related = item.related || item.relatedProducts || ["Related content coming soon"];
   const detailSummary = item.summary;
-  const fallbackHighlight = ["Additional product highlights will be added soon."];
-  const detailBullets = kind === "product"
-    ? (item.highlights && item.highlights.length ? item.highlights : fallbackHighlight)
-    : kind === "service"
-      ? ["Scope and deliverables", "Related products", "How to get in touch"]
-      : ["Article overview", "Publishing details", "Related links"];
+  const detailBullets = kind === "service"
+    ? ["Scope and deliverables", "Related products", "How to get in touch"]
+    : kind === "news"
+      ? ["Article overview", "Publishing details", "Related links"]
+      : null;
   const checklistHeading = kind === "product" ? "Key capabilities" : "What you'll find here";
   const visualLabel = kind === "product" ? "Product Image / 3D Render" : kind === "service" ? "Service Illustration" : "News Image";
 
@@ -405,9 +405,16 @@ function renderDetail(kind, slug) {
   if (item.sourceUrl) {
     panelChildren.push(el("a", { class: "text-link", href: item.sourceUrl, target: "_blank", rel: "noopener" }, ["Original product page"]));
   }
+  // Products without highlights omit "Key capabilities" entirely rather than
+  // showing placeholder filler text. Services/news always have their fixed
+  // generic bullets, which aren't placeholder content.
+  if (kind !== "product" || (item.highlights && item.highlights.length)) {
+    panelChildren.push(
+      el("h3", {}, [checklistHeading]),
+      el("ul", { class: "detail-checklist" }, (kind === "product" ? item.highlights : detailBullets).map((entry) => el("li", {}, [entry])))
+    );
+  }
   panelChildren.push(
-    el("h3", {}, [checklistHeading]),
-    el("ul", { class: "detail-checklist" }, detailBullets.map((entry) => el("li", {}, [entry]))),
     el("ul", { class: "tag-list" }, (item.tags || [item.category]).map((tag) => el("li", {}, [tag]))),
     el("h3", {}, ["Related"]),
     el("ul", { class: "tag-list" }, related.map((tag) => el("li", {}, [tag])))
