@@ -179,6 +179,21 @@ function createCard(item, type) {
   ]);
 }
 
+// Lightweight image+title card for a product's optional relatedProducts list
+// (distinct from createCard(), which drives every other card on the site and
+// is left untouched). Links to the target product page when a slug is given;
+// otherwise renders as a plain, non-clickable tile.
+function createRelatedProductCard(entry) {
+  const visual = el("div", { class: "visual-placeholder visual-placeholder--card visual-placeholder--photo" }, [
+    el("img", { src: entry.image.src, alt: entry.image.alt, width: entry.image.width, height: entry.image.height, loading: "lazy" })
+  ]);
+  const heading = el("h3", {}, [entry.title]);
+
+  return entry.slug
+    ? el("a", { class: "card card--media-only", href: `#product/${entry.slug}` }, [visual, heading])
+    : el("div", { class: "card card--media-only" }, [visual, heading]);
+}
+
 function createNewsItem(item) {
   const date = new Date(`${item.date}T00:00:00`);
   const formatted = date.toLocaleDateString("en-GB", { year: "numeric", month: "short", day: "numeric" });
@@ -390,11 +405,21 @@ function renderDetail(kind, slug) {
       el("h3", {}, [item.typicalApplicationsHeading || "Typical applications"]),
       el("ul", { class: "tag-list" }, item.typicalApplications.map((entry) => el("li", {}, [entry])))
     );
+    if (item.typicalApplicationsImage) {
+      copyChildren.push(detailFigure(item.typicalApplicationsImage));
+    }
   }
 
   if (kind === "product" && item.integration && item.integration.length) {
     copyChildren.push(el("h3", {}, ["Integration"]));
     item.integration.forEach((paragraph) => copyChildren.push(el("p", {}, [paragraph])));
+  }
+
+  if (kind === "product" && item.relatedProducts && item.relatedProducts.length) {
+    copyChildren.push(
+      el("h3", {}, ["Related products"]),
+      el("div", { class: "card-grid card-grid--three" }, item.relatedProducts.map((entry) => createRelatedProductCard(entry)))
+    );
   }
 
   if (kind !== "product") {

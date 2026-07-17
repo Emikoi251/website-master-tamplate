@@ -14,6 +14,12 @@ window.NaviData = (function () {
       title: "MARITAS",
       category: "Systems",
       summary: "Answering your every traffic management need.",
+      image: {
+        src: "assets/products/maritas/maritas-hero.webp",
+        alt: "Large cargo vessel at sea, representing the traffic MARITAS monitors and manages",
+        width: 1600,
+        height: 878
+      },
       overviewHeading: "Answering your every traffic management need",
       overview: [
         "Maritime Traffic Authority System. Navielektro has several decades of experience within the field of maritime traffic management. As a result, we have developed a family of advanced traffic information application sensors, which form a system that can be used for VTS (Vessel Traffic Service) or Coastal Surveillance. Our MARITAS system is designed to support the user in on-going operations by providing a situation picture that is accurate and easy to comprehend, be these operations observed by sensors or based on reports or plans. The provided solutions also assist the user in comprehending the situation by providing tools for analysis that either automatically or semi-automatically aid the user in the process of the orientation and decision making process. MARITAS is fully compliant with SafeSeaNet and IALA V-128."
@@ -29,19 +35,43 @@ window.NaviData = (function () {
         },
         {
           heading: "Click to control",
-          text: "Control radar or camera sensors directly from the chart view simply by clicking a sensor. Adjusting radar controls is as simple as selecting a radar and right-clicking to open its detailed control menu. Because sensors are integrated as part of the user interface, you can adjust settings on the fly, without ever leaving the chart view."
+          text: "Control radar or camera sensors directly from the chart view simply by clicking a sensor. Adjusting radar controls is as simple as selecting a radar and right-clicking to open its detailed control menu. Because sensors are integrated as part of the user interface, you can adjust settings on the fly, without ever leaving the chart view.",
+          image: {
+            src: "assets/products/maritas/maritas-click-to-control.webp",
+            alt: "Chart view with a radar sensor control dialog opened after clicking a radar on the map",
+            width: 600,
+            height: 296
+          }
         },
         {
           heading: "e-Navigation",
-          text: "MARITAS assists operators in information sharing, both from ship to shore and shore to ship. Information may be shared between operators and vessels (such as icebreakers) connected to MARITAS, so both parties can view the same situation picture. Vessels not connected to the system can also send their route plans to operators and receive feedback, enhancing the safety at sea."
+          text: "MARITAS assists operators in information sharing, both from ship to shore and shore to ship. Information may be shared between operators and vessels (such as icebreakers) connected to MARITAS, so both parties can view the same situation picture. Vessels not connected to the system can also send their route plans to operators and receive feedback, enhancing the safety at sea.",
+          image: {
+            src: "assets/products/maritas/maritas-e-navigation.webp",
+            alt: "Chart view with a route and pilotage boarding plan dialog open",
+            width: 600,
+            height: 294
+          }
         },
         {
           heading: "Databases and ship reporting",
-          text: "MARITAS provides operators with multiple solutions for managing and storing vessel information. Users can import data from existing vessel databases or maintain databases of their own. The collected data can be used to identify tracks, sparing the operators from manually entering identification data for each track that enters the recognized maritime picture. To help operators maintain a current view of vessels about to enter the operator's area of responsibility, MARITAS also offers a Ship Reporting System (SRS). The SRS handles an automated flow of ship report information between reporting parties and assists the operator in the completion of ship reports."
+          text: "MARITAS provides operators with multiple solutions for managing and storing vessel information. Users can import data from existing vessel databases or maintain databases of their own. The collected data can be used to identify tracks, sparing the operators from manually entering identification data for each track that enters the recognized maritime picture. To help operators maintain a current view of vessels about to enter the operator's area of responsibility, MARITAS also offers a Ship Reporting System (SRS). The SRS handles an automated flow of ship report information between reporting parties and assists the operator in the completion of ship reports.",
+          image: {
+            src: "assets/products/maritas/maritas-databases-ship-reporting.webp",
+            alt: "Vessel database search dialog over a chart view, alongside a ship reporting results table",
+            width: 600,
+            height: 261
+          }
         },
         {
           heading: "Port Management",
-          text: "MARITAS can support port authorities in their daily tasks. Navielektro offers a port administration and management system that can be completely integrated with MARITAS, so that operators can manage information and events related to port visits effectively. Navielektro's port management system enables arrival and departure management, vessel port history, cargo and passenger management as well as vessel service order management – all presented as an integrated part of the RMP."
+          text: "MARITAS can support port authorities in their daily tasks. Navielektro offers a port administration and management system that can be completely integrated with MARITAS, so that operators can manage information and events related to port visits effectively. Navielektro's port management system enables arrival and departure management, vessel port history, cargo and passenger management as well as vessel service order management – all presented as an integrated part of the RMP.",
+          image: {
+            src: "assets/products/maritas/maritas-port-management.webp",
+            alt: "Chart view with a port visit database dialog listing scheduled, arriving, berthed and departing vessels",
+            width: 550,
+            height: 276
+          }
         }
       ],
       typicalApplicationsHeading: "Supported missions",
@@ -62,7 +92,45 @@ window.NaviData = (function () {
         "Patrol and response, including interdiction, maritime patrol and anti-piracy",
         "Border control and securing economic interests"
       ],
+      typicalApplicationsImage: {
+        src: "assets/products/maritas/maritas-supported-missions.webp",
+        alt: "Vessel at sea near the coast, representing the range of missions MARITAS supports",
+        width: 1600,
+        height: 802
+      },
       related: ["Track Fusion", "AtoN", "Weather Information", "SAR", "GMDSS", "Port Management"],
+      relatedProducts: [
+        {
+          title: "Track Fusion",
+          slug: "trackfusion",
+          image: { src: "assets/products/maritas/related-trackfusion.webp", alt: "Track Fusion", width: 480, height: 258 }
+        },
+        {
+          title: "AtoN",
+          slug: "aton",
+          image: { src: "assets/products/maritas/related-aton.webp", alt: "Aids to Navigation Monitoring", width: 480, height: 258 }
+        },
+        {
+          title: "Weather Information",
+          slug: "newis",
+          image: { src: "assets/products/maritas/related-weather-information.webp", alt: "Weather Information", width: 480, height: 258 }
+        },
+        {
+          title: "SAR",
+          slug: "sar",
+          image: { src: "assets/products/maritas/related-sar.webp", alt: "Search and Rescue", width: 480, height: 258 }
+        },
+        {
+          title: "GMDSS",
+          slug: "gmdss",
+          image: { src: "assets/products/maritas/related-gmdss.webp", alt: "GMDSS", width: 480, height: 258 }
+        },
+        {
+          title: "Port Management",
+          slug: null,
+          image: { src: "assets/products/maritas/related-port-management.webp", alt: "Port Management", width: 480, height: 258 }
+        }
+      ],
       sourceUrl: "https://www.navielektro.fi/maritas.html"
     },
     {

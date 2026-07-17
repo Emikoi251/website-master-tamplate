@@ -1202,6 +1202,18 @@ h3 {
   min-height: 200px;
 }
 
+/* Image + title only card variant, used for a product's optional
+   relatedProducts grid (e.g. MARITAS). Scoped to this modifier so it
+   doesn't affect .card anywhere else. */
+.card--media-only {
+  grid-template-rows: auto auto;
+  min-height: auto;
+}
+
+.card--media-only h3 {
+  margin: 18px 24px 22px;
+}
+
 .card__meta {
   display: flex;
   flex-wrap: wrap;
