@@ -501,12 +501,6 @@ window.NaviData = (function () {
         "Navielektro's solutions run on a highly efficient user interface platform - TDF (Tactical Display Framework). TDF serves as a base for various software modules, which provide functionality to the system. Together, the software modules provided by TDF meet the requirements of even the most demanding surveillance environments.",
         "TDF is well suited for virtually any type of GIS-use where real-time performance is of essence. TDF can perform real-time visualization tasks for operationally demanding applications, such as Command and Control, Vessel Traffic Management, homeland defense, surveillance, air traffic monitoring and management security based assets. The major requirement of any system is to receive data from multiple sources and combine it into a unified common operational picture. TDF enables users to access the available data any time, any place – combining the information into a clear and up-to-date presentation."
       ],
-      overviewImage: {
-        src: "assets/products/tdf/tdf-banner.webp",
-        alt: "Wide banner illustration of a desktop monitor displaying the TDF map interface, with sensor icons and directional markers extending across a gradient background",
-        width: 1600,
-        height: 226
-      },
       highlights: [
         "State of the art mapping toolkit",
         "Presentation of radar video",
