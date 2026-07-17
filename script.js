@@ -363,6 +363,9 @@ function renderDetail(kind, slug) {
   // corresponding field is present, so products without them look exactly
   // like today's short detail page.
   if (kind === "product" && item.overview && item.overview.length) {
+    if (item.overviewHeading) {
+      copyChildren.push(el("h3", {}, [item.overviewHeading]));
+    }
     item.overview.forEach((paragraph) => copyChildren.push(el("p", {}, [paragraph])));
     if (item.overviewImage) {
       copyChildren.push(detailFigure(item.overviewImage));
@@ -384,7 +387,7 @@ function renderDetail(kind, slug) {
 
   if (kind === "product" && item.typicalApplications && item.typicalApplications.length) {
     copyChildren.push(
-      el("h3", {}, ["Typical applications"]),
+      el("h3", {}, [item.typicalApplicationsHeading || "Typical applications"]),
       el("ul", { class: "tag-list" }, item.typicalApplications.map((entry) => el("li", {}, [entry])))
     );
   }

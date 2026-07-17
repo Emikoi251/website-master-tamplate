@@ -14,6 +14,7 @@ window.NaviData = (function () {
       title: "MARITAS",
       category: "Systems",
       summary: "Answering your every traffic management need.",
+      overviewHeading: "Answering your every traffic management need",
       overview: [
         "Maritime Traffic Authority System. Navielektro has several decades of experience within the field of maritime traffic management. As a result, we have developed a family of advanced traffic information application sensors, which form a system that can be used for VTS (Vessel Traffic Service) or Coastal Surveillance. Our MARITAS system is designed to support the user in on-going operations by providing a situation picture that is accurate and easy to comprehend, be these operations observed by sensors or based on reports or plans. The provided solutions also assist the user in comprehending the situation by providing tools for analysis that either automatically or semi-automatically aid the user in the process of the orientation and decision making process. MARITAS is fully compliant with SafeSeaNet and IALA V-128."
       ],
@@ -43,6 +44,7 @@ window.NaviData = (function () {
           text: "MARITAS can support port authorities in their daily tasks. Navielektro offers a port administration and management system that can be completely integrated with MARITAS, so that operators can manage information and events related to port visits effectively. Navielektro's port management system enables arrival and departure management, vessel port history, cargo and passenger management as well as vessel service order management – all presented as an integrated part of the RMP."
         }
       ],
+      typicalApplicationsHeading: "Supported missions",
       typicalApplications: [
         "Vessel identification",
         "Voyage management",
@@ -60,6 +62,7 @@ window.NaviData = (function () {
         "Patrol and response, including interdiction, maritime patrol and anti-piracy",
         "Border control and securing economic interests"
       ],
+      related: ["Track Fusion", "AtoN", "Weather Information", "SAR", "GMDSS", "Port Management"],
       sourceUrl: "https://www.navielektro.fi/maritas.html"
     },
     {
