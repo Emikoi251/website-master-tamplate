@@ -1438,6 +1438,7 @@ h3 {
   gap: 18px;
   position: sticky;
   top: calc(var(--header-h) + 24px);
+  z-index: 2;
   padding: 28px;
   background: var(--surface);
   border: 1px solid var(--line);
@@ -1491,6 +1492,151 @@ h3 {
   color: var(--navy);
   font-size: 0.86rem;
   font-weight: 700;
+}
+
+/* ==========================================================================
+   PRODUCT-DETAIL CONTENT BLOCKS — reusable section variants for a product's
+   operationalUse / typicalApplications / integration / relatedProducts
+   content. All rendered as children of .detail-copy (not .detail-shell), so
+   .detail-panel's position:sticky keeps tracking the whole page height with
+   no changes to the sidebar itself. Split/tinted/dark/background-image
+   blocks "break out" to the true page edges using the standard nested
+   full-bleed technique (width:100vw + negative margin) - the same visual
+   result as .section--tinted/.proof-section elsewhere on the site, just one
+   extra escape level because these are nested inside .detail-copy. Where a
+   break-out block's background passes behind the sticky panel, the panel
+   (own opaque background, higher z-index) simply paints on top of it.
+   A block with no variant/theme (the default for every product migrated
+   before this system existed) renders at .detail-copy's normal width with
+   no background change - unaffected, safe default. ========================== */
+
+.detail-blocks {
+  display: grid;
+  gap: 0;
+  margin-top: 8px;
+}
+
+.detail-block {
+  padding: 40px 0;
+  border-top: 1px solid var(--line-soft);
+}
+
+.detail-blocks > .detail-block:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.detail-block__inner {
+  display: grid;
+  gap: 24px;
+}
+
+.detail-block__text {
+  max-width: 640px;
+  display: grid;
+  gap: 16px;
+}
+
+.detail-block h3 {
+  margin: 0;
+}
+
+.detail-block p {
+  color: var(--muted);
+  font-size: 1.08rem;
+  line-height: 1.75;
+}
+
+.detail-block__media .detail-figure {
+  margin: 0;
+}
+
+.detail-block--split,
+.detail-block--wide-image,
+.detail-block--tinted,
+.detail-block--dark,
+.detail-block--background-image {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  margin-left: -50vw;
+  border-top: 0;
+  padding: clamp(48px, 7vw, 84px) 0;
+}
+
+.detail-block--split .detail-block__inner,
+.detail-block--wide-image .detail-block__inner,
+.detail-block--tinted .detail-block__inner,
+.detail-block--dark .detail-block__inner,
+.detail-block--background-image .detail-block__inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 var(--edge);
+}
+
+.detail-block--tinted {
+  background: var(--surface);
+}
+
+.detail-block--dark {
+  background: var(--navy-deep);
+}
+
+.detail-block--dark h3 {
+  color: var(--white);
+}
+
+.detail-block--dark p {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.detail-block--split .detail-block__inner {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(28px, 5vw, 56px);
+}
+
+.detail-block--split .detail-block__text {
+  max-width: none;
+}
+
+.detail-block--image-left .detail-block__media {
+  order: -1;
+}
+
+.detail-block--wide-image .detail-block__media {
+  max-width: none;
+}
+
+.detail-block--background-image {
+  background-size: cover;
+  background-position: center;
+}
+
+.detail-block--background-image h3,
+.detail-block--background-image p {
+  color: var(--white);
+}
+
+.detail-block--background-image p {
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.detail-block--background-image .tag-list li {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.32);
+  color: var(--white);
+}
+
+.detail-block__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(8, 23, 41, 0.92), rgba(8, 23, 41, 0.68));
+}
+
+.detail-block--background-image .detail-block__inner {
+  position: relative;
+  z-index: 1;
 }
 
 .timeline {
@@ -1993,6 +2139,14 @@ h3 {
   .visual-placeholder--proof,
   .visual-placeholder--detail {
     min-height: 240px;
+  }
+
+  .detail-block--split .detail-block__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-block--image-left .detail-block__media {
+    order: 0;
   }
 
   .visual-placeholder--card {

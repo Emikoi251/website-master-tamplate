@@ -31,7 +31,8 @@ window.NaviData = (function () {
         },
         {
           heading: "Sensor management and presentation",
-          text: "MARITAS provides integration to a very wide variety of sensors, and can be used to control sensors and present sensor information as part of the situation picture. The system is also capable of controlling various sensor systems through middleware services. Sensors can be displayed as part of the situation picture, so users need only select which sensor source to use. This means users can control radar and CCTV directly from the workstation. Integrated camera sleuthing is also possible, so the chart view and sensors can be set to track objects on chart."
+          text: "MARITAS provides integration to a very wide variety of sensors, and can be used to control sensors and present sensor information as part of the situation picture. The system is also capable of controlling various sensor systems through middleware services. Sensors can be displayed as part of the situation picture, so users need only select which sensor source to use. This means users can control radar and CCTV directly from the workstation. Integrated camera sleuthing is also possible, so the chart view and sensors can be set to track objects on chart.",
+          theme: "tinted"
         },
         {
           heading: "Click to control",
@@ -41,7 +42,9 @@ window.NaviData = (function () {
             alt: "Chart view with a radar sensor control dialog opened after clicking a radar on the map",
             width: 600,
             height: 296
-          }
+          },
+          variant: "split",
+          imagePosition: "right"
         },
         {
           heading: "e-Navigation",
@@ -51,7 +54,9 @@ window.NaviData = (function () {
             alt: "Chart view with a route and pilotage boarding plan dialog open",
             width: 600,
             height: 294
-          }
+          },
+          variant: "split",
+          imagePosition: "left"
         },
         {
           heading: "Databases and ship reporting",
@@ -61,7 +66,10 @@ window.NaviData = (function () {
             alt: "Vessel database search dialog over a chart view, alongside a ship reporting results table",
             width: 600,
             height: 261
-          }
+          },
+          variant: "split",
+          imagePosition: "right",
+          theme: "tinted"
         },
         {
           heading: "Port Management",
@@ -71,9 +79,12 @@ window.NaviData = (function () {
             alt: "Chart view with a port visit database dialog listing scheduled, arriving, berthed and departing vessels",
             width: 550,
             height: 276
-          }
+          },
+          variant: "split",
+          imagePosition: "left"
         }
       ],
+      typicalApplicationsVariant: "backgroundImage",
       typicalApplicationsHeading: "Supported missions",
       typicalApplications: [
         "Vessel identification",
@@ -466,11 +477,14 @@ window.NaviData = (function () {
             alt: "Traffic monitoring dashboard showing a map with sensor icons, a live road camera feed and weather instrument readouts",
             width: 600,
             height: 292
-          }
+          },
+          variant: "split",
+          imagePosition: "right"
         },
         {
           heading: "Environmental information directly on your desktop",
-          text: "Weather information may be viewed directly from a desktop application or as an integrated part of the operational picture. Integration allows users to view weather information on chart, but also to view the data of separate sensors in windows of their own. Sensor information can be presented in varying forms, including graphs and wind dials."
+          text: "Weather information may be viewed directly from a desktop application or as an integrated part of the operational picture. Integration allows users to view weather information on chart, but also to view the data of separate sensors in windows of their own. Sensor information can be presented in varying forms, including graphs and wind dials.",
+          theme: "tinted"
         },
         {
           heading: "Radio and Telephony",
@@ -480,7 +494,8 @@ window.NaviData = (function () {
             alt: "Close-up of a person wearing a radio and telephony headset near their ear",
             width: 450,
             height: 464
-          }
+          },
+          variant: "backgroundImage"
         }
       ],
       sourceUrl: "https://www.navielektro.fi/trafficaware.html"
@@ -521,7 +536,8 @@ window.NaviData = (function () {
           text: "TDF is component based, which means that functionality can be added in the form of software components, making the system completely scalable according to the needs of each customer. New software modules can be added as new requirements arise, including third-party software. The flexible nature of TDF guarantees a long life cycle for any system based on the platform."
         },
         {
-          text: "TDF is widely used for both civilian and military situational awareness. The software platform provides customers with the following functionalities:"
+          text: "TDF is widely used for both civilian and military situational awareness. The software platform provides customers with the following functionalities:",
+          theme: "tinted"
         },
         {
           heading: "Application domains",
@@ -535,7 +551,10 @@ window.NaviData = (function () {
             alt: "Collage of map, satellite, road-camera and weather instrument displays representing TDF's multi-format chart and sensor presentation",
             width: 600,
             height: 325
-          }
+          },
+          variant: "split",
+          imagePosition: "right",
+          theme: "tinted"
         }
       ],
       sourceUrl: "https://www.navielektro.fi/tdf.html"
@@ -568,11 +587,13 @@ window.NaviData = (function () {
             alt: "Silhouette of an operator seated in front of a large multi-panel display wall showing tracks and charts",
             width: 910,
             height: 463
-          }
+          },
+          variant: "backgroundImage"
         },
         {
           heading: "High performance, low cost",
-          text: "TDF LSD is deployed using standard PC hardware, making it an affordable and highly flexible solution."
+          text: "TDF LSD is deployed using standard PC hardware, making it an affordable and highly flexible solution.",
+          theme: "tinted"
         },
         {
           heading: "TDF Onboard",
@@ -582,7 +603,9 @@ window.NaviData = (function () {
             alt: "Diagram of a mobile operations center showing TDF OWS workstations connected to sensors, data links, navigation and communication equipment, linking back to a shore-based control center",
             width: 998,
             height: 1000
-          }
+          },
+          variant: "split",
+          imagePosition: "right"
         },
         {
           heading: "TDF Smartphone",
@@ -592,7 +615,10 @@ window.NaviData = (function () {
             alt: "Smartphone showing a current-position map screen next to icons for reporting, vessels, alerts and filtering",
             width: 450,
             height: 308
-          }
+          },
+          variant: "split",
+          imagePosition: "left",
+          theme: "tinted"
         },
         {
           heading: "TDF Mobile",
@@ -602,9 +628,12 @@ window.NaviData = (function () {
             alt: "Rugged laptop open and displaying a nautical chart application",
             width: 442,
             height: 500
-          }
+          },
+          variant: "split",
+          imagePosition: "right"
         }
       ],
+      typicalApplicationsTheme: "tinted",
       typicalApplicationsHeading: "Advantages",
       typicalApplications: [
         "All operators with similar assignments are seated in the same direction, facilitating communication between operators",

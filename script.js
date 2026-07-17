@@ -324,6 +324,57 @@ function detailFigure(image) {
   ]);
 }
 
+// One full-width content section for a product detail page. Rendered as a
+// child of .detail-copy (not .detail-shell) so .detail-panel's
+// position:sticky keeps tracking the whole page - see the CSS comment above
+// .detail-blocks for how split/tinted/dark/background-image sections still
+// reach the full page width from inside that narrower column.
+//
+// `body` is an array of already-built nodes (paragraphs, a tag-list, a card
+// grid, a button - whatever the block needs). variant/imagePosition/theme
+// are optional; omitting all three renders the same plain heading+text(+
+// image) block every product used before this system existed, so entries
+// without them are unaffected.
+function createDetailBlock({ heading, body, image, variant = "standard", imagePosition = "right", theme = "light" }) {
+  const textChildren = [];
+  if (heading) textChildren.push(el("h3", {}, [heading]));
+  textChildren.push(...body);
+  const text = el("div", { class: "detail-block__text" }, textChildren);
+
+  const innerChildren = [text];
+  if (image && variant !== "backgroundImage") {
+    const media = el("div", { class: "detail-block__media" }, [detailFigure(image)]);
+    if (variant === "split" && imagePosition === "left") {
+      innerChildren.unshift(media);
+    } else {
+      innerChildren.push(media);
+    }
+  }
+
+  const classes = ["detail-block"];
+  if (variant === "split") {
+    classes.push("detail-block--split");
+    if (imagePosition === "left") classes.push("detail-block--image-left");
+  } else if (variant === "wideImage") {
+    classes.push("detail-block--wide-image");
+  } else if (variant === "backgroundImage") {
+    classes.push("detail-block--background-image");
+  }
+  if (variant !== "backgroundImage") {
+    if (theme === "tinted") classes.push("detail-block--tinted");
+    if (theme === "dark") classes.push("detail-block--dark");
+  }
+
+  const sectionChildren = [el("div", { class: "detail-block__inner" }, innerChildren)];
+  const attrs = { class: classes.join(" ") };
+  if (variant === "backgroundImage" && image) {
+    attrs.style = `background-image:url('${image.src}')`;
+    sectionChildren.unshift(el("div", { class: "detail-block__overlay" }, []));
+  }
+
+  return el("section", attrs, sectionChildren);
+}
+
 function renderDetail(kind, slug) {
   const collection = kind === "product" ? products : kind === "service" ? services : news;
   const item = collection.find((entry) => entry.slug === slug);
@@ -389,43 +440,59 @@ function renderDetail(kind, slug) {
     copyChildren.push(el("p", {}, [detailSummary]));
   }
 
-  if (kind === "product" && item.operationalUse && item.operationalUse.length) {
-    copyChildren.push(el("h3", {}, ["Operational use"]));
-    item.operationalUse.forEach((entry) => {
-      const paragraphChildren = entry.heading ? [el("strong", {}, [`${entry.heading}: `]), entry.text] : [entry.text];
-      copyChildren.push(el("p", {}, paragraphChildren));
-      if (entry.image) {
-        copyChildren.push(detailFigure(entry.image));
-      }
-    });
-  }
+  if (kind === "product") {
+    const blocks = [];
 
-  if (kind === "product" && item.typicalApplications && item.typicalApplications.length) {
-    copyChildren.push(
-      el("h3", {}, [item.typicalApplicationsHeading || "Typical applications"]),
-      el("ul", { class: "tag-list" }, item.typicalApplications.map((entry) => el("li", {}, [entry])))
-    );
-    if (item.typicalApplicationsImage) {
-      copyChildren.push(detailFigure(item.typicalApplicationsImage));
+    if (item.operationalUse && item.operationalUse.length) {
+      item.operationalUse.forEach((entry) => {
+        blocks.push(createDetailBlock({
+          heading: entry.heading,
+          body: [el("p", {}, [entry.text])],
+          image: entry.image,
+          variant: entry.variant,
+          imagePosition: entry.imagePosition,
+          theme: entry.theme
+        }));
+      });
     }
-  }
 
-  if (kind === "product" && item.integration && item.integration.length) {
-    copyChildren.push(el("h3", {}, ["Integration"]));
-    item.integration.forEach((paragraph) => copyChildren.push(el("p", {}, [paragraph])));
-  }
+    if (item.typicalApplications && item.typicalApplications.length) {
+      blocks.push(createDetailBlock({
+        heading: item.typicalApplicationsHeading || "Typical applications",
+        body: [el("ul", { class: "tag-list" }, item.typicalApplications.map((entry) => el("li", {}, [entry])))],
+        image: item.typicalApplicationsImage,
+        variant: item.typicalApplicationsVariant,
+        imagePosition: item.typicalApplicationsImagePosition,
+        theme: item.typicalApplicationsTheme
+      }));
+    }
 
-  if (kind === "product" && item.relatedProducts && item.relatedProducts.length) {
-    copyChildren.push(
-      el("h3", {}, ["Related products"]),
-      el("div", { class: "card-grid card-grid--three" }, item.relatedProducts.map((entry) => createRelatedProductCard(entry)))
-    );
-  }
+    if (item.integration && item.integration.length) {
+      blocks.push(createDetailBlock({
+        heading: "Integration",
+        body: item.integration.map((paragraph) => el("p", {}, [paragraph])),
+        theme: item.integrationTheme
+      }));
+    }
 
-  if (kind !== "product") {
+    if (item.relatedProducts && item.relatedProducts.length) {
+      blocks.push(createDetailBlock({
+        heading: "Related products",
+        body: [el("div", { class: "card-grid card-grid--three" }, item.relatedProducts.map((entry) => createRelatedProductCard(entry)))],
+        theme: item.relatedProductsTheme || "tinted"
+      }));
+    }
+
+    blocks.push(createDetailBlock({
+      body: [el("a", { class: "button button--primary", href: "#contact" }, [`Contact about this ${kind}`])],
+      theme: "tinted"
+    }));
+
+    copyChildren.push(el("div", { class: "detail-blocks" }, blocks));
+  } else {
     copyChildren.push(el("p", {}, [`A detailed overview, use cases and integration notes for this ${kind} will be added here.`]));
+    copyChildren.push(el("a", { class: "button button--primary", href: "#contact" }, [`Contact about this ${kind}`]));
   }
-  copyChildren.push(el("a", { class: "button button--primary", href: "#contact" }, [`Contact about this ${kind}`]));
 
   const shell = el("article", { class: "detail-shell" }, [
     el("div", { class: "detail-copy" }, copyChildren),
