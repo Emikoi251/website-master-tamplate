@@ -796,7 +796,31 @@ window.NaviData = (function () {
       slug: "infra-protection",
       title: "Critical Infrastructure Protection",
       category: "Security",
-      summary: "Part of Navielektro's Security portfolio — a full overview, specifications and documentation will be available here soon.",
+      summary: "Protect the most vital facilities and functions",
+      overviewHeading: "Protect the most vital facilities and functions",
+      overview: [
+        "Critical infrastructure is the physical and cyber systems and assets so vital to the functioning of our society, that the disruption of even one of these would wreak havoc on our world. This includes everything from bridges and nuclear power plants to harbors. Recognizing potential threats, governments and other actors are starting to realize that these infrastructures must be secure and able to withstand and rapidly recover from hazards.",
+        "Navielektro's systems respond to the needs of major infrastructure facilities, providing users with high-performance software that strengthens and keeps infrastructure secure and functioning. Our solutions ensure that assets, networks and systems vital to a nation's safety, prosperity and well-being are managed effectively and protected from attacks."
+      ],
+      operationalUse: [
+        {
+          heading: "Ensure operation security",
+          text: "We believe in providing users with all of the information they need, in a view where everything is integrated. All areas of infrastructure security operations are managed from a single system, including security control, operation monitoring, maintenance, resource management and more.",
+          image: {
+            src: "assets/products/infra-protection/infra-protection-operator.webp",
+            alt: "Operator monitoring live infrastructure data across multiple screens and a large geographic map display",
+            width: 450,
+            height: 450
+          },
+          variant: "split",
+          imagePosition: "left",
+          theme: "tinted"
+        },
+        {
+          text: "Navielektro's solution is modular and scalable, and can be completely tailored to fit the needs of the customer. The system can later be extended to include more functionality as needs change, and the customizable nature of the system makes it extremely cost-effective, guaranteeing a long life-cycle. Our critical infrastructure protection system provides users with a comprehensive, end-to-end view of security and safety, and can be deployed for a multitude of purposes such as traffic control and protection of nuclear power plants or military shooting areas.",
+          theme: "tinted"
+        }
+      ],
       sourceUrl: "https://www.navielektro.fi/infra-protection.html"
     },
     {
