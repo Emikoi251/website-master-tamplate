@@ -1522,6 +1522,13 @@ h3 {
 
 .detail-blocks {
   display: grid;
+  /* minmax(0,1fr), not the bare implicit auto column: without it this single
+     column sizes to its widest child's max-content, so a full-bleed block's
+     width:100vw contribution would blow the column out and drag every
+     sibling (including .detail-block--split, which has no width of its own
+     and just stretches to fill the column) out to that same oversized
+     width. */
+  grid-template-columns: minmax(0, 1fr);
   gap: 0;
   margin-top: 8px;
 }
@@ -1571,15 +1578,36 @@ h3 {
    must never bleed to the viewport - regardless of theme - since that's
    what let text reach the sidebar's column. A split+tinted/dark block still
    gets its background color, just contained within .detail-copy's own
-   (safe) width instead of the true page edges. */
+   (safe) width instead of the true page edges.
+
+   The offset below is NOT the textbook `left:50%; margin-left:-50vw` trick.
+   That trick only centers correctly when the element's own static position
+   is already horizontally centered on the page - true for .hero/.proof-section
+   (plain centered flow), but false here: these blocks live inside
+   .detail-copy, the first (wider) column of .detail-shell's two-column grid,
+   so .detail-copy's own center is offset from the true page center by the
+   sidebar sitting next to it. `left:50%` resolves against .detail-copy's
+   width, not the viewport, so the two halves of the trick didn't cancel out
+   - the block landed ~180px left of where it should, clipped on the left
+   edge with a matching gap on the right (confirmed live via
+   getBoundingClientRect() on the shipped TDF page before this fix).
+
+   Fix: cancel .detail-copy's actual left offset directly instead of
+   re-deriving viewport center. .detail-copy's left edge is always
+   `max(0px, 100vw - var(--max)) / 2 + var(--edge)` - half of whatever
+   viewport width exceeds --max (0 once --max stops constraining the page),
+   plus the page's own edge gutter. This does NOT depend on the copy/sidebar
+   fr-ratio or the sidebar's 290px floor - the sidebar sits entirely to the
+   right of .detail-copy, so it never enters this calculation - which is why
+   this single rule is correct at every viewport width, including below the
+   760px breakpoint where .detail-copy becomes the sole column. */
 .detail-block--wide-image,
 .detail-block--background-image,
 .detail-block--tinted:not(.detail-block--split),
 .detail-block--dark:not(.detail-block--split) {
   width: 100vw;
   position: relative;
-  left: 50%;
-  margin-left: -50vw;
+  margin-left: calc(-1 * (max(0px, 100vw - var(--max)) / 2 + var(--edge)));
   border-top: 0;
 }
 
