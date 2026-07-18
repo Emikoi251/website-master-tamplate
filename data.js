@@ -647,7 +647,74 @@ window.NaviData = (function () {
       slug: "sdk",
       title: "Software Development Kit",
       category: "Tactical Display Framework",
-      summary: "Part of Navielektro's Tactical Display Framework portfolio — a full overview, specifications and documentation will be available here soon.",
+      summary: "Expand your system as new needs occur",
+      overviewHeading: "Expand your system as new needs occur",
+      overview: [
+        "When procuring situational awareness systems, the key aspects to consider are continuous development and mutual coherence. In order for operators to perform their duties, they may have to use several different types of software – often simultaneously. The great number of software and the divergence between user interfaces needlessly complicates the job of the operator. As vendor lock-in is common with many situational awareness systems, they are also not particularly cost-efficient.",
+        "Navielektro offers a Software Development Kit (SDK) that allows our software to be expanded through creation of third party software assets, such as user interface components, background services and data source adapters. Using our SDK, developers can integrate distributed systems and sensors into the our software. This approach ensures cost-efficient system development that can continue post deployment, guaranteeing a long life-cycle for Navielektro's systems."
+      ],
+      operationalUse: [
+        {
+          heading: "Our TDF, your way",
+          text: "Navielektro's Tactical Display Framework is highly modular in nature, allowing software components to be added according to the needs of the customer. We aim to provide our customer with as integrated a user experience as possible, taking a single window approach that will allow users to utilize all of the software functionality from just one window."
+        },
+        {
+          text: "The TDF SDK is essentially an off-the-shelf framework for creating and customizing situational awareness systems. Using the TDF software as a base, developers can integrate distributed and sensors by utilizing our SDK. This way customers can develop components of their own, enhancing and adding to the software. Developing additional components using the TDF SDK also ensures a unified user interface.",
+          image: {
+            src: "assets/products/sdk/sdk-toolbox.webp",
+            alt: "Illustration of a toolbox containing a magnifying glass, map, wrench, gear and funnel, representing the SDK's development tools",
+            width: 502,
+            height: 508
+          },
+          variant: "split",
+          imagePosition: "right"
+        },
+        {
+          heading: "Common Service Framework: a back-end SDK",
+          text: "The success of the TDF product led us to a develop a component-based software framework for back-end services as well: a Common Service Framework (CSF) that utilizes the OSGi service concept. The CSF and its associated components are essentially a family of powerful yet simple components built on Java version 8 or later of the Java SE Runtime Environment (JRE). The framework provides the core functionality needed in order to provide situational awareness and related mission critical applications within the domain of traffic management, command and control and general situational awareness applications. Just as for our TDF, Navielektro offers a and SDK that allows third-party developers to create applications using the CSF.",
+          theme: "tinted"
+        },
+        {
+          heading: "Combined power",
+          text: "When the TDF and CSF are implemented in a joint way, the approach to software development and delivery becomes profoundly different. Usually, system architects and developers have to decide where to run a specific feature very early on. This can become a problem, as the computing environment develops so quickly that is difficult to commit to a decision on where to run a specific piece of developed code. When Navielektro's CSF and TDF are combined, however, they enable developers to share important functional components between the user interface and the service framework.",
+          image: {
+            src: "assets/products/sdk/sdk-joint-architecture.svg",
+            alt: "Diagram of shared components spanning the Tactical Display Framework front-end and the Common Service Framework back-end",
+            width: 919,
+            height: 714
+          },
+          variant: "split",
+          imagePosition: "left"
+        },
+        {
+          text: "This means that the developer can leave decisions regarding what hardware platform or execution environment to use until later. As a result, the actual installation of an application becomes more of a component deployment issue, where developers and architects can decide whether the functionality is to be located in the service back-end (the CSF) or within the TDF on a case-by-case base."
+        },
+        {
+          heading: "Key Features",
+          text: "Navielektro's SDK enables a collaborative environment and contains all the development tools needed to build applications for the CSF and TDF. Combining TDF and CSF enables sharing of functional OSGi modules between the frameworks, providing a cost-effective means of developing situational awareness functionality.",
+          theme: "dark"
+        },
+        {
+          heading: "Software Architecture",
+          image: {
+            src: "assets/products/sdk/sdk-architecture.webp",
+            alt: "Diagram of the SDK software architecture showing phone, tablet, JMAP and i-Maps Portal clients connected to services including routing, geocoding, weather, database, ticketing, workflow, messaging and authorization",
+            width: 920,
+            height: 541
+          },
+          variant: "wideImage",
+          theme: "tinted"
+        }
+      ],
+      typicalApplicationsHeading: "Included in the SDK",
+      typicalApplicationsTheme: "dark",
+      typicalApplications: [
+        "Application Programming Interface (API)",
+        "Developer's Guide",
+        "Numerous code examples",
+        "Menu configuration tool",
+        "Data modeling tools"
+      ],
       sourceUrl: "https://www.navielektro.fi/sdk.html"
     },
     {

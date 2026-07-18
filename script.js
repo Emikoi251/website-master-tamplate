@@ -454,7 +454,7 @@ function renderDetail(kind, slug) {
       item.operationalUse.forEach((entry) => {
         blocks.push(createDetailBlock({
           heading: entry.heading,
-          body: [el("p", {}, [entry.text])],
+          body: entry.text ? [el("p", {}, [entry.text])] : [],
           image: entry.image,
           variant: entry.variant,
           imagePosition: entry.imagePosition,
