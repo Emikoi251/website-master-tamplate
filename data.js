@@ -728,7 +728,68 @@ window.NaviData = (function () {
       slug: "cybersecurity",
       title: "Cyber Security",
       category: "Security",
-      summary: "Part of Navielektro's Security portfolio — a full overview, specifications and documentation will be available here soon.",
+      summary: "Built-in security in even the most demanding conditions",
+      overviewHeading: "Built-in security in even the most demanding conditions",
+      overview: [
+        "As technology progresses, communications and operations are increasingly conducted electronically, over networks and data links. But as we embrace technology, we also have to be aware of the threats posed by it. How do we ensure that communications and information remain secure, and that sensitive information remains confidential? In Navielektro's systems, security has been built into our systems from the start, in order to accommodate differing user needs. High stakes call for high security, and when our systems are operated in high security environments we can provide increased security – optionally integrated into our products."
+      ],
+      highlights: [
+        "Secure sharing of data between high and low security environments",
+        "Secure and transparent user authentication management",
+        "Delegated administration in large organizations",
+        "Cost-effective, uncomplicated mechanisms that simplify the end-user experience",
+        "Key and certificate management services, which enable encryption and validation of data and users through digital signatures",
+        "Support for online web based certificate registration",
+        "Support for SSL, S/MIME, SET certificates",
+        "Support for smart card production"
+      ],
+      operationalUse: [
+        {
+          heading: "Data Diodes",
+          text: "Navielektro's systems can be set up to use data diodes in order to guarantee information security, as diodes only allow data to travel in one direction, used in guaranteeing information security. These diodes serve as connections between two or more networks of differing security classifications, allowing safe distribution of data between different actors. Because the unidirectional networks created with data diodes only allow data to pass from one side of a network connection to another (and not the other way around), users of high security networks get the best of both worlds: the benefits of access to lower security networks while the data on their high security networks remains confidential.",
+          image: {
+            src: "assets/products/cybersecurity/cybersecurity-data-diode.svg",
+            alt: "Diagram of two differently classified networks connected through a data diode, showing services and sensors on each side linked by a one-way data connection",
+            width: 473,
+            height: 403
+          },
+          variant: "split",
+          imagePosition: "left",
+          theme: "tinted"
+        },
+        {
+          text: "Navielektro's customers already have data diodes in place in order to enable sharing of sensor resources between different agencies, without becoming vulnerable to intrusions.",
+          theme: "tinted"
+        },
+        {
+          heading: "Public Key Infrastructure",
+          text: "Navielektro provides a solution in the form of PKI (Public Key Infrastructure), which ensures very high information security. The Navielektro PKI provides a highly trustworthy environment for protecting data at rest and application level communication. PKI provides users with electronic identities and makes it possible to manage and validate these identities, ensuring unauthorized persons cannot access sensitive data. Our PKI solution meets the technological requirements of even the most demanding security environments – including government and military organizations. When looking to create a security infrastructure with safe identification, authentication and data integrity, Navielektro's PKI is the way to go.",
+          image: {
+            src: "assets/products/cybersecurity/cybersecurity-pki-architecture.svg",
+            alt: "Diagram of the Navielektro PKI architecture showing HSM, i-CA, LDAP directory, card production system and SCEP client connected around a central user management hub",
+            width: 1033,
+            height: 1008
+          },
+          variant: "split",
+          imagePosition: "right",
+          theme: "tinted"
+        },
+        {
+          heading: "Why PKI?",
+          text: "The Navielektro PKI provides a chain of trust, with flexible, secure and cost-effective means of managing keys and performing user authentication.",
+          image: {
+            src: "assets/products/cybersecurity/cybersecurity-ica-console.webp",
+            alt: "Screenshot of the Navielektro i-CA Certificate Authority Service web console next to the User Manager application listing users and operational roles",
+            width: 600,
+            height: 362
+          },
+          variant: "split",
+          imagePosition: "left"
+        },
+        {
+          text: "The PKI allows you to create, store and distribute digital certificates in a flexible manner, and enables encryption and validation of data and users through digital signatures."
+        }
+      ],
       sourceUrl: "https://www.navielektro.fi/cybersecurity.html"
     },
     {
