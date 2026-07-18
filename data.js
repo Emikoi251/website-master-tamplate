@@ -1140,7 +1140,46 @@ window.NaviData = (function () {
       slug: "newis",
       title: "Weather and Environmental Information",
       category: "Weather",
-      summary: "Part of Navielektro's Weather portfolio — a full overview, specifications and documentation will be available here soon.",
+      summary: "Solutions for weather and environmental presentation and analysis",
+      overviewHeading: "Solutions for weather and environmental presentation and analysis",
+      overview: [
+        "Achieving situational awareness requires that all of the information necessary to create a comprehensive situation picture is available. Navielektro offers a complete environmental weather information solution in the form of NEWIS (Navielektro Environment and Weather Information System). Our system collects, processes and stores received environmental and weather information, and distributes the information to the clients that need it. This means that operators get access to weather information directly from their workstation as an integrated part of the situation picture, allowing them assess the impact of weather conditions on various operations. Sensor data is presented in a fashion that is easy to comprehend, allowing operators to act upon the data rather than spend time deciphering it.",
+        "NEWIS is an efficient, software based tool for collection, storage and presentation of data from a range of various meteorological and hydrographical sensors and systems. Our solution can present everything from real-time weather and observed weather (based on METAR or SYNOP reports) to weather simulations. The solution also supports CBRN (Chemical, biological, radiological and nuclear defense), allowing users to view hazards and plan protective measures accordingly."
+      ],
+      highlights: [
+        "Real-time weather",
+        "Observed weather",
+        "Simulated, predicted weather"
+      ],
+      operationalUse: [
+        {
+          heading: "Compatibility",
+          text: "NEWIS may be connected to almost any existing environment, weather or hydrographical sensor. The system has a large number of existing interfaces to the largest vendors in the business, and may easily be extended to support various weather- and hydrographical systems and the information content they provide. The information model used by NEWIS enables the system to be connected to virtually any kind of real-time weather information service.",
+          theme: "tinted"
+        },
+        {
+          heading: "A complete solution",
+          text: "Navielektro's weather information system is capable of managing weather information as a whole. This means that the system can present the following types of weather:",
+          theme: "dark"
+        },
+        {
+          heading: "User interfaces",
+          text: "The data from various sensors is presented in a clear and coherent fashion, and data may viewed either in the standalone NEWIS software or as an integrated part of the TDF platform. TDF integration helps operators see the big picture, as weather information can be viewed both in the form of dockable components and integrated in the chart view.",
+          image: {
+            src: "assets/products/newis/newis-user-interface.webp",
+            alt: "NEWIS software windows showing wind, temperature and wave gauges alongside a chart view with weather overlays",
+            width: 600,
+            height: 279
+          },
+          variant: "split",
+          imagePosition: "left",
+          theme: "tinted"
+        },
+        {
+          text: "The system may optionally be set up with a web-service that allows users to view both real-time information and to perform retrievals of past weather and environmental conditions.",
+          theme: "tinted"
+        }
+      ],
       sourceUrl: "https://www.navielektro.fi/newis.html"
     },
     {
