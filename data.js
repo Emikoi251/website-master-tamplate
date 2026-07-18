@@ -1229,9 +1229,61 @@ window.NaviData = (function () {
     },
     {
       slug: "voice",
-      title: "VOICE",
+      title: "NaviCall",
       category: "Voice Communication",
-      summary: "Part of Navielektro's Voice Communication portfolio — a full overview, specifications and documentation will be available here soon.",
+      summary: "Efficient radio and IP telephony for demanding operations",
+      overviewHeading: "Efficient radio and IP telephony for demanding operations",
+      overview: [
+        "Operators are faced with a daily need to communicate with other parties by means of voice communication, but unfortunately this often requires the operator to use tools that are separate from the rest of the situational awareness system, slowing down the communication process. Navielektro provides voice communication solutions that are integrated with the situational awareness system and TDF user interface, allowing users to make calls directly from from their workstations.",
+        "Navielektro's NaviCall is an open voice communication system for Public Safety, Command & Control, and PMRS (Private Mobile Radio Systems). The system is to a large extent built and designed using COTS components, which makes NaviCall a cost-efficient yet flexible, redundant and scalable solution. The NaviCall system provides the operator with a fast, reliable and flexible means to communicate with other parties, presenting the user with an interface for communication that is efficient, clear and easy to use."
+      ],
+      highlights: [
+        "Integration with situational awareness software allows calls to be visualized as part of the situation picture",
+        "Includes PTT (Push-to-talk) based audio conferencing, facilitating speech-group or audio conferencing",
+        "Open, flexible and scalable architecture with reliable and fail-safe system environment.",
+        "Comes with fully-integrated GMDSS/DSC functionality",
+        "High-quality radio based communications using low-bandwidth data links",
+        "Role based software architecture allows operators to use any free working position"
+      ],
+      operationalUse: [
+        {
+          heading: "Voice communication – integrated",
+          text: "Using NaviCall, any kind of communication – both radio and telephony – may be conducted within one, integrated, standard compliant solution. NaviCall can utilize almost any kind of existing radio transceiver, or the system can be deployed with integrated radios from the maritime VHF to UHF and air-band. In addition, the system may be completely integrated with the communications network of a existing traffic control systems in order to save deployment costs. The NaviCall system can be completely integrated with the operator workstation, and audio-logging is integrated with the tracking system. This effectively creates a multimedia logging and replay system.",
+          image: {
+            src: "assets/products/voice/voice-integrated-communication.webp",
+            alt: "DSC radio panel and tactical map interface showing tracked vessels with a push-to-talk control panel",
+            width: 600,
+            height: 266
+          },
+          variant: "split",
+          imagePosition: "left",
+          theme: "tinted"
+        },
+        {
+          heading: "GMDSS",
+          text: "Navielektro's software can be used to create a comprehensive Global Maritime Distress and Safety System (GMDSS). This type of system ensures rapid help during distress incidents, making it possible to quickly and efficiently rescue distressed ships, boats and aircrafts."
+        },
+        {
+          text: "Navielektro has delivered reliable and comprehensive communication systems to national agencies in Finland and around the world. Our GMDSS solution is a fully integrated, modular and flexible radio communication system for shore based maritime operations. The scalable nature of our systems allow our deliveries to range from single operator systems to comprehensive national GMDSS systems, capable of handling hundreds of simultaneous base stations and radio channels within the same system (including Air Search and Rescue)."
+        },
+        {
+          heading: "NaviCall Operator Workstation",
+          text: "The NaviCall operator workstation consists of a WACP (workstation audio control panel) and a COTS PC with a touch-screen, enabling easy and speedy operation of the system. The system is ready for a variety of audio input/ output devices.",
+          image: {
+            src: "assets/products/voice/voice-operator-workstation.webp",
+            alt: "NaviCall operator workstation with a touchscreen chart display and WACP audio control panel with push-to-talk buttons",
+            width: 450,
+            height: 450
+          },
+          variant: "split",
+          imagePosition: "right",
+          theme: "tinted"
+        },
+        {
+          text: "NaviCall is highly customizable. Users can select which audio channel to use for reception, as well as create channel groups based on geographical area. The audio for each channel group can be separately adjusted, so audio groups with higher volume can be selected for important, time-sensitive communication. Audio received through radio base stations operating on the same frequency may be subject to BSS (Best Signal Selection), according to operator preference.",
+          theme: "tinted"
+        }
+      ],
       sourceUrl: "https://www.navielektro.fi/voice.html"
     },
     {
