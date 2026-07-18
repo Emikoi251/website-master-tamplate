@@ -902,7 +902,97 @@ window.NaviData = (function () {
       slug: "radar-antennas",
       title: "Radar Antennas",
       category: "Sensors",
-      summary: "Part of Navielektro's Sensors portfolio — a full overview, specifications and documentation will be available here soon.",
+      summary: "Experience",
+      overviewHeading: "Experience",
+      overview: [
+        "Navielektro originated as a radar manufacturer, and while the company has expanded, we still stay true to our roots. We have over 20 years of experience in radar technology and we are still producing a range of high-performance and cost-effective radar sensors. Our sensors have been designed for continuous shore-based surveillance in the toughest conditions. The radar sensors are suitable for both VTS and Coastal Surveillance and various maritime security applications. Navielektro has delivered radar sensors capable of functioning in everything from Arctic conditions above the polar circle to the tropical conditions on the coast of Africa."
+      ],
+      operationalUse: [
+        {
+          heading: "Antenna product range",
+          text: "The existing antenna product range consists of both SWG (Slotted Wave Guide) and parabolic radar antennas. The high-gain 18\" SWG antennas are designed for medium to close range surveillance, typical in VTS and Port Control applications. The high-gain parabolic antennas are available for different applications,i.e. long range coastal surveillance with very high-gain and medium surveillance with a significantly smaller foot print. In addition Navielektro manufactures custom designed antennas for various mobile applications. All antennas are delivered complete with a powerful programmable drive unit that ensures a long, low-cost life-cycle for the overall radar system. Drive units are available in different configurations and may be engineered for site specific requirements.",
+          theme: "tinted"
+        },
+        {
+          heading: "NE 18045-X",
+          text: "The 18045-X antenna is and X-band antenna that is ideal for use in shore based traffic monitoring and surveillance systems. The antenna has narrow beamwidth (0.45°), large antenna gain (34 dBi) and fast rotation speed (max. 28 RPM).",
+          image: {
+            src: "assets/products/radar-antennas/radar-antennas-ne18045x.webp",
+            alt: "NE 18045-X antenna mounted on a red lattice tower against a clear sky",
+            width: 450,
+            height: 450
+          },
+          variant: "split",
+          imagePosition: "left"
+        },
+        {
+          text: "The 18045-X antenna is built using COTS hardware, making it a very cost-effective solution. Navielektro has deployed nearly 100 antennas in Finland, Sweden, Norway, the UK, the Ukraine, Russia and other countries."
+        },
+        {
+          heading: "21038-X",
+          text: "The 21038-X antenna is an X-band antenna tht has been developed with vessel traffic monitoring in mind. Due to its narrow beamwidth (0.38°), large antenna gain (37 dBi) and fast rotation speed, the 21038-X-antenna is ideal for use in shore based traffic monitoring and surveillance systems.",
+          image: {
+            src: "assets/products/radar-antennas/radar-antennas-21038x.webp",
+            alt: "21038-X antenna mounted on a white lattice tower against a clear sky",
+            width: 450,
+            height: 450
+          },
+          variant: "split",
+          imagePosition: "left"
+        },
+        {
+          heading: "PRA3000",
+          text: "The PRA3000 series antenna is ideal for use in shore based traffic monitoring and surveillance systems. The antenna is designed to be a compact package with maximum gain. This has proven to be an ideal solution for gap filling purposes or medium range surveillance. The antenna is built using COTS hardware, making it a very cost-effective solution. Navielektro has deployed the unit in question at locations in Finland, Norway and Sweden.",
+          image: {
+            src: "assets/products/radar-antennas/radar-antennas-pra3000.webp",
+            alt: "PRA3000 hexagonal radar antenna mounted on a ring-braced tower against a cloudy sky",
+            width: 450,
+            height: 450
+          },
+          variant: "split",
+          imagePosition: "right",
+          theme: "tinted"
+        },
+        {
+          heading: "NE PRA3000-RADOME",
+          text: "The PRA3000-RADOME series antenna is our off-the-grid solution. The PRA-3000-RADOME antenna has been designed for operation in harsh conditions and off-the-grid environments, and boasts extremely low energy consumption. The radome provides the antenna with protection in harsh conditions and offers wind protection, reducing the dynamic wind load as well as the worst case power requirements for radar rotation. The radome solution also enables powering directly from a battery supply (48V DC). Because the antenna leaves a low energy footprint, it is also environmentally friendly solution.",
+          image: {
+            src: "assets/products/radar-antennas/radar-antennas-pra3000-radome.webp",
+            alt: "PRA3000-RADOME antenna enclosed in a white protective radome on a blue lattice tower",
+            width: 450,
+            height: 450
+          },
+          variant: "split",
+          imagePosition: "right",
+          theme: "tinted"
+        },
+        {
+          heading: "NE PRA5400",
+          text: "The PRA5400 series antenna has been designed with shore based traffic monitoring and surveillance systems in mind. The compact, maximum gain package has proven to be an ideal solution for long range coastal surveillance applications. Because the antenna is built using COTS hardware, it is a highly cost-effective solution. Navielektro has deployed the unit in question at locations in Scandinavia and Africa.",
+          image: {
+            src: "assets/products/radar-antennas/radar-antennas-pra3000.webp",
+            alt: "Hexagonal radar antenna mounted on a ring-braced tower against a cloudy sky",
+            width: 450,
+            height: 450
+          },
+          variant: "split",
+          imagePosition: "right",
+          theme: "tinted"
+        },
+        {
+          heading: "PRA2300 Light",
+          text: "The PRA2300 Light series antenna is ideal for use in shore based traffic monitoring and surveillance systems. The antenna is designed to be a compact package with maximum gain. This has proven to be an ideal solution for gap filling purposes or medium range surveillance. The antenna is built using COTS hardware, making it a very cost-effective solution. Navielektro has currently deployed the unit in question at locations in Scandinavia, Europe and Africa.",
+          image: {
+            src: "assets/products/radar-antennas/radar-antennas-pra2300.webp",
+            alt: "PRA2300 Light curved parabolic antenna mounted on a tower against a clear sky",
+            width: 450,
+            height: 450
+          },
+          variant: "split",
+          imagePosition: "right",
+          theme: "tinted"
+        }
+      ],
       sourceUrl: "https://www.navielektro.fi/radar-antennas.html"
     },
     {
