@@ -999,7 +999,67 @@ window.NaviData = (function () {
       slug: "radar-transceivers",
       title: "Radar Transceivers",
       category: "Sensors",
-      summary: "Part of Navielektro's Sensors portfolio — a full overview, specifications and documentation will be available here soon.",
+      summary: "Transceiver product range",
+      overviewHeading: "Transceiver product range",
+      overview: [
+        "Navielektro manufactures a range of radar transceivers, all of which are fitted with LNFE (Low Noise Front End) technology. The transceivers have a high dynamic range, which make the radar systems comparable with systems with considerably higher output power. Our antennas and transceivers may be configured with different polarities according to specific customer requirements. Transceivers can be configured for sector blanking, or optimized for sector to sector operation with respect to pulse length, PRF and other parameters."
+      ],
+      highlights: [
+        "Configurable pulse length and pulse repetition frequency (within limits of the transceiver), to maximize the range/resolution for a particular application.",
+        "Configurable pulse length and pulse repetition frequencies per sector, to maximize range/resolution for a certain direction.",
+        "Programmable blank sectors, to minimize magnetron wear and scatter echoes from uninteresting directions.",
+        "Versatile remote control possibilities using an Ethernet (TCP/IP) interface.",
+        "Remote diagnostic features"
+      ],
+      operationalUse: [
+        {
+          heading: "X-Band, DF 225 Transceiver",
+          text: "The DF 225 Transceiver is ideal for use in shore-based traffic monitoring and surveillance systems. The transceiver has proven to be an ideal solution for gap filling purposes or medium range surveillance. Navielektro's integrated DF 225 dual radar transceiver is designed to meet high reliability requirements even in very demanding surveillance circumstances.",
+          image: {
+            src: "assets/products/radar-transceivers/radar-transceivers-df225.webp",
+            alt: "Interior of the DF 225 dual radar transceiver cabinet showing two transceiver units wired to a central diplexer",
+            width: 450,
+            height: 450
+          },
+          variant: "split",
+          imagePosition: "left",
+          theme: "tinted"
+        },
+        {
+          text: "The DF 225 X consists of two similar transceivers transmitting on two different frequencies, connected to a very low loss diplexer that feeds the antenna. In order to accomplish a fail safe radar, the two transceivers are working independently, meaning a malfunction in one transceiver will not affect the other. The design of the DF 225 enables the transceiver to be used in several modes.",
+          theme: "tinted"
+        },
+        {
+          heading: "X-Band, SF 125 Transceiver",
+          text: "Navielektro's SF 125 radar transceiver is an efficient piece of equipment, designed to meet high reliability even in very demanding surveillance circumstances.",
+          image: {
+            src: "assets/products/radar-transceivers/radar-transceivers-sf125.webp",
+            alt: "Interior of the SF 125 radar transceiver cabinet showing the transceiver unit and its wiring",
+            width: 450,
+            height: 450
+          },
+          variant: "split",
+          imagePosition: "left",
+          theme: "tinted"
+        },
+        {
+          text: "The SF 125 Transceiver is ideal for use in shore-based traffic monitoring and surveillance systems. The transceiver has proven to be an ideal solution for gap filling purposes and for medium range surveillance.",
+          theme: "tinted"
+        },
+        {
+          text: "The radar transceivers can be constructed in several variations:",
+          theme: "dark"
+        }
+      ],
+      typicalApplicationsHeading: "Variations",
+      typicalApplicationsTheme: "dark",
+      typicalApplications: [
+        "Single S-band transceiver",
+        "Single X-band transceiver",
+        "Dual S-band, with hot standby",
+        "Dual X-band, with hot standby",
+        "Frequency Diversity X Band Transceiver"
+      ],
       sourceUrl: "https://www.navielektro.fi/radar-transceivers.html"
     },
     {
