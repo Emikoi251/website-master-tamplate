@@ -1186,7 +1186,45 @@ window.NaviData = (function () {
       slug: "grib",
       title: "Weather Forecast",
       category: "Weather",
-      summary: "Part of Navielektro's Weather portfolio — a full overview, specifications and documentation will be available here soon.",
+      summary: "Weather Forecasts - part of your information flow",
+      overviewHeading: "Weather Forecasts - part of your information flow",
+      overview: [
+        "Navielektro offers GRIB Weather Information functionality, which provides the operator with both historical and forecast weather and environmental information including wind barb, air pressure and rain data. GRIB is a data format commonly used in meteorology to communicate and store historical and forecast weather information as computed by a weather model. Navielektro's solution is capable of receiving, managing and presenting the GRIB data on the TDF platform. Weather is completely integrated as part of the situation picture, and weather conditions can be predicted and simulated for the next 8-12 hours.",
+        "Traditionally, the information provided by GRIB models has only been available in separate subsystems and displays, making it difficult for the operator to fully utilize the available information. Navielektro's solution presents the data as an integrated part of the chart, so that weather data automatically correlates with other situational awareness information.",
+        "The system is verifiably compliant with various meteorological actors, including NOAA, the Finnish Meteorological Institute and Foreca. The GRIB functionality implements the WMO GRIB standard and virtually any GRIB compliant data source may be utilized as a data-source with no or minor modifications."
+      ],
+      operationalUse: [
+        {
+          heading: "Customize your view",
+          text: "GRIB data can be viewed on top of the chart in the form of layers. Users can quickly hide any weather layers that are not of interest to them.",
+          image: {
+            src: "assets/products/grib/grib-customize-view.webp",
+            alt: "Chart view with GRIB weather layers overlaid, showing a layer selection panel and colored precipitation/wind data on the map",
+            width: 570,
+            height: 321
+          },
+          variant: "split",
+          imagePosition: "left",
+          theme: "tinted"
+        },
+        {
+          text: "The way weather data is presented is completely customizable. Simply select the data you want to show, and how you want it to be displayed.",
+          theme: "tinted"
+        },
+        {
+          heading: "Estimate weather impact",
+          text: "Our weather system uses collected GRIB data to determine the impact weather conditions will have on different operations. The impact is displayed through color codes both in a table and on the chart. The Weather Impact functionality is extremely useful when planning operations such as search and rescue and anti-surface warfare, as it helps operators understand how weather conditions will affect said operations. The data provided by the Weather Impact table will also work in simulations, making it possible to predict the optimal time for conducting sensitive operations.",
+          image: {
+            src: "assets/products/grib/grib-weather-impact.webp",
+            alt: "Chart with color-coded weather impact zones and a Weather Impact table showing operational risk levels",
+            width: 600,
+            height: 291
+          },
+          variant: "split",
+          imagePosition: "right",
+          theme: "tinted"
+        }
+      ],
       sourceUrl: "https://www.navielektro.fi/grib.html"
     },
     {
