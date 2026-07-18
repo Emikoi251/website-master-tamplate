@@ -1229,9 +1229,39 @@ window.NaviData = (function () {
     },
     {
       slug: "video",
-      title: "CCTV/Video",
-      category: "Modules",
-      summary: "Part of Navielektro's Modules portfolio — a full overview, specifications and documentation will be available here soon.",
+      title: "CCTV / Optronics",
+      category: "Sensors",
+      summary: "CCTV for demanding surveillance operations",
+      overviewHeading: "CCTV for demanding surveillance operations",
+      overview: [
+        "Navielektro manufactures its own range of cost-effective CCTV (Closed Circuit Television) equipment, which may optionally be equipped with IR and IR illumination capabilities. The SVGA and megapixel cameras provide wide dynamic range, and day and night functionality for superb image quality in daylight and dark conditions. The actual CCTV sensor is connected to the CSP (Camera Sensor Processor). The CSP is responsible for managing and controlling the CCTV unit. Commands sent by the operators are transmitted to the CSP over the IP-network."
+      ],
+      operationalUse: [
+        {
+          text: "Our system also allows integration of laser goniometers or range finders, in order to facilitate targeting operations.",
+          image: {
+            src: "assets/products/video/video-operator-console.webp",
+            alt: "Operator monitoring CCTV and radar displays at a console, with a wall-mounted situational awareness screen showing a vessel and tracks",
+            width: 450,
+            height: 450
+          },
+          variant: "split",
+          imagePosition: "right"
+        },
+        {
+          heading: "General",
+          text: "The CCTV image from the sensors may be transmitted either using analog or digital IP-based video compression techniques. The CCTV image may be presented to the operators either using a separate CCTV display with video matrix capability or as an embedded image in the TDF operator working position. The CCTV image may optionally be stored using Navielektro's integrated logging system.",
+          image: {
+            src: "assets/products/video/video-thermal-image.webp",
+            alt: "Thermal/infrared CCTV image of a vessel and dock structure at night",
+            width: 430,
+            height: 430
+          },
+          variant: "split",
+          imagePosition: "left",
+          theme: "tinted"
+        }
+      ],
       sourceUrl: "https://www.navielektro.fi/video.html"
     },
     {
