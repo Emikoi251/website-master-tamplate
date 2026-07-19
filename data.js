@@ -1288,9 +1288,58 @@ window.NaviData = (function () {
     },
     {
       slug: "voice-tactical",
-      title: "VOICE Tactical",
+      title: "Navi Tactical Call",
       category: "Voice Communication",
-      summary: "Part of Navielektro's Voice Communication portfolio — a full overview, specifications and documentation will be available here soon.",
+      summary: "Voice integration and functional services",
+      overviewHeading: "Voice integration and functional services",
+      overview: [
+        "When conducting command and control operations, real-time reliable voice communication is a must-have. Typical situational awareness systems collect a myriad of data, but this data also needs to be communicated to tactical units on the ground in a timely and efficient fashion. For this reason, Navielektro has developed a set of tools for quickly and efficiently communicating the information collected using both message based communication and voice communication. The vision of Navielektro has been to combine key functionality needed for conducting command and control operations in an integrated operating environment: a Tactical Display Framework."
+      ],
+      highlights: [
+        "Enables stand-alone integrated voice communication and integration with Cisco CME (Call-Manager Express), as well as widely used open-source software IP PBX solutions",
+        "The solution may also deploy its own integrated software IP PBX",
+        "Enables stand-alone integrated voice communication directly from the user interface in the form of intercom or speech groups, without the need for a PBX (IP telephone exchange)",
+        "Does not require a hardware phone, as calls to the telephone network may be conducted using VoIP",
+        "Provides an end-to-end voice system with zero configuration for the user",
+        "Includes PTT (Push-to-talk) based audio conferencing, facilitating speech-group or audio conferencing in a tactical environment",
+        "Provides recording and replay of voice information conducted within the TDF solution"
+      ],
+      operationalUse: [
+        {
+          heading: "Military grade communication",
+          text: "The Navielektro TDF includes seamless integrated voice communication, which allows users to conduct voice related operations through one, common user interface. Typically, communication has been provided through cumbersome legacy systems that require special hardware to accomplish communications. Using our tactical voice communication solution, any kind of communication – both radio and telephony – may be conducted within one, integrated, standard compliant solution. Navi Tactical Call may be deployed as part of Navielektro's TDF platform, providing voice connectivity using the same hardware that is required to run C2 solutions. This provides lower total ownership costs with faster deployment.",
+          theme: "tinted"
+        },
+        {
+          heading: "Click to call",
+          text: "Navi Tactical Call provides services such as radio, telephony, speech groups and audio conferencing, all of which can be accessed from the same workstation, using the same user interface.",
+          image: {
+            src: "assets/products/voice-tactical/voice-tactical-click-to-call.webp",
+            alt: "Tactical map interface with radio control and PTT panel overlays, showing tracked units and speech-group controls",
+            width: 500,
+            height: 267
+          },
+          variant: "split",
+          imagePosition: "left"
+        },
+        {
+          heading: "NETRI",
+          text: "Navi Tactical Call can utilize the Navielektro Tactical Radio Interface (NETRI) hardware device in order to provide connectivity to virtually any tactical radio by VoIP enabling the radio system in question.",
+          image: {
+            src: "assets/products/voice-tactical/voice-tactical-netri.webp",
+            alt: "NETRI tactical radio interface hardware device with antenna, connectors and dual speaker housings",
+            width: 450,
+            height: 450
+          },
+          variant: "split",
+          imagePosition: "right",
+          theme: "tinted"
+        },
+        {
+          text: "NETRI is a versatile device that enables voice and data functionality. NETRI may be connected to virtually any modern tactical radio or radio transceiver and may be powered through the radio with no external batteries required. In addition to radio, NETRI also provides input capability for laser goniometers or range finders, making NETRI a versatile part of target designation solutions.",
+          theme: "tinted"
+        }
+      ],
       sourceUrl: "https://www.navielektro.fi/voice-tactical.html"
     },
     {
