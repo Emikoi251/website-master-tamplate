@@ -1439,7 +1439,54 @@ window.NaviData = (function () {
       slug: "gmdss",
       title: "GMDSS",
       category: "Modules",
-      summary: "Part of Navielektro's Modules portfolio — a full overview, specifications and documentation will be available here soon.",
+      summary: "GMDSS",
+      overviewHeading: "GMDSS",
+      overview: [
+        "All maritime surveillance systems aim to recognize emergencies or threats before they occur, but not all incidents can be prevented. The International Maritime Organization (IMO) has developed an international maritime safety system called the Global Maritime Distress and Safety System GMDSS, which aims to guarantee that complying vessels will be able to communicate with an onshore station in case of distress – any time, from any location. Navielektro's software can be used to create a comprehensive Global Maritime Distress and Safety System (GMDSS). This type of system ensures rapid help during distress incidents, making it possible to quickly and efficiently rescue distressed ships, boats and aircrafts.",
+        "Navielektro has delivered reliable and comprehensive communication systems to national agencies in Finland and around the world. Our GMDSS solution is a fully integrated, modular and flexible radio communication system for shore based maritime operations. The scalable nature of our systems allow our deliveries to range from single operator systems to comprehensive national GMDSS systems, capable of handling hundreds of simultaneous base stations and radio channels within the same system (including Air Search and Rescue)."
+      ],
+      highlights: [
+        "VHF DSC, VHF (Voice) RT, MF DSC, MF Voice, HF DCS and HF Voice",
+        "COSPAS-SARSAT EPIRB integration",
+        "Full DSC integration",
+        "Fully integrated GMDSS and VTS or Coast Guard C2",
+        "Software control - saving space and reducing power consumption",
+        "IMO compliant",
+        "Support for Automated Coastal Radio Voice Broadcasting",
+        "Radio over IP (RoIP) Audio Switch and RoIP Gateway for all marine frequencies"
+      ],
+      operationalUse: [
+        {
+          heading: "Integration",
+          text: "Our GMDSS solution is a fully integrated, modular and flexible radio communication system for shore based maritime operations. The scalable nature of our systems allow our deliveries to range from single operator systems to comprehensive national GMDSS systems, capable of handling hundreds of simultaneous base stations and radio channels within the same system (including Air Search and Rescue).",
+          image: {
+            src: "assets/products/gmdss/gmdss-integration.webp",
+            alt: "Chart view with a DSC call panel open, showing tracked vessels and a distress call list",
+            width: 550,
+            height: 273
+          },
+          variant: "split",
+          imagePosition: "left",
+          theme: "tinted"
+        },
+        {
+          text: "The operations desk is also completely integrated, enabling operators to perform all tasks from a single point. Operations of all sizes can be forwarded from a single station or site to extensive multi-site and multi-station systems.",
+          theme: "tinted"
+        },
+        {
+          heading: "Details",
+          text: "Our GMDSS solution is made up of a client server architecture and IP technology, providing flexible voice and data services on VHF, HF and MF. Full DSC integration allows GMDSS related radio calls to be visualized as part of the RMP (Recognized Maritime Picture) or TaSP (Tactical Situation Picture), and the system also supports Radio over IP and RSSI. The system is fully redundant using dual processing cores.",
+          image: {
+            src: "assets/products/gmdss/gmdss-details.webp",
+            alt: "Search and rescue helicopter flying over a naval vessel at sea",
+            width: 450,
+            height: 450
+          },
+          variant: "split",
+          imagePosition: "right",
+          theme: "tinted"
+        }
+      ],
       sourceUrl: "https://www.navielektro.fi/gmdss.html"
     },
     {
