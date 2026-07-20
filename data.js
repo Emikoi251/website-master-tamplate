@@ -844,6 +844,94 @@ window.NaviData = (function () {
       sourceUrl: "https://www.navielektro.fi/infra-protection.html"
     },
     {
+      slug: "pki",
+      title: "PKI (Public Key Infrastructure)",
+      category: "Security",
+      summary: "Mission-ready, military-grade CA solutions worth your trust.",
+      image: {
+        src: "assets/products/pki/pki-hero.webp",
+        alt: "Abstract circuit-board pattern converging into a padlock shape, symbolizing digital trust",
+        width: 1600,
+        height: 759
+      },
+      overviewHeading: "Mission-ready, military-grade CA solutions worth your trust.",
+      overview: [
+        "Most PKI solutions today are fairly clumsy, and are intended to be operated by professional personnel primarily within a data center environment. As the cyber threat level in today's digital society is constantly increasing, there is a growing need to establish digital trust without the complexity of a traditional PKI - especially in fields of operation where PKI systems have traditionally not been used, such as IoT, military, security and safety-related systems.",
+        "In a military environment, the use of PKI introduces additional demands, as the system needs to be able to operate autonomously, without all CA functionality located in a data center. Navielektro's PKI has been designed and developed to operate in a deployed military environment, where each C2 system runs its own integrated, embedded Certificate Authority - creating a network of trusts. Navielektro's PKI provides a distributed chain of trust in an easy and cost-effective fashion that is not easily matched.",
+        "Establishing digital trust is crucial for deploying federated systems where allied nations, agencies and companies operate together and exchange sensitive, critical information. Navielektro's PKI avoids the pitfalls of traditional, legacy PKI, and allows a complete end-to-end deployment of PKI, identity management and - if needed - integrated IAM. The system may be provided as an out-of-the-box, ready-made solution or as a highly customizable one, available as a secure, accreditation-ready package that expedites deployment."
+      ],
+      highlights: [
+        "Provides a distributed chain of trust across every deployed C2 system",
+        "Deployable turnkey in a data center, or as an embedded CA device in the field",
+        "Embedded deployed CA devices available as SDIP 29/1 TEMPEST A compliant systems",
+        "Feature set compliant with FMN PKI iTIF requirements",
+        "Developed and manufactured in Finland to security-by-design principles",
+        "Ready for future Data-Centric Security requirements, including STANAG 4774 and 4778",
+        "Integrated i-CA, HSM, user management, directory (LDAP), SCEP client and card production system",
+        "CRL distribution management enables off-line operation of the CA",
+        "Full smart-card lifecycle management: issue, print, change PIN, unblock, invalidate, renew, replace",
+        "Supports enrollment and authentication of end-user hardware, including VoIP phones"
+      ],
+      operationalUse: [
+        {
+          heading: "How Navielektro's PKI works",
+          text: "Navielektro's PKI allows you to create, store and distribute digital certificates in a flexible manner, and enables encryption and validation of data and users through digital signatures. At its center is the i-CA (integrated Certificate Authority), the root of trust that authenticates user identity and also serves as a registration authority and certificate database. The i-CA coordinates an HSM (Hardware Security Module) that physically safeguards and manages digital keys, a user management and directory (LDAP) layer, a SCEP client, and an integrated card production system.",
+          image: {
+            src: "assets/products/pki/pki-elements-diagram.webp",
+            alt: "Diagram of the i-CA at the center of Navielektro's PKI, connected to HSM, User Management, Directory (LDAP), SCEP Client and Card Production System",
+            width: 1000,
+            height: 1078
+          },
+          variant: "split",
+          imagePosition: "right",
+          theme: "tinted"
+        },
+        {
+          heading: "Integrated user manager and certificate authority",
+          text: "The system includes a UI for maintenance and configuration, with secure and transparent user authentication management that simplifies the experience for both administrators and end users. A CRL distribution management system enables the CA to operate off-line, and the platform provides integrated support for enrolling and authenticating end-user hardware, including VoIP phones.",
+          image: {
+            src: "assets/products/pki/pki-user-manager.webp",
+            alt: "Screenshot of the User Manager application, listing users and their assigned operational role groups",
+            width: 826,
+            height: 417
+          },
+          variant: "split",
+          imagePosition: "left"
+        },
+        {
+          heading: "Deployment options",
+          text: "CA - Data Center is designed for large-scale, organisation-wide or national data centers, such as a Defence HQ, Defence Branch HQ or major regional data center. Both the CA and its Hardware Security Modules may be deployed redundantly. The system is based on secured COTS server components, a hardened OS, Ethernet switches, firewalls and Enterprise-level redundant HSMs, and may be provided turn-key - fulfilling NATO CIS 322/0048 Security Requirements with supporting security accreditation information, as well as FMN/NATO iTIF requirements for both deployed and static PKI.",
+          theme: "dark"
+        },
+        {
+          text: "CA - Deployed is designed for operations centers with constrained SWaP-C (Size, Weight, Power and Cooling), such as platforms or brigades (BDEs). It contains two built-in, compartmentalized CPUs - one manages the CA interfaces, the other key management and processing - in a small-footprint, secured 1U appliance paired with either an Enterprise-grade separate HSM or a tactical HSM. CA - Deployed is compliant with applicable NATO CIS requirements and is SDIP 27 TEMPEST A compliant, running a secured, immutable, field-upgradeable OS.",
+          theme: "dark"
+        },
+        {
+          text: "CA - Compact is designed for severely constrained SWaP-C environments - the system may even be run from car batteries. It is intended for forward operating bases, vehicles and military platforms, deployable in 1/2U, or 1U together with an HSM. Like CA - Deployed, it is compliant with applicable NATO CIS requirements and is SDIP 27 TEMPEST A compliant, with the same secured, immutable, field-upgradeable OS.",
+          theme: "dark"
+        },
+        {
+          heading: "Smart cards",
+          text: "Navielektro's PKI extends to identity management through smart cards. Cards are printed with the user's ID and photo for visual identification, and the platform provides full card lifecycle management - covering PIN changes, unblocking, invalidating, renewing and replacing cards as needed.",
+          image: {
+            src: "assets/products/pki/pki-smart-card.webp",
+            alt: "Hand holding a military smart identification card showing a chip, barcode and printed ID details",
+            width: 1095,
+            height: 864
+          },
+          variant: "split",
+          imagePosition: "right",
+          theme: "tinted"
+        },
+        {
+          heading: "Specifications",
+          text: "Enrollment, publishing and management are supported through web-form-based PKCS#10 certification requests, SCEP, LDAP, HTTP and smartcard enrollment/encoding, with optional embedded or external IAM integration. Supported formats include PKCS#1, #6, #7, #8, #9, #10 and #12, the X.509v3 certificate profile, the X.509v2 CRL format, and Java Keystore. HSMs interface via the PKCS#11 crypto API, and are compliant with Thales Luna and Engage Black Tactical HSM. Security is provided through TLS, with support for ECC (prime256v1, secp384r1, secp521r1) and RSA public-key algorithms, AES/DES/RC2/RC4 symmetric algorithms, and the SHA-1 and SHA-2 (SHA-224/256/384/512) hash algorithm families.",
+          theme: "tinted"
+        }
+      ]
+    },
+    {
       slug: "enguard",
       title: "enGuard",
       category: "Security",
