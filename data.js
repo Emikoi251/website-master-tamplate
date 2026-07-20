@@ -466,6 +466,7 @@ window.NaviData = (function () {
       slug: "trafficaware",
       title: "TrafficAware",
       category: "Systems",
+      status: "archived",
       summary: "Intelligent solutions for traffic control.",
       image: {
         src: "assets/products/trafficaware/trafficaware-hero.webp",
