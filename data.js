@@ -1566,7 +1566,76 @@ window.NaviData = (function () {
       slug: "mmhs",
       title: "Military Message Handling",
       category: "Modules",
-      summary: "Part of Navielektro's Modules portfolio — a full overview, specifications and documentation will be available here soon.",
+      summary: "Exchange information securely and efficiently",
+      overviewHeading: "Exchange information securely and efficiently",
+      overview: [
+        "In today's demanding operational environment, the need to collaborate in real-time is constantly increasing. Human to human interaction is still at the forefront when incidents occur, but when there are multiple actors using different systems within one domain, the exchange of information becomes difficult. Navielektro offers a solution in the form of OnCommand, our Military Message Handling System. Through OnCommand, Navielektro provides an environment where actors can exchange information with each other in a safe and secure way, be it in the form of e-mail or instant messages. Our communication tools are integrated with the geospatial view, which translate to direct presentation of any position or information that is related to an object on the chart.",
+        "Navielektro's solution enables exchange of position, static and voyage related data, and also contains a message handling system that enables authorized users to receive and transmit various messages."
+      ],
+      highlights: [
+        "AIS SRM",
+        "SMS",
+        "EMAIL/SMTP & IMAP",
+        "TETRA/SDS",
+        "ADATP3"
+      ],
+      operationalUse: [
+        {
+          heading: "Military Message Handling - What is that?",
+          text: "Standard corporate messaging solutions don't fill the requirements of military message handling, as information is not sent between named individuals but between organizations and roles on the basis of tasks, ranks and position. Military messaging solutions also need to be secure, ensuring that information does not fall into the wrong hands. OnCommand addresses the dedicated and very specific needs of message handling by security and military organizations. The system has been developed for joint and multi-agency operations in close co-operation with the Finnish Navy, Finnish Armed Forces and other customers in the safety and security domain. As a result, the same solution may used all the way from the lowest tactical level to strategic command level.",
+          theme: "tinted"
+        },
+        {
+          text: "OnCommand enables quick and efficient communication between different parties and is a versatile messaging toolset. Our MMHS offers both e-mail and instant messaging based on allied communication procedures. The system supports a wide range of military structured messages, such as ADATP3, and can be used for mission planning as well as tactical-, targeting- and information exchange activities. The modular system architecture ensures low costs, whilst maintaining dependable and secure information exchange.",
+          theme: "tinted"
+        },
+        {
+          heading: "Role-based messages",
+          text: "OnCommand comes with full support for military operating procedures, allowing information to be allocated and delivered not only to individual users, but also based on tasks, ranks and positions. Messages may be sent using the operational role of the user, or as private messages. In order to ensure information security, messages can be encrypted either using the private key of the individual user, or – in the case of role-based communication – using the current working role of the user. The same messaging solution may thus be used both for private communication and communication between organizations or departments. Users may simultaneously operate many different roles, which is often the case for watch-keeping officers regardless of the operative domain."
+        },
+        {
+          heading: "Messaging",
+          text: "Navielektro's message handling solution enables users to receive and transmit various messages through a user interface that is similar to most mail clients – and therefore familiar and easy to use. Our messaging component enables the operator to send detailed messages to various operational roles as well as operators in other centers or mobile platforms. Because messaging is integrated into the user interface, users can transmit and receive messages directly from the workstation.",
+          image: {
+            src: "assets/products/mmhs/mmhs-messaging.webp",
+            alt: "Chart view with a messaging inbox panel open, showing a list of received and sent messages",
+            width: 600,
+            height: 293
+          },
+          variant: "split",
+          imagePosition: "left",
+          theme: "tinted"
+        },
+        {
+          heading: "Send tactical drawings – in a matter of seconds",
+          text: "OnCommand supports exporting and importing of Nato Vector Graphics (NVG) overlays as well as Google KML (KeyHole Markup Language), allowing users to share tactical drawings with each other. Tactical drawings are displayed as chart overlays, so users can instantly incorporate drawings and plans as part of the operational picture.",
+          image: {
+            src: "assets/products/mmhs/mmhs-tactical-drawings.webp",
+            alt: "Chart with yellow tactical sector overlays drawn near tracked units, alongside a target location and messaging panel",
+            width: 600,
+            height: 320
+          },
+          variant: "split",
+          imagePosition: "right"
+        },
+        {
+          heading: "Communicate faster through instant messaging",
+          text: "When communication needs are urgent, traditional e-mail may not be enough. For such situations, Navielektro offers an instant messaging tool that allows users on different workstations, operations centers or mobile units to send messages to each other – quickly and efficiently. Instant messages can be sent from user to user, or to instant messaging groups in a chat room. Groups can either be pre-defined, or created in an instant.",
+          image: {
+            src: "assets/products/mmhs/mmhs-instant-messaging.webp",
+            alt: "Chart view with an instant messaging conversation window open over tracked vessel positions",
+            width: 600,
+            height: 313
+          },
+          variant: "split",
+          imagePosition: "left",
+          theme: "tinted"
+        },
+        {
+          text: "Because our instant messaging solution is capable of functioning in a distributed fashion, parties can communicate with each other regardless of the physical communication architecture. Navielektro's instant messaging toolset is based on the industry standard XMPP instant messaging protocol and can be deployed using various different services.",
+          theme: "tinted"
+        }
+      ],
       sourceUrl: "https://www.navielektro.fi/mmhs.html"
     },
     {
