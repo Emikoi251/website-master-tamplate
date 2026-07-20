@@ -1642,7 +1642,27 @@ window.NaviData = (function () {
       slug: "radar-processing",
       title: "Radar Processing",
       category: "Modules",
-      summary: "Part of Navielektro's Modules portfolio — a full overview, specifications and documentation will be available here soon.",
+      summary: "Full control of radar processing",
+      overviewHeading: "Full control of radar processing",
+      overview: [
+        "Navielektro's roots lie in radar manufacturing, and as a result we have accumulated expert knowledge on radar data processing and integration. Unlike our competitors, we are involved in radar solutions all the way from the antenna to the individual pixel image. In other words, we provide a one-stop-shop for end-to-end radar solutions – while stile providing integration of third-party systems and sensors.",
+        "We offer a solution that makes it possible to get accurate radar video in a multi-radar system. This is done by way of a radar mosaic that processes and presents data from any number of radar sensors. Our solution allows the user to decide exactly how the radar image should be displayed, including everything from which sensor's image should be visible to what geographical area the image should be produced from. Plot information from all connected radar sensors can be displayed simultaneously on any system workstation, ensuring a unified situation picture for all operators."
+      ],
+      operationalUse: [
+        {
+          heading: "Adjustments – just a click away",
+          text: "Radar controls are an integrated part of the TDF user interface, which means radar settings can be adjusted without ever leaving the situation picture. Radar sensors can be controlled directly from the chart view, by simply selecting a radar on chart and right clicking.",
+          image: {
+            src: "assets/products/radar-processing/radar-processing-adjustments.webp",
+            alt: "Chart view with radar echoes and tracked vessels, with a Radars settings dialog open for adjusting transmitter and pulse settings",
+            width: 600,
+            height: 296
+          },
+          variant: "split",
+          imagePosition: "left",
+          theme: "tinted"
+        }
+      ],
       sourceUrl: "https://www.navielektro.fi/radar-processing.html"
     },
     {
