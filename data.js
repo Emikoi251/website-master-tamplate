@@ -14,6 +14,12 @@ window.NaviData = (function () {
       title: "MARITAS",
       category: "Systems",
       summary: "Answering your every traffic management need.",
+      featuredTileImage: {
+        src: "assets/products/maritas/maritas-overview-thumbnail.webp",
+        alt: "Aerial view of a busy port with container ships, cranes and harbor vessels",
+        width: 480,
+        height: 258
+      },
       image: {
         src: "assets/products/maritas/maritas-hero.webp",
         alt: "Large cargo vessel at sea, representing the traffic MARITAS monitors and manages",
@@ -149,6 +155,12 @@ window.NaviData = (function () {
       title: "MATIS C2",
       category: "Systems",
       summary: "MATIS C2 is Navielektro's Maritime Awareness Tactical Information System for command and control - an integrated, federated platform that brings situational awareness, surveillance, messaging, planning and voice applications together in one system for naval, joint, air and army operations.",
+      featuredTileImage: {
+        src: "assets/products/matis/matis-overview-thumbnail.webp",
+        alt: "Naval patrol vessel near a rocky, forested coastline",
+        width: 480,
+        height: 258
+      },
       image: {
         src: "assets/products/matis/matis-hero.webp",
         alt: "Operator standing before a wall of chart displays in a MATIS C2 operations center",
@@ -224,6 +236,12 @@ window.NaviData = (function () {
       title: "JADIS",
       category: "Systems",
       summary: "JADIS brings situational awareness, command and control, secure communications and interoperability together in one NATO FMN-compatible platform for coalition and multi-domain operations.",
+      featuredTileImage: {
+        src: "assets/products/jadis/jadis-overview-thumbnail.webp",
+        alt: "Silhouette of a soldier carrying a rifle and pack against a dramatic stormy sky",
+        width: 707,
+        height: 1000
+      },
       image: {
         src: "assets/products/jadis/jadis-hero.webp",
         alt: "Silhouette of a soldier with tactical equipment against a dramatic sky",

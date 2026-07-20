@@ -236,21 +236,41 @@
     </section>
 
     <section class="page" id="products" data-page="products">
-      <div class="subpage-hero subpage-hero--products">
+      <div class="subpage-hero subpage-hero--products subpage-hero--compact">
         <div>
           <p class="eyebrow">Products</p>
           <h1>Product portfolio.</h1>
           <p>Explore Navielektro systems, Tactical Display Framework products, sensors, communication tools, weather products and operational modules.</p>
         </div>
-        <div class="page-marker page-marker--media" aria-hidden="true">
-          <div class="visual-placeholder visual-placeholder--page"><span>Product Hero Image / 3D Render</span></div>
-          <span>30</span>
-          <small>products across 7 categories</small>
-        </div>
       </div>
-      <section class="section">
-        <div class="filter-bar" aria-label="Product filters" data-product-filters></div>
-        <div class="card-grid card-grid--three" data-products-grid></div>
+      <section class="section products-section">
+        <div class="products-toolbar">
+          <div class="products-search">
+            <svg class="products-search__icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.4-3.4"/></svg>
+            <label for="product-search" class="visually-hidden">Search products</label>
+            <input type="search" id="product-search" placeholder="Search products" autocomplete="off" data-product-search>
+          </div>
+          <div class="filter-bar" role="group" aria-label="Filter products by category" data-product-filters></div>
+        </div>
+
+        <!-- Sole announcer for search/filter state changes. Deliberately
+             separate from the visible no-results message below so a change
+             is never announced twice. Never contains a result count. -->
+        <p class="visually-hidden" data-products-status aria-live="polite" aria-atomic="true"></p>
+
+        <section class="products-featured" data-products-featured aria-labelledby="products-featured-heading">
+          <h2 id="products-featured-heading" class="products-section-title">Featured systems</h2>
+          <div class="featured-grid" data-products-featured-grid></div>
+        </section>
+
+        <section aria-labelledby="products-directory-heading">
+          <h2 id="products-directory-heading" class="products-section-title">All products</h2>
+          <div class="product-directory" data-products-directory></div>
+          <p class="products-empty" data-products-empty hidden>
+            No products match your current search and filters.
+            <button type="button" class="text-link" data-products-reset>Reset search and filters</button>
+          </p>
+        </section>
       </section>
     </section>
 

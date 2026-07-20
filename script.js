@@ -7,6 +7,11 @@ const config = window.SiteConfig || {};
 // URL) but are excluded from every public-facing listing, menu and search index.
 const publicProducts = products.filter((item) => item.status !== "archived");
 
+// Products Overview page: fixed curated highlight set (see each product's
+// overviewImage in data.js), shown above the directory in the default,
+// unfiltered view only.
+const FEATURED_PRODUCT_SLUGS = ["maritas", "matis", "jadis"];
+
 // A section is enabled unless config.sections explicitly turns it off.
 const sectionFlags = config.sections || {};
 const isEnabled = (name) => sectionFlags[name] !== false;
@@ -183,6 +188,24 @@ function el(tag, attrs = {}, children = []) {
   return node;
 }
 
+// Same idea as el(), but for properly namespaced SVG elements (needed for the
+// Products Overview's decorative arrow icon, built in script rather than
+// duplicated as static markup since it's reused across every tile/row).
+function svgEl(tag, attrs = {}, children = []) {
+  const node = document.createElementNS("http://www.w3.org/2000/svg", tag);
+  for (const [key, value] of Object.entries(attrs)) node.setAttribute(key, value);
+  for (const child of children) node.append(child);
+  return node;
+}
+
+function arrowIcon() {
+  return svgEl(
+    "svg",
+    { viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", "stroke-width": "2", "stroke-linecap": "round", "stroke-linejoin": "round", "aria-hidden": "true" },
+    [svgEl("path", { d: "M5 12h14M13 6l6 6-6 6" })]
+  );
+}
+
 function createCard(item, type) {
   const href = type === "product" ? `#product/${item.slug}` : type === "service" ? `#service/${item.slug}` : "#references";
   const link = type === "reference" ? "Read more" : "View details";
@@ -248,8 +271,8 @@ function renderStaticLists() {
   fill("[data-services-grid]", services.map((item) => createCard(item, "service")));
   fill("[data-industries-home]", industriesHome.map((item, i) => createIndustry(item, i, "thumb")));
   fill("[data-industries]", industries.map((item, i) => createIndustry(item, i, "card")));
-  renderProducts("All");
   renderFilters();
+  renderFeatured();
   renderProductMenu();
 }
 
@@ -275,17 +298,169 @@ function renderProductMenu() {
   ));
 }
 
+// Chip buttons are built exactly once here and never rebuilt afterwards —
+// setProductCategory() only toggles their class/aria-pressed state, so a
+// click never destroys the button the user just focused/activated.
 function renderFilters() {
-  const categories = ["All", ...new Set(publicProducts.map((item) => item.category))];
-  const buttons = categories.map((category) =>
-    el("button", { type: "button", class: category === "All" ? "is-active" : null, "data-filter": category }, [category])
-  );
+  const activeCategories = new Set(publicProducts.map((item) => item.category));
+  const categories = productCategories.filter((entry) => activeCategories.has(entry.key));
+
+  const buttons = [
+    el("button", { type: "button", class: "is-active", "aria-pressed": "true", "data-filter": "All" }, ["All"]),
+    ...categories.map((entry) =>
+      el("button", { type: "button", "aria-pressed": "false", "data-filter": entry.key }, [entry.label])
+    )
+  ];
   document.querySelector("[data-product-filters]").replaceChildren(...buttons);
 }
 
-function renderProducts(category) {
-  const filtered = category === "All" ? publicProducts : publicProducts.filter((item) => item.category === category);
-  document.querySelector("[data-products-grid]").replaceChildren(...filtered.map((item) => createCard(item, "product")));
+// Fixed curated set (FEATURED_PRODUCT_SLUGS), independent of the current
+// search/category state — always the same three tiles when shown at all.
+function renderFeatured() {
+  const items = FEATURED_PRODUCT_SLUGS.map((slug) => publicProducts.find((item) => item.slug === slug)).filter(Boolean);
+  document.querySelector("[data-products-featured-grid]").replaceChildren(...items.map(createFeaturedTile));
+}
+
+function createFeaturedTile(item) {
+  const image = item.featuredTileImage;
+  return el("a", { class: "featured-tile", href: `#product/${item.slug}`, "aria-label": `${item.title} — ${item.summary}` }, [
+    el("img", { src: image.src, alt: image.alt, width: image.width, height: image.height, loading: "lazy" }),
+    el("span", { class: "featured-tile__overlay" }),
+    el("span", { class: "featured-tile__content" }, [
+      el("h3", {}, [item.title]),
+      el("p", {}, [item.summary])
+    ]),
+    el("span", { class: "featured-tile__arrow" }, [arrowIcon()])
+  ]);
+}
+
+function createProductRow(item) {
+  return el("a", { class: "product-row", href: `#product/${item.slug}` }, [
+    el("span", { class: "product-row__text" }, [
+      el("span", { class: "product-row__name" }, [item.title]),
+      el("span", { class: "product-row__summary" }, [item.summary])
+    ]),
+    el("span", { class: "product-row__arrow" }, [arrowIcon()])
+  ]);
+}
+
+// Groups in data.js productCategories order (same order the nav mega-menu
+// uses), skipping any category with no matches in the current list.
+function groupProductsByCategory(list) {
+  return productCategories
+    .map((entry) => ({ label: entry.label, items: list.filter((item) => item.category === entry.key) }))
+    .filter((group) => group.items.length > 0);
+}
+
+// Group headings are only rendered when more than one category is present —
+// with a single active category (or a search narrowed to one), the group
+// label would just repeat the already-visible filter chip.
+function renderProductDirectory(list) {
+  const directory = document.querySelector("[data-products-directory]");
+  const empty = document.querySelector("[data-products-empty]");
+
+  if (!list.length) {
+    directory.replaceChildren();
+    empty.hidden = false;
+    return;
+  }
+
+  empty.hidden = true;
+  const groups = groupProductsByCategory(list);
+  const showGroupTitles = groups.length > 1;
+
+  directory.replaceChildren(...groups.map((group) =>
+    el("div", { class: "product-directory__group" }, [
+      showGroupTitles ? el("h3", { class: "product-directory__group-title" }, [group.label]) : null,
+      ...group.items.map((item) => createProductRow(item))
+    ])
+  ));
+}
+
+// Single source of truth for the Products Overview's current search/category
+// state. Category changes go through setProductCategory(); search changes
+// update productViewState.query directly then call this. Neither one resets
+// the other — they compose (AND), matching the toolbar's independent controls.
+const productViewState = { category: "All", query: "" };
+
+function applyProductsView() {
+  const { category, query } = productViewState;
+  const isDefaultView = category === "All" && !query;
+  const featured = document.querySelector("[data-products-featured]");
+  if (featured) featured.hidden = !isDefaultView;
+
+  const term = query.trim().toLowerCase();
+  let filtered = publicProducts.filter((item) => {
+    const matchesCategory = category === "All" || item.category === category;
+    const matchesQuery = !term || `${item.title} ${item.summary}`.toLowerCase().includes(term);
+    return matchesCategory && matchesQuery;
+  });
+
+  // Default view only: MARITAS/MATIS/JADIS are already shown as featured
+  // tiles above, so skip them here to avoid an immediate duplicate row. Any
+  // active search or category filter shows them normally like every other
+  // product — they're never excluded from being found, just from this one
+  // unfiltered listing.
+  if (isDefaultView) {
+    filtered = filtered.filter((item) => !FEATURED_PRODUCT_SLUGS.includes(item.slug));
+  }
+
+  renderProductDirectory(filtered);
+}
+
+let announceTimer = null;
+
+// Announces meaningful, non-numeric search/filter state changes via the
+// visually-hidden polite live region — never a result count. Search-input
+// typing debounces this (so screen readers aren't spammed per keystroke);
+// chip clicks, reset, and route()-driven category changes announce
+// immediately since each is a single discrete action.
+function announceProductsUpdate(debounce) {
+  clearTimeout(announceTimer);
+  const run = () => {
+    const statusEl = document.querySelector("[data-products-status]");
+    const directory = document.querySelector("[data-products-directory]");
+    if (!statusEl || !directory) return;
+
+    const { category, query } = productViewState;
+    const term = query.trim();
+    const hasResults = directory.children.length > 0;
+
+    let message;
+    if (!hasResults) {
+      message = "No products match your current search and filters.";
+    } else if (category !== "All" && term) {
+      message = `Products updated. Category: ${category}. Search: ${term}.`;
+    } else if (category !== "All") {
+      message = `Products updated. Category: ${category}.`;
+    } else if (term) {
+      message = `Products updated for search: ${term}.`;
+    } else {
+      message = "All products shown.";
+    }
+    statusEl.textContent = message;
+  };
+
+  if (debounce) announceTimer = setTimeout(run, 500);
+  else run();
+}
+
+// Syncs chip button state (class + aria-pressed) to `category` without
+// rebuilding them, then re-renders. Falls back to "All" for an unknown/stale
+// category (e.g. a bookmarked URL for a category that no longer exists).
+function setProductCategory(category) {
+  const known = new Set(publicProducts.map((item) => item.category));
+  const resolved = category === "All" || known.has(category) ? category : "All";
+  productViewState.category = resolved;
+
+  document.querySelectorAll("[data-filter]").forEach((button) => {
+    const isActive = button.dataset.filter === resolved;
+    button.classList.toggle("is-active", isActive);
+    button.setAttribute("aria-pressed", String(isActive));
+  });
+
+  applyProductsView();
+  announceProductsUpdate(false);
 }
 
 function showPage(page, detailTitle = "") {
@@ -549,6 +724,14 @@ function route() {
   }
 
   showPage(pages.has(kind) ? kind : "home");
+
+  // #products/{category} deep links and browser Back/Forward both land here
+  // via hashchange; in-page chip clicks update the URL themselves (see the
+  // delegated click handler below) and call setProductCategory() directly,
+  // skipping the showPage() scroll-to-top since the user hasn't left the page.
+  if (kind === "products") {
+    setProductCategory(slug ? decodeURIComponent(slug) : "All");
+  }
 }
 
 function closeMobileMenu() {
@@ -652,9 +835,14 @@ window.addEventListener("hashchange", route);
 document.addEventListener("click", (event) => {
   const filter = event.target.closest("[data-filter]");
   if (filter) {
-    document.querySelectorAll("[data-filter]").forEach((button) => button.classList.remove("is-active"));
-    filter.classList.add("is-active");
-    renderProducts(filter.dataset.filter);
+    const category = filter.dataset.filter;
+    const hash = category === "All" ? "#products" : `#products/${encodeURIComponent(category)}`;
+    // pushState (not location.hash=) so this doesn't fire hashchange/route()
+    // and re-trigger showPage()'s scroll-to-top while the user is filtering
+    // in place; Back/Forward still works since popping this entry does fire
+    // hashchange, per the existing window "hashchange" -> route() listener.
+    if (location.hash !== hash) history.pushState(null, "", hash);
+    setProductCategory(category);
   }
 
   if (event.target.matches(".mobile-menu a")) closeMobileMenu();
@@ -682,6 +870,23 @@ mobileSearch.form.addEventListener("submit", (event) => {
   event.preventDefault();
   const first = mobileSearchPanel.querySelector("a");
   if (first) location.hash = first.getAttribute("href");
+});
+
+// Products Overview toolbar search: filters the directory in place (never
+// navigates away, never touches the URL) - distinct from the sitewide
+// header search above, which is a separate cross-content, navigate-away tool.
+const productSearchInput = document.querySelector("[data-product-search]");
+productSearchInput?.addEventListener("input", (event) => {
+  productViewState.query = event.target.value;
+  applyProductsView();
+  announceProductsUpdate(true);
+});
+
+document.querySelector("[data-products-reset]")?.addEventListener("click", () => {
+  productViewState.query = "";
+  if (productSearchInput) productSearchInput.value = "";
+  if (location.hash !== "#products") history.pushState(null, "", "#products");
+  setProductCategory("All");
 });
 
 window.addEventListener("scroll", () => {
