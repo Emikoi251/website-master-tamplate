@@ -933,7 +933,7 @@ window.NaviData = (function () {
     },
     {
       slug: "enguard",
-      title: "enGuard",
+      title: "Cross Domain Solution",
       category: "Security",
       summary: "enGuard is Navielektro's family of cross-domain security solutions - a hardware-enforced Cross Domain Solution (CDS) for continuous, real-time information sharing between security domains, and the enGuard Scrubber for secure, air-gapped file transfer, so classified and unclassified systems can exchange information safely without compromising either side.",
       image: {
