@@ -1493,7 +1493,59 @@ window.NaviData = (function () {
       slug: "sar",
       title: "Search and Rescue",
       category: "Modules",
-      summary: "Part of Navielektro's Modules portfolio — a full overview, specifications and documentation will be available here soon.",
+      summary: "Efficient and versatile search and rescue",
+      overviewHeading: "Efficient and versatile search and rescue",
+      overview: [
+        "When an accident occurs, swift action is vital, particularly for search and rescue operations. Planning and executing a search and rescue mission as well as distributing the necessary information to all of the actors involved in a short time-window can be difficult, and stressful conditions leave room for human error. Navielektro has recognized this problem, and aims to provide authorities with a unified situation picture that allows operators to quickly asses the situation at hand.",
+        "Navielektro's OnCall Search and Rescue system provides users with an efficient toolset for search and rescue modeling and planning. OnCall can be used to pinpoint the location where an incident has occurred, after which the system will perform an analysis based on existing conditions and create a model of the search area. Computed models lessen the operator workload, freeing the operator to act upon the information provided by the system."
+      ],
+      highlights: [
+        "Search area modeling using the Monte-Carlo method",
+        "Advanced leeway and drift calculation and clear on-chart visualization in the form of heat maps",
+        "Search and rescue planning in accordance with IMO COMSAR",
+        "Multi-system, multi-user operation",
+        "Automated distribution of SAR tasks",
+        "Simulation of planned SAR operations",
+        "Real-time monitoring of search and rescue execution",
+        "SAR plans take existing or predicted weather conditions into account",
+        "Storage of plans and leeway analysis of later retrieval"
+      ],
+      operationalUse: [
+        {
+          heading: "Multiple users – one picture",
+          text: "OnCall supports multi-user operation, and search and rescue functionality can be operated from multiple workstations simultaneously. Search and rescue models and plans created with OnCall can easily be distributed and shared between different users, actors and compliant systems. When all actors involved in an operation have access to the same information, response times are shortened.",
+          image: {
+            src: "assets/products/sar/sar-multiple-users.webp",
+            alt: "Coast guard patrol boat underway on calm water, leaving a wake",
+            width: 450,
+            height: 450
+          },
+          variant: "split",
+          imagePosition: "left",
+          theme: "tinted"
+        },
+        {
+          heading: "SAR planning and modeling",
+          text: "OnCall allows users to determine the search area where the probability for success is the largest, using SAR modeling. The models used for the calculations by Navielektro are field proven and based on research conducted by the U.S. Coast Guard. The models are computed using Monte-Carlo based simulation. The result of the leeway and drift simulation may be presented as a heat-map, using which the likely movements of a track may easily be visualized.",
+          image: {
+            src: "assets/products/sar/sar-planning-modeling.webp",
+            alt: "SAR heat-map showing probable search areas overlaid on a chart, next to a search pattern planning dialog",
+            width: 600,
+            height: 274
+          },
+          variant: "split",
+          imagePosition: "left",
+          theme: "tinted"
+        },
+        {
+          text: "In addition to calculating SAR models, OnCall can also be used to perform planning of search and rescue tasks, in accordance with IMO COMSAR. Vessels are assigned a search pattern, after which the system verifies and monitors the progress of the search pattern in real-time – and notifies the operator if search patrols deviate from the planned pattern. Using OnCall, operators can also make different SAR plans prior to execution, and simulate the progress of the search ahead of time. Users can store conducted SAR plans and leeway analysis for later retrieval, as well as maintain SITREP information using IMO/ICAO COMSAR defined SITREP's.",
+          theme: "tinted"
+        },
+        {
+          text: "Because vessel movements are logged as part of the standard MATIS or MARITAS implementation, these movements can later be replayed when compiling reports of the SAR operation. The system is also capable of presenting track trajectories if integrated with the Navielektro Track History Analysis service.",
+          theme: "tinted"
+        }
+      ],
       sourceUrl: "https://www.navielektro.fi/sar.html"
     },
     {
