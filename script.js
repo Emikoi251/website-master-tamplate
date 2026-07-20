@@ -97,11 +97,26 @@ function applyConfig() {
 
   // Contact details (Contact page + contact strip + footer).
   const contact = config.contact || {};
-  document.querySelectorAll('[data-contact="address"]').forEach((node) => setLines(node, contact.addressLines));
+  document.querySelectorAll('[data-contact="address-visiting"]').forEach((node) => setLines(node, contact.visitingAddressLines));
+  document.querySelectorAll('[data-contact="address-postal"]').forEach((node) => setLines(node, contact.postalAddressLines));
   document.querySelectorAll('[data-contact="hours"]').forEach((node) => setLines(node, contact.hoursLines));
   document.querySelectorAll('[data-contact="email"]').forEach((node) => setContactValue(node, contact.email, "mailto:"));
   document.querySelectorAll('[data-contact="phone"]').forEach((node) => setContactValue(node, contact.phone, "tel:"));
+  document.querySelectorAll('[data-contact="fax"]').forEach((node) => { if (contact.fax) node.textContent = contact.fax; });
   document.querySelectorAll('[data-contact="office"]').forEach((node) => { if (contact.office) node.textContent = contact.office; });
+  // Personnel email format is descriptive only (e.g. "firstname.lastname@navielektro.fi"),
+  // never a real mailbox, so it's always plain text — never turned into a mailto: link.
+  document.querySelectorAll('[data-contact="personnel-email-format"]').forEach((node) => {
+    if (contact.personnelEmailFormat) node.textContent = contact.personnelEmailFormat;
+  });
+
+  // Location map: image + alt text, and the click-through link to Google Maps.
+  const map = config.map || {};
+  document.querySelectorAll("[data-map-image]").forEach((img) => {
+    if (map.image) img.src = map.image;
+    if (map.alt) img.alt = map.alt;
+  });
+  document.querySelectorAll("[data-map-link]").forEach((link) => { if (map.url) link.href = map.url; });
 
   // Social links: set each URL; an empty value hides that channel.
   document.querySelectorAll("[data-social]").forEach((link) => {

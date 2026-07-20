@@ -1758,6 +1758,47 @@ h3 {
   min-height: 380px;
 }
 
+.contact-info__note {
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.contact-map {
+  display: block;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: border-color var(--transition);
+}
+
+.contact-map:hover,
+.contact-map:focus-visible {
+  border-color: var(--red);
+}
+
+.contact-map img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.contact-map__attribution {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.contact-map__attribution a {
+  color: var(--muted);
+  text-decoration: underline;
+}
+
+.contact-map__attribution a:hover {
+  color: var(--navy);
+}
+
 .social-links {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));

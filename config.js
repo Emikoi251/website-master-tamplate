@@ -18,19 +18,30 @@ window.SiteConfig = {
   // --- Contact details ---------------------------------------------------
   // Shown on the Contact page and, in short form, in the site-wide contact strip.
   contact: {
-    addressLines: ["Navielektro", "Street address", "Postal code, City", "Country"],
-    email: "email@example.com",                           // becomes a mailto: link automatically
-    phone: "+000 0 000 0000",                             // becomes a tel: link automatically
-    office: "City, Country",                              // short location line for the contact strip
-    hoursLines: ["Monday–Friday: 9–17", "Saturday–Sunday: closed"]
+    visitingAddressLines: ["Navielektro Ky", "Hallimestarinkatu 11", "20780 Kaarina", "Finland"],
+    postalAddressLines: ["Navielektro Ky", "P.O. Box 137", "FIN-20781 Kaarina", "Finland"],
+    email: "info@navielektro.fi",                         // becomes a mailto: link automatically
+    phone: "+358 2 243 7711",                             // becomes a tel: link automatically
+    fax: "+358 2 243 7733",                               // shown as plain text, not a link
+    personnelEmailFormat: "firstname.lastname@navielektro.fi", // format only, not a real mailto link
+    office: "Kaarina, Finland",                           // short location line for the contact strip
+    hoursLines: []                                        // unverified — leave empty until confirmed; [data-contact="hours"] support stays in script.js for reuse
+  },
+
+  // --- Location map --------------------------------------------------------
+  // Shown on the Contact page as a clickable image linking out to Google Maps.
+  map: {
+    image: "assets/navielektro-real-street-map.png",
+    alt: "Map showing the location of Navielektro at Hallimestarinkatu 11 in Kaarina, Finland",
+    url: "https://www.google.com/maps/search/?api=1&query=60.4200632%2C22.3866018"
   },
 
   // --- Social media links ------------------------------------------------
   // Set the URL for each channel. Leave a value empty ("") to hide that channel.
   social: {
-    linkedin: "#",
-    youtube: "#",
-    x: "#"
+    linkedin: "https://www.linkedin.com/company/navielektro/",
+    facebook: "https://www.facebook.com/profile.php?id=100057483668927",
+    x: "https://twitter.com/navielektro"
   },
 
   // --- Navigation labels -------------------------------------------------
