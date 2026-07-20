@@ -3,6 +3,10 @@
 const { products, productCategories, services, references, news, industriesHome, industries } = window.NaviData;
 const config = window.SiteConfig || {};
 
+// Archived products keep their full data.js entry (and remain reachable by direct
+// URL) but are excluded from every public-facing listing, menu and search index.
+const publicProducts = products.filter((item) => item.status !== "archived");
+
 // A section is enabled unless config.sections explicitly turns it off.
 const sectionFlags = config.sections || {};
 const isEnabled = (name) => sectionFlags[name] !== false;
@@ -32,7 +36,7 @@ const searchIndex = [
     summary: `Navigate to the ${title.toLowerCase()} page.`,
     url: `#${slug}`
   })),
-  ...products.map((item) => ({
+  ...publicProducts.map((item) => ({
     type: "Product",
     title: item.title,
     summary: item.summary,
@@ -220,7 +224,7 @@ function createIndustry(item, index, variant) {
 
 function renderStaticLists() {
   // fill() is a no-op when a container is missing (e.g. a section disabled in config).
-  fill("[data-featured-products]", products.slice(0, 3).map((item) => createCard(item, "product")));
+  fill("[data-featured-products]", publicProducts.slice(0, 3).map((item) => createCard(item, "product")));
   fill("[data-featured-services]", services.slice(0, 3).map((item) => createCard(item, "service")));
   fill("[data-reference-preview]", references.map((item) => createCard(item, "reference")));
   fill("[data-references-grid]", references.map((item) => createCard(item, "reference")));
@@ -238,7 +242,7 @@ function renderStaticLists() {
 // data.js productCategories (filtered to categories that actually have
 // products), so they can never drift out of sync with the product data.
 function renderProductMenu() {
-  const activeCategories = new Set(products.map((item) => item.category));
+  const activeCategories = new Set(publicProducts.map((item) => item.category));
   const categories = productCategories.filter((entry) => activeCategories.has(entry.key));
 
   fill("[data-products-menu]", [
@@ -257,7 +261,7 @@ function renderProductMenu() {
 }
 
 function renderFilters() {
-  const categories = ["All", ...new Set(products.map((item) => item.category))];
+  const categories = ["All", ...new Set(publicProducts.map((item) => item.category))];
   const buttons = categories.map((category) =>
     el("button", { type: "button", class: category === "All" ? "is-active" : null, "data-filter": category }, [category])
   );
@@ -265,7 +269,7 @@ function renderFilters() {
 }
 
 function renderProducts(category) {
-  const filtered = category === "All" ? products : products.filter((item) => item.category === category);
+  const filtered = category === "All" ? publicProducts : publicProducts.filter((item) => item.category === category);
   document.querySelector("[data-products-grid]").replaceChildren(...filtered.map((item) => createCard(item, "product")));
 }
 
@@ -483,11 +487,16 @@ function renderDetail(kind, slug) {
     }
 
     if (item.relatedProducts && item.relatedProducts.length) {
-      blocks.push(createDetailBlock({
-        heading: "Related products",
-        body: [el("div", { class: "card-grid card-grid--three" }, item.relatedProducts.map((entry) => createRelatedProductCard(entry)))],
-        theme: item.relatedProductsTheme || "tinted"
-      }));
+      const visibleRelated = item.relatedProducts.filter((entry) =>
+        !entry.slug || !products.find((p) => p.slug === entry.slug && p.status === "archived")
+      );
+      if (visibleRelated.length) {
+        blocks.push(createDetailBlock({
+          heading: "Related products",
+          body: [el("div", { class: "card-grid card-grid--three" }, visibleRelated.map((entry) => createRelatedProductCard(entry)))],
+          theme: item.relatedProductsTheme || "tinted"
+        }));
+      }
     }
 
     blocks.push(createDetailBlock({

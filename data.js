@@ -721,6 +721,7 @@ window.NaviData = (function () {
       slug: "cise",
       title: "CISE",
       category: "Security",
+      status: "archived",
       summary: "Part of Navielektro's Security portfolio — a full overview, specifications and documentation will be available here soon.",
       sourceUrl: "https://www.navielektro.fi/cise.html"
     },
@@ -1388,6 +1389,7 @@ window.NaviData = (function () {
       slug: "warehousing",
       title: "Track Warehousing",
       category: "Modules",
+      status: "archived",
       summary: "Part of Navielektro's Modules portfolio — a full overview, specifications and documentation will be available here soon.",
       sourceUrl: "https://www.navielektro.fi/warehousing.html"
     },
@@ -1552,6 +1554,7 @@ window.NaviData = (function () {
       slug: "routes",
       title: "Route Management",
       category: "Modules",
+      status: "archived",
       summary: "Part of Navielektro's Modules portfolio — a full overview, specifications and documentation will be available here soon.",
       sourceUrl: "https://www.navielektro.fi/routes.html"
     },
@@ -1559,6 +1562,7 @@ window.NaviData = (function () {
       slug: "aton",
       title: "Aids to Navigation Monitoring",
       category: "Modules",
+      status: "archived",
       summary: "Part of Navielektro's Modules portfolio — a full overview, specifications and documentation will be available here soon.",
       sourceUrl: "https://www.navielektro.fi/aton.html"
     },
