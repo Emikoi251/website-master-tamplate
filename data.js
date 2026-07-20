@@ -1395,7 +1395,44 @@ window.NaviData = (function () {
       slug: "madis",
       title: "Anomaly Detection",
       category: "Modules",
-      summary: "Part of Navielektro's Modules portfolio — a full overview, specifications and documentation will be available here soon.",
+      summary: "Supporting the operator",
+      overviewHeading: "Supporting the operator",
+      overview: [
+        "Today's anti-collision implementations tend to focus on generating alarms based on kinematic information, which limits usage to short term conflict alert (STCA) – typically only giving the operator minutes to respond to an alarm. The rapid implementation of AIS as well as other sensor systems, networks and other high-grade information sources is increasing the amount of information available to a level that no human operator is capable of processing without at least some associated automation. Navielektro has recognized the need to automate analysis and cross correlation of information sources, and as a result we have added built-in anomaly detection to our situational awareness system. Our Maritime Anomaly Detection System (MADIS) enables users to detect and prevent collisions, grounding as well as illegal activity."
+      ],
+      highlights: [
+        "Designed to reduce operator workload and response times",
+        "Automatic detection through analysis of statistical track movement data",
+        "Detection through user-definable rules",
+        "Collects and presents track events in tables and time-lines",
+        "Configurable alarms - the system can alert the operator through alarms or notices, or simply indicate the anomaly on chart",
+        "Supports the operator in decision making",
+        "Speedy and reliable sharing of anomaly information between different agents"
+      ],
+      operationalUse: [
+        {
+          heading: "Anomaly detection and decision-making",
+          text: "Operator workstations are manned by fewer and fewer operators, which increases the need for automation and multi-tasking. MADIS has been designed to help manage and lessen operator workload, aiding in the decision-making process. MADIS provides operators with a set of automated tools that alert the operator regarding various safety and security related conflicts that may arise within the associated COP (Common Operational Picture). The objective is to relieve operators from conducting tedious and time-consuming tasks, such as cross checking and validating track identifications and assessing the situation picture. The anomaly detection toolset is capable of detecting a number of defined anomalies, including intruder detection, unexpected vessel behavior, and other safety or security hazards.",
+          theme: "tinted"
+        },
+        {
+          text: "The MADIS applications utilize intelligent decision aids to analyze statistical track movements and user-defined rules, automatically generating alerts and responses for anomalous conditions.",
+          theme: "tinted"
+        },
+        {
+          heading: "How does it work?",
+          text: "MADIS is constantly in operation, autonomously and automatically identifying unusual activity. The system collects track data and highlights irregularities, inconsistencies, threats and anomalies in the received information. Users can define what events constitute anomalies and customize the anomaly detection process according to each operator's area of responsibility. The system automatically detects anomalies based on statistics and user-defined rules, marks the anomalies on chart and alerts the operator.",
+          image: {
+            src: "assets/products/madis/madis-how-it-works.webp",
+            alt: "MADIS chart view with a zoomed inset showing tracked vessels near a port, alongside a track events table",
+            width: 621,
+            height: 322
+          },
+          variant: "split",
+          imagePosition: "left",
+          theme: "tinted"
+        }
+      ],
       sourceUrl: "https://www.navielektro.fi/madis.html"
     },
     {
