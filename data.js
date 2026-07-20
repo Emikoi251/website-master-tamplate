@@ -1346,7 +1346,42 @@ window.NaviData = (function () {
       slug: "trackfusion",
       title: "Track Fusion",
       category: "Modules",
-      summary: "Part of Navielektro's Modules portfolio — a full overview, specifications and documentation will be available here soon.",
+      summary: "Sophisticated fusion",
+      overviewHeading: "Sophisticated fusion",
+      overview: [
+        "Navielektro offers Surveillance and Command and Control Systems usually consist of numerous sensors that collect, process and display data on chart. Deciphering this data can be a daunting task for an operator, especially when it comes to determining track locations. The data provided by each sensor may vary, at worst resulting in several locations being reported for a single track. Navielektro's solution for this problem is a multi-sensor integration and correlation system, capable of track fusion.",
+        "Our system can detect and identify potential sea-based threats, utilizing inputs from maritime surveillance radars, AIS receivers, GPS-based self-reporting devices and other external data sources. Information services (databases), targeting and geospatial integration are also a central part of the system. Tactical track information is collected from various sources, and this information is used to produce an accurate, coherent Single Integrated Picture for presentation, control, and dissemination.",
+        "Navielektro's solution is capable of high-level fusion and has been deployed in operational use at the Finnish Navy, Coast Guard and Vessel Traffic Management Systems."
+      ],
+      operationalUse: [
+        {
+          heading: "How does it work?",
+          text: "Data received from different sensors is fused to provide the most accurate location for a track.",
+          image: {
+            src: "assets/products/trackfusion/trackfusion-how-it-works.webp",
+            alt: "Track fusion software showing a Track Identifications panel over a chart with multiple correlated vessel tracks",
+            width: 550,
+            height: 292
+          },
+          variant: "split",
+          imagePosition: "left",
+          theme: "tinted"
+        },
+        {
+          text: "Fusion data is presented in a track stack, so that manually fusing or unfusing tracks also remains an option.",
+          theme: "tinted"
+        },
+        {
+          heading: "Architecture",
+          image: {
+            src: "assets/products/trackfusion/trackfusion-architecture.svg",
+            alt: "Diagram showing sensor inputs (radar, AIS, GPS, LRIT, electronic warfare, and more) fused into a single track and distributed to operations centers, ships, and shared between security, military, safety and nation-to-nation stakeholders",
+            width: 920,
+            height: 944
+          },
+          variant: "wideImage"
+        }
+      ],
       sourceUrl: "https://www.navielektro.fi/trackfusion.html"
     },
     {
