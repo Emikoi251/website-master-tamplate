@@ -1706,7 +1706,44 @@ window.NaviData = (function () {
       slug: "logging-replay",
       title: "Logging & Replay",
       category: "Modules",
-      summary: "Part of Navielektro's Modules portfolio — a full overview, specifications and documentation will be available here soon.",
+      summary: "Information storage at its best",
+      overviewHeading: "Information storage at its best",
+      overview: [
+        "Massive amounts of data pass through situational awareness systems each day, which means users do not always have time to process everything that is happening at once. In order for operators to write reports or analyze past events, the data that is collected needs to be safely stored and accessible at a later date. Navielektro fulfills this need through offering information storage capabilities that rise to the task regardless of the size of the situational awareness system. Our storage solution stores and logs all of the data that passes through an operations center, and allows users to replay the collected data whenever they want to. This means that operators can view what happened yesterday – or even several weeks ago – as if they were viewing real-time data."
+      ],
+      highlights: [
+        "Radar video",
+        "Plot data",
+        "Track data (including AIS)",
+        "Audio",
+        "Digital NERCS Radio",
+        "Analog telephone sources",
+        "DF Data",
+        "Weather information",
+        "Multilateration information",
+        "Camera CCTV PTZ information",
+        "Camera Video"
+      ],
+      operationalUse: [
+        {
+          heading: "Effective logging, even at high volume",
+          text: "Navielektro's Network Logging System (NLS) can log almost all of the information within a operations center. Stream-based logging services log real-time data for replay purposes, while database logging stores large amounts of data that may later be queried and analyzed using set search criteria. Logging and replay is in managed by different software components, so as not to have replay operations affect logging. In fact, replay and logging components may – if required – be placed on separate computers in order to cope with high volume logging scenarios.",
+          theme: "tinted"
+        },
+        {
+          heading: "Log, then replay",
+          text: "Logged information can be presented and replayed in our Tactical Display Framework in completely synchronized fashion. Audio, plots, tracks, voice communication, radar video, CCTV video, RDF strobes and more are played back so that the logged situation is completely indistinguishable from live data. Our system is also capable of creating electronic video clips, printouts and screenshots of the replayed data, in order to facilitate sharing and reviewing of important data.",
+          image: {
+            src: "assets/products/logging-replay/logging-replay-log-viewer.webp",
+            alt: "Chart view with tracked units and a Log Viewer panel showing a timeline scrubber for replaying logged data",
+            width: 600,
+            height: 371
+          },
+          variant: "split",
+          imagePosition: "left",
+          theme: "tinted"
+        }
+      ],
       sourceUrl: "https://www.navielektro.fi/logging-replay.html"
     },
     {
