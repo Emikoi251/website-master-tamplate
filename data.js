@@ -1781,7 +1781,36 @@ window.NaviData = (function () {
       slug: "monitoring",
       title: "System Monitoring",
       category: "Modules",
-      summary: "Part of Navielektro's Modules portfolio — a full overview, specifications and documentation will be available here soon.",
+      summary: "Constant monitoring",
+      overviewHeading: "Constant monitoring",
+      overview: [
+        "Situational awareness and traffic management systems often consist of numerous interconnected sensors, services, servers and databases. When large systems are deployed, it is paramount that they run smoothly, as connection errors can affect the reliability of the situation picture. Any of Navielektro's situational awareness systems (MARITAS, MATIS, TACIS and TrafficAware) can be equipped with an Operation and Maintenance Service (OMS), which is a user-friendly, autonomous system that constantly monitors all major system components, connections and application services. OMS helps users monitor and verify system operation, ensuring that everything is working the way it should be. OMS also keeps track of connections and notifies the user when errors occur, be it a broken connection or equipment failure."
+      ],
+      operationalUse: [
+        {
+          heading: "Cyber defense",
+          text: "Navielektro caters to customers that need high data security, and we have a very comprehensive approach to cyber security that involves all aspects of software implementation and design. Our solutions facilitate cyber security operations, which can be completely integrated in our system.",
+          theme: "tinted"
+        },
+        {
+          heading: "Get a complete overview from a single workstation",
+          text: "Navielektro's OMS provides a constant overview of the entire system. It is capable of monitoring everything, from the operating status of sensors to logical network connections, and offers a complete network overview from one workstation. OMS may be set to log events in the surveillance infrastructure, and the collected information can be displayed on web pages as reports. Responsible personnel can be notified about critical system alarms, either through SMTP E-Mail or SMS messages.",
+          theme: "dark"
+        },
+        {
+          heading: "Visualize operational status",
+          text: "OMS monitors sensors and radio systems, and provides warnings and alarms for events unfolding in the system. The system may be fully integrated with the operator workstation, providing the operator with a complete and clear view of the current state of the system. In addition to monitoring the various components in a situational awareness system, OMS provides monitoring for the underlying IT and other infrastructure components. The system is capable of SNMP monitoring with compliant devices such as routers, hubs, switches, UPS, computers and more. OMS may also perform monitoring through HTTP/XML interfaces.",
+          image: {
+            src: "assets/products/monitoring/monitoring-oms-visualization.webp",
+            alt: "OMS network visualization showing monitored connections and sensors across a coastal map",
+            width: 600,
+            height: 330
+          },
+          variant: "split",
+          imagePosition: "left",
+          theme: "tinted"
+        }
+      ],
       sourceUrl: "https://www.navielektro.fi/monitoring.html"
     },
     {
