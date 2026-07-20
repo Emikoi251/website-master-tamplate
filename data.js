@@ -1750,7 +1750,31 @@ window.NaviData = (function () {
       slug: "simulation",
       title: "Training & Simulation",
       category: "Modules",
-      summary: "Part of Navielektro's Modules portfolio — a full overview, specifications and documentation will be available here soon.",
+      summary: "Training made easy",
+      overviewHeading: "Training made easy",
+      overview: [
+        "When training new users, operations center personnel often face the problem of figuring out how to allow uses to train without disrupting work and confusing the situation picture. Furthermore, military users need to know how to act in times of war – with little opportunity to practice in warfare situations. Navielektro offers a solution to these issues in the form of a simulator which makes it possible to conduct operator training as defined per IALA V.103 and other national or agency-specific operational training requirements."
+      ],
+      operationalUse: [
+        {
+          heading: "Practice how to respond in challenging situations",
+          text: "The training and exercise solution allows users to create simulations of different scenarios, either manually or using track history data. Using track history data to create simulations allows operators to practice how to act in real-life situations after they have occurred, allowing instructors and trainees alike to go over different incidents and improve their handling of such situations in the future. Combining history data with manual movement trajectories provides a speedy way to add realistic traffic to the situation picture, which instructors can then augment by adding manual tracks that change or disrupt the situation. The simulation will look just like the real thing, but because the exercise module is separate from the real-time situational awareness system, users can practice freely without fear of messing up the situation picture.",
+          theme: "tinted"
+        },
+        {
+          heading: "Realistic environment",
+          text: "In terms of functionality, Navielektro's exercise simulator system is an exact copy of a normal situational awareness system. This means that operator training can be conducted in an environment that is virtually the same as the actual working environment.",
+          image: {
+            src: "assets/products/simulation/simulation-exercise-editor.webp",
+            alt: "Exercise Editor panel over a nautical chart, showing a simulation scenario timeline and playback controls",
+            width: 550,
+            height: 284
+          },
+          variant: "split",
+          imagePosition: "left",
+          theme: "tinted"
+        }
+      ],
       sourceUrl: "https://www.navielektro.fi/simulation.html"
     },
     {
