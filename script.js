@@ -579,40 +579,36 @@ function renderDetail(kind, slug) {
     return;
   }
 
-  const related = item.related || item.relatedProducts || ["Related content coming soon"];
   const detailSummary = item.summary;
-  const detailBullets = kind === "service"
-    ? ["Scope and deliverables", "Related products", "How to get in touch"]
-    : kind === "news"
-      ? ["Article overview", "Publishing details", "Related links"]
-      : null;
-  const checklistHeading = kind === "product" ? "Key capabilities" : "What you'll find here";
   const visualLabel = kind === "product" ? "Product Image / 3D Render" : kind === "service" ? "Service Illustration" : "News Image";
 
-  const panelChildren = [
-    el("p", { class: "eyebrow" }, ["Overview"]),
-    el("h2", {}, ["Key information"])
-  ];
+  // Product detail pages render "Key information" as a static, in-flow
+  // capability section (see below) instead of this sidebar - see the plan
+  // notes above .detail-shell in style.css. Services/news keep the original
+  // sidebar unchanged.
+  let panelChildren = null;
   if (kind !== "product") {
-    panelChildren.push(el("p", {}, ["Detailed specifications and documentation will be available here soon."]));
-  }
-  if (item.sourceUrl) {
-    panelChildren.push(el("a", { class: "text-link", href: item.sourceUrl, target: "_blank", rel: "noopener" }, ["Original product page"]));
-  }
-  // Products without highlights omit "Key capabilities" entirely rather than
-  // showing placeholder filler text. Services/news always have their fixed
-  // generic bullets, which aren't placeholder content.
-  if (kind !== "product" || (item.highlights && item.highlights.length)) {
+    const related = item.related || item.relatedProducts || ["Related content coming soon"];
+    const detailBullets = kind === "service"
+      ? ["Scope and deliverables", "Related products", "How to get in touch"]
+      : ["Article overview", "Publishing details", "Related links"];
+
+    panelChildren = [
+      el("p", { class: "eyebrow" }, ["Overview"]),
+      el("h2", {}, ["Key information"]),
+      el("p", {}, ["Detailed specifications and documentation will be available here soon."])
+    ];
+    if (item.sourceUrl) {
+      panelChildren.push(el("a", { class: "text-link", href: item.sourceUrl, target: "_blank", rel: "noopener" }, ["Original product page"]));
+    }
     panelChildren.push(
-      el("h3", {}, [checklistHeading]),
-      el("ul", { class: "detail-checklist" }, (kind === "product" ? item.highlights : detailBullets).map((entry) => el("li", {}, [entry])))
+      el("h3", {}, ["What you'll find here"]),
+      el("ul", { class: "detail-checklist" }, detailBullets.map((entry) => el("li", {}, [entry]))),
+      el("ul", { class: "tag-list" }, (item.tags || [item.category]).map((tag) => el("li", {}, [tag]))),
+      el("h3", {}, ["Related"]),
+      el("ul", { class: "tag-list" }, related.map((tag) => el("li", {}, [tag])))
     );
   }
-  panelChildren.push(
-    el("ul", { class: "tag-list" }, (item.tags || [item.category]).map((tag) => el("li", {}, [tag]))),
-    el("h3", {}, ["Related"]),
-    el("ul", { class: "tag-list" }, related.map((tag) => el("li", {}, [tag])))
-  );
 
   const detailVisual = kind === "product" && item.image
     ? el("div", { class: "visual-placeholder visual-placeholder--detail visual-placeholder--photo" }, [
@@ -643,6 +639,22 @@ function renderDetail(kind, slug) {
 
   if (kind === "product") {
     const blocks = [];
+
+    // Products without highlights omit "Key capabilities" entirely rather
+    // than showing placeholder filler text. Rendered as a plain, full-width,
+    // two-column technical list (no ranking/numbers) in normal page flow -
+    // see .capability-list in style.css. Each item gets the same decorative
+    // arrow image (the project's assets/icons/arrow-icon02.svg asset, used
+    // as-is - not a link, so no href/click handling).
+    if (item.highlights && item.highlights.length) {
+      blocks.push(createDetailBlock({
+        heading: "Key capabilities",
+        body: [el("ul", { class: "capability-list" }, item.highlights.map((entry) => el("li", {}, [
+          el("img", { class: "capability-list__icon", src: "assets/icons/arrow-icon02.svg", alt: "", "aria-hidden": "true" }),
+          entry
+        ])))]
+      }));
+    }
 
     if (item.operationalUse && item.operationalUse.length) {
       item.operationalUse.forEach((entry) => {
@@ -700,10 +712,14 @@ function renderDetail(kind, slug) {
     copyChildren.push(el("a", { class: "button button--primary", href: "#contact" }, [`Contact about this ${kind}`]));
   }
 
-  const shell = el("article", { class: "detail-shell" }, [
-    el("div", { class: "detail-copy" }, copyChildren),
-    el("aside", { class: "detail-panel" }, panelChildren)
-  ]);
+  const shellChildren = [el("div", { class: "detail-copy" }, copyChildren)];
+  const shellClasses = ["detail-shell"];
+  if (panelChildren) {
+    shellChildren.push(el("aside", { class: "detail-panel" }, panelChildren));
+  } else {
+    shellClasses.push("detail-shell--single");
+  }
+  const shell = el("article", { class: shellClasses.join(" ") }, shellChildren);
 
   document.querySelector("#detail").replaceChildren(shell);
   showPage("detail", item.title);
@@ -822,6 +838,19 @@ function renderSearchResults(query, targetPanel = searchPanel, controlInput = se
   targetPanel.classList.add("is-open");
   controlInput?.setAttribute("aria-expanded", "true");
 }
+
+// Product-detail full-bleed blocks escape their column using 100vw-based
+// math (see the CSS comment above .detail-blocks). Bare 100vw includes the
+// browser's reserved scrollbar gutter on non-overlay scrollbars, which makes
+// those blocks wider than the visible viewport and causes horizontal
+// overflow. clientWidth excludes that gutter, so mirroring it into a CSS
+// variable and using that instead of 100vw keeps the math accurate on every
+// scrollbar style without resorting to a global overflow-x: hidden.
+function updateViewportWidthVar() {
+  document.documentElement.style.setProperty("--viewport-w", `${document.documentElement.clientWidth}px`);
+}
+updateViewportWidthVar();
+window.addEventListener("resize", updateViewportWidthVar);
 
 applyConfig();
 renderStaticLists();

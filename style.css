@@ -1680,6 +1680,12 @@ h3 {
   align-items: start;
 }
 
+/* Product detail pages have no sidebar (see renderDetail in script.js), so
+   .detail-copy is the only column - full page width, no sticky element. */
+.detail-shell--single {
+  grid-template-columns: minmax(0, 1fr);
+}
+
 .detail-copy {
   display: grid;
   gap: 26px;
@@ -1743,6 +1749,50 @@ h3 {
   width: 8px;
   height: 8px;
   background: var(--red);
+}
+
+/* Product detail pages' "Key capabilities" list - a static, full-width,
+   two-column technical list in normal page flow (no sidebar card, no
+   sticky/floating behaviour, no ranking). Row-major 2-column grid, so
+   :nth-child(-n+2) is "the first row" regardless of how many items there
+   are - those two get no top separator, everything after does. An odd
+   final item just leaves its column's last cell empty; no filler needed. */
+.capability-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: clamp(28px, 4vw, 56px);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.capability-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 18px 0;
+  color: var(--navy);
+  font-weight: 700;
+  line-height: 1.5;
+  border-top: 1px solid var(--line-soft);
+}
+
+.capability-list li:nth-child(-n+2) {
+  border-top: 0;
+  padding-top: 0;
+}
+
+/* Decorative list marker only (assets/icons/arrow-icon02.svg, used
+   unmodified - only its displayed size/alignment are set here) - not a
+   link/button, so it never looks or behaves clickable: no hover state, no
+   cursor change, no focus outline. alt="" + aria-hidden="true" are set on
+   the <img> itself in script.js. */
+.capability-list__icon {
+  display: block;
+  flex: none;
+  width: 16px;
+  height: auto;
+  margin-top: 0.3em;
 }
 
 .tag-list {
@@ -1870,14 +1920,24 @@ h3 {
    fr-ratio or the sidebar's 290px floor - the sidebar sits entirely to the
    right of .detail-copy, so it never enters this calculation - which is why
    this single rule is correct at every viewport width, including below the
-   760px breakpoint where .detail-copy becomes the sole column. */
+   760px breakpoint where .detail-copy becomes the sole column.
+
+   var(--viewport-w, 100vw), not bare 100vw: per spec, vw is relative to the
+   initial containing block, which includes the browser's reserved
+   scrollbar-gutter width on non-overlay scrollbars (default on
+   Windows/Linux, and always on in Chrome's device-toolbar emulation) - so
+   100vw is wider than what's actually visible, and this block bled past the
+   true right edge by exactly the scrollbar's width, causing horizontal
+   overflow. --viewport-w is set from document.documentElement.clientWidth
+   (which excludes that gutter) in script.js on load/resize; the 100vw
+   fallback only matters for the brief instant before that first JS run. */
 .detail-block--wide-image,
 .detail-block--background-image,
 .detail-block--tinted:not(.detail-block--split),
 .detail-block--dark:not(.detail-block--split) {
-  width: 100vw;
+  width: var(--viewport-w, 100vw);
   position: relative;
-  margin-left: calc(-1 * (max(0px, 100vw - var(--max)) / 2 + var(--edge)));
+  margin-left: calc(-1 * (max(0px, var(--viewport-w, 100vw) - var(--max)) / 2 + var(--edge)));
   border-top: 0;
 }
 
@@ -2467,8 +2527,22 @@ h3 {
   .industry-list--large,
   .metric-grid,
   .site-contact-strip dl,
-  .home-about__facts {
+  .home-about__facts,
+  .capability-list {
     grid-template-columns: 1fr;
+  }
+
+  /* Single column now, so only the very first item is separator-free
+     (matches the desktop nth-child(-n+2) rule's intent of "no line above
+     the first row"). */
+  .capability-list li {
+    border-top: 0;
+    padding-top: 0;
+  }
+
+  .capability-list li:not(:first-child) {
+    border-top: 1px solid var(--line-soft);
+    padding-top: 18px;
   }
 
   .featured-grid {
