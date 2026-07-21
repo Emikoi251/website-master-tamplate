@@ -1227,6 +1227,23 @@ h3 {
   margin: 18px 24px 22px;
 }
 
+/* Image + heading + short paragraph, no link - a product or industry's
+   optional focusAreas grid (e.g. Military's Army/Air/Navy). Scoped to this
+   modifier so it doesn't affect .card anywhere else. Not clickable, so the
+   hover lift/shadow .card normally gets (which implies clickability) is
+   reset back to the resting state. */
+.card--focus-area {
+  grid-template-rows: auto auto auto;
+  min-height: auto;
+}
+
+.card--focus-area:hover {
+  background: var(--white);
+  transform: none;
+  box-shadow: none;
+  border-color: var(--line);
+}
+
 .card__meta {
   display: flex;
   flex-wrap: wrap;

@@ -2200,6 +2200,124 @@ window.NaviData = (function () {
       ]
     },
     {
+      title: "Military",
+      slug: "military",
+      summary: "Complete situational awareness – complete control",
+      image: {
+        src: "assets/industries/military/military-hero.jpg",
+        alt: "Two fighter jets banking sharply over a snow-covered alpine valley",
+        width: 1920,
+        height: 735
+      },
+      overviewHeading: "Complete situational awareness – complete control",
+      overview: [
+        "Command and Control as well as situational awareness systems are in a state of transition. Many of the systems in use are old ones that have been developed over the course of twenty years, and the development of these systems is relatively expensive. The integration of old systems and technology is a painstaking endeavor, which usually involves considerable supplier limitations as well as high licensing and maintenance costs. Navielektro has identified the need for flexible solutions based on cost-efficient, open technology. We provide solutions for the defense sector with foreseeable and affordable life-cycle costs, that allow operators to visualize, analyze and act on data from multiple sources."
+      ],
+      operationalUse: [
+        {
+          heading: "One solution - several applications",
+          text: "Our products are extremely versatile, and provide a complete solution for defense purposes. Our tactical display framework collects data from a multitude of sensors, displaying everything in a view that is integrated, comprehensive and still easy to understand. This means that our systems can be used for Naval, Air and Army operations – or for joint operations where all three actors can get a complete view of the situation. Because our solutions have been developed with inter-agency co-operation in mind, different actors and agencies can also share the data of their choice with each other, safely and securely."
+        },
+        {
+          heading: "Operational flexibility",
+          text: "Navielektro is constantly developing systems as part of joint operations with European defense actors and NATO, with operational flexibility in mind. Our systems are scalable and extendable, and can be used for everything from high-level strategical surveillance and operation planning to communicating tactical data from individual soldiers. Multi-level, multi-sensor fusion allows our systems to be used for an array of C4ISR applications, including Naval, Joint, Air and Army operations.",
+          image: {
+            src: "assets/industries/military/military-situation-picture.svg",
+            alt: "Diagram of sensor data feeding a situation picture, with tools to analyze, filter, message and chat, use voice/radio, report, plan, search, track and target",
+            width: 1107,
+            height: 1000
+          },
+          variant: "split",
+          imagePosition: "left"
+        },
+        {
+          text: "All of our systems are modular and scalable, taking growth into account."
+        },
+        {
+          text: "Shorten response times and retain the tactical initiative – using Navielektro's fused situation picture and advanced decision-making tools.",
+          theme: "dark"
+        }
+      ],
+      focusAreas: [
+        {
+          heading: "Army",
+          text: "Track and communicate with soldiers on the ground, perform targeting operations and plan tactical maneuvers and routes.",
+          image: {
+            src: "assets/industries/military/army-thumbnail.jpg",
+            alt: "Two soldiers silhouetted against a dusk sky",
+            width: 480,
+            height: 258
+          }
+        },
+        {
+          heading: "Air",
+          text: "View air tracks as part of the situation picture and form as comprehensive a COP as possible.",
+          image: {
+            src: "assets/industries/military/airforce-thumbnail.jpg",
+            alt: "Silhouette of a fighter jet against a grey sky",
+            width: 480,
+            height: 258
+          }
+        },
+        {
+          heading: "Navy",
+          text: "Conduct operations in fixed centers or on board ships, send data between ship and shore, detect anomalies and perform basic combat management.",
+          image: {
+            src: "assets/industries/military/navy-thumbnail.jpg",
+            alt: "Grey naval patrol vessel underway",
+            width: 480,
+            height: 258
+          }
+        }
+      ],
+      typicalApplicationsHeading: "Applications",
+      typicalApplications: [
+        "Naval Command and Control Systems",
+        "Joint Command and Control Systems",
+        "Combat Information Systems"
+      ],
+      typicalApplicationsImage: {
+        src: "assets/industries/military/military-circle.jpg",
+        alt: "Soldier operating a laptop inside a field tent, with colleagues visible behind",
+        width: 450,
+        height: 464
+      },
+      typicalApplicationsVariant: "split",
+      typicalApplicationsImagePosition: "left",
+      relatedProducts: [
+        {
+          title: "MATIS C2",
+          slug: "matis",
+          image: {
+            src: "assets/products/matis/matis-overview-thumbnail.webp",
+            alt: "Naval patrol vessel near a rocky, forested coastline",
+            width: 480,
+            height: 258
+          }
+        },
+        {
+          title: "JADIS",
+          slug: "jadis",
+          image: {
+            src: "assets/products/jadis/jadis-overview-thumbnail.webp",
+            alt: "Silhouette of a soldier carrying a rifle and pack against a dramatic stormy sky",
+            width: 707,
+            height: 1000
+          }
+        },
+        {
+          title: "Deployed Soldier",
+          slug: "deployed-soldier",
+          image: {
+            src: "assets/products/deployed-soldier/deployed-soldier-hero.webp",
+            alt: "Soldier reading a rugged tablet in the field",
+            width: 1600,
+            height: 1067
+          }
+        }
+      ]
+    },
+    {
       title: "Maritime",
       summary: "Maritime situational awareness, coastal monitoring and traffic management use cases."
     },

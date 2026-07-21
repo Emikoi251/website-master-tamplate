@@ -236,6 +236,25 @@ function createRelatedProductCard(entry) {
     : el("div", { class: "card card--media-only" }, [visual, heading]);
 }
 
+// Smallest generic "parallel focus area" card - image + heading + short
+// paragraph, no link - for a product or industry's optional focusAreas
+// list (e.g. Military's Army/Air/Navy). Not tied to any specific kind, so
+// any future detail page can reuse it. Never clickable, so .card--focus-area
+// in style.css suppresses the hover lift .card normally gets.
+function createFocusAreaCard(entry) {
+  const visual = entry.image
+    ? el("div", { class: "visual-placeholder visual-placeholder--card visual-placeholder--photo" }, [
+        el("img", { src: entry.image.src, alt: entry.image.alt, width: entry.image.width, height: entry.image.height, loading: "lazy" })
+      ])
+    : el("div", { class: "visual-placeholder visual-placeholder--card" }, [el("span", {}, ["Focus Area Image"])]);
+
+  return el("article", { class: "card card--focus-area" }, [
+    visual,
+    el("h3", {}, [entry.heading]),
+    el("p", {}, [entry.text])
+  ]);
+}
+
 function createNewsItem(item) {
   const date = new Date(`${item.date}T00:00:00`);
   const formatted = date.toLocaleDateString("en-GB", { year: "numeric", month: "short", day: "numeric" });
@@ -666,16 +685,28 @@ function renderDetail(kind, slug) {
     }
 
     if (item.operationalUse && item.operationalUse.length) {
-      item.operationalUse.forEach((entry) => {
+      const pushOperationalUseBlock = (entry) => blocks.push(createDetailBlock({
+        heading: entry.heading,
+        body: entry.text ? [el("p", {}, [entry.text])] : [],
+        image: entry.image,
+        variant: entry.variant,
+        imagePosition: entry.imagePosition,
+        theme: entry.theme
+      }));
+
+      if (item.focusAreas && item.focusAreas.length) {
+        // Generic convention (not tied to any specific product/industry):
+        // the first operationalUse entry is a lead-in paragraph, focusAreas
+        // renders right after it as a plain three-column card row, then any
+        // remaining operationalUse entries continue the narrative below.
+        item.operationalUse.slice(0, 1).forEach(pushOperationalUseBlock);
         blocks.push(createDetailBlock({
-          heading: entry.heading,
-          body: entry.text ? [el("p", {}, [entry.text])] : [],
-          image: entry.image,
-          variant: entry.variant,
-          imagePosition: entry.imagePosition,
-          theme: entry.theme
+          body: [el("div", { class: "card-grid card-grid--three" }, item.focusAreas.map((entry) => createFocusAreaCard(entry)))]
         }));
-      });
+        item.operationalUse.slice(1).forEach(pushOperationalUseBlock);
+      } else {
+        item.operationalUse.forEach(pushOperationalUseBlock);
+      }
     }
 
     if (item.typicalApplications && item.typicalApplications.length) {
