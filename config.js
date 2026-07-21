@@ -22,7 +22,6 @@ window.SiteConfig = {
     postalAddressLines: ["Navielektro Ky", "P.O. Box 137", "FIN-20781 Kaarina", "Finland"],
     email: "info@navielektro.fi",                         // becomes a mailto: link automatically
     phone: "+358 2 243 7711",                             // becomes a tel: link automatically
-    fax: "+358 2 243 7733",                               // shown as plain text, not a link
     personnelEmailFormat: "firstname.lastname@navielektro.fi", // format only, not a real mailto link
     office: "Kaarina, Finland",                           // short location line for the contact strip
     hoursLines: []                                        // unverified — leave empty until confirmed; [data-contact="hours"] support stays in script.js for reuse

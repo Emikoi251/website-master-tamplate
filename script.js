@@ -107,7 +107,6 @@ function applyConfig() {
   document.querySelectorAll('[data-contact="hours"]').forEach((node) => setLines(node, contact.hoursLines));
   document.querySelectorAll('[data-contact="email"]').forEach((node) => setContactValue(node, contact.email, "mailto:"));
   document.querySelectorAll('[data-contact="phone"]').forEach((node) => setContactValue(node, contact.phone, "tel:"));
-  document.querySelectorAll('[data-contact="fax"]').forEach((node) => { if (contact.fax) node.textContent = contact.fax; });
   document.querySelectorAll('[data-contact="office"]').forEach((node) => { if (contact.office) node.textContent = contact.office; });
   // Personnel email format is descriptive only (e.g. "firstname.lastname@navielektro.fi"),
   // never a real mailbox, so it's always plain text — never turned into a mailto: link.
