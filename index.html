@@ -68,19 +68,17 @@
       <!-- Services: dropdown links to real service pages. -->
       <div class="nav-item has-menu" data-optional="services">
         <a href="#services" data-route="services" data-nav-label="services" aria-haspopup="true" aria-expanded="false">Services</a>
-        <div class="dropdown" aria-label="Services menu">
-          <a href="#services" data-route="services">
-            <strong>Service overview</strong>
-            <span>Delivery, integration and lifecycle support</span>
-          </a>
-          <a href="#service/system-integration">
-            <strong>System integration</strong>
-            <span>Integration and delivery</span>
-          </a>
-          <a href="#service/lifecycle-support">
-            <strong>Lifecycle support</strong>
-            <span>Maintenance and support</span>
-          </a>
+        <div class="dropdown dropdown--groups dropdown--services" aria-label="Support and Services menu">
+          <div class="dropdown__group">
+            <p class="dropdown__heading">Support</p>
+            <a href="#service/lifecycle-support"><strong>Helpdesk</strong></a>
+          </div>
+          <div class="dropdown__group">
+            <p class="dropdown__heading">Services</p>
+            <a href="#service/technical-consulting"><strong>Consulting &amp; Engineering</strong></a>
+            <a href="#service/system-integration"><strong>Maintenance</strong></a>
+            <a href="#service/training"><strong>Software Assurance</strong></a>
+          </div>
         </div>
       </div>
       <!-- References: kept in markup but disabled via config (sections.references). -->
@@ -115,6 +113,12 @@
         <a href="#industries" data-route="industries" data-nav-label="industries" data-optional="industries">Industries</a>
         <a href="#products" data-route="products" data-nav-label="products">Products</a>
         <a href="#services" data-route="services" data-nav-label="services" data-optional="services">Services</a>
+        <p class="mobile-nav__group-heading" data-optional="services">Support</p>
+        <a href="#service/lifecycle-support" class="mobile-sublink" data-optional="services">Helpdesk</a>
+        <p class="mobile-nav__group-heading" data-optional="services">Services</p>
+        <a href="#service/technical-consulting" class="mobile-sublink" data-optional="services">Consulting &amp; Engineering</a>
+        <a href="#service/system-integration" class="mobile-sublink" data-optional="services">Maintenance</a>
+        <a href="#service/training" class="mobile-sublink" data-optional="services">Software Assurance</a>
         <a href="#references" data-route="references" data-nav-label="references" data-optional="references">References</a>
         <a href="#contact" data-route="contact" data-nav-label="contact">Contact</a>
       </nav>

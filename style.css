@@ -339,6 +339,15 @@ h3 {
   align-items: start;
 }
 
+.dropdown--services {
+  right: auto;
+  left: calc(50% - 260px);
+  width: 520px;
+  grid-template-columns: minmax(180px, 0.8fr) minmax(230px, 1.2fr);
+  gap: 32px;
+  padding: 20px;
+}
+
 .dropdown__group {
   display: grid;
   gap: 2px;
@@ -520,6 +529,15 @@ h3 {
   font-size: 1.3rem;
   font-weight: 600;
   color: rgba(255, 255, 255, 0.78);
+}
+
+.mobile-nav__group-heading {
+  margin: 18px 0 2px;
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
 .breadcrumbs {
