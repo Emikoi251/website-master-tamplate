@@ -2358,22 +2358,6 @@ window.NaviData = (function () {
       typicalApplicationsVariant: "split",
       typicalApplicationsImagePosition: "left",
       typicalApplicationsTheme: "tinted"
-    },
-    {
-      title: "Maritime",
-      summary: "Maritime situational awareness, coastal monitoring and traffic management use cases."
-    },
-    {
-      title: "Defence",
-      summary: "Secure operational technology, command support and integration use cases."
-    },
-    {
-      title: "Critical infrastructure",
-      summary: "Ports, terminals, transport corridors and facility monitoring use cases."
-    },
-    {
-      title: "Public authorities",
-      summary: "Multi-agency coordination, surveillance and operational reporting use cases."
     }
   ];
 
