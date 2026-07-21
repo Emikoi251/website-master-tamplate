@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Temporary maritime contact hero background</title>
+  <desc id="desc">Abstract navy seascape with a warm coastal glow and subtle navigation patterns.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#081729"/>
+      <stop offset="0.48" stop-color="#24405d"/>
+      <stop offset="0.78" stop-color="#6f8295"/>
+      <stop offset="1" stop-color="#d8c7b5"/>
+    </linearGradient>
+    <linearGradient id="sea" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07182b"/>
+      <stop offset="0.62" stop-color="#173751"/>
+      <stop offset="1" stop-color="#806f64"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="88%" cy="36%" r="42%">
+      <stop offset="0" stop-color="#fff5e8" stop-opacity="0.88"/>
+      <stop offset="0.34" stop-color="#e2c9ae" stop-opacity="0.34"/>
+      <stop offset="1" stop-color="#e2c9ae" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="waves" width="180" height="42" patternUnits="userSpaceOnUse">
+      <path d="M0 20c35-12 55-12 90 0s55 12 90 0" fill="none" stroke="#fff" stroke-opacity="0.05" stroke-width="2"/>
+    </pattern>
+  </defs>
+  <rect width="2400" height="670" fill="url(#sky)"/>
+  <rect y="670" width="2400" height="330" fill="url(#sea)"/>
+  <rect width="2400" height="1000" fill="url(#glow)"/>
+  <path d="M0 676c360-18 650 9 980-4s690-24 1420 5" fill="none" stroke="#e8eef2" stroke-opacity="0.26" stroke-width="3"/>
+  <rect y="680" width="2400" height="320" fill="url(#waves)"/>
+  <g fill="none" stroke="#fff" stroke-opacity="0.07" stroke-width="2">
+    <circle cx="470" cy="410" r="138"/>
+    <circle cx="470" cy="410" r="226"/>
+    <circle cx="470" cy="410" r="314"/>
+  </g>
+  <path d="M1930 664c92-27 165-52 245-126 62 17 139 58 225 82v57h-470Z" fill="#13283a" fill-opacity="0.58"/>
+  <g fill="#fff" fill-opacity="0.4">
+    <circle cx="196" cy="795" r="3"/><circle cx="236" cy="795" r="3"/><circle cx="276" cy="795" r="3"/>
+    <circle cx="196" cy="835" r="3"/><circle cx="236" cy="835" r="3"/><circle cx="276" cy="835" r="3"/>
+    <circle cx="196" cy="875" r="3"/><circle cx="236" cy="875" r="3"/><circle cx="276" cy="875" r="3"/>
+  </g>
+</svg>

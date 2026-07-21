@@ -107,6 +107,8 @@ function applyConfig() {
   document.querySelectorAll('[data-contact="hours"]').forEach((node) => setLines(node, contact.hoursLines));
   document.querySelectorAll('[data-contact="email"]').forEach((node) => setContactValue(node, contact.email, "mailto:"));
   document.querySelectorAll('[data-contact="phone"]').forEach((node) => setContactValue(node, contact.phone, "tel:"));
+  document.querySelectorAll('[data-contact-link="email"]').forEach((node) => setContactLink(node, contact.email, "mailto:"));
+  document.querySelectorAll('[data-contact-link="phone"]').forEach((node) => setContactLink(node, contact.phone, "tel:"));
   document.querySelectorAll('[data-contact="office"]').forEach((node) => { if (contact.office) node.textContent = contact.office; });
   // Personnel email format is descriptive only (e.g. "firstname.lastname@navielektro.fi"),
   // never a real mailbox, so it's always plain text — never turned into a mailto: link.
@@ -162,6 +164,11 @@ function setContactValue(target, value, scheme) {
   if (!target || !value) return;
   target.textContent = value;
   if (target.tagName === "A") target.href = scheme + value.replace(/\s+/g, "");
+}
+
+// Configure an action-only contact link without replacing its icon or label.
+function setContactLink(target, value, scheme) {
+  if (target && value) target.href = scheme + value.replace(/\s+/g, "");
 }
 
 // Put nodes into a container only if it exists (a container may be absent when
@@ -940,6 +947,15 @@ document.querySelector("[data-year]").textContent = new Date().getFullYear();
 window.addEventListener("hashchange", route);
 
 document.addEventListener("click", (event) => {
+  const scrollLink = event.target.closest("[data-scroll-target]");
+  if (scrollLink) {
+    const target = document.querySelector(scrollLink.dataset.scrollTarget);
+    if (target) {
+      event.preventDefault();
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }
+
   const filter = event.target.closest("[data-filter]");
   if (filter) {
     const category = filter.dataset.filter;
