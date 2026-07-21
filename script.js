@@ -303,7 +303,7 @@ function renderStaticLists() {
   fill("[data-references-grid]", references.map((item) => createCard(item, "reference")));
   fill("[data-news-preview]", news.slice(0, 2).map(createNewsItem));
   fill("[data-news-grid]", news.map(createNewsItem));
-  fill("[data-services-grid]", services.map((item) => createCard(item, "service")));
+  fill("[data-services-directory]", services.map((item) => createServiceRow(item)));
   fill("[data-industries-home]", industriesHome.map((item, i) => createIndustry(item, i, "thumb")));
   fill("[data-industries]", industries.map((item) => createIndustryRow(item)));
   renderFilters();
@@ -406,6 +406,20 @@ function createProductRow(item) {
 // homepage teaser.
 function createIndustryRow(item) {
   return el("a", { class: "product-row", href: `#industry/${item.slug}` }, [
+    el("span", { class: "product-row__text" }, [
+      el("span", { class: "product-row__name" }, [item.title]),
+      el("span", { class: "product-row__summary" }, [item.summary])
+    ]),
+    el("span", { class: "product-row__arrow" }, [arrowIcon()])
+  ]);
+}
+
+// Services overview row list - same reused pattern as createIndustryRow()
+// above, pointed at a service's detail page instead of an industry's.
+// createCard()-driven service cards are gone; createCard() itself is
+// untouched and still drives the homepage "Featured services" preview.
+function createServiceRow(item) {
+  return el("a", { class: "product-row", href: `#service/${item.slug}` }, [
     el("span", { class: "product-row__text" }, [
       el("span", { class: "product-row__name" }, [item.title]),
       el("span", { class: "product-row__summary" }, [item.summary])
