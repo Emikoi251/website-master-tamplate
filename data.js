@@ -2318,6 +2318,48 @@ window.NaviData = (function () {
       ]
     },
     {
+      title: "Intelligent Transport",
+      slug: "intelligent-transport",
+      summary: "Increasing traffic safety",
+      image: {
+        src: "assets/industries/intelligent-transport/its-hero.jpg",
+        alt: "Motion-blurred yellow train passing a tunnel, with cars in the foreground",
+        width: 1920,
+        height: 735
+      },
+      overviewHeading: "Increasing traffic safety",
+      overview: [
+        "Traffic has grown and developed into massive proportions during the last few decades. More often than not, traffic networks are overloaded – making them more susceptible to disturbances and failures. Many traffic authorities have recognized a need for traffic surveillance and control, establishing round-the-clock control centers that help direct traffic and dispatch maintenance when necessary. The flow and safety of traffic can be vastly improved through utilizing modern technology, but many control centers still use old surveillance systems that make it difficult to process or even obtain all of the information that is available to operators.",
+        "Navielektro provides solutions for intelligent traffic and transport that enhance traffic services and telematics. Our IT-solutions are designed to solve problems within road and rail traffic, providing greater traffic safety, efficiency and smoother traffic flow."
+      ],
+      operationalUse: [
+        {
+          heading: "Integration is key",
+          text: "At Navielektro, we think the purpose of modern surveillance systems should be to make the planning and supervision of traffic and transport related operations as efficient as possible. The ideal situation picture is one where everything is integrated, where operators have access to a wide array of information, but are able to filter the view so only the most relevant data is displayed. When all of the information available is successfully harnessed for surveillance purposes, operators are able to perform their tasks more efficiently.",
+          theme: "tinted"
+        },
+        {
+          text: "View road, rail, maritime and air traffic simultaneously. Navielektro specializes in fully integrated systems that display all of the necessary data in a single view, in a manner that is easy to understand.",
+          theme: "dark"
+        }
+      ],
+      typicalApplicationsHeading: "Applications",
+      typicalApplications: [
+        "Road Traffic Control Systems",
+        "Rail Traffic Control Systems",
+        "Fleet Tracking and Tracing Systems"
+      ],
+      typicalApplicationsImage: {
+        src: "assets/industries/intelligent-transport/traffic-circle.jpg",
+        alt: "Aerial view of a multi-lane highway toll plaza with heavy traffic",
+        width: 450,
+        height: 464
+      },
+      typicalApplicationsVariant: "split",
+      typicalApplicationsImagePosition: "left",
+      typicalApplicationsTheme: "tinted"
+    },
+    {
       title: "Maritime",
       summary: "Maritime situational awareness, coastal monitoring and traffic management use cases."
     },
