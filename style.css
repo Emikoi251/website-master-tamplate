@@ -1556,6 +1556,14 @@ h3 {
   border-top: 1px solid var(--line);
 }
 
+.cta-band__text {
+  max-width: 640px;
+  margin-top: -12px;
+  color: var(--muted);
+  font-size: clamp(1rem, 1.3vw, 1.1rem);
+  line-height: 1.7;
+}
+
 .filter-bar {
   display: flex;
   flex-wrap: wrap;
