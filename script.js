@@ -295,7 +295,7 @@ function renderStaticLists() {
   fill("[data-news-grid]", news.map(createNewsItem));
   fill("[data-services-grid]", services.map((item) => createCard(item, "service")));
   fill("[data-industries-home]", industriesHome.map((item, i) => createIndustry(item, i, "thumb")));
-  fill("[data-industries]", industries.map((item, i) => createIndustry(item, i, "card")));
+  fill("[data-industries]", industries.map((item) => createIndustryRow(item)));
   renderFilters();
   renderFeatured();
   renderProductMenu();
@@ -361,6 +361,21 @@ function createFeaturedTile(item) {
 
 function createProductRow(item) {
   return el("a", { class: "product-row", href: `#product/${item.slug}` }, [
+    el("span", { class: "product-row__text" }, [
+      el("span", { class: "product-row__name" }, [item.title]),
+      el("span", { class: "product-row__summary" }, [item.summary])
+    ]),
+    el("span", { class: "product-row__arrow" }, [arrowIcon()])
+  ]);
+}
+
+// Full Industries page's row list - identical pattern to createProductRow()
+// above (same classes, same arrow, no visible "View" label since the whole
+// row is the link), just pointed at an industry's detail page instead of a
+// product's. createIndustry() below is untouched and still drives the
+// homepage teaser.
+function createIndustryRow(item) {
+  return el("a", { class: "product-row", href: `#industry/${item.slug}` }, [
     el("span", { class: "product-row__text" }, [
       el("span", { class: "product-row__name" }, [item.title]),
       el("span", { class: "product-row__summary" }, [item.summary])
