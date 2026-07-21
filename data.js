@@ -2113,7 +2113,92 @@ window.NaviData = (function () {
   ];
 
   // --- Industries: full list (shown on the Industries page) -------------------
+  // Only entries with a `slug` get a detail page (see renderDetail/createIndustry
+  // in script.js) - the rest stay plain, non-linked cards exactly as before.
   const industries = [
+    {
+      title: "Safety & Security",
+      slug: "safety-security",
+      summary: "Maritime safety and security is our concern",
+      image: {
+        src: "assets/industries/safety-security/safety-security-hero.jpg",
+        alt: "A red-and-white patrol boat crossing rough, wave-battered waters under an overcast sky",
+        width: 1920,
+        height: 735
+      },
+      overviewHeading: "Maritime safety and security is our concern",
+      overview: [
+        "The maritime industry is characterized by a growing quantity of movement and data, and yet stations at MOC's (Maritime Operations Centers) and VTC's (Vessel Traffic Centers) are manned by fewer and fewer operators. This increases the need for automation and multi-tasking. The rapid implementation of sensor systems, networks and other high-grade information sources has multiplied the amount of information available to a level that no human operator is capable of processing.",
+        "Navielektro has several decades of experience within the field of maritime surveillance, both when it comes to Vessel Traffic Service and coastal surveillance. We were at the forefront of developing digital Vessel Traffic Management Systems in Europe in the early 90's, and maintaining the safety of life at sea still remains one of our main goals. Our systems aim to collect all of the data needed for effective maritime surveillance into the Recognized Maritime Picture, ensuring that operators can quickly get a comprehensive overview of the situation."
+      ],
+      operationalUse: [
+        {
+          heading: "Operator Support",
+          text: "Our systems efficiently help manage and lessen the operator workload, providing users with a clear situation picture and decision-making aids. When operators are relieved from tedious tasks such as cross-checking and validating track identifications, they are free to focus on the big picture – and act on the information they receive.",
+          image: {
+            src: "assets/industries/safety-security/vts-situation-picture.svg",
+            alt: "Diagram of sensor data feeding an operator's situation picture, with tools to analyze, filter, email (MMHS), report, use voice/radio, chat, search and share information",
+            width: 1010,
+            height: 1000
+          },
+          variant: "split",
+          imagePosition: "left"
+        },
+        {
+          text: "Navielektro provides a complete solution when setting up VTMS or Coastal Surveillance systems – everything from sensors, processing modules and software to support and maintenance.",
+          theme: "dark"
+        }
+      ],
+      typicalApplicationsHeading: "Applications",
+      typicalApplications: [
+        "Vessel Traffic Systems",
+        "Coastal Surveillance Systems for border protection",
+        "Global Maritime Distress and Safety Systems",
+        "Voice Systems",
+        "Port Administration Systems",
+        "Fleet tracking"
+      ],
+      typicalApplicationsImage: {
+        src: "assets/products/maritas/related-port-management.webp",
+        alt: "Aerial view of a port with containers, cranes and barges",
+        width: 480,
+        height: 258
+      },
+      typicalApplicationsVariant: "split",
+      typicalApplicationsImagePosition: "left",
+      relatedProducts: [
+        {
+          title: "MARITAS",
+          slug: "maritas",
+          image: {
+            src: "assets/products/maritas/maritas-overview-thumbnail.webp",
+            alt: "Aerial view of a busy port with container ships, cranes and harbor vessels",
+            width: 480,
+            height: 258
+          }
+        },
+        {
+          title: "GMDSS",
+          slug: "gmdss",
+          image: {
+            src: "assets/products/maritas/related-gmdss.webp",
+            alt: "Diagram of maritime distress communication systems including COSPAS-SARSAT, INMARSAT, EPIRB and SART",
+            width: 480,
+            height: 258
+          }
+        },
+        {
+          title: "NaviCall",
+          slug: "voice",
+          image: {
+            src: "assets/products/voice/voice-integrated-communication.webp",
+            alt: "DSC radio panel and tactical map interface showing tracked vessels with a push-to-talk control panel",
+            width: 600,
+            height: 266
+          }
+        }
+      ]
+    },
     {
       title: "Maritime",
       summary: "Maritime situational awareness, coastal monitoring and traffic management use cases."

@@ -252,12 +252,18 @@ function createNewsItem(item) {
 }
 
 function createIndustry(item, index, variant) {
-  return el("article", {}, [
+  const children = [
     el("div", { class: `visual-placeholder visual-placeholder--${variant}` }, [el("span", {}, ["Industry Image"])]),
     el("span", {}, [String(index + 1).padStart(2, "0")]),
     el("h3", {}, [item.title]),
     el("p", {}, [item.summary])
-  ]);
+  ];
+  // Only industries with a slug get a detail page (see renderDetail) - the
+  // rest stay plain, non-linked cards exactly as before.
+  if (item.slug) {
+    children.push(el("a", { class: "card__link", href: `#industry/${item.slug}` }, ["View details"]));
+  }
+  return el("article", {}, children);
 }
 
 function renderStaticLists() {
@@ -507,6 +513,7 @@ function inferParent(title) {
   if (products.some((item) => item.title === title)) return "Products";
   if (services.some((item) => item.title === title)) return "Services";
   if (news.some((item) => item.title === title)) return "News";
+  if (industries.some((item) => item.title === title)) return "Industries";
   return "";
 }
 
@@ -571,7 +578,7 @@ function createDetailBlock({ heading, body, image, variant = "standard", imagePo
 }
 
 function renderDetail(kind, slug) {
-  const collection = kind === "product" ? products : kind === "service" ? services : news;
+  const collection = kind === "product" ? products : kind === "service" ? services : kind === "industry" ? industries : news;
   const item = collection.find((entry) => entry.slug === slug);
 
   if (!item) {
@@ -580,14 +587,14 @@ function renderDetail(kind, slug) {
   }
 
   const detailSummary = item.summary;
-  const visualLabel = kind === "product" ? "Product Image / 3D Render" : kind === "service" ? "Service Illustration" : "News Image";
+  const visualLabel = kind === "product" ? "Product Image / 3D Render" : kind === "service" ? "Service Illustration" : kind === "industry" ? "Industry Image" : "News Image";
 
-  // Product detail pages render "Key information" as a static, in-flow
-  // capability section (see below) instead of this sidebar - see the plan
-  // notes above .detail-shell in style.css. Services/news keep the original
-  // sidebar unchanged.
+  // Product and Industry detail pages render "Key information" as a static,
+  // in-flow content section (see below) instead of this sidebar - see the
+  // plan notes above .detail-shell in style.css. Services/news keep the
+  // original sidebar unchanged.
   let panelChildren = null;
-  if (kind !== "product") {
+  if (kind !== "product" && kind !== "industry") {
     const related = item.related || item.relatedProducts || ["Related content coming soon"];
     const detailBullets = kind === "service"
       ? ["Scope and deliverables", "Related products", "How to get in touch"]
@@ -610,22 +617,22 @@ function renderDetail(kind, slug) {
     );
   }
 
-  const detailVisual = kind === "product" && item.image
+  const detailVisual = (kind === "product" || kind === "industry") && item.image
     ? el("div", { class: "visual-placeholder visual-placeholder--detail visual-placeholder--photo" }, [
         el("img", { src: item.image.src, alt: item.image.alt, width: item.image.width, height: item.image.height })
       ])
     : el("div", { class: "visual-placeholder visual-placeholder--detail" }, [el("span", {}, [visualLabel])]);
 
   const copyChildren = [
-    el("p", { class: "eyebrow" }, [kind === "product" ? item.category : kind]),
+    el("p", { class: "eyebrow" }, [kind === "product" ? item.category : kind === "industry" ? "Industry" : kind]),
     el("h1", {}, [item.title]),
     detailVisual
   ];
 
-  // Optional, product-only long-form sections. Each renders only when the
-  // corresponding field is present, so products without them look exactly
+  // Optional, product/industry long-form sections. Each renders only when
+  // the corresponding field is present, so entries without them look exactly
   // like today's short detail page.
-  if (kind === "product" && item.overview && item.overview.length) {
+  if ((kind === "product" || kind === "industry") && item.overview && item.overview.length) {
     if (item.overviewHeading) {
       copyChildren.push(el("h3", {}, [item.overviewHeading]));
     }
@@ -637,15 +644,17 @@ function renderDetail(kind, slug) {
     copyChildren.push(el("p", {}, [detailSummary]));
   }
 
-  if (kind === "product") {
+  if (kind === "product" || kind === "industry") {
     const blocks = [];
 
-    // Products without highlights omit "Key capabilities" entirely rather
-    // than showing placeholder filler text. Rendered as a plain, full-width,
-    // two-column technical list (no ranking/numbers) in normal page flow -
-    // see .capability-list in style.css. Each item gets the same decorative
-    // arrow image (the project's assets/icons/arrow-icon02.svg asset, used
-    // as-is - not a link, so no href/click handling).
+    // Only products carry highlights, so this never fires for industries -
+    // no special-casing needed. Products without highlights omit "Key
+    // capabilities" entirely rather than showing placeholder filler text.
+    // Rendered as a plain, full-width, two-column technical list (no
+    // ranking/numbers) in normal page flow - see .capability-list in
+    // style.css. Each item gets the same decorative arrow image (the
+    // project's assets/icons/arrow-icon02.svg asset, used as-is - not a
+    // link, so no href/click handling).
     if (item.highlights && item.highlights.length) {
       blocks.push(createDetailBlock({
         heading: "Key capabilities",
@@ -701,10 +710,14 @@ function renderDetail(kind, slug) {
       }
     }
 
-    blocks.push(createDetailBlock({
-      body: [el("a", { class: "button button--primary", href: "#contact" }, [`Contact about this ${kind}`])],
-      theme: "tinted"
-    }));
+    // Industry pages omit the generic "Contact about this industry" CTA -
+    // Related products already gives visitors a concrete next step.
+    if (kind === "product") {
+      blocks.push(createDetailBlock({
+        body: [el("a", { class: "button button--primary", href: "#contact" }, [`Contact about this ${kind}`])],
+        theme: "tinted"
+      }));
+    }
 
     copyChildren.push(el("div", { class: "detail-blocks" }, blocks));
   } else {
@@ -729,8 +742,8 @@ function route() {
   const hash = location.hash.replace(/^#\/?/, "") || "home";
   const [kind, slug] = hash.split("/");
 
-  if (kind === "product" || kind === "service" || kind === "news") {
-    const section = kind === "product" ? "products" : kind === "service" ? "services" : "news";
+  if (kind === "product" || kind === "service" || kind === "news" || kind === "industry") {
+    const section = kind === "product" ? "products" : kind === "service" ? "services" : kind === "industry" ? "industries" : "news";
     if (!isEnabled(section)) {
       location.hash = "#home";
       return;
