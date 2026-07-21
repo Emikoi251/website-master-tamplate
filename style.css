@@ -941,9 +941,9 @@ h3 {
 }
 
 #about .subpage-hero--about {
+  grid-template-columns: 1fr;
   background:
-    linear-gradient(135deg, rgba(46, 46, 46, 0.96), rgba(11, 31, 58, 0.88)),
-    linear-gradient(45deg, transparent 0 48%, rgba(255, 255, 255, 0.08) 48% 52%, transparent 52% 100%),
+    linear-gradient(90deg, rgba(8, 20, 37, 0.8) 0%, rgba(8, 20, 37, 0.5) 42%, rgba(8, 20, 37, 0.18) 72%, rgba(8, 20, 37, 0.05) 100%),
     url("assets/about/about-hero-flag-right.png") center / cover no-repeat;
 }
 
@@ -2615,6 +2615,12 @@ h3 {
 
   .subpage-hero--contact {
     background-position: 60% center;
+  }
+
+  #about .subpage-hero--about {
+    background:
+      linear-gradient(180deg, rgba(8, 20, 37, 0.78) 0%, rgba(8, 20, 37, 0.6) 55%, rgba(8, 20, 37, 0.4) 100%),
+      url("assets/about/about-hero-flag-right.png") center / cover no-repeat;
   }
 
   .contact-hero__shortcuts {
