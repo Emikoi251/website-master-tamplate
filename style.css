@@ -917,6 +917,13 @@ h3 {
     linear-gradient(45deg, transparent 0 48%, rgba(255, 255, 255, 0.08) 48% 52%, transparent 52% 100%);
 }
 
+#about .subpage-hero--about {
+  background:
+    linear-gradient(135deg, rgba(46, 46, 46, 0.96), rgba(11, 31, 58, 0.88)),
+    linear-gradient(45deg, transparent 0 48%, rgba(255, 255, 255, 0.08) 48% 52%, transparent 52% 100%),
+    url("assets/about/about-hero-flag-right.png") center / cover no-repeat;
+}
+
 .subpage-hero--references {
   background:
     linear-gradient(135deg, rgba(11, 31, 58, 0.96), rgba(11, 31, 58, 0.74)),
