@@ -1447,6 +1447,14 @@ h3 {
   margin-top: 20px;
 }
 
+/* .split-section's left column has no gap-based grid of its own (unlike
+   .section-head or .home-about__copy), so the "View all industries"
+   .text-link needs its own spacing from the heading above it. */
+.split-section h2 + .text-link {
+  display: inline-block;
+  margin-top: 14px;
+}
+
 .industry-list {
   display: grid;
   gap: 14px;
