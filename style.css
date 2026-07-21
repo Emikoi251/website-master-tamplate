@@ -1526,6 +1526,12 @@ h3 {
   color: rgba(255, 255, 255, 0.72);
 }
 
+/* Intentionally-pending metric (real figure not yet verified) - only the
+   number dims, the label stays fully legible. */
+.metric-grid__pending {
+  opacity: 0.5;
+}
+
 .news-list {
   display: grid;
   gap: 12px;
