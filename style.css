@@ -1814,6 +1814,40 @@ h3 {
   transform: translateX(4px);
 }
 
+/* Home "Featured services" panels — landscape sibling of .featured-panel
+   above. All four detailHero banners share the same ~2.61:1 panoramic ratio
+   (1920/735 or 2560/980, identical proportions), so the panel is sized to
+   that exact ratio: object-fit: cover then crops nothing, preserving the
+   full panoramic photo instead of forcing the products' portrait crop. */
+.featured-panels--services {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.featured-panel--service {
+  aspect-ratio: 1920 / 735;
+}
+
+.featured-panel--service .featured-panel__scrim {
+  /* Shorter panel means overlay text sits closer to the photo's midpoint,
+     so the scrim goes darker and further up the frame than the product
+     panels' for the same text contrast. */
+  background: linear-gradient(0deg, rgba(6, 17, 32, 0.97) 0%, rgba(6, 17, 32, 0.75) 45%, rgba(6, 17, 32, 0.18) 78%, rgba(6, 17, 32, 0) 100%);
+}
+
+.featured-panel--service .featured-panel__content {
+  padding: clamp(18px, 2.4vw, 30px);
+}
+
+.featured-panel--service .featured-panel__content h3 {
+  font-size: clamp(1.2rem, 1.6vw, 1.5rem);
+  margin-bottom: 8px;
+}
+
+.featured-panel--service .featured-panel__content p {
+  margin-bottom: 12px;
+  -webkit-line-clamp: 2;
+}
+
 .product-directory__group-title {
   margin: 28px 0 4px;
   color: var(--red);
@@ -2748,6 +2782,10 @@ h3 {
 
   .featured-panels {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .featured-panels--services {
+    grid-template-columns: 1fr;
   }
 
   .site-contact-strip {

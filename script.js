@@ -298,7 +298,7 @@ function createIndustry(item, index, variant) {
 function renderStaticLists() {
   // fill() is a no-op when a container is missing (e.g. a section disabled in config).
   fill("[data-featured-products]", FEATURED_PRODUCT_SLUGS.map((slug) => publicProducts.find((item) => item.slug === slug)).filter(Boolean).map(createFeaturedProductPanel));
-  fill("[data-featured-services]", services.slice(0, 3).map((item) => createCard(item, "service")));
+  fill("[data-featured-services]", services.map(createFeaturedServicePanel));
   fill("[data-reference-preview]", references.map((item) => createCard(item, "reference")));
   fill("[data-references-grid]", references.map((item) => createCard(item, "reference")));
   fill("[data-news-preview]", news.slice(0, 2).map(createNewsItem));
@@ -517,6 +517,25 @@ function createFeaturedProductPanel(item) {
       el("img", { src: image.src, alt: image.alt, width: image.width, height: image.height, loading: "lazy" })
     ]),
     el("span", { class: "featured-panel__scrim", "aria-hidden": "true" }),
+    el("span", { class: "featured-panel__content" }, [
+      el("h3", {}, [item.title]),
+      el("p", {}, [item.summary]),
+      el("span", { class: "featured-panel__link" }, ["View details"])
+    ])
+  ]);
+}
+
+// Home's "Featured services" panels: landscape sibling of
+// createFeaturedProductPanel() above, sized around each service's existing
+// detailHero banner (all four share the same ~2.61:1 panoramic ratio - see
+// .featured-panel--service) rather than the products' portrait crop.
+function createFeaturedServicePanel(item) {
+  const image = item.detailHero;
+  return el("a", { class: "featured-panel featured-panel--service", href: `#service/${item.slug}`, "aria-label": `${item.title} — ${item.summary}` }, [
+    el("span", { class: "featured-panel__media" }, [
+      el("img", { src: image.src, alt: image.alt, width: image.width, height: image.height, loading: "lazy" })
+    ]),
+    el("span", { class: "featured-panel__scrim featured-panel__scrim--service", "aria-hidden": "true" }),
     el("span", { class: "featured-panel__content" }, [
       el("h3", {}, [item.title]),
       el("p", {}, [item.summary]),
