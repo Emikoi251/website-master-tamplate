@@ -2739,13 +2739,23 @@ h3 {
   }
 
   .contact-hero__shortcuts {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(112px, 132px));
     max-width: 430px;
-    gap: 26px 18px;
+    gap: 18px 12px;
+    justify-content: center;
   }
 
   .contact-shortcut__icon {
-    width: clamp(84px, 27vw, 108px);
+    width: clamp(72px, 22vw, 88px);
+  }
+
+  .contact-shortcut {
+    gap: 12px;
+  }
+
+  .contact-shortcut__label {
+    padding-bottom: 10px;
+    font-size: 0.7rem;
   }
 
   .page-marker {
