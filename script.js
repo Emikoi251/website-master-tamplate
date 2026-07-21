@@ -3,6 +3,10 @@
 const { products, productCategories, services, references, news, industriesHome, industries } = window.NaviData;
 const config = window.SiteConfig || {};
 
+function productCategoryLabel(key) {
+  return productCategories.find((entry) => entry.key === key)?.label || key;
+}
+
 // Archived products keep their full data.js entry (and remain reachable by direct
 // URL) but are excluded from every public-facing listing, menu and search index.
 const publicProducts = products.filter((item) => item.status !== "archived");
@@ -220,7 +224,7 @@ function createCard(item, type) {
 
   return el("article", { class: "card" }, [
     el("div", { class: "visual-placeholder visual-placeholder--card" }, [el("span", {}, [visualLabel])]),
-    el("div", { class: "card__meta" }, [el("span", {}, [item.category])]),
+    el("div", { class: "card__meta" }, [el("span", {}, [type === "product" ? productCategoryLabel(item.category) : item.category])]),
     el("h3", {}, [item.title]),
     el("p", {}, [body]),
     el("a", { class: "card__link", href }, [link])
@@ -338,14 +342,14 @@ function renderProductMenu() {
     el("a", { href: "#products" }, [el("strong", {}, ["All products"]), el("span", {}, ["Browse the full portfolio"])]),
     ...categories.map((entry) =>
       el("a", { href: `#products/${encodeURIComponent(entry.key)}` }, [
-        el("strong", {}, [entry.label]),
+        el("strong", {}, [productCategoryLabel(entry.key)]),
         el("span", {}, [entry.menuBlurb])
       ])
     )
   ]);
 
   fill("[data-products-footer]", categories.map((entry) =>
-    el("a", { href: `#products/${encodeURIComponent(entry.key)}` }, [entry.label])
+    el("a", { href: `#products/${encodeURIComponent(entry.key)}` }, [productCategoryLabel(entry.key)])
   ));
 }
 
@@ -359,7 +363,7 @@ function renderFilters() {
   const buttons = [
     el("button", { type: "button", class: "is-active", "aria-pressed": "true", "data-filter": "All" }, ["All"]),
     ...categories.map((entry) =>
-      el("button", { type: "button", "aria-pressed": "false", "data-filter": entry.key }, [entry.label])
+      el("button", { type: "button", "aria-pressed": "false", "data-filter": entry.key }, [productCategoryLabel(entry.key)])
     )
   ];
   document.querySelector("[data-product-filters]").replaceChildren(...buttons);
@@ -414,7 +418,7 @@ function createIndustryRow(item) {
 // uses), skipping any category with no matches in the current list.
 function groupProductsByCategory(list) {
   return productCategories
-    .map((entry) => ({ label: entry.label, items: list.filter((item) => item.category === entry.key) }))
+    .map((entry) => ({ label: productCategoryLabel(entry.key), items: list.filter((item) => item.category === entry.key) }))
     .filter((group) => group.items.length > 0);
 }
 
@@ -496,9 +500,9 @@ function announceProductsUpdate(debounce) {
     if (!hasResults) {
       message = "No products match your current search and filters.";
     } else if (category !== "All" && term) {
-      message = `Products updated. Category: ${category}. Search: ${term}.`;
+      message = `Products updated. Category: ${productCategoryLabel(category)}. Search: ${term}.`;
     } else if (category !== "All") {
-      message = `Products updated. Category: ${category}.`;
+      message = `Products updated. Category: ${productCategoryLabel(category)}.`;
     } else if (term) {
       message = `Products updated for search: ${term}.`;
     } else {
@@ -684,7 +688,7 @@ function renderDetail(kind, slug) {
     : el("div", { class: "visual-placeholder visual-placeholder--detail" }, [el("span", {}, [visualLabel])]);
 
   const copyChildren = [
-    el("p", { class: "eyebrow" }, [kind === "product" ? item.category : kind === "industry" ? "Industry" : kind]),
+    el("p", { class: "eyebrow" }, [kind === "product" ? productCategoryLabel(item.category) : kind === "industry" ? "Industry" : kind]),
     el("h1", {}, [item.title]),
     detailVisual
   ];

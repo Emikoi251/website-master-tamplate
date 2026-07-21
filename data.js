@@ -741,7 +741,7 @@ window.NaviData = (function () {
       title: "CISE",
       category: "Security",
       status: "archived",
-      summary: "Part of Navielektro's Security portfolio — a full overview, specifications and documentation will be available here soon.",
+      summary: "Part of Navielektro's Cyber Security portfolio — a full overview, specifications and documentation will be available here soon.",
       sourceUrl: "https://www.navielektro.fi/cise.html"
     },
     {
@@ -2010,7 +2010,7 @@ window.NaviData = (function () {
     { key: "Systems", label: "Systems", menuBlurb: "Situational awareness & command" },
     { key: "Modules", label: "Modules", menuBlurb: "Operational workflow modules" },
     { key: "Sensors", label: "Sensors", menuBlurb: "Radar, CCTV & optronics" },
-    { key: "Security", label: "Security", menuBlurb: "Cyber & infrastructure protection" },
+    { key: "Security", label: "Cyber Security", menuBlurb: "Cyber & infrastructure protection" },
     { key: "Weather", label: "Weather", menuBlurb: "Environmental information" },
     { key: "Voice Communication", label: "Voice Communication", menuBlurb: "Control room & tactical voice" },
     { key: "Tactical Display Framework", label: "Software Platform", menuBlurb: "Tactical Display Framework" }
