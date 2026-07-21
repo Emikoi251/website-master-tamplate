@@ -286,6 +286,20 @@ h3 {
   align-items: center;
 }
 
+/* Just above the desktop-nav breakpoint, the row is tightest and the
+   longer "Support & Services" label can wrap to a second line. Trim
+   gap/padding only in that narrow band so every item stays on one line. */
+@media (min-width: 1061px) and (max-width: 1150px) {
+  .desktop-nav {
+    gap: 10px;
+  }
+
+  .desktop-nav > a,
+  .nav-item > a {
+    padding: 0 8px;
+  }
+}
+
 .dropdown {
   position: absolute;
   top: calc(100% - 1px);

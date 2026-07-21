@@ -48,7 +48,7 @@ window.SiteConfig = {
   // footer nav and breadcrumbs). The keys must stay the same.
   navLabels: {
     products: "Products",
-    services: "Services",
+    services: "Support & Services",
     industries: "Industries",
     about: "About",
     references: "References",
