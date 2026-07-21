@@ -707,7 +707,12 @@ function renderDetail(kind, slug) {
   // Entries without either keep the existing short placeholder detail page.
   if (item.detailSections && item.detailSections.length) {
     copyChildren.push(el("div", { class: "detail-blocks" }, item.detailSections.map((section) => {
-      const body = [el("p", {}, detailInlineContent(section.content))];
+      const body = [];
+      // Intro paragraph is optional - a section can be just a heading + list
+      // (e.g. "Key Features"). Sections with `content` are unaffected.
+      if (section.content && section.content.length) {
+        body.push(el("p", {}, detailInlineContent(section.content)));
+      }
       // Optional bullet list after the intro paragraph. listStyle "capability"
       // reuses the 2-column product capability list (with its decorative
       // arrow marker); anything else falls back to the plain detail-checklist.

@@ -2140,7 +2140,29 @@ window.NaviData = (function () {
       category: "Enablement",
       summary: "Operator and administrator training, plus structured system handover for your teams.",
       tags: ["Services", "Training"],
-      relatedProducts: ["Software Platform", "User Interfaces", "Training & Simulation"]
+      relatedProducts: ["Software Platform", "User Interfaces", "Training & Simulation"],
+      detailTitle: "SOFTWARE ASSURANCE",
+      detailHero: {
+        src: "assets/services/training/software-assurance-banner.jpg",
+        alt: "A keyboard key with a red refresh icon",
+        width: 1920,
+        height: 735
+      },
+      detailSections: [
+        {
+          heading: "Tap into enhancements and improved performance",
+          content: ["Organizations have to respond to change and meet challenges every day. No matter the size of the organization, one of the forces needed to propel things forward is effective and efficient IT infrastructure. Navielektro can provide customers with Software Assurance as part of license agreements, helping you take full advantage of your investments."],
+          note: "Software Assurance gives customers instant access to new product releases, upgrades and updates, along with help in deploying and managing Navielektro’s products. The benefits of Software Assurance are vast: not only will it help you upgrade to new software, it will also allow you to get more out of your existing software and support you in your operating environment. No matter the size of your organization, Navielektro’s Software assurance helps keep your organization up to date and capable of responding to new challenges."
+        },
+        {
+          heading: "Key Features",
+          list: [
+            "Reduce software and services costs with rights to new software releases and cost-efficient upgrades",
+            "Use consulting services to plan new deployments",
+            "Improve operational efficiency"
+          ]
+        }
+      ]
     }
   ];
 
