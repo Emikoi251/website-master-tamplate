@@ -2032,7 +2032,32 @@ window.NaviData = (function () {
       category: "Support",
       summary: "Maintenance, support models, upgrades and long-term continuity for delivered systems.",
       tags: ["Services", "Support"],
-      relatedProducts: ["Radar Antennas", "Radar Transceivers", "VOICE"]
+      relatedProducts: ["Radar Antennas", "Radar Transceivers", "VOICE"],
+      detailTitle: "HELPDESK",
+      detailHero: {
+        src: "assets/services/helpdesk/support-banner.jpg",
+        alt: "Navielektro Helpdesk specialist wearing a headset",
+        width: 1920,
+        height: 735
+      },
+      detailSections: [
+        {
+          heading: "General support",
+          content: [
+            "Please send general support questions to ",
+            { text: "service@navielektro.fi", href: "mailto:service@navielektro.fi" },
+            " and software support questions to ",
+            { text: "softa@navielektro.fi", href: "mailto:softa@navielektro.fi" },
+            "."
+          ]
+        },
+        {
+          heading: "Service agreements",
+          content: [
+            "Navielektro offers 24/7 Support, which can be reached by phone. Customers who have a valid technical service agreement may call the HelpDesk line at for assistance."
+          ]
+        }
+      ]
     },
     {
       slug: "technical-consulting",

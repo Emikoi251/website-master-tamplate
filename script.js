@@ -575,7 +575,7 @@ function renderBreadcrumbs(page, detailTitle) {
 
 function inferParent(title) {
   if (products.some((item) => item.title === title)) return "Products";
-  if (services.some((item) => item.title === title)) return "Services";
+  if (services.some((item) => item.title === title || item.detailTitle === title)) return "Services";
   if (news.some((item) => item.title === title)) return "News";
   if (industries.some((item) => item.title === title)) return "Industries";
   return "";
@@ -589,7 +589,13 @@ function detailFigure(image) {
   ]);
 }
 
-// One full-width content section for a product detail page. Rendered as a
+function detailInlineContent(parts) {
+  return parts.map((part) => typeof part === "string"
+    ? part
+    : el("a", { class: "text-link", href: part.href }, [part.text]));
+}
+
+// One full-width content section for a data-driven detail page. Rendered as a
 // child of .detail-copy (not .detail-shell) so .detail-panel's
 // position:sticky keeps tracking the whole page - see the CSS comment above
 // .detail-blocks for how split/tinted/dark/background-image sections still
@@ -653,12 +659,13 @@ function renderDetail(kind, slug) {
   const detailSummary = item.summary;
   const visualLabel = kind === "product" ? "Product Image / 3D Render" : kind === "service" ? "Service Illustration" : kind === "industry" ? "Industry Image" : "News Image";
 
-  // Product and Industry detail pages render "Key information" as a static,
+  // Product and Industry detail pages, plus data-driven service details, omit
+  // the generic placeholder sidebar. Product/industry pages render "Key information" as a static,
   // in-flow content section (see below) instead of this sidebar - see the
   // plan notes above .detail-shell in style.css. Services/news keep the
   // original sidebar unchanged.
   let panelChildren = null;
-  if (kind !== "product" && kind !== "industry") {
+  if (kind !== "product" && kind !== "industry" && !item.detailSections) {
     const related = item.related || item.relatedProducts || ["Related content coming soon"];
     const detailBullets = kind === "service"
       ? ["Scope and deliverables", "Related products", "How to get in touch"]
@@ -681,22 +688,29 @@ function renderDetail(kind, slug) {
     );
   }
 
-  const detailVisual = (kind === "product" || kind === "industry") && item.image
+  const detailImage = item.detailHero || ((kind === "product" || kind === "industry") ? item.image : null);
+  const detailVisual = detailImage
     ? el("div", { class: "visual-placeholder visual-placeholder--detail visual-placeholder--photo" }, [
-        el("img", { src: item.image.src, alt: item.image.alt, width: item.image.width, height: item.image.height })
+        el("img", { src: detailImage.src, alt: detailImage.alt, width: detailImage.width, height: detailImage.height })
       ])
     : el("div", { class: "visual-placeholder visual-placeholder--detail" }, [el("span", {}, [visualLabel])]);
 
+  if (item.detailHero) detailVisual.classList.add("visual-placeholder--banner");
+
   const copyChildren = [
     el("p", { class: "eyebrow" }, [kind === "product" ? productCategoryLabel(item.category) : kind === "industry" ? "Industry" : kind]),
-    el("h1", {}, [item.title]),
+    el("h1", {}, [item.detailTitle || item.title]),
     detailVisual
   ];
 
-  // Optional, product/industry long-form sections. Each renders only when
-  // the corresponding field is present, so entries without them look exactly
-  // like today's short detail page.
-  if ((kind === "product" || kind === "industry") && item.overview && item.overview.length) {
+  // Optional data-driven service sections or product/industry long-form content.
+  // Entries without either keep the existing short placeholder detail page.
+  if (item.detailSections && item.detailSections.length) {
+    copyChildren.push(el("div", { class: "detail-blocks" }, item.detailSections.map((section) => createDetailBlock({
+      heading: section.heading,
+      body: [el("p", {}, detailInlineContent(section.content))]
+    }))));
+  } else if ((kind === "product" || kind === "industry") && item.overview && item.overview.length) {
     if (item.overviewHeading) {
       copyChildren.push(el("h3", {}, [item.overviewHeading]));
     }
@@ -796,7 +810,7 @@ function renderDetail(kind, slug) {
     }
 
     copyChildren.push(el("div", { class: "detail-blocks" }, blocks));
-  } else {
+  } else if (!item.detailSections) {
     copyChildren.push(el("p", {}, [`A detailed overview, use cases and integration notes for this ${kind} will be added here.`]));
     copyChildren.push(el("a", { class: "button button--primary", href: "#contact" }, [`Contact about this ${kind}`]));
   }
@@ -811,7 +825,7 @@ function renderDetail(kind, slug) {
   const shell = el("article", { class: shellClasses.join(" ") }, shellChildren);
 
   document.querySelector("#detail").replaceChildren(shell);
-  showPage("detail", item.title);
+  showPage("detail", item.detailTitle || item.title);
 }
 
 function route() {

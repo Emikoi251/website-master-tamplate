@@ -827,6 +827,11 @@ h3 {
   object-fit: cover;
 }
 
+.visual-placeholder--detail.visual-placeholder--banner {
+  min-height: 0;
+  aspect-ratio: 1920 / 735;
+}
+
 .section,
 .cta-band {
   max-width: var(--max);
