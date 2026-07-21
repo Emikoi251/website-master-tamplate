@@ -7,6 +7,41 @@
 // Later this file can be generated from a CMS without touching script.js.
 // ============================================================================
 window.NaviData = (function () {
+  // --- Home hero slider (three slides, shared eyebrow/CTAs live in index.html -
+  // only the per-slide image/headline/text are data-driven here)
+  const heroSlides = [
+    {
+      image: {
+        src: "assets/home/hero/hero-control-room.jpg",
+        alt: "A Navielektro situational awareness control room with multiple operator workstations and a wide-screen maritime display",
+        width: 1920,
+        height: 962
+      },
+      headline: "Everything you need, in one view.",
+      text: "High-performance systems for complete situational awareness, secure communication and mission-critical operations."
+    },
+    {
+      image: {
+        src: "assets/home/hero/hero-military-operations.jpg",
+        alt: "A soldier in full gear looking back while moving through a forest during a tactical exercise",
+        width: 1920,
+        height: 962
+      },
+      headline: "In command, in control.",
+      text: "Navielektro gives defence and tactical teams the situational awareness needed to retain the initiative in demanding environments."
+    },
+    {
+      image: {
+        src: "assets/home/hero/hero-operator-systems.jpg",
+        alt: "An operator wearing a headset monitoring multiple radar and traffic displays in a control room",
+        width: 1920,
+        height: 1140
+      },
+      headline: "Solutions that scale with your operation.",
+      text: "Every Navielektro solution is tailored to the customer, from focused installations to large-scale integrated deliveries."
+    }
+  ];
+
   // --- Products (Products page + featured on home; drive product detail pages)
   const products = [
     {
@@ -2479,6 +2514,7 @@ window.NaviData = (function () {
   ];
 
   return {
+    heroSlides,
     products,
     productCategories,
     services,

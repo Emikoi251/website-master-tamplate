@@ -130,27 +130,22 @@
     <nav class="breadcrumbs" aria-label="Breadcrumb" data-breadcrumbs></nav>
 
     <section class="page page--active" id="home" data-page="home">
-      <section class="hero" aria-labelledby="home-title">
+      <section class="hero" aria-labelledby="home-title" data-hero>
+        <div class="hero__slides" data-hero-slides aria-hidden="true"></div>
+        <div class="hero__overlay" aria-hidden="true"></div>
         <div class="hero__content">
           <p class="eyebrow">International technology company</p>
-          <h1 id="home-title">Operational technology for demanding environments.</h1>
-          <p>Navielektro develops systems, sensors, software and communication technology that give maritime, defence and infrastructure operators a reliable, real-time operational picture. Detailed specifications and company information will be added as they are confirmed.</p>
+          <h1 id="home-title" data-hero-headline>Everything you need, in one view.</h1>
+          <p data-hero-text>High-performance systems for complete situational awareness, secure communication and mission-critical operations.</p>
           <div class="hero__actions">
             <a class="button button--primary" href="#products" data-route="products">Explore products</a>
             <a class="button button--secondary" href="#contact" data-route="contact">Contact us</a>
           </div>
         </div>
-        <div class="hero__visual" aria-hidden="true">
-          <div class="visual-placeholder visual-placeholder--hero"></div>
-          <div class="signal-map">
-            <span class="signal-map__ring"></span>
-            <span class="signal-map__ring"></span>
-            <span class="signal-map__ring"></span>
-            <span class="signal-map__line"></span>
-            <span class="signal-map__point point-a"></span>
-            <span class="signal-map__point point-b"></span>
-            <span class="signal-map__point point-c"></span>
-          </div>
+        <div class="hero__controls" data-hero-controls>
+          <button type="button" class="hero__arrow hero__arrow--prev" data-hero-prev aria-label="Previous slide"></button>
+          <div class="hero__dots" data-hero-dots role="tablist" aria-label="Hero slides"></div>
+          <button type="button" class="hero__arrow hero__arrow--next" data-hero-next aria-label="Next slide"></button>
         </div>
       </section>
 

@@ -1,6 +1,6 @@
 // Content lives in data.js (window.NaviData); site settings in config.js
 // (window.SiteConfig). Both load before this file. Rendering/logic stays here.
-const { products, productCategories, services, references, news, industriesHome, industries } = window.NaviData;
+const { heroSlides, products, productCategories, services, references, news, industriesHome, industries } = window.NaviData;
 const config = window.SiteConfig || {};
 
 function productCategoryLabel(key) {
@@ -310,6 +310,123 @@ function renderStaticLists() {
   renderFeatured();
   renderIndustryMenu();
   renderProductMenu();
+}
+
+// Home hero slider: three slides (image + headline + supporting text),
+// opacity-only crossfade, shared eyebrow/CTAs untouched (they live once in
+// index.html, outside this function). Autoplay is skipped entirely for
+// prefers-reduced-motion and on mobile (<=760px, matching the site's mobile
+// breakpoint) - manual prev/next/dot controls remain available everywhere.
+function initHeroSlider() {
+  const hero = document.querySelector("[data-hero]");
+  if (!hero || !heroSlides || !heroSlides.length) return;
+
+  const slidesEl = hero.querySelector("[data-hero-slides]");
+  const headlineEl = hero.querySelector("[data-hero-headline]");
+  const textEl = hero.querySelector("[data-hero-text]");
+  const dotsEl = hero.querySelector("[data-hero-dots]");
+  const prevBtn = hero.querySelector("[data-hero-prev]");
+  const nextBtn = hero.querySelector("[data-hero-next]");
+
+  slidesEl.replaceChildren(...heroSlides.map((slide, i) =>
+    el("div", { class: "hero__slide" + (i === 0 ? " is-active" : "") }, [
+      el("img", {
+        src: slide.image.src,
+        alt: slide.image.alt,
+        width: slide.image.width,
+        height: slide.image.height,
+        loading: i === 0 ? "eager" : "lazy",
+        fetchpriority: i === 0 ? "high" : "low"
+      })
+    ])
+  ));
+
+  dotsEl.replaceChildren(...heroSlides.map((slide, i) =>
+    el("button", {
+      type: "button",
+      class: "hero__dot" + (i === 0 ? " is-active" : ""),
+      role: "tab",
+      "aria-selected": String(i === 0),
+      "aria-label": `Show slide ${i + 1} of ${heroSlides.length}`,
+      "data-hero-dot": i
+    }, [])
+  ));
+
+  fill("[data-hero-prev]", [arrowIcon()]);
+  fill("[data-hero-next]", [arrowIcon()]);
+
+  let active = 0;
+  let timer = null;
+
+  function goToSlide(index) {
+    const next = (index + heroSlides.length) % heroSlides.length;
+    if (next === active) return;
+    active = next;
+    const slide = heroSlides[active];
+
+    slidesEl.querySelectorAll(".hero__slide").forEach((node, i) => node.classList.toggle("is-active", i === active));
+    dotsEl.querySelectorAll(".hero__dot").forEach((node, i) => {
+      node.classList.toggle("is-active", i === active);
+      node.setAttribute("aria-selected", String(i === active));
+    });
+
+    // Subtle fade-out/swap/fade-in on the headline+text, timed to land at the
+    // image crossfade's midpoint (.hero__slide transitions over 0.8s) so the
+    // new copy never sits fully visible over the previous slide's photo.
+    headlineEl.style.opacity = "0";
+    textEl.style.opacity = "0";
+    setTimeout(() => {
+      headlineEl.textContent = slide.headline;
+      textEl.textContent = slide.text;
+      headlineEl.style.opacity = "1";
+      textEl.style.opacity = "1";
+    }, 400);
+  }
+
+  function next() {
+    goToSlide(active + 1);
+  }
+
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const isMobile = window.matchMedia("(max-width: 760px)");
+
+  function stopAutoplay() {
+    clearInterval(timer);
+    timer = null;
+  }
+
+  function startAutoplay() {
+    stopAutoplay();
+    if (reducedMotion.matches || isMobile.matches) return;
+    timer = setInterval(next, 6500);
+  }
+
+  prevBtn.addEventListener("click", () => {
+    goToSlide(active - 1);
+    startAutoplay();
+  });
+  nextBtn.addEventListener("click", () => {
+    goToSlide(active + 1);
+    startAutoplay();
+  });
+  dotsEl.addEventListener("click", (event) => {
+    const dot = event.target.closest("[data-hero-dot]");
+    if (!dot) return;
+    goToSlide(Number(dot.dataset.heroDot));
+    startAutoplay();
+  });
+
+  hero.addEventListener("mouseenter", stopAutoplay);
+  hero.addEventListener("mouseleave", startAutoplay);
+  hero.addEventListener("focusin", stopAutoplay);
+  hero.addEventListener("focusout", startAutoplay);
+
+  // Re-evaluate on breakpoint/motion-preference changes (e.g. resizing past
+  // 760px, or toggling the OS reduced-motion setting) without a page reload.
+  isMobile.addEventListener("change", startAutoplay);
+  reducedMotion.addEventListener("change", startAutoplay);
+
+  startAutoplay();
 }
 
 // Industry navigation is generated from the same data as the overview and
@@ -993,6 +1110,7 @@ window.addEventListener("resize", updateViewportWidthVar);
 
 applyConfig();
 renderStaticLists();
+initHeroSlider();
 bindDropdownAccessibility();
 route();
 
