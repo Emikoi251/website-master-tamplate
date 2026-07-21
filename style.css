@@ -2746,7 +2746,7 @@ h3 {
   }
 
   .contact-shortcut__icon {
-    width: clamp(72px, 22vw, 88px);
+    width: clamp(66px, 20.3vw, 80px);
   }
 
   .contact-shortcut {
