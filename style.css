@@ -1190,8 +1190,33 @@ h3 {
   gap: 18px;
 }
 
-.home-about__panel .visual-placeholder {
-  margin-top: 0;
+/* Real facility photo replacing the old placeholder box. Fixed height
+   (matching the placeholder's former 300px) rather than aspect-ratio, so the
+   panel stays exactly as compact at every breakpoint - object-fit: cover
+   just adjusts how much of the photo's width is cropped as the column
+   width changes, never how tall the panel is. */
+.home-about__photo {
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+  border-radius: var(--radius);
+}
+
+.home-about__photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Subtle depth only - not strong enough to support overlaid text, and none
+   is placed on top of it. */
+.home-about__photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(8, 20, 37, 0.24) 0%, rgba(8, 20, 37, 0) 40%);
+  pointer-events: none;
 }
 
 .home-about__facts {
@@ -2987,6 +3012,10 @@ h3 {
   .visual-placeholder--proof,
   .visual-placeholder--detail {
     min-height: 240px;
+  }
+
+  .home-about__photo {
+    height: 240px;
   }
 
   .detail-block--split .detail-block__inner {
