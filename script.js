@@ -706,10 +706,27 @@ function renderDetail(kind, slug) {
   // Optional data-driven service sections or product/industry long-form content.
   // Entries without either keep the existing short placeholder detail page.
   if (item.detailSections && item.detailSections.length) {
-    copyChildren.push(el("div", { class: "detail-blocks" }, item.detailSections.map((section) => createDetailBlock({
-      heading: section.heading,
-      body: [el("p", {}, detailInlineContent(section.content))]
-    }))));
+    copyChildren.push(el("div", { class: "detail-blocks" }, item.detailSections.map((section) => {
+      const body = [el("p", {}, detailInlineContent(section.content))];
+      // Optional bullet list after the intro paragraph. listStyle "capability"
+      // reuses the 2-column product capability list (with its decorative
+      // arrow marker); anything else falls back to the plain detail-checklist.
+      // Sections without `list` are unaffected - same single <p> as before.
+      if (section.list && section.list.length) {
+        const useCapabilityStyle = section.listStyle === "capability";
+        body.push(el("ul", { class: useCapabilityStyle ? "capability-list" : "detail-checklist" }, section.list.map((entry) => {
+          const liChildren = useCapabilityStyle
+            ? [el("img", { class: "capability-list__icon", src: "assets/icons/arrow-icon02.svg", alt: "", "aria-hidden": "true" }), entry]
+            : [entry];
+          return el("li", {}, liChildren);
+        })));
+      }
+      // Optional closing paragraph after the list.
+      if (section.note) {
+        body.push(el("p", {}, [section.note]));
+      }
+      return createDetailBlock({ heading: section.heading, body });
+    })));
   } else if ((kind === "product" || kind === "industry") && item.overview && item.overview.length) {
     if (item.overviewHeading) {
       copyChildren.push(el("h3", {}, [item.overviewHeading]));

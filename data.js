@@ -2065,7 +2065,52 @@ window.NaviData = (function () {
       category: "Advisory",
       summary: "Early-stage planning, architecture, requirements and feasibility support for complex projects.",
       tags: ["Services", "Consulting"],
-      relatedProducts: ["JADIS", "CISE", "Critical Infrastructure Protection"]
+      relatedProducts: ["JADIS", "CISE", "Critical Infrastructure Protection"],
+      detailTitle: "CONSULTING & ENGINEERING",
+      detailHero: {
+        src: "assets/services/technical-consulting/consulting-banner.jpg",
+        alt: "Navielektro engineer working in a server room",
+        width: 1920,
+        height: 735
+      },
+      detailSections: [
+        {
+          heading: "First-class consulting",
+          content: ["Navielektro offers a wide variety of different consulting and engineering services, such as on-site surveys for:"],
+          list: [
+            "VHF/AIS Base Stations",
+            "Radar Sites",
+            "Coverage Analysis",
+            "Telecommunication Networks",
+            "System Architecture Design",
+            "Data Security",
+            "SDK Support",
+            "System Life-cycle Support"
+          ],
+          listStyle: "capability",
+          note: "In addition, we offer system services in the field of system specification, planning, design and software development. Our staff has special competency in developing real-time based distributed data processing and collection software systems, with heavy emphasis on user presentation."
+        },
+        {
+          heading: "Development",
+          content: ["Development is currently carried out using Java, ANSI C++, and ANSI C on several operating systems and hardware platforms. We support a working codebase for Microsoft Windows NT, Linux, and a variety of embedded microcontrollers ranging from PIC to x86 and DSP systems, as well as various FPGA designs. Consultancy projects developed so far:"],
+          list: [
+            "Network Operation and Maintenance Systems",
+            "Weather Information Sensor Processing and Presentation",
+            "Radio Network Signal Strength and Throughput Visualization",
+            "Track Exchange between a variety of surveillance systems using XML",
+            "Track Management",
+            "Real-Time Sensor Data Fusion",
+            "Statistical Analyzer of Maritime Traffic Patterns",
+            "Voice Signal Processing, Compression and Transmission using Low Bandwidth Data Lines",
+            "Telecommunication Networks",
+            "Information Security Planning and Deployment",
+            "Radar Engineering",
+            "Man Machine Interface",
+            "Maritime AIS Solutions",
+            "Data Collection Services"
+          ]
+        }
+      ]
     },
     {
       slug: "training",
