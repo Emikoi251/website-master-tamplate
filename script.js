@@ -297,7 +297,7 @@ function createIndustry(item, index, variant) {
 
 function renderStaticLists() {
   // fill() is a no-op when a container is missing (e.g. a section disabled in config).
-  fill("[data-featured-products]", publicProducts.slice(0, 3).map((item) => createCard(item, "product")));
+  fill("[data-featured-products]", FEATURED_PRODUCT_SLUGS.map((slug) => publicProducts.find((item) => item.slug === slug)).filter(Boolean).map(createFeaturedProductPanel));
   fill("[data-featured-services]", services.slice(0, 3).map((item) => createCard(item, "service")));
   fill("[data-reference-preview]", references.map((item) => createCard(item, "reference")));
   fill("[data-references-grid]", references.map((item) => createCard(item, "reference")));
@@ -503,6 +503,25 @@ function createFeaturedTile(item) {
       el("p", {}, [item.summary])
     ]),
     el("span", { class: "featured-tile__arrow" }, [arrowIcon()])
+  ]);
+}
+
+// Home's "Featured products" panels: same curated FEATURED_PRODUCT_SLUGS set
+// as the Products page's featured tray, but larger and photography-led,
+// using each product's full-size detail-hero image rather than the small
+// featuredTileImage thumbnail (see createFeaturedTile() above).
+function createFeaturedProductPanel(item) {
+  const image = item.image;
+  return el("a", { class: "featured-panel", href: `#product/${item.slug}`, "aria-label": `${item.title} — ${item.summary}` }, [
+    el("span", { class: "featured-panel__media" }, [
+      el("img", { src: image.src, alt: image.alt, width: image.width, height: image.height, loading: "lazy" })
+    ]),
+    el("span", { class: "featured-panel__scrim", "aria-hidden": "true" }),
+    el("span", { class: "featured-panel__content" }, [
+      el("h3", {}, [item.title]),
+      el("p", {}, [item.summary]),
+      el("span", { class: "featured-panel__link" }, ["View details"])
+    ])
   ]);
 }
 
