@@ -55,8 +55,11 @@
           </div>
         </div>
       </div>
-      <!-- Industries: plain link (no sub-pages, so no dropdown). -->
-      <a href="#industries" data-route="industries" data-nav-label="industries" data-optional="industries">Industries</a>
+      <!-- Industries: dropdown generated from industry detail data. -->
+      <div class="nav-item has-menu" data-optional="industries">
+        <a href="#industries" data-route="industries" data-nav-label="industries" aria-haspopup="true" aria-expanded="false">Industries</a>
+        <div class="dropdown" aria-label="Industries menu" data-industries-menu></div>
+      </div>
       <!-- Products: dropdown generated from product categories (see renderProductMenu). -->
       <div class="nav-item has-menu">
         <a href="#products" data-route="products" data-nav-label="products" aria-haspopup="true" aria-expanded="false">Products</a>

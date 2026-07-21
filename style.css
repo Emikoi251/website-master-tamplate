@@ -465,6 +465,7 @@ h3 {
   inset: var(--header-h) 0 0;
   z-index: 90;
   display: none;
+  overflow-y: auto;
   background: var(--navy);
   color: var(--white);
 }

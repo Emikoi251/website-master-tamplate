@@ -298,7 +298,27 @@ function renderStaticLists() {
   fill("[data-industries]", industries.map((item) => createIndustryRow(item)));
   renderFilters();
   renderFeatured();
+  renderIndustryMenu();
   renderProductMenu();
+}
+
+// Industry navigation is generated from the same data as the overview and
+// detail pages, keeping desktop and mobile titles and URLs in sync.
+function createIndustryNavLink(item, mobile = false) {
+  return el("a", {
+    href: `#industry/${item.slug}`,
+    ...(mobile ? { class: "mobile-sublink", "data-industry-mobile-link": "" } : {})
+  }, mobile ? [item.title] : [el("strong", {}, [item.title])]);
+}
+
+function renderIndustryMenu() {
+  const linkedIndustries = industries.filter((item) => item.slug);
+  fill("[data-industries-menu]", linkedIndustries.map((item) => createIndustryNavLink(item)));
+
+  document.querySelectorAll("[data-industry-mobile-link]").forEach((link) => link.remove());
+  document.querySelector('.mobile-menu nav a[data-route="industries"]')?.after(
+    ...linkedIndustries.map((item) => createIndustryNavLink(item, true))
+  );
 }
 
 // Header product mega-menu + footer product list, generated from
