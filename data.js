@@ -2024,7 +2024,29 @@ window.NaviData = (function () {
       category: "Delivery",
       summary: "Integrating Navielektro products, sensors, software and third-party systems into one coherent operational whole.",
       tags: ["Services", "Integration"],
-      relatedProducts: ["MARITAS", "Software Development Kit", "Radar Processing"]
+      relatedProducts: ["MARITAS", "Software Development Kit", "Radar Processing"],
+      detailTitle: "MAINTENANCE",
+      detailHero: {
+        src: "assets/services/system-integration/maintenance-banner.jpg",
+        alt: "Navielektro communications tower against a clear blue sky",
+        width: 2560,
+        height: 980
+      },
+      detailSections: [
+        {
+          heading: "We are with you for the long haul",
+          content: ["Navielektro offers long-term commitment to customers, and we currently support situational awareness systems and sensors around the world. We can offer a complete turnkey solution in terms of maintenance, including first line, second line and third line of support – depending on customer needs. We provide on-site support, factory support and Helpdesk services, and our support packages can be tailored according to the needs and budget of our customers."]
+        },
+        {
+          heading: "Flexible and reliable",
+          content: ["Navielektro performs maintenance on delivered sensors and systems in a myriad of ways. We provide customer portals that allow users to perform electronic support requests, which our on-call developers and engineers respond to. Maintenance work can be provided either via remote support gateways that allow our engineers to monitor the system from Navielektro's premises, or through maintenance visits that are scheduled whenever a problem occurs. Our maintenance personnel is highly experienced both when it comes to software and sensors, guaranteeing that you get the help you need – on time. We are dedicated to ensuring our products maintain high levels of operation and long life-cycles."],
+          note: "As a Navielektro customer, you will have reliable sensors and systems that perform according to your expectations."
+        },
+        {
+          heading: "Updates and support",
+          content: ["Users who have a valid maintenance contract with Navielektro will have access to their own web portal, allowing contact with technical staff. The portal provides users with instant access to new product releases, upgrades and updates, allowing users to access enhancements and new functionality – as well as tap into improved performance."]
+        }
+      ]
     },
     {
       slug: "lifecycle-support",
