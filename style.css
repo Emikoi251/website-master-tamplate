@@ -1068,11 +1068,43 @@ h3 {
     linear-gradient(45deg, transparent 0 48%, rgba(255, 255, 255, 0.08) 48% 52%, transparent 52% 100%);
 }
 
-#about .subpage-hero--about {
+#about .subpage-hero--about,
+#history .subpage-hero--about {
   grid-template-columns: 1fr;
   background:
     linear-gradient(90deg, rgba(8, 20, 37, 0.8) 0%, rgba(8, 20, 37, 0.5) 42%, rgba(8, 20, 37, 0.18) 72%, rgba(8, 20, 37, 0.05) 100%),
     url("assets/about/about-hero-flag-right.png") center / cover no-repeat;
+}
+
+/* History: a restrained long-form About page with a consistent reading
+   measure and architectural separators instead of cards or a timeline. */
+.history-content {
+  max-width: 980px;
+  margin-inline: auto;
+}
+
+.history-section {
+  padding-block: clamp(8px, 1.5vw, 18px);
+}
+
+.history-section + .history-section {
+  margin-top: clamp(48px, 7vw, 84px);
+  padding-top: clamp(48px, 7vw, 84px);
+  border-top: 1px solid var(--line);
+}
+
+.history-section h2 {
+  max-width: 720px;
+  color: var(--navy);
+  font-size: clamp(2rem, 3.8vw, 3.5rem);
+}
+
+.history-section p {
+  max-width: 78ch;
+  margin-top: 24px;
+  color: var(--muted);
+  font-size: 1.06rem;
+  line-height: 1.78;
 }
 
 .subpage-hero--careers {
@@ -3253,7 +3285,8 @@ h3 {
     background-position: 60% center;
   }
 
-  #about .subpage-hero--about {
+  #about .subpage-hero--about,
+  #history .subpage-hero--about {
     background:
       linear-gradient(180deg, rgba(8, 20, 37, 0.78) 0%, rgba(8, 20, 37, 0.6) 55%, rgba(8, 20, 37, 0.4) 100%),
       url("assets/about/about-hero-flag-right.png") center / cover no-repeat;

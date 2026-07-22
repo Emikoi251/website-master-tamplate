@@ -60,6 +60,7 @@ const pages = new Map(
     ["services", navLabel("services", "Services")],
     ["industries", navLabel("industries", "Industries")],
     ["about", navLabel("about", "About")],
+    ["history", "History"],
     ["careers", "Careers"],
     ["references", navLabel("references", "References")],
     ["news", navLabel("news", "News")],
@@ -750,6 +751,7 @@ function setProductCategory(category) {
 
 function showPage(page, detailTitle = "") {
   const activeRoute = page === "detail" ? inferParent(detailTitle).toLowerCase() : page;
+  const desktopRoute = page === "history" ? "about" : activeRoute;
   const siteName = config.companyName || "Navielektro";
   const tagline = (config.tagline || "Operational technology for demanding environments").replace(/[.!?]+$/, "");
   const pageLabel = page === "detail" && detailTitle
@@ -766,7 +768,7 @@ function showPage(page, detailTitle = "") {
   document.querySelectorAll("[data-route].is-active").forEach((link) => link.classList.remove("is-active"));
   document.querySelectorAll(".desktop-nav > a, .nav-item > a").forEach((link) => {
     const route = link.dataset.route;
-    link.classList.toggle("is-active", route === activeRoute);
+    link.classList.toggle("is-active", route === desktopRoute);
   });
   document.querySelectorAll(".mobile-menu nav a").forEach((link) => {
     link.classList.toggle("is-active", link.dataset.route === activeRoute);
@@ -788,7 +790,7 @@ function renderBreadcrumbs(page, detailTitle) {
   }
 
   const label = page === "detail" ? detailTitle : pages.get(page);
-  const parent = page === "detail" ? inferParent(detailTitle) : "";
+  const parent = page === "detail" ? inferParent(detailTitle) : page === "history" ? "About" : "";
   breadcrumbEl.classList.add("is-visible");
   const trail = [
     el("a", { href: "#home" }, ["Home"]),
