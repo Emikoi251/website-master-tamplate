@@ -179,7 +179,7 @@ window.NaviData = (function () {
         },
         {
           title: "Port Management",
-          slug: null,
+          slug: "port-management",
           image: { src: "assets/products/maritas/related-port-management.webp", alt: "Aerial view of a port with containers, cranes and barges", width: 480, height: 258 }
         }
       ],
@@ -1781,6 +1781,57 @@ window.NaviData = (function () {
         }
       ],
       sourceUrl: "https://www.navielektro.fi/sar.html"
+    },
+    {
+      slug: "port-management",
+      title: "Port Management",
+      category: "Modules",
+      summary: "Manage port visits",
+      image: {
+        src: "assets/products/port-management/port-management-hero.webp",
+        alt: "A container ship approaching a port lined with cargo cranes",
+        width: 1920,
+        height: 735
+      },
+      overviewHeading: "Manage port visits",
+      overview: [
+        "Most ports in the world do not have an electronic port management system, and those that do have poor integration with information obtained from VTS or AIS systems. Navielektro's Port Management system specifically addresses the requirements related to port visits, but also integrates information from VTS and AIS systems into the RMP. As a result, port personnel are presented with a coherent picture of incoming and departing vessels, allowing users to prepare and take action when a vessel arrives.",
+        "Information from existing legacy PIMS (Port Information Management Systems) or voyage-, berth- or arrival management systems has traditionally been managed by separate systems, forcing the operator to manually enter the required information into different systems. Navielektro's Port Management may easily be integrated with a traditional VTMS (Vessel Traffic Management System), in order to make the information related to vessel port visits available in the same system where all other maritime surveillance monitoring is being conducted."
+      ],
+      highlights: [
+        "Arrival and departure management",
+        "Vessel port visit history management",
+        "Cargo and passenger management",
+        "Vessel service order management",
+        "Vessel database and security levels",
+        "Operational alarm management",
+        "Web interface (IntraNet)",
+        "Public web arrivals and departures"
+      ],
+      operationalUse: [
+        {
+          heading: "All the information you need is integrated",
+          text: "Navielektro's Port Management system is connected to traffic schedule information sources, which allow users to view scheduled port visits as part of the RMP, in an integrated component window. Users can add information regarding new port visits, as well as modify, update and delete visit data, such as the incoming vessel's ETA or cargo and passenger information. Port visits are stored and can later be searched and retrieved, either from within a specific time-frame or using vessel identifications.",
+          image: {
+            src: "assets/products/port-management/port-management-screenshot.webp",
+            alt: "Chart view with a port visit database dialog listing scheduled, arriving, berthed and departing vessels",
+            width: 550,
+            height: 276
+          },
+          variant: "split",
+          imagePosition: "left",
+          theme: "tinted"
+        },
+        {
+          text: "The system can even be utilized for managing service orders, allowing port personnel or operators to place orders for basic resources, such as waste, fuel, electricity or water management. The Port Management system is an essential tool for port authorities, providing users with up-to-date information on arriving, berthed and departing vessels, and allowing users to verify that the required resources are available at the time a vessel berths.",
+          theme: "tinted"
+        },
+        {
+          text: "Users can import vessel data from Lloyd's Fairplay Database or other national legacy databases, or maintain a database of their own, gluing together the information processed by the other modules in the system, allowing users to check vessel details whenever needed. The system can be tailored and extended according to customer requirements, with optional planning of port visits and berthing, port billing, AtoN- and incident management.",
+          theme: "tinted"
+        }
+      ],
+      sourceUrl: "https://www.navielektro.fi/port.html"
     },
     {
       slug: "routes",
