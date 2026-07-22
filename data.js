@@ -264,6 +264,13 @@ window.NaviData = (function () {
       integration: [
         "MATIS C2 is the platform that Navielektro's other products build on and connect to: JADIS extends it with joint all-domain capabilities, NaviLink handles its tactical data link connectivity, EOS and other sensors feed directly into its situation picture, and the Deployed Soldier tablet framework carries MATIS C2 out to the individual soldier.",
         "The system can be deployed on Linux, Windows or cloud infrastructure, either as a turnkey solution with hardened, rugged hardware or on lightweight hardware for smaller installations. Its component-based, open architecture and software development kit let new sensors, processors and third-party extensions be added as requirements evolve, keeping deployment costs down over the system's life cycle."
+      ],
+      relatedProducts: [
+        {
+          title: "Track Distribution",
+          slug: "track-distribution",
+          image: { src: "assets/products/matis/related-track-distribution.webp", alt: "Abstract network visualization of radiating light trails over a circuit-board backdrop", width: 480, height: 258 }
+        }
       ]
     },
     {
@@ -1832,6 +1839,43 @@ window.NaviData = (function () {
         }
       ],
       sourceUrl: "https://www.navielektro.fi/port.html"
+    },
+    {
+      slug: "track-distribution",
+      title: "Track Distribution",
+      category: "Modules",
+      summary: "Share important track data",
+      image: {
+        src: "assets/products/track-distribution/track-distribution-hero.webp",
+        alt: "Abstract network visualization of radiating light trails over a circuit-board backdrop",
+        width: 1920,
+        height: 735
+      },
+      overviewHeading: "Share important track data",
+      overview: [
+        "Operators may co-operate with other authorities, nations or even users located on ships or on the move, which means that each user is viewing a different situation picture. This becomes an issue when collaborating, as successful collaboration requires a unified view of the situation. To complicate matters further, different actors often want to share some of the collected track data with each other, but not all of it. While the military may need to share data with VTS operators, security reasons might dictate that certain tracks, areas or track identifications should still be kept secret. Fulfilling all of these demands and requirements can be challenging for traditional situational awareness systems, which have not been built with information sharing in mind.",
+        "Navielektro offers a versatile solution for sharing track data with other users, be it between nations, operations centers and mobile units, ship-to-shore or shore-to-ship. Track data is collected and then distributed or exchanged either automatically or based on a set of rules. Users can control the track transmission rules directly from the JMAP user interface, so the operator can select a track for broadcast using different channels either ad-hoc or statically. Transmission can be cyclic or event-based, which means that Navielektro's track transmission solution can even be used with low-bandwidth tactical data-links or satellite communication systems."
+      ],
+      operationalUse: [
+        {
+          heading: "Control every aspect of distribution",
+          text: "Create rules to control which tracks are distributed, in what way. Transmit a single track, multiple tracks, or tracks within a particular area – however you see fit.",
+          image: {
+            src: "assets/products/track-distribution/track-distribution-screenshot.webp",
+            alt: "Track transmission UI showing a chart view with transmission rules and track selection dialogs",
+            width: 550,
+            height: 283
+          },
+          variant: "split",
+          imagePosition: "left",
+          theme: "tinted"
+        },
+        {
+          text: "Our solution is also capable of \"data laundering\", allowing defined information elements to be blanked out or substituted with other attributes, so that a hostile track may be altered to become a neutral track when sending information to third parties.",
+          theme: "tinted"
+        }
+      ],
+      sourceUrl: "https://www.navielektro.fi/trackdistribution.html"
     },
     {
       slug: "routes",
