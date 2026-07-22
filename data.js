@@ -702,6 +702,12 @@ window.NaviData = (function () {
       title: "Software Development Kit",
       category: "Tactical Display Framework",
       summary: "Expand your system as new needs occur",
+      image: {
+        src: "assets/products/sdk/sdk-hero.webp",
+        alt: "A hand touching a glowing constellation of software tool icons in mid-air",
+        width: 1920,
+        height: 866
+      },
       overviewHeading: "Expand your system as new needs occur",
       overview: [
         "When procuring situational awareness systems, the key aspects to consider are continuous development and mutual coherence. In order for operators to perform their duties, they may have to use several different types of software – often simultaneously. The great number of software and the divergence between user interfaces needlessly complicates the job of the operator. As vendor lock-in is common with many situational awareness systems, they are also not particularly cost-efficient.",
@@ -777,6 +783,12 @@ window.NaviData = (function () {
       category: "Security",
       status: "archived",
       summary: "Part of Navielektro's Cyber Security portfolio — a full overview, specifications and documentation will be available here soon.",
+      image: {
+        src: "assets/products/cise/cise-hero.webp",
+        alt: "An illustration of a globe with data-sharing connections linking locations across Europe and the Mediterranean",
+        width: 1920,
+        height: 641
+      },
       sourceUrl: "https://www.navielektro.fi/cise.html"
     },
     {
@@ -784,6 +796,12 @@ window.NaviData = (function () {
       title: "Cyber Security",
       category: "Security",
       summary: "Built-in security in even the most demanding conditions",
+      image: {
+        src: "assets/products/cybersecurity/cybersecurity-hero.webp",
+        alt: "Abstract blue digital circuit and code visualization representing cyber security",
+        width: 1920,
+        height: 735
+      },
       overviewHeading: "Built-in security in even the most demanding conditions",
       overview: [
         "As technology progresses, communications and operations are increasingly conducted electronically, over networks and data links. But as we embrace technology, we also have to be aware of the threats posed by it. How do we ensure that communications and information remain secure, and that sensitive information remains confidential? In Navielektro's systems, security has been built into our systems from the start, in order to accommodate differing user needs. High stakes call for high security, and when our systems are operated in high security environments we can provide increased security – optionally integrated into our products."
@@ -852,6 +870,12 @@ window.NaviData = (function () {
       title: "Critical Infrastructure Protection",
       category: "Security",
       summary: "Protect the most vital facilities and functions",
+      image: {
+        src: "assets/products/infra-protection/infra-protection-hero.webp",
+        alt: "Aerial view of a power plant with cooling towers and a tall smokestack at dusk",
+        width: 1920,
+        height: 735
+      },
       overviewHeading: "Protect the most vital facilities and functions",
       overview: [
         "Critical infrastructure is the physical and cyber systems and assets so vital to the functioning of our society, that the disruption of even one of these would wreak havoc on our world. This includes everything from bridges and nuclear power plants to harbors. Recognizing potential threats, governments and other actors are starting to realize that these infrastructures must be secure and able to withstand and rapidly recover from hazards.",
@@ -1046,6 +1070,12 @@ window.NaviData = (function () {
       title: "Radar Antennas",
       category: "Sensors",
       summary: "Experience",
+      image: {
+        src: "assets/products/radar-antennas/radar-antennas-hero.webp",
+        alt: "A radar antenna mounted on a lattice tower against a clear blue sky",
+        width: 1920,
+        height: 735
+      },
       overviewHeading: "Experience",
       overview: [
         "Navielektro originated as a radar manufacturer, and while the company has expanded, we still stay true to our roots. We have over 20 years of experience in radar technology and we are still producing a range of high-performance and cost-effective radar sensors. Our sensors have been designed for continuous shore-based surveillance in the toughest conditions. The radar sensors are suitable for both VTS and Coastal Surveillance and various maritime security applications. Navielektro has delivered radar sensors capable of functioning in everything from Arctic conditions above the polar circle to the tropical conditions on the coast of Africa."
@@ -1143,6 +1173,12 @@ window.NaviData = (function () {
       title: "Radar Transceivers",
       category: "Sensors",
       summary: "Transceiver product range",
+      image: {
+        src: "assets/products/radar-transceivers/radar-transceivers-hero.webp",
+        alt: "Navielektro-branded radar transceiver hardware units mounted in an equipment rack",
+        width: 1920,
+        height: 735
+      },
       overviewHeading: "Transceiver product range",
       overview: [
         "Navielektro manufactures a range of radar transceivers, all of which are fitted with LNFE (Low Noise Front End) technology. The transceivers have a high dynamic range, which make the radar systems comparable with systems with considerably higher output power. Our antennas and transceivers may be configured with different polarities according to specific customer requirements. Transceivers can be configured for sector blanking, or optimized for sector to sector operation with respect to pulse length, PRF and other parameters."
@@ -1284,6 +1320,12 @@ window.NaviData = (function () {
       title: "Weather and Environmental Information",
       category: "Weather",
       summary: "Solutions for weather and environmental presentation and analysis",
+      image: {
+        src: "assets/products/newis/newis-hero.webp",
+        alt: "Close-up of water droplets against a blue background",
+        width: 1920,
+        height: 735
+      },
       overviewHeading: "Solutions for weather and environmental presentation and analysis",
       overview: [
         "Achieving situational awareness requires that all of the information necessary to create a comprehensive situation picture is available. Navielektro offers a complete environmental weather information solution in the form of NEWIS (Navielektro Environment and Weather Information System). Our system collects, processes and stores received environmental and weather information, and distributes the information to the clients that need it. This means that operators get access to weather information directly from their workstation as an integrated part of the situation picture, allowing them assess the impact of weather conditions on various operations. Sensor data is presented in a fashion that is easy to comprehend, allowing operators to act upon the data rather than spend time deciphering it.",
@@ -1330,6 +1372,12 @@ window.NaviData = (function () {
       title: "Weather Forecast",
       category: "Weather",
       summary: "Weather Forecasts - part of your information flow",
+      image: {
+        src: "assets/products/grib/grib-hero.webp",
+        alt: "A weather forecast chart showing wind barbs and pressure isobars over a coastal region",
+        width: 1920,
+        height: 735
+      },
       overviewHeading: "Weather Forecasts - part of your information flow",
       overview: [
         "Navielektro offers GRIB Weather Information functionality, which provides the operator with both historical and forecast weather and environmental information including wind barb, air pressure and rain data. GRIB is a data format commonly used in meteorology to communicate and store historical and forecast weather information as computed by a weather model. Navielektro's solution is capable of receiving, managing and presenting the GRIB data on the TDF platform. Weather is completely integrated as part of the situation picture, and weather conditions can be predicted and simulated for the next 8-12 hours.",
@@ -1375,6 +1423,12 @@ window.NaviData = (function () {
       title: "NaviCall",
       category: "Voice Communication",
       summary: "Efficient radio and IP telephony for demanding operations",
+      image: {
+        src: "assets/products/voice/voice-hero.webp",
+        alt: "An operator wearing a headset at a workstation",
+        width: 1920,
+        height: 735
+      },
       overviewHeading: "Efficient radio and IP telephony for demanding operations",
       overview: [
         "Operators are faced with a daily need to communicate with other parties by means of voice communication, but unfortunately this often requires the operator to use tools that are separate from the rest of the situational awareness system, slowing down the communication process. Navielektro provides voice communication solutions that are integrated with the situational awareness system and TDF user interface, allowing users to make calls directly from from their workstations.",
@@ -1434,6 +1488,12 @@ window.NaviData = (function () {
       title: "Navi Tactical Call",
       category: "Voice Communication",
       summary: "Voice integration and functional services",
+      image: {
+        src: "assets/products/voice-tactical/voice-tactical-hero.webp",
+        alt: "A soldier in the field using a tactical radio handset",
+        width: 1920,
+        height: 735
+      },
       overviewHeading: "Voice integration and functional services",
       overview: [
         "When conducting command and control operations, real-time reliable voice communication is a must-have. Typical situational awareness systems collect a myriad of data, but this data also needs to be communicated to tactical units on the ground in a timely and efficient fashion. For this reason, Navielektro has developed a set of tools for quickly and efficiently communicating the information collected using both message based communication and voice communication. The vision of Navielektro has been to combine key functionality needed for conducting command and control operations in an integrated operating environment: a Tactical Display Framework."
@@ -1490,6 +1550,12 @@ window.NaviData = (function () {
       title: "Track Fusion",
       category: "Modules",
       summary: "Sophisticated fusion",
+      image: {
+        src: "assets/products/trackfusion/trackfusion-hero.webp",
+        alt: "A radar tower in the foreground with a vessel tracking chart overlay in the background",
+        width: 1920,
+        height: 735
+      },
       overviewHeading: "Sophisticated fusion",
       overview: [
         "Navielektro offers Surveillance and Command and Control Systems usually consist of numerous sensors that collect, process and display data on chart. Deciphering this data can be a daunting task for an operator, especially when it comes to determining track locations. The data provided by each sensor may vary, at worst resulting in several locations being reported for a single track. Navielektro's solution for this problem is a multi-sensor integration and correlation system, capable of track fusion.",
@@ -1533,6 +1599,12 @@ window.NaviData = (function () {
       category: "Modules",
       status: "archived",
       summary: "Part of Navielektro's Modules portfolio — a full overview, specifications and documentation will be available here soon.",
+      image: {
+        src: "assets/products/warehousing/warehousing-hero.webp",
+        alt: "A nautical chart showing stored vessel track and route data",
+        width: 1920,
+        height: 735
+      },
       sourceUrl: "https://www.navielektro.fi/warehousing.html"
     },
     {
@@ -1540,6 +1612,12 @@ window.NaviData = (function () {
       title: "Anomaly Detection",
       category: "Modules",
       summary: "Supporting the operator",
+      image: {
+        src: "assets/products/madis/madis-hero.webp",
+        alt: "A naval patrol vessel passing navigation buoys in low evening light",
+        width: 1920,
+        height: 735
+      },
       overviewHeading: "Supporting the operator",
       overview: [
         "Today's anti-collision implementations tend to focus on generating alarms based on kinematic information, which limits usage to short term conflict alert (STCA) – typically only giving the operator minutes to respond to an alarm. The rapid implementation of AIS as well as other sensor systems, networks and other high-grade information sources is increasing the amount of information available to a level that no human operator is capable of processing without at least some associated automation. Navielektro has recognized the need to automate analysis and cross correlation of information sources, and as a result we have added built-in anomaly detection to our situational awareness system. Our Maritime Anomaly Detection System (MADIS) enables users to detect and prevent collisions, grounding as well as illegal activity."
@@ -1584,6 +1662,12 @@ window.NaviData = (function () {
       title: "GMDSS",
       category: "Modules",
       summary: "GMDSS",
+      image: {
+        src: "assets/products/gmdss/gmdss-hero.webp",
+        alt: "Diagram of GMDSS distress communication paths including INMARSAT, COSPAS-SARSAT, EPIRB, SART and Coast Radio",
+        width: 1920,
+        height: 735
+      },
       overviewHeading: "GMDSS",
       overview: [
         "All maritime surveillance systems aim to recognize emergencies or threats before they occur, but not all incidents can be prevented. The International Maritime Organization (IMO) has developed an international maritime safety system called the Global Maritime Distress and Safety System GMDSS, which aims to guarantee that complying vessels will be able to communicate with an onshore station in case of distress – any time, from any location. Navielektro's software can be used to create a comprehensive Global Maritime Distress and Safety System (GMDSS). This type of system ensures rapid help during distress incidents, making it possible to quickly and efficiently rescue distressed ships, boats and aircrafts.",
@@ -1638,6 +1722,12 @@ window.NaviData = (function () {
       title: "Search and Rescue",
       category: "Modules",
       summary: "Efficient and versatile search and rescue",
+      image: {
+        src: "assets/products/sar/sar-hero.webp",
+        alt: "A yellow search and rescue helicopter flying along a coastal cliff",
+        width: 1920,
+        height: 735
+      },
       overviewHeading: "Efficient and versatile search and rescue",
       overview: [
         "When an accident occurs, swift action is vital, particularly for search and rescue operations. Planning and executing a search and rescue mission as well as distributing the necessary information to all of the actors involved in a short time-window can be difficult, and stressful conditions leave room for human error. Navielektro has recognized this problem, and aims to provide authorities with a unified situation picture that allows operators to quickly asses the situation at hand.",
@@ -1698,6 +1788,12 @@ window.NaviData = (function () {
       category: "Modules",
       status: "archived",
       summary: "Part of Navielektro's Modules portfolio — a full overview, specifications and documentation will be available here soon.",
+      image: {
+        src: "assets/products/routes/routes-hero.webp",
+        alt: "A nautical chart showing vessel routes and traffic data across a coastal area",
+        width: 1920,
+        height: 735
+      },
       sourceUrl: "https://www.navielektro.fi/routes.html"
     },
     {
@@ -1706,6 +1802,12 @@ window.NaviData = (function () {
       category: "Modules",
       status: "archived",
       summary: "Part of Navielektro's Modules portfolio — a full overview, specifications and documentation will be available here soon.",
+      image: {
+        src: "assets/products/aton/aton-hero.webp",
+        alt: "An aid-to-navigation buoy in the foreground with a passing ferry in the background",
+        width: 1920,
+        height: 735
+      },
       sourceUrl: "https://www.navielektro.fi/aton.html"
     },
     {
@@ -1789,6 +1891,12 @@ window.NaviData = (function () {
       title: "Radar Processing",
       category: "Modules",
       summary: "Full control of radar processing",
+      image: {
+        src: "assets/products/radar-processing/radar-processing-hero.webp",
+        alt: "A radar antenna and camera unit mounted on a tower against a blue-grey sky",
+        width: 1920,
+        height: 735
+      },
       overviewHeading: "Full control of radar processing",
       overview: [
         "Navielektro's roots lie in radar manufacturing, and as a result we have accumulated expert knowledge on radar data processing and integration. Unlike our competitors, we are involved in radar solutions all the way from the antenna to the individual pixel image. In other words, we provide a one-stop-shop for end-to-end radar solutions – while stile providing integration of third-party systems and sensors.",
@@ -1816,6 +1924,12 @@ window.NaviData = (function () {
       title: "CCTV / Optronics",
       category: "Sensors",
       summary: "CCTV for demanding surveillance operations",
+      image: {
+        src: "assets/products/video/video-hero.webp",
+        alt: "A camera and sensor unit mounted on a tower against a clear blue sky",
+        width: 1920,
+        height: 735
+      },
       overviewHeading: "CCTV for demanding surveillance operations",
       overview: [
         "Navielektro manufactures its own range of cost-effective CCTV (Closed Circuit Television) equipment, which may optionally be equipped with IR and IR illumination capabilities. The SVGA and megapixel cameras provide wide dynamic range, and day and night functionality for superb image quality in daylight and dark conditions. The actual CCTV sensor is connected to the CSP (Camera Sensor Processor). The CSP is responsible for managing and controlling the CCTV unit. Commands sent by the operators are transmitted to the CSP over the IP-network."
@@ -1853,6 +1967,12 @@ window.NaviData = (function () {
       title: "Logging & Replay",
       category: "Modules",
       summary: "Information storage at its best",
+      image: {
+        src: "assets/products/logging-replay/logging-replay-hero.webp",
+        alt: "Close-up of a server rack with cables and status lights",
+        width: 1920,
+        height: 735
+      },
       overviewHeading: "Information storage at its best",
       overview: [
         "Massive amounts of data pass through situational awareness systems each day, which means users do not always have time to process everything that is happening at once. In order for operators to write reports or analyze past events, the data that is collected needs to be safely stored and accessible at a later date. Navielektro fulfills this need through offering information storage capabilities that rise to the task regardless of the size of the situational awareness system. Our storage solution stores and logs all of the data that passes through an operations center, and allows users to replay the collected data whenever they want to. This means that operators can view what happened yesterday – or even several weeks ago – as if they were viewing real-time data."
@@ -1897,6 +2017,12 @@ window.NaviData = (function () {
       title: "Training & Simulation",
       category: "Modules",
       summary: "Training made easy",
+      image: {
+        src: "assets/products/simulation/simulation-hero.webp",
+        alt: "An operator monitoring multiple chart and radar displays at a control room workstation",
+        width: 1920,
+        height: 735
+      },
       overviewHeading: "Training made easy",
       overview: [
         "When training new users, operations center personnel often face the problem of figuring out how to allow uses to train without disrupting work and confusing the situation picture. Furthermore, military users need to know how to act in times of war – with little opportunity to practice in warfare situations. Navielektro offers a solution to these issues in the form of a simulator which makes it possible to conduct operator training as defined per IALA V.103 and other national or agency-specific operational training requirements."
@@ -1928,6 +2054,12 @@ window.NaviData = (function () {
       title: "System Monitoring",
       category: "Modules",
       summary: "Constant monitoring",
+      image: {
+        src: "assets/products/monitoring/monitoring-hero.webp",
+        alt: "A technician inspecting cabling and diagnostic equipment inside a server cabinet",
+        width: 1920,
+        height: 735
+      },
       overviewHeading: "Constant monitoring",
       overview: [
         "Situational awareness and traffic management systems often consist of numerous interconnected sensors, services, servers and databases. When large systems are deployed, it is paramount that they run smoothly, as connection errors can affect the reliability of the situation picture. Any of Navielektro's situational awareness systems (MARITAS, MATIS, TACIS and TrafficAware) can be equipped with an Operation and Maintenance Service (OMS), which is a user-friendly, autonomous system that constantly monitors all major system components, connections and application services. OMS helps users monitor and verify system operation, ensuring that everything is working the way it should be. OMS also keeps track of connections and notifies the user when errors occur, be it a broken connection or equipment failure."
