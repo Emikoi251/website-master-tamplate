@@ -1570,6 +1570,18 @@ h3 {
   margin-top: 20px;
 }
 
+/* Sub-headings splitting the About page's company overview copy into named
+   sections (About Us / Deliveries). Extra top margin marks a clear section
+   break; the tighter margin on the paragraph right after ties it back to
+   its own heading instead of reading as more top-level gap. */
+.content-subheading {
+  margin-top: 40px;
+}
+
+.content-subheading + .lead {
+  margin-top: 8px;
+}
+
 /* .split-section's left column has no gap-based grid of its own (unlike
    .section-head or .home-about__copy), so the "View all industries"
    .text-link needs its own spacing from the heading above it. */
