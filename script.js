@@ -280,19 +280,25 @@ function createNewsItem(item) {
   ]);
 }
 
-function createIndustry(item, index, variant) {
-  const children = [
-    el("div", { class: `visual-placeholder visual-placeholder--${variant}` }, [el("span", {}, ["Industry Image"])]),
-    el("span", {}, [String(index + 1).padStart(2, "0")]),
-    el("h3", {}, [item.title]),
-    el("p", {}, [item.summary])
-  ];
-  // Only industries with a slug get a detail page (see renderDetail) - the
-  // rest stay plain, non-linked cards exactly as before.
-  if (item.slug) {
-    children.push(el("a", { class: "card__link", href: `#industry/${item.slug}` }, ["View details"]));
-  }
-  return el("article", {}, children);
+function createHomeIndustry(item) {
+  const detail = industries.find((industry) => industry.slug === item.slug);
+  const image = detail?.image;
+
+  return el("a", { class: "industry-index__item", href: `#industry/${item.slug}` }, [
+    el("span", { class: "industry-index__media" }, image ? [
+      el("img", {
+        src: image.src,
+        alt: image.alt,
+        width: image.width,
+        height: image.height,
+        loading: "lazy"
+      })
+    ] : []),
+    el("span", { class: "industry-index__content" }, [
+      el("span", { class: "industry-index__title" }, [item.title]),
+      el("span", { class: "industry-index__summary" }, [item.summary])
+    ])
+  ]);
 }
 
 function renderStaticLists() {
@@ -304,7 +310,7 @@ function renderStaticLists() {
   fill("[data-news-preview]", news.slice(0, 2).map(createNewsItem));
   fill("[data-news-grid]", news.map(createNewsItem));
   fill("[data-services-directory]", services.map((item) => createServiceRow(item)));
-  fill("[data-industries-home]", industriesHome.map((item, i) => createIndustry(item, i, "thumb")));
+  fill("[data-industries-home]", industriesHome.map(createHomeIndustry));
   fill("[data-industries]", industries.map((item) => createIndustryRow(item)));
   renderFilters();
   renderFeatured();
@@ -557,8 +563,7 @@ function createProductRow(item) {
 // Full Industries page's row list - identical pattern to createProductRow()
 // above (same classes, same arrow, no visible "View" label since the whole
 // row is the link), just pointed at an industry's detail page instead of a
-// product's. createIndustry() below is untouched and still drives the
-// homepage teaser.
+// product's. The homepage uses its own compact image index above.
 function createIndustryRow(item) {
   return el("a", { class: "product-row", href: `#industry/${item.slug}` }, [
     el("span", { class: "product-row__text" }, [

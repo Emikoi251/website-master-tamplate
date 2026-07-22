@@ -2384,17 +2384,17 @@ window.NaviData = (function () {
   const industriesHome = [
     {
       title: "Maritime authorities",
-      summary: "Maritime traffic, coastal monitoring and related authority workflows.",
+      summary: "Maritime traffic, coastal surveillance and safety operations.",
       slug: "safety-security"
     },
     {
       title: "Defence operators",
-      summary: "Secure operational awareness, command environments and integration needs.",
+      summary: "Situational awareness, command environments and secure integration.",
       slug: "military"
     },
     {
       title: "Infrastructure and transport",
-      summary: "Critical infrastructure, ports and multi-modal transport operations.",
+      summary: "Critical infrastructure, ports and multimodal transport operations.",
       slug: "intelligent-transport"
     }
   ];
