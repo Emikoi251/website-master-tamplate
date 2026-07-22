@@ -1023,7 +1023,7 @@ function route() {
   const hash = location.hash.replace(/^#\/?/, "") || "home";
   const [kind, slug] = hash.split("/");
 
-  if (kind === "product" || kind === "service" || kind === "news" || kind === "industry") {
+  if ((kind === "product" || kind === "service" || kind === "news" || kind === "industry") && slug) {
     const section = kind === "product" ? "products" : kind === "service" ? "services" : kind === "industry" ? "industries" : "news";
     if (!isEnabled(section)) {
       location.hash = "#home";
