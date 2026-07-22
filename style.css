@@ -947,10 +947,27 @@ h3 {
   display: none;
 }
 
+/* Services hero: same real-photo + left-to-right scrim treatment as Careers
+   (.subpage-hero--careers above) - single photo, not a triptych, so there's
+   no need for the separate panel/scrim layer elements the Industries hero
+   uses. Deliberately does NOT add a custom h1 font-size override the way
+   Careers does - this one uses the shared .subpage-hero h1 scale. */
 .subpage-hero--services {
+  grid-template-columns: minmax(0, 680px);
+  min-height: 480px;
+  padding-top: clamp(72px, 7vw, 100px);
+  padding-bottom: clamp(72px, 7vw, 100px);
   background:
-    linear-gradient(135deg, rgba(11, 31, 58, 0.96), rgba(19, 48, 82, 0.86)),
-    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.08) 0 1px, transparent 1px 72px);
+    linear-gradient(90deg, rgb(7, 20, 38) 0%, rgb(7, 20, 38) 40%, rgba(7, 20, 38, 0.92) 50%, rgba(7, 20, 38, 0.5) 64%, rgba(7, 20, 38, 0.14) 80%, rgba(7, 20, 38, 0.05) 100%),
+    url("assets/services/support-services-hero.png") 62% 38% / cover no-repeat;
+}
+
+.subpage-hero--services::after {
+  display: none;
+}
+
+.subpage-hero--services > div {
+  max-width: 640px;
 }
 
 /* Industries hero: three real operational photographs (defence, transport,
@@ -3188,6 +3205,12 @@ h3 {
     background-position: 70% 60%;
   }
 
+  .subpage-hero--services {
+    min-height: 440px;
+    align-items: end;
+    background-position: 66% 30%;
+  }
+
   /* Below the two-column breakpoint there's no text-over-photo readability
      problem to solve any more (text stacks in normal flow), so the panels
      drop out of their absolute full-bleed layer and become a plain photo
@@ -3518,6 +3541,13 @@ h3 {
     background:
       linear-gradient(90deg, rgb(7, 20, 38) 0%, rgb(7, 20, 38) 58%, rgba(7, 20, 38, 0.84) 72%, rgba(7, 20, 38, 0.58) 100%),
       url("assets/about/careers-facility-entrance.jpg") 78% 60% / cover no-repeat;
+  }
+
+  .subpage-hero--services {
+    min-height: 400px;
+    background:
+      linear-gradient(90deg, rgb(7, 20, 38) 0%, rgb(7, 20, 38) 60%, rgba(7, 20, 38, 0.86) 74%, rgba(7, 20, 38, 0.5) 100%),
+      url("assets/services/support-services-hero.png") 74% 24% / cover no-repeat;
   }
 
   .subpage-hero--industries .subpage-hero__panels {
