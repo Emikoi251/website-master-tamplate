@@ -953,10 +953,96 @@ h3 {
     repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.08) 0 1px, transparent 1px 72px);
 }
 
+/* Industries hero: three real operational photographs (defence, transport,
+   maritime) side by side rather than one dramatic single-sector image, so the
+   page introduces all three environments equally instead of favouring one.
+   Panels are separate absolutely-positioned layers (not one flattened image)
+   so each keeps its own crop/position independently - see
+   .subpage-hero__panel below. Two of the three source photos are thumbnail-
+   resolution (no larger originals exist, checked against the legacy site);
+   the reduced min-height plus the grain layer keep that upscaling from
+   reading as blurry. */
 .subpage-hero--industries {
-  background:
-    linear-gradient(135deg, rgba(11, 31, 58, 0.96), rgba(46, 46, 46, 0.86)),
-    radial-gradient(circle at 82% 24%, rgba(198, 40, 40, 0.2), transparent 34%);
+  grid-template-columns: minmax(0, 620px);
+  min-height: 420px;
+  background: rgb(7, 20, 38);
+}
+
+.subpage-hero--industries::after {
+  display: none;
+}
+
+/* The photo strip only occupies the space to the right of the text column
+   (not the full hero width) so all three panels stay clearly visible -
+   earlier version let panels span the full width with the scrim burying the
+   first one almost entirely behind the text, which defeated the point of
+   showing three environments. The offset tracks the text column's own
+   width (--edge gutter + the 620px grid track + a little breathing room)
+   rather than a fixed percentage, so it stays correct at any viewport. */
+.subpage-hero__panels {
+  position: absolute;
+  inset: 0;
+  left: calc(var(--edge) + 620px + 40px);
+  display: flex;
+}
+
+.subpage-hero__panel {
+  flex: 1 1 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.subpage-hero__panel + .subpage-hero__panel {
+  border-left: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+/* Left to right, same order as the industry cards below the hero. */
+.subpage-hero__panel--maritime {
+  background-image: url("assets/products/maritas/maritas-supported-missions.webp");
+  background-position: center 60%;
+}
+
+.subpage-hero__panel--defence {
+  background-image: url("assets/industries/military/navy-thumbnail.jpg");
+  background-position: center 55%;
+}
+
+.subpage-hero__panel--transport {
+  background-image: url("assets/industries/intelligent-transport/traffic-circle.jpg");
+  background-position: center 40%;
+}
+
+/* Subtle unifying grain so the three source photos (different cameras,
+   different eras) read as one considered composition rather than three
+   stock shots stapled together. */
+.subpage-hero__grain {
+  position: absolute;
+  inset: 0;
+  opacity: 0.5;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23grain)'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+}
+
+/* Solid behind the text, a short soft edge into the photo strip, then a
+   light uniform wash across all three panels for brand cohesion - not the
+   long, murky partial-opacity band the previous version used to try to
+   hide a panel underneath it. */
+.subpage-hero__scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgb(7, 20, 38) 0,
+    rgb(7, 20, 38) calc(var(--edge) + 620px),
+    rgba(7, 20, 38, 0.25) calc(var(--edge) + 660px),
+    rgba(7, 20, 38, 0.12) calc(var(--edge) + 720px),
+    rgba(7, 20, 38, 0.12) 100%
+  );
+}
+
+.subpage-hero--industries .subpage-hero__content {
+  max-width: 560px;
 }
 
 .subpage-hero--about {
@@ -3102,6 +3188,32 @@ h3 {
     background-position: 70% 60%;
   }
 
+  /* Below the two-column breakpoint there's no text-over-photo readability
+     problem to solve any more (text stacks in normal flow), so the panels
+     drop out of their absolute full-bleed layer and become a plain photo
+     strip under the text instead - scrim/grain are no longer needed. */
+  .subpage-hero--industries {
+    min-height: 0;
+    padding-bottom: 0;
+  }
+
+  .subpage-hero--industries .subpage-hero__panels {
+    position: relative;
+    left: 0;
+    order: 2;
+    height: 130px;
+    margin-top: 28px;
+  }
+
+  .subpage-hero--industries .subpage-hero__grain,
+  .subpage-hero--industries .subpage-hero__scrim {
+    display: none;
+  }
+
+  .subpage-hero--industries .subpage-hero__content {
+    max-width: none;
+  }
+
   .subpage-hero--contact {
     background-position: 60% center;
   }
@@ -3406,6 +3518,11 @@ h3 {
     background:
       linear-gradient(90deg, rgb(7, 20, 38) 0%, rgb(7, 20, 38) 58%, rgba(7, 20, 38, 0.84) 72%, rgba(7, 20, 38, 0.58) 100%),
       url("assets/about/careers-facility-entrance.jpg") 78% 60% / cover no-repeat;
+  }
+
+  .subpage-hero--industries .subpage-hero__panels {
+    height: 100px;
+    margin-top: 22px;
   }
 
   .subpage-hero--careers h1 {
