@@ -1020,6 +1020,13 @@ function renderDetail(kind, slug) {
 }
 
 function route() {
+  // SPA navigation never fires a native "resize" event, but clientWidth can
+  // still change here (e.g. a vertical scrollbar appearing/disappearing
+  // between a short page and a tall detail page) - refresh --viewport-w on
+  // every navigation so full-bleed detail blocks (see style.css) never
+  // render against a stale viewport width.
+  updateViewportWidthVar();
+
   const hash = location.hash.replace(/^#\/?/, "") || "home";
   const [kind, slug] = hash.split("/");
 
@@ -1144,7 +1151,17 @@ function updateViewportWidthVar() {
   document.documentElement.style.setProperty("--viewport-w", `${document.documentElement.clientWidth}px`);
 }
 updateViewportWidthVar();
-window.addEventListener("resize", updateViewportWidthVar);
+
+// A native "resize" event alone misses cases where clientWidth changes
+// without the window itself resizing - e.g. a scrollbar appearing/
+// disappearing, or a DevTools viewport override that doesn't synthesize a
+// resize event. ResizeObserver on the root element catches all of these;
+// window "resize" is kept only as a fallback for browsers without it.
+if (typeof ResizeObserver !== "undefined") {
+  new ResizeObserver(updateViewportWidthVar).observe(document.documentElement);
+} else {
+  window.addEventListener("resize", updateViewportWidthVar);
+}
 
 applyConfig();
 renderStaticLists();
