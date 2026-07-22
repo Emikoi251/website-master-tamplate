@@ -838,18 +838,18 @@ function renderDetail(kind, slug) {
     const related = item.related || item.relatedProducts || ["Related content coming soon"];
     const detailBullets = kind === "service"
       ? ["Scope and deliverables", "Related products", "How to get in touch"]
-      : ["Article overview", "Publishing details", "Related links"];
+      : ["Article overview", "Full article text", "Related links"];
 
     panelChildren = [
       el("p", { class: "eyebrow" }, ["Overview"]),
       el("h2", {}, ["Key information"]),
-      el("p", {}, ["Detailed specifications and documentation will be available here soon."])
+      el("p", {}, [kind === "service" ? "Full details coming soon." : "Full article coming soon."])
     ];
     if (item.sourceUrl) {
       panelChildren.push(el("a", { class: "text-link", href: item.sourceUrl, target: "_blank", rel: "noopener" }, ["Original product page"]));
     }
     panelChildren.push(
-      el("h3", {}, ["What you'll find here"]),
+      el("h3", {}, [kind === "service" ? "About this service" : "About this article"]),
       el("ul", { class: "detail-checklist" }, detailBullets.map((entry) => el("li", {}, [entry]))),
       el("ul", { class: "tag-list" }, (item.tags || [item.category]).map((tag) => el("li", {}, [tag]))),
       el("h3", {}, ["Related"]),
@@ -1002,7 +1002,7 @@ function renderDetail(kind, slug) {
 
     copyChildren.push(el("div", { class: "detail-blocks" }, blocks));
   } else if (!item.detailSections) {
-    copyChildren.push(el("p", {}, [`A detailed overview, use cases and integration notes for this ${kind} will be added here.`]));
+    copyChildren.push(el("p", {}, [kind === "news" ? "The full article isn't published yet." : `Full details for this ${kind} will be added here.`]));
     copyChildren.push(el("a", { class: "button button--primary", href: "#contact" }, [`Contact about this ${kind}`]));
   }
 
