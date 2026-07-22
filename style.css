@@ -860,6 +860,7 @@ h3 {
   aspect-ratio: 3 / 2;
   background: none;
   display: block;
+  width: 100%;
 }
 
 .visual-placeholder--photo::before,
