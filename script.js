@@ -11,6 +11,35 @@ function productCategoryLabel(key) {
 // URL) but are excluded from every public-facing listing, menu and search index.
 const publicProducts = products.filter((item) => item.status !== "archived");
 
+// Product hero assets use very different compositions: photography often
+// places the subject at an edge, while diagrams need their full canvas kept
+// visible. These focal settings preserve each subject as the shared hero frame
+// changes shape across desktop, tablet and mobile.
+const PRODUCT_HERO_TREATMENTS = {
+  "atak-integration": { fit: "contain" },
+  aton: { desktop: "38% center", tablet: "34% center", mobile: "28% center" },
+  cise: { desktop: "70% center", tablet: "74% center", mobile: "78% center" },
+  "deployed-soldier": { desktop: "38% center", tablet: "36% center", mobile: "34% center" },
+  gmdss: { fit: "contain" },
+  jadis: { desktop: "60% center", tablet: "64% center", mobile: "68% center" },
+  madis: { desktop: "54% center", tablet: "57% center", mobile: "60% center" },
+  maritas: { desktop: "54% center", tablet: "56% center", mobile: "58% center" },
+  mmhs: { fit: "contain" },
+  monitoring: { desktop: "62% center", tablet: "66% center", mobile: "70% center" },
+  navilink: { fit: "contain" },
+  "radar-antennas": { desktop: "82% center", tablet: "86% center", mobile: "90% center" },
+  "radar-processing": { desktop: "28% center", tablet: "25% center", mobile: "22% center" },
+  "radar-transceivers": { desktop: "36% center", tablet: "32% center", mobile: "28% center" },
+  sar: { desktop: "60% center", tablet: "55% center", mobile: "48% center" },
+  simulation: { desktop: "42% center", tablet: "39% center", mobile: "36% center" },
+  trackfusion: { desktop: "67% center", tablet: "71% center", mobile: "76% center" },
+  trafficaware: { desktop: "42% center", tablet: "39% center", mobile: "36% center" },
+  userinterfaces: { fit: "contain" },
+  video: { desktop: "78% center", tablet: "82% center", mobile: "86% center" },
+  voice: { desktop: "88% center", tablet: "90% center", mobile: "92% center" },
+  "voice-tactical": { desktop: "18% center", tablet: "16% center", mobile: "14% center" }
+};
+
 // Products Overview page: fixed curated highlight set (see each product's
 // overviewImage in data.js), shown above the directory in the default,
 // unfiltered view only.
@@ -868,6 +897,15 @@ function renderDetail(kind, slug) {
         el("img", { src: detailImage.src, alt: detailImage.alt, width: detailImage.width, height: detailImage.height })
       ])
     : el("div", { class: "visual-placeholder visual-placeholder--detail" }, [el("span", {}, [visualLabel])]);
+
+  if (kind === "product" && detailImage) {
+    const treatment = PRODUCT_HERO_TREATMENTS[item.slug] || {};
+    detailVisual.classList.add("visual-placeholder--product-hero");
+    if (treatment.fit === "contain") detailVisual.classList.add("visual-placeholder--product-hero-contained");
+    detailVisual.style.setProperty("--product-hero-position-desktop", treatment.desktop || "center");
+    detailVisual.style.setProperty("--product-hero-position-tablet", treatment.tablet || treatment.desktop || "center");
+    detailVisual.style.setProperty("--product-hero-position-mobile", treatment.mobile || treatment.tablet || treatment.desktop || "center");
+  }
 
   if (item.detailHero) detailVisual.classList.add("visual-placeholder--banner");
 

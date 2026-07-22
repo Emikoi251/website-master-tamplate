@@ -1815,6 +1815,12 @@ window.NaviData = (function () {
       title: "Military Message Handling",
       category: "Modules",
       summary: "Exchange information securely and efficiently",
+      image: {
+        src: "assets/products/mmhs/mmhs-messaging.webp",
+        alt: "Chart view with a military messaging inbox and message composition panels open",
+        width: 600,
+        height: 293
+      },
       overviewHeading: "Exchange information securely and efficiently",
       overview: [
         "In today's demanding operational environment, the need to collaborate in real-time is constantly increasing. Human to human interaction is still at the forefront when incidents occur, but when there are multiple actors using different systems within one domain, the exchange of information becomes difficult. Navielektro offers a solution in the form of OnCommand, our Military Message Handling System. Through OnCommand, Navielektro provides an environment where actors can exchange information with each other in a safe and secure way, be it in the form of e-mail or instant messages. Our communication tools are integrated with the geospatial view, which translate to direct presentation of any position or information that is related to an object on the chart.",
