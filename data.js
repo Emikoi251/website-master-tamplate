@@ -2343,48 +2343,12 @@ window.NaviData = (function () {
   ];
 
   // --- References (Home preview + References page) ----------------------------
-  const references = [
-    {
-      title: "Maritime authority project",
-      category: "Maritime",
-      summary: "A maritime authority project. Customer details and outcomes will be published once approved."
-    },
-    {
-      title: "Defence operator project",
-      category: "Defence",
-      summary: "A defence operator project. Customer story and measurable results will be added when available."
-    },
-    {
-      title: "Infrastructure monitoring project",
-      category: "Infrastructure",
-      summary: "An infrastructure monitoring project. Project summary and case study to follow."
-    }
-  ];
+  // Keep References disabled until approved customer evidence is available.
+  const references = [];
 
   // --- News (Home preview + News page; drive news detail pages) ---------------
-  const news = [
-    {
-      slug: "website-foundation",
-      date: "2026-07-10",
-      title: "New website foundation prepared",
-      category: "Company news",
-      summary: "An update on Navielektro's refreshed website and what is coming next."
-    },
-    {
-      slug: "product-note",
-      date: "2026-07-10",
-      title: "Product documentation update",
-      category: "Documents",
-      summary: "Product sheets, release notes and technical documentation updates."
-    },
-    {
-      slug: "event-update",
-      date: "2026-07-10",
-      title: "Event update",
-      category: "Company news",
-      summary: "Trade fairs, conferences, exercises and company announcements."
-    }
-  ];
+  // Keep News disabled until verified updates are ready to publish.
+  const news = [];
 
   // --- Industries: homepage highlights (3 shown in the home "Industries" block)
   const industriesHome = [

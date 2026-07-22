@@ -64,6 +64,6 @@ window.SiteConfig = {
     services: true,
     industries: true,
     references: false,
-    news: true
+    news: false
   }
 };

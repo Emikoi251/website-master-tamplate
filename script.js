@@ -116,7 +116,6 @@ function applyConfig() {
   if (name) {
     document.querySelectorAll("[data-site-name]").forEach((node) => { node.textContent = name; });
     document.querySelector(".brand")?.setAttribute("aria-label", `${name} home`);
-    document.title = `${name} | Corporate Technology Website`;
     setMeta('meta[property="og:site_name"]', name);
   }
 
@@ -248,16 +247,23 @@ function arrowIcon() {
 function createCard(item, type) {
   const href = type === "product" ? `#product/${item.slug}` : type === "service" ? `#service/${item.slug}` : "#references";
   const link = type === "reference" ? "Read more" : "View details";
-  const visualLabel = type === "product" ? "Product Image / 3D Render" : type === "service" ? "Service Illustration" : "Reference Image";
   const body = item.summary;
+  const children = [];
 
-  return el("article", { class: "card" }, [
-    el("div", { class: "visual-placeholder visual-placeholder--card" }, [el("span", {}, [visualLabel])]),
+  if (item.image) {
+    children.push(el("div", { class: "visual-placeholder visual-placeholder--card visual-placeholder--photo" }, [
+      el("img", { src: item.image.src, alt: item.image.alt, width: item.image.width, height: item.image.height, loading: "lazy" })
+    ]));
+  }
+
+  children.push(
     el("div", { class: "card__meta" }, [el("span", {}, [type === "product" ? productCategoryLabel(item.category) : item.category])]),
     el("h3", {}, [item.title]),
     el("p", {}, [body]),
     el("a", { class: "card__link", href }, [link])
-  ]);
+  );
+
+  return el("article", { class: "card" }, children);
 }
 
 // Lightweight image+title card for a product's optional relatedProducts list
@@ -285,10 +291,10 @@ function createFocusAreaCard(entry) {
     ? el("div", { class: "visual-placeholder visual-placeholder--card visual-placeholder--photo" }, [
         el("img", { src: entry.image.src, alt: entry.image.alt, width: entry.image.width, height: entry.image.height, loading: "lazy" })
       ])
-    : el("div", { class: "visual-placeholder visual-placeholder--card" }, [el("span", {}, ["Focus Area Image"])]);
+    : null;
 
   return el("article", { class: "card card--focus-area" }, [
-    visual,
+    ...(visual ? [visual] : []),
     el("h3", {}, [entry.heading]),
     el("p", {}, [entry.text])
   ]);
@@ -297,8 +303,13 @@ function createFocusAreaCard(entry) {
 function createNewsItem(item) {
   const date = new Date(`${item.date}T00:00:00`);
   const formatted = date.toLocaleDateString("en-GB", { year: "numeric", month: "short", day: "numeric" });
-  return el("article", { class: "news-item" }, [
-    el("div", { class: "visual-placeholder visual-placeholder--news" }, [el("span", {}, ["News Image"])]),
+  const children = [];
+  if (item.image) {
+    children.push(el("div", { class: "visual-placeholder visual-placeholder--news visual-placeholder--photo" }, [
+      el("img", { src: item.image.src, alt: item.image.alt, width: item.image.width, height: item.image.height, loading: "lazy" })
+    ]));
+  }
+  children.push(
     el("time", { datetime: item.date }, [formatted]),
     el("div", {}, [
       el("span", {}, [item.category]),
@@ -306,7 +317,8 @@ function createNewsItem(item) {
       el("p", {}, [item.summary])
     ]),
     el("a", { class: "card__link", href: `#news/${item.slug}` }, ["Read"])
-  ]);
+  );
+  return el("article", { class: `news-item${item.image ? "" : " news-item--text-only"}` }, children);
 }
 
 function createHomeIndustry(item) {
@@ -738,6 +750,18 @@ function setProductCategory(category) {
 
 function showPage(page, detailTitle = "") {
   const activeRoute = page === "detail" ? inferParent(detailTitle).toLowerCase() : page;
+  const siteName = config.companyName || "Navielektro";
+  const tagline = (config.tagline || "Operational technology for demanding environments").replace(/[.!?]+$/, "");
+  const pageLabel = page === "detail" && detailTitle
+    ? detailTitle
+    : page === "home"
+      ? tagline
+      : pages.get(page) || siteName;
+  const pageTitle = `${siteName} | ${pageLabel}`;
+
+  document.title = pageTitle;
+  setMeta('meta[property="og:title"]', pageTitle);
+  setMeta('meta[name="twitter:title"]', pageTitle);
   pageEls.forEach((el) => el.classList.toggle("page--active", el.dataset.page === page));
   document.querySelectorAll("[data-route].is-active").forEach((link) => link.classList.remove("is-active"));
   document.querySelectorAll(".desktop-nav > a, .nav-item > a").forEach((link) => {
@@ -748,8 +772,10 @@ function showPage(page, detailTitle = "") {
     link.classList.toggle("is-active", link.dataset.route === activeRoute);
   });
   renderBreadcrumbs(page, detailTitle);
-  // The Contact page already lists full details, so hide the site-wide strip there.
-  document.querySelector(".site-contact-strip")?.classList.toggle("is-hidden", page === "contact");
+  // Contact and product detail pages already provide a dedicated endpoint, so
+  // repeating the site-wide contact strip would dilute the primary action.
+  const hideContactStrip = page === "contact" || (page === "detail" && activeRoute === "products");
+  document.querySelector(".site-contact-strip")?.classList.toggle("is-hidden", hideContactStrip);
   closeMobileMenu();
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
@@ -860,45 +886,20 @@ function renderDetail(kind, slug) {
   }
 
   const detailSummary = item.summary;
-  const visualLabel = kind === "product" ? "Product Image / 3D Render" : kind === "service" ? "Service Illustration" : kind === "industry" ? "Industry Image" : "News Image";
 
-  // Product and Industry detail pages, plus data-driven service details, omit
-  // the generic placeholder sidebar. Product/industry pages render "Key information" as a static,
-  // in-flow content section (see below) instead of this sidebar - see the
-  // plan notes above .detail-shell in style.css. Services/news keep the
-  // original sidebar unchanged.
+  // Product, industry and data-driven service details use the full content
+  // width. Entries without verified long-form content stay concise rather
+  // than rendering a template sidebar.
   let panelChildren = null;
-  if (kind !== "product" && kind !== "industry" && !item.detailSections) {
-    const related = item.related || item.relatedProducts || ["Related content coming soon"];
-    const detailBullets = kind === "service"
-      ? ["Scope and deliverables", "Related products", "How to get in touch"]
-      : ["Article overview", "Full article text", "Related links"];
-
-    panelChildren = [
-      el("p", { class: "eyebrow" }, ["Overview"]),
-      el("h2", {}, ["Key information"]),
-      el("p", {}, [kind === "service" ? "Full details coming soon." : "Full article coming soon."])
-    ];
-    if (item.sourceUrl) {
-      panelChildren.push(el("a", { class: "text-link", href: item.sourceUrl, target: "_blank", rel: "noopener" }, ["Original product page"]));
-    }
-    panelChildren.push(
-      el("h3", {}, [kind === "service" ? "About this service" : "About this article"]),
-      el("ul", { class: "detail-checklist" }, detailBullets.map((entry) => el("li", {}, [entry]))),
-      el("ul", { class: "tag-list" }, (item.tags || [item.category]).map((tag) => el("li", {}, [tag]))),
-      el("h3", {}, ["Related"]),
-      el("ul", { class: "tag-list" }, related.map((tag) => el("li", {}, [tag])))
-    );
-  }
 
   const detailImage = item.detailHero || ((kind === "product" || kind === "industry") ? item.image : null);
   const detailVisual = detailImage
     ? el("div", { class: "visual-placeholder visual-placeholder--detail visual-placeholder--photo" }, [
         el("img", { src: detailImage.src, alt: detailImage.alt, width: detailImage.width, height: detailImage.height })
       ])
-    : el("div", { class: "visual-placeholder visual-placeholder--detail" }, [el("span", {}, [visualLabel])]);
+    : null;
 
-  if (kind === "product" && detailImage) {
+  if (kind === "product" && detailVisual) {
     const treatment = PRODUCT_HERO_TREATMENTS[item.slug] || {};
     detailVisual.classList.add("visual-placeholder--product-hero");
     if (treatment.fit === "contain") detailVisual.classList.add("visual-placeholder--product-hero-contained");
@@ -907,16 +908,15 @@ function renderDetail(kind, slug) {
     detailVisual.style.setProperty("--product-hero-position-mobile", treatment.mobile || treatment.tablet || treatment.desktop || "center");
   }
 
-  if (item.detailHero) detailVisual.classList.add("visual-placeholder--banner");
+  if (item.detailHero && detailVisual) detailVisual.classList.add("visual-placeholder--banner");
 
   const copyChildren = [
     el("p", { class: "eyebrow" }, [kind === "product" ? productCategoryLabel(item.category) : kind === "industry" ? "Industry" : kind]),
-    el("h1", {}, [item.detailTitle || item.title]),
-    detailVisual
+    el("h1", {}, [item.detailTitle || item.title])
   ];
+  if (detailVisual) copyChildren.push(detailVisual);
 
   // Optional data-driven service sections or product/industry long-form content.
-  // Entries without either keep the existing short placeholder detail page.
   if (item.detailSections && item.detailSections.length) {
     copyChildren.push(el("div", { class: "detail-blocks" }, item.detailSections.map((section) => {
       const body = [];
@@ -1034,19 +1034,26 @@ function renderDetail(kind, slug) {
       }
     }
 
-    // Industry pages omit the generic "Contact about this industry" CTA -
-    // Related products already gives visitors a concrete next step.
+    // Industry pages omit the product enquiry endpoint - related products
+    // already give visitors a concrete next step.
     if (kind === "product") {
-      blocks.push(createDetailBlock({
-        body: [el("a", { class: "button button--primary", href: "#contact" }, [`Contact about this ${kind}`])],
-        theme: "tinted"
-      }));
+      const enquiryId = `product-enquiry-${item.slug}`;
+      const enquiryEmail = config.contact?.email;
+      const enquiryHref = enquiryEmail
+        ? `mailto:${enquiryEmail}?subject=${encodeURIComponent(`${item.title} product enquiry`)}`
+        : "#contact";
+
+      blocks.push(el("section", { class: "product-enquiry", "aria-labelledby": enquiryId }, [
+        el("div", { class: "product-enquiry__copy" }, [
+          el("p", { class: "eyebrow" }, ["Product enquiries"]),
+          el("h3", { id: enquiryId }, [`Discuss ${item.title} with our team.`]),
+          el("p", {}, ["Tell us about your operational requirements, integration needs or project scope. Our team will help identify the right configuration and next steps."])
+        ]),
+        el("a", { class: "button button--primary product-enquiry__action", href: enquiryHref }, ["Send an enquiry"])
+      ]));
     }
 
     copyChildren.push(el("div", { class: "detail-blocks" }, blocks));
-  } else if (!item.detailSections) {
-    copyChildren.push(el("p", {}, [kind === "news" ? "The full article isn't published yet." : `Full details for this ${kind} will be added here.`]));
-    copyChildren.push(el("a", { class: "button button--primary", href: "#contact" }, [`Contact about this ${kind}`]));
   }
 
   const shellChildren = [el("div", { class: "detail-copy" }, copyChildren)];
