@@ -1191,14 +1191,12 @@ h3 {
   gap: 18px;
 }
 
-/* Real facility photo replacing the old placeholder box. Fixed height
-   (matching the placeholder's former 300px) rather than aspect-ratio, so the
-   panel stays exactly as compact at every breakpoint - object-fit: cover
-   just adjusts how much of the photo's width is cropped as the column
-   width changes, never how tall the panel is. */
+/* The facility photo now closes the homepage About section on its own. Its
+   taller desktop crop balances the adjacent copy without adding another
+   information panel; narrower breakpoints step the height down below. */
 .home-about__photo {
   position: relative;
-  height: 300px;
+  height: 400px;
   overflow: hidden;
   border-radius: var(--radius);
 }
@@ -2813,6 +2811,10 @@ h3 {
 
   .home-about {
     grid-template-columns: 1fr;
+  }
+
+  .home-about__photo {
+    height: 340px;
   }
 
   .subpage-hero {
