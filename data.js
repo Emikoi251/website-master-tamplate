@@ -2210,6 +2210,23 @@ window.NaviData = (function () {
         "The CoT Router and ATAK Gateway functionality behind the integration are built into the NaviLink TDL solution, translating between ATAK's binary data format and CoT so that MATIS/JADIS- and ATAK-connected users and units can exchange track and target data regardless of which format they use.",
         "For joint and coalition use cases, the integration works together with the Navielektro enGuard Cross Domain Solution to move track data, video, tactical drawings, chat and voice safely between security domains, and connects with NaviCall to enable voice communication between ATAK users and other voice system users."
       ]
+    },
+    // TODO: temporary placeholder module - replace with the real Data Analysis
+    // content (copy, own image, slug, detail sections) once it's available.
+    // No `slug` on purpose: createProductRow() in script.js renders a
+    // slug-less product row as inert (no link, no detail page) rather than
+    // linking to "#product/undefined". Add a slug here once a real detail
+    // page exists.
+    {
+      title: "Data Analysis",
+      category: "Modules",
+      summary: "Description coming soon.",
+      image: {
+        src: "assets/products/trackfusion/trackfusion-hero.webp",
+        alt: "Placeholder image temporarily reused for the Data Analysis module - final imagery to be added later",
+        width: 1920,
+        height: 735
+      }
     }
   ];
 

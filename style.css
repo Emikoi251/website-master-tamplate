@@ -2241,6 +2241,21 @@ h3 {
   transform: translateX(3px);
 }
 
+/* Slug-less placeholder row (see createProductRow() in script.js) - same
+   layout/spacing as a real row, just no click affordance since there's no
+   detail page to link to yet. */
+.product-row--placeholder {
+  cursor: default;
+}
+
+.product-row--placeholder:hover {
+  background: none;
+}
+
+.product-row--placeholder:hover .product-row__arrow svg {
+  transform: none;
+}
+
 .products-empty {
   padding: 32px 0;
   color: var(--muted);

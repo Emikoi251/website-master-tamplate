@@ -75,7 +75,10 @@ const searchIndex = [
     summary: `Navigate to the ${title.toLowerCase()} page.`,
     url: `#${slug}`
   })),
-  ...publicProducts.map((item) => ({
+  // Slug-less products (e.g. a temporary placeholder module with no detail
+  // page yet) are excluded here, not just left to fail quietly - there's
+  // nothing a search result could link to yet.
+  ...publicProducts.filter((item) => item.slug).map((item) => ({
     type: "Product",
     title: item.title,
     summary: item.summary,
@@ -592,8 +595,16 @@ function createFeaturedServicePanel(item) {
   ]);
 }
 
+// A product without a `slug` (e.g. a temporary placeholder with no detail
+// page yet) renders the same row markup as a plain, non-interactive <div>
+// instead of a link - same classes/layout/spacing, just nothing to click.
 function createProductRow(item) {
-  return el("a", { class: "product-row", href: `#product/${item.slug}` }, [
+  const isPlaceholder = !item.slug;
+  return el(isPlaceholder ? "div" : "a", {
+    class: isPlaceholder ? "product-row product-row--placeholder" : "product-row",
+    href: isPlaceholder ? null : `#product/${item.slug}`,
+    "aria-disabled": isPlaceholder ? "true" : null
+  }, [
     el("span", { class: "product-row__text" }, [
       el("span", { class: "product-row__name" }, [item.title]),
       el("span", { class: "product-row__summary" }, [item.summary])
