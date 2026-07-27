@@ -749,6 +749,11 @@ function setProductCategory(category) {
   announceProductsUpdate(false);
 }
 
+// Set once the first showPage() call has run (see below) - left false for
+// the very first page a visitor lands on, so that page's native
+// loading="lazy" images behave exactly as before.
+let hasNavigatedOnce = false;
+
 function showPage(page, detailTitle = "") {
   const activeRoute = page === "detail" ? inferParent(detailTitle).toLowerCase() : page;
   const desktopRoute = page === "history" ? "about" : activeRoute;
@@ -765,6 +770,24 @@ function showPage(page, detailTitle = "") {
   setMeta('meta[property="og:title"]', pageTitle);
   setMeta('meta[name="twitter:title"]', pageTitle);
   pageEls.forEach((el) => el.classList.toggle("page--active", el.dataset.page === page));
+
+  // A page that starts as display:none (every page except whichever one is
+  // active on first paint) never gets a layout box, so the browser's native
+  // loading="lazy" never schedules a fetch for the images inside it - and
+  // nothing about this SPA's class-toggle routing (no scroll/resize fires)
+  // ever prompts the browser to re-check once the page becomes visible.
+  // Result: those images sit as permanent gray placeholders until a full
+  // reload forces a fresh layout pass. Once a visitor has actually
+  // navigated to a page, "below the fold" no longer applies anyway, so
+  // force any still-pending lazy images on it to load now. Skipped on the
+  // first showPage() call so the initial page keeps native lazy behaviour.
+  if (hasNavigatedOnce) {
+    document.querySelector(`[data-page="${page}"]`)?.querySelectorAll('img[loading="lazy"]').forEach((img) => {
+      if (!img.complete) img.loading = "eager";
+    });
+  }
+  hasNavigatedOnce = true;
+
   document.querySelectorAll("[data-route].is-active").forEach((link) => link.classList.remove("is-active"));
   document.querySelectorAll(".desktop-nav > a, .nav-item > a").forEach((link) => {
     const route = link.dataset.route;
