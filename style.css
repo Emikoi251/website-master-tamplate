@@ -970,15 +970,14 @@ h3 {
   max-width: 640px;
 }
 
-/* Industries hero: three real operational photographs (defence, transport,
-   maritime) side by side rather than one dramatic single-sector image, so the
-   page introduces all three environments equally instead of favouring one.
-   Panels are separate absolutely-positioned layers (not one flattened image)
-   so each keeps its own crop/position independently - see
-   .subpage-hero__panel below. Two of the three source photos are thumbnail-
-   resolution (no larger originals exist, checked against the legacy site);
-   the reduced min-height plus the grain layer keep that upscaling from
-   reading as blurry. */
+/* Industries hero: real operational photographs (defence, maritime) side by
+   side rather than one dramatic single-sector image, so the page introduces
+   each environment equally instead of favouring one. Panels are separate
+   absolutely-positioned layers (not one flattened image) so each keeps its
+   own crop/position independently - see .subpage-hero__panel below. The
+   defence source photo is thumbnail-resolution (no larger original exists,
+   checked against the legacy site); the reduced min-height plus the grain
+   layer keep that upscaling from reading as blurry. */
 .subpage-hero--industries {
   grid-template-columns: minmax(0, 620px);
   min-height: 420px;
@@ -990,12 +989,12 @@ h3 {
 }
 
 /* The photo strip only occupies the space to the right of the text column
-   (not the full hero width) so all three panels stay clearly visible -
-   earlier version let panels span the full width with the scrim burying the
-   first one almost entirely behind the text, which defeated the point of
-   showing three environments. The offset tracks the text column's own
-   width (--edge gutter + the 620px grid track + a little breathing room)
-   rather than a fixed percentage, so it stays correct at any viewport. */
+   (not the full hero width) so both panels stay clearly visible - earlier
+   version let panels span the full width with the scrim burying the first
+   one almost entirely behind the text, which defeated the point of showing
+   each environment. The offset tracks the text column's own width (--edge
+   gutter + the 620px grid track + a little breathing room) rather than a
+   fixed percentage, so it stays correct at any viewport. */
 .subpage-hero__panels {
   position: absolute;
   inset: 0;
@@ -1024,14 +1023,9 @@ h3 {
   background-position: center 55%;
 }
 
-.subpage-hero__panel--transport {
-  background-image: url("assets/industries/intelligent-transport/traffic-circle.jpg");
-  background-position: center 40%;
-}
-
-/* Subtle unifying grain so the three source photos (different cameras,
-   different eras) read as one considered composition rather than three
-   stock shots stapled together. */
+/* Subtle unifying grain so the source photos (different cameras, different
+   eras) read as one considered composition rather than stock shots stapled
+   together. */
 .subpage-hero__grain {
   position: absolute;
   inset: 0;
@@ -1042,7 +1036,7 @@ h3 {
 }
 
 /* Solid behind the text, a short soft edge into the photo strip, then a
-   light uniform wash across all three panels for brand cohesion - not the
+   light uniform wash across both panels for brand cohesion - not the
    long, murky partial-opacity band the previous version used to try to
    hide a panel underneath it. */
 .subpage-hero__scrim {
@@ -1639,7 +1633,7 @@ h3 {
 }
 
 /* Homepage industry index: a compact navigational strip rather than another
-   set of bordered content cards. The imagery establishes the three operating
+   set of bordered content cards. The imagery establishes the operating
    contexts while the text stays focused on choosing a destination. */
 .home-industries {
   padding-top: clamp(48px, 4vw, 56px);
@@ -1657,7 +1651,7 @@ h3 {
 
 .industry-index {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: clamp(20px, 2.8vw, 34px);
 }
 
