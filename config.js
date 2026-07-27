@@ -40,7 +40,8 @@ window.SiteConfig = {
   social: {
     linkedin: "https://www.linkedin.com/company/navielektro/",
     facebook: "https://www.facebook.com/profile.php?id=100057483668927",
-    x: "https://twitter.com/navielektro"
+    x: "https://twitter.com/navielektro",
+    youtube: "https://www.youtube.com/channel/UC9ECJ1xP4j97_XVBnNnedWg"
   },
 
   // --- Navigation labels -------------------------------------------------
