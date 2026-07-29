@@ -1148,6 +1148,29 @@ window.NaviData = (function () {
             width: 1600,
             height: 1067
           }
+        },
+        // TODO: placeholder only - no Secure Printing content has been
+        // approved yet. Replace `summary`/`image` (and add `overview`,
+        // `highlights`, `operationalUse`, `typicalApplications` as needed)
+        // with real, verified copy once available - do not invent specs or
+        // claims here. Reuses the generic subpage system as-is (see the
+        // `scrubber` entry above and createProductSubpageCard/
+        // renderProductSubpage in script.js) - no routing/rendering changes
+        // needed for this entry.
+        {
+          slug: "secure-printing",
+          title: "Secure Printing",
+          category: "Security",
+          // TODO: replace with real Secure Printing summary copy once approved.
+          summary: "Description coming soon.",
+          // TODO: reusing enGuard's own hero image as a placeholder - replace
+          // with a dedicated Secure Printing product image once available.
+          image: {
+            src: "assets/products/enguard/enguard-hero.webp",
+            alt: "Placeholder image temporarily reused for the Secure Printing system - final imagery to be added later",
+            width: 1600,
+            height: 1067
+          }
         }
       ]
     },
