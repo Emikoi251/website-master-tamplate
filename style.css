@@ -1475,6 +1475,14 @@ h3 {
   padding-bottom: 4px;
 }
 
+/* "Back to <parent product>" link on a product subpage (see
+   renderProductSubpage in script.js) - sits above the eyebrow/H1 as the
+   first child of .detail-copy, so its only job here is to keep the .text-link
+   underline from spanning the full row width. */
+.detail-back-link {
+  width: fit-content;
+}
+
 .card-grid {
   display: grid;
   gap: 22px;

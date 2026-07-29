@@ -31,6 +31,7 @@ const PRODUCT_HERO_TREATMENTS = {
   "radar-processing": { desktop: "28% center", tablet: "25% center", mobile: "22% center" },
   "radar-transceivers": { desktop: "36% center", tablet: "32% center", mobile: "28% center" },
   sar: { desktop: "60% center", tablet: "55% center", mobile: "48% center" },
+  scrubber: { fit: "contain" },
   simulation: { desktop: "42% center", tablet: "39% center", mobile: "36% center" },
   trackfusion: { desktop: "67% center", tablet: "71% center", mobile: "76% center" },
   trafficaware: { desktop: "42% center", tablet: "39% center", mobile: "36% center" },
@@ -293,6 +294,16 @@ function createRelatedProductCard(entry) {
   return entry.slug
     ? el("a", { class: "card card--media-only", href: `#product/${entry.slug}` }, [visual, heading])
     : el("div", { class: "card card--media-only" }, [visual, heading]);
+}
+
+// Same media-only card as createRelatedProductCard, for a product's own
+// subpages (see the `subpages` field in data.js) instead of other top-level
+// products - the only difference is the two-segment href.
+function createProductSubpageCard(parentSlug, entry) {
+  const visual = el("div", { class: "visual-placeholder visual-placeholder--card visual-placeholder--photo" }, [
+    el("img", { src: entry.image.src, alt: entry.image.alt, width: entry.image.width, height: entry.image.height, loading: "lazy" })
+  ]);
+  return el("a", { class: "card card--media-only", href: `#product/${parentSlug}/${entry.slug}` }, [visual, el("h3", {}, [entry.title])]);
 }
 
 // Smallest generic "parallel focus area" card - image + heading + short
@@ -782,7 +793,7 @@ function setProductCategory(category) {
 // loading="lazy" images behave exactly as before.
 let hasNavigatedOnce = false;
 
-function showPage(page, detailTitle = "") {
+function showPage(page, detailTitle = "", extraCrumb = null) {
   const activeRoute = page === "detail" ? inferParent(detailTitle).toLowerCase() : page;
   const desktopRoute = page === "history" ? "about" : activeRoute;
   const siteName = config.companyName || "Navielektro";
@@ -824,7 +835,7 @@ function showPage(page, detailTitle = "") {
   document.querySelectorAll(".mobile-menu nav a").forEach((link) => {
     link.classList.toggle("is-active", link.dataset.route === activeRoute);
   });
-  renderBreadcrumbs(page, detailTitle);
+  renderBreadcrumbs(page, detailTitle, extraCrumb);
   // Contact and product detail pages already provide a dedicated endpoint, so
   // repeating the site-wide contact strip would dilute the primary action.
   const hideContactStrip = page === "contact" || (page === "detail" && activeRoute === "products");
@@ -833,7 +844,7 @@ function showPage(page, detailTitle = "") {
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
-function renderBreadcrumbs(page, detailTitle) {
+function renderBreadcrumbs(page, detailTitle, extraCrumb = null) {
   if (page === "home") {
     breadcrumbEl.classList.remove("is-visible");
     breadcrumbEl.replaceChildren();
@@ -851,12 +862,20 @@ function renderBreadcrumbs(page, detailTitle) {
     trail.push(el("a", { href: `#${parent.toLowerCase()}` }, [parent]));
     trail.push(el("span", {}, ["/"]));
   }
+  // Product subpages (see renderProductSubpage) pass their parent product
+  // here so the trail reads Home / Products / <parent> / <subpage> instead
+  // of skipping straight from Products to the subpage.
+  if (extraCrumb) {
+    trail.push(el("a", { href: extraCrumb.href }, [extraCrumb.label]));
+    trail.push(el("span", {}, ["/"]));
+  }
   trail.push(el("span", {}, [label]));
   breadcrumbEl.replaceChildren(...trail);
 }
 
 function inferParent(title) {
   if (products.some((item) => item.title === title)) return "Products";
+  if (products.some((item) => (item.subpages || []).some((sub) => sub.title === title))) return "Products";
   if (services.some((item) => item.title === title || item.detailTitle === title)) return "Services";
   if (news.some((item) => item.title === title)) return "News";
   if (industries.some((item) => item.title === title)) return "Industries";
@@ -938,6 +957,36 @@ function renderDetail(kind, slug) {
     return;
   }
 
+  renderDetailPage(kind, item);
+}
+
+// A product's own child page (see the `subpages` field in data.js), reachable
+// only via #product/<parentSlug>/<childSlug> - never listed on the Products
+// page, in search, or at a top-level #product/<childSlug> URL, since it never
+// enters the flat `products` array those all read from. Renders through the
+// exact same renderDetailPage() as a top-level product (kind stays "product"
+// throughout), just with a back-link/breadcrumb pointing at its parent.
+function renderProductSubpage(parentSlug, childSlug) {
+  const parent = products.find((entry) => entry.slug === parentSlug);
+  const subpage = parent && (parent.subpages || []).find((entry) => entry.slug === childSlug);
+
+  if (!subpage) {
+    location.hash = "#home";
+    return;
+  }
+
+  const parentHref = `#product/${parent.slug}`;
+  renderDetailPage("product", subpage, {
+    parentCrumb: { label: parent.title, href: parentHref },
+    backLink: { label: `Back to ${parent.title}`, href: parentHref }
+  });
+}
+
+// Shared detail-page renderer for products/services/industries/news, and for
+// product subpages (kind stays "product" for those - see renderProductSubpage
+// above). `context.backLink`/`context.parentCrumb` are only set for subpages;
+// every other caller leaves them undefined, so nothing changes for them.
+function renderDetailPage(kind, item, context = {}) {
   const detailSummary = item.summary;
 
   // Product, industry and data-driven service details use the full content
@@ -963,10 +1012,16 @@ function renderDetail(kind, slug) {
 
   if (item.detailHero && detailVisual) detailVisual.classList.add("visual-placeholder--banner");
 
-  const copyChildren = [
+  const copyChildren = [];
+  if (context.backLink) {
+    copyChildren.push(el("p", { class: "detail-back-link" }, [
+      el("a", { class: "text-link", href: context.backLink.href }, [`← ${context.backLink.label}`])
+    ]));
+  }
+  copyChildren.push(
     el("p", { class: "eyebrow" }, [kind === "product" ? productCategoryLabel(item.category) : kind === "industry" ? "Industry" : kind]),
     el("h1", {}, [item.detailTitle || item.title])
-  ];
+  );
   if (detailVisual) copyChildren.push(detailVisual);
 
   // Optional data-driven service sections or product/industry long-form content.
@@ -1074,6 +1129,16 @@ function renderDetail(kind, slug) {
       }));
     }
 
+    // Product subpages (see the `subpages` field in data.js) - a card per
+    // child page, linking to #product/<this slug>/<child slug>. Generic: any
+    // product that gets a `subpages` array picks this up automatically.
+    if (kind === "product" && item.subpages && item.subpages.length) {
+      blocks.push(createDetailBlock({
+        heading: item.subpagesHeading || "Related systems",
+        body: [el("div", { class: "card-grid card-grid--three" }, item.subpages.map((entry) => createProductSubpageCard(item.slug, entry)))]
+      }));
+    }
+
     if (item.relatedProducts && item.relatedProducts.length) {
       const visibleRelated = item.relatedProducts.filter((entry) =>
         !entry.slug || !products.find((p) => p.slug === entry.slug && p.status === "archived")
@@ -1119,7 +1184,7 @@ function renderDetail(kind, slug) {
   const shell = el("article", { class: shellClasses.join(" ") }, shellChildren);
 
   document.querySelector("#detail").replaceChildren(shell);
-  showPage("detail", item.detailTitle || item.title);
+  showPage("detail", item.detailTitle || item.title, context.parentCrumb);
 }
 
 function route() {
@@ -1131,7 +1196,7 @@ function route() {
   updateViewportWidthVar();
 
   const hash = location.hash.replace(/^#\/?/, "") || "home";
-  const [kind, slug] = hash.split("/");
+  const [kind, slug, childSlug] = hash.split("/");
 
   if ((kind === "product" || kind === "service" || kind === "news" || kind === "industry") && slug) {
     const section = kind === "product" ? "products" : kind === "service" ? "services" : kind === "industry" ? "industries" : "news";
@@ -1139,7 +1204,13 @@ function route() {
       location.hash = "#home";
       return;
     }
-    renderDetail(kind, slug);
+    // #product/<slug>/<childSlug> is a product subpage (see the `subpages`
+    // field in data.js) - service/news/industry stay two-segment only.
+    if (kind === "product" && childSlug) {
+      renderProductSubpage(slug, childSlug);
+    } else {
+      renderDetail(kind, slug);
+    }
     return;
   }
 

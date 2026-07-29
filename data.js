@@ -1102,6 +1102,31 @@ window.NaviData = (function () {
       integration: [
         "enGuard CDS connects directly to Navielektro C2 and situational awareness systems such as MATIS/JADIS, letting tracks, chat, messaging, sensor data and video move securely between domains, using the same native protocols shared across the wider Navielektro product family.",
         "The enGuard Scrubber integrates with MATIS/JADIS but also works as a standalone secure file transfer point for other CIS systems via dedicated IMPEX workstations; both enGuard solutions log all transfer activity and can be brought under one centrally managed security policy."
+      ],
+      // Product subpages: reachable only from this product's own page (see
+      // PRODUCT_HERO_TREATMENTS "scrubber" entry and createProductSubpageCard/
+      // renderProductSubpage in script.js) - not listed on the Products page,
+      // not in search. Add further entries here (or to any other product) to
+      // give it its own child page without touching script.js routing.
+      subpages: [
+        {
+          slug: "scrubber",
+          title: "enGuard Scrubber",
+          category: "Security",
+          summary: "Secure, air-gapped file transfer between security domains using an approved, encrypted transfer drive.",
+          image: {
+            src: "assets/products/enguard/enguard-scrubber-hardware.webp",
+            alt: "enGuard Scrubber 1/2U hardware device with separate LOW SIDE and HIGH SIDE ports",
+            width: 1400,
+            height: 552
+          },
+          overview: [
+            "Where a system needs to stay air-gapped rather than continuously connected, the enGuard Scrubber provides a secure way to move files between security domains. Files are virus-scanned, verified and signed before being packed onto an approved, encrypted transfer drive, which is then carried to an IMPEX workstation on the receiving side to complete the import - or the reverse, for exporting data from a higher domain."
+          ],
+          typicalApplications: [
+            "Secure file import/export between classification levels"
+          ]
+        }
       ]
     },
     {
