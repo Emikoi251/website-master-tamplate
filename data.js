@@ -584,6 +584,36 @@ window.NaviData = (function () {
         height: 1067
       }
     },
+    // TODO: placeholder only - no Formal Messaging content has been
+    // approved yet. Replace the summary and add verified imagery and detail
+    // sections once final content is available. Do not invent specifications
+    // or product claims here.
+    {
+      slug: "formal-messaging",
+      title: "Formal Messaging",
+      category: "Systems",
+      summary: "Description coming soon."
+    },
+    // TODO: placeholder only - no Instant Messaging content has been
+    // approved yet. Replace the summary and add verified imagery and detail
+    // sections once final content is available. Do not invent specifications
+    // or product claims here.
+    {
+      slug: "instant-messaging",
+      title: "Instant Messaging",
+      category: "Systems",
+      summary: "Description coming soon."
+    },
+    // TODO: placeholder only - no Joint Fires content has been approved yet.
+    // Replace the summary and add verified imagery and detail sections once
+    // final content is available. Do not invent specifications or product
+    // claims here.
+    {
+      slug: "joint-fires",
+      title: "Joint Fires",
+      category: "Systems",
+      summary: "Description coming soon."
+    },
     {
       slug: "tdf",
       title: "Software Platform",
