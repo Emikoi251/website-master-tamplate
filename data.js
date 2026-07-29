@@ -614,6 +614,16 @@ window.NaviData = (function () {
       category: "Systems",
       summary: "Description coming soon."
     },
+    // TODO: placeholder only - no Full Motion Video content has been
+    // approved yet. Replace the summary and add verified imagery and detail
+    // sections once final content is available. Do not invent specifications
+    // or product claims here.
+    {
+      slug: "full-motion-video",
+      title: "Full Motion Video",
+      category: "Systems",
+      summary: "Description coming soon."
+    },
     {
       slug: "tdf",
       title: "Software Platform",
