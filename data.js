@@ -1126,6 +1126,28 @@ window.NaviData = (function () {
           typicalApplications: [
             "Secure file import/export between classification levels"
           ]
+        },
+        // TODO: placeholder only - no Data Diode content has been approved
+        // yet. Replace `summary`/`image` (and add `overview`, `highlights`,
+        // `operationalUse`, `typicalApplications` as needed) with real,
+        // verified copy once available - do not invent specs or claims here.
+        // Reuses the generic subpage system as-is (see the `scrubber` entry
+        // above and createProductSubpageCard/renderProductSubpage in
+        // script.js) - no routing/rendering changes needed for this entry.
+        {
+          slug: "data-diode",
+          title: "Data Diode",
+          category: "Security",
+          // TODO: replace with real Data Diode summary copy once approved.
+          summary: "Description coming soon.",
+          // TODO: reusing enGuard's own hero image as a placeholder - replace
+          // with a dedicated Data Diode product image once available.
+          image: {
+            src: "assets/products/enguard/enguard-hero.webp",
+            alt: "Placeholder image temporarily reused for the Data Diode system - final imagery to be added later",
+            width: 1600,
+            height: 1067
+          }
         }
       ]
     },
