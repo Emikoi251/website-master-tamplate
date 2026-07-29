@@ -511,13 +511,26 @@ function createIndustryNavLink(item, mobile = false) {
   }, mobile ? [item.title] : [el("strong", {}, [item.title])]);
 }
 
+// Cyber Security already has its own product page (#product/cybersecurity,
+// also reachable from the Products menu) - it's listed here too, in the
+// Industries menu, by explicit request. Not an industries.js entry, so kept
+// separate from the data-driven loop below: same existing route, no new
+// page/route/content.
+function createCyberSecurityIndustriesLink(mobile = false) {
+  return el("a", {
+    href: "#product/cybersecurity",
+    ...(mobile ? { class: "mobile-sublink", "data-industry-mobile-link": "" } : {})
+  }, mobile ? ["Cyber Security"] : [el("strong", {}, ["Cyber Security"])]);
+}
+
 function renderIndustryMenu() {
   const linkedIndustries = industries.filter((item) => item.slug);
-  fill("[data-industries-menu]", linkedIndustries.map((item) => createIndustryNavLink(item)));
+  fill("[data-industries-menu]", [...linkedIndustries.map((item) => createIndustryNavLink(item)), createCyberSecurityIndustriesLink()]);
 
   document.querySelectorAll("[data-industry-mobile-link]").forEach((link) => link.remove());
   document.querySelector('.mobile-menu nav a[data-route="industries"]')?.after(
-    ...linkedIndustries.map((item) => createIndustryNavLink(item, true))
+    ...linkedIndustries.map((item) => createIndustryNavLink(item, true)),
+    createCyberSecurityIndustriesLink(true)
   );
 }
 
