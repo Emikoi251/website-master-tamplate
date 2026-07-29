@@ -693,16 +693,9 @@ function applyProductsView() {
     return matchesCategory && matchesQuery;
   });
 
-  // Default view only: MATIS/JADIS are already shown as featured tiles
-  // above, so skip them here to avoid an immediate duplicate row. Any
-  // active search or category filter shows them normally like every other
-  // product — they're never excluded from being found, just from this one
-  // unfiltered listing. MARITAS is deliberately kept in both places: it
-  // still appears in the Systems row below the featured tray, since it's
-  // also the anchor product surfaced elsewhere in the Systems category.
-  if (isDefaultView) {
-    filtered = filtered.filter((item) => item.slug === "maritas" || !FEATURED_PRODUCT_SLUGS.includes(item.slug));
-  }
+  // MARITAS/MATIS/JADIS are deliberately shown in both places: the featured
+  // tray above (default view only) and the grouped Systems row below, since
+  // each is also a normal member of the Systems category.
 
   renderProductDirectory(filtered);
 }
