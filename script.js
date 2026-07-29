@@ -45,12 +45,15 @@ const PRODUCT_HERO_TREATMENTS = {
 // unfiltered view only.
 const FEATURED_PRODUCT_SLUGS = ["maritas", "matis", "jadis"];
 
-// Products Overview page's own Featured Systems tray can also include a
-// slug-less placeholder (e.g. Federated Mission, matched by `featuredKey`
-// instead of `slug` - see renderFeatured() below), kept separate from
-// FEATURED_PRODUCT_SLUGS so a placeholder doesn't leak onto the Home page's
-// Featured Products panel, which still reads FEATURED_PRODUCT_SLUGS only.
-const PRODUCTS_PAGE_FEATURED_KEYS = [...FEATURED_PRODUCT_SLUGS, "federated-mission"];
+// Products Overview page's own Featured Systems tray can include extra
+// entries beyond FEATURED_PRODUCT_SLUGS - a normal product from any category
+// (e.g. Cross Domain Solution, still filed under Security/Cyber Security
+// and unaffected there) or a slug-less placeholder (e.g. Federated Mission,
+// matched by `featuredKey` instead of `slug` - see renderFeatured() below).
+// Kept separate from FEATURED_PRODUCT_SLUGS so none of this leaks onto the
+// Home page's Featured Products panel, which still reads
+// FEATURED_PRODUCT_SLUGS only.
+const PRODUCTS_PAGE_FEATURED_KEYS = [...FEATURED_PRODUCT_SLUGS, "enguard", "federated-mission"];
 
 // A section is enabled unless config.sections explicitly turns it off.
 const sectionFlags = config.sections || {};

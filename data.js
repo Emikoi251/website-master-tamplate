@@ -1031,6 +1031,15 @@ window.NaviData = (function () {
         width: 1600,
         height: 1067
       },
+      // Reuses the hero image above for the Products page's Featured Systems
+      // tray tile (see PRODUCTS_PAGE_FEATURED_KEYS in script.js) - no new
+      // image asset was created for this.
+      featuredTileImage: {
+        src: "assets/products/enguard/enguard-hero.webp",
+        alt: "Rugged tablet in the field next to an UNCLASSIFIED label, illustrating enGuard moving information between security domains",
+        width: 1600,
+        height: 1067
+      },
       highlights: [
         "Hardware-enforced separation between security domains, including between SECRET and Unclassified",
         "Continuous, real-time cross-domain sharing (CDS) or manual, air-gapped file transfer (Scrubber) - deployable separately or together",
