@@ -1174,6 +1174,30 @@ window.NaviData = (function () {
         }
       ]
     },
+    // TODO: placeholder only - no Identity Access Management content has
+    // been approved yet. Replace `summary`/`image` (and add `overview`,
+    // `highlights`, `operationalUse`, `typicalApplications`, `integration`
+    // as needed) with real, verified copy once available - do not invent
+    // specs or claims here. A normal top-level product using the existing
+    // data structure/detail-page template as-is (see renderDetail in
+    // script.js) - not a subpage of enGuard or any other product.
+    {
+      slug: "identity-access-management",
+      title: "Identity Access Management",
+      category: "Security",
+      // TODO: replace with real Identity Access Management summary copy
+      // once approved.
+      summary: "Description coming soon.",
+      // TODO: reusing the Cyber Security product's own hero image as a
+      // generic placeholder - replace with a dedicated Identity Access
+      // Management product image once available.
+      image: {
+        src: "assets/products/cybersecurity/cybersecurity-hero.webp",
+        alt: "Placeholder image temporarily reused for the Identity Access Management product - final imagery to be added later",
+        width: 1920,
+        height: 735
+      }
+    },
     {
       slug: "radar-antennas",
       title: "Radar Antennas",
