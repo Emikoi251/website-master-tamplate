@@ -73,6 +73,7 @@ const pages = new Map(
     ["about", navLabel("about", "About")],
     ["history", "History"],
     ["careers", "Careers"],
+    ["visitor-arrival-instructions", "Visitor Arrival Instructions"],
     ["references", navLabel("references", "References")],
     ["news", navLabel("news", "News")],
     ["contact", navLabel("contact", "Contact")]
@@ -795,7 +796,10 @@ let hasNavigatedOnce = false;
 
 function showPage(page, detailTitle = "", extraCrumb = null) {
   const activeRoute = page === "detail" ? inferParent(detailTitle).toLowerCase() : page;
-  const desktopRoute = page === "history" ? "about" : activeRoute;
+  // History and Visitor Arrival Instructions are both flat routes but belong
+  // under the About dropdown, so the desktop "About" nav item stays
+  // highlighted for them too - same treatment for both, not History-specific.
+  const desktopRoute = page === "history" || page === "visitor-arrival-instructions" ? "about" : activeRoute;
   const siteName = config.companyName || "Navielektro";
   const tagline = (config.tagline || "Operational technology for demanding environments").replace(/[.!?]+$/, "");
   const pageLabel = page === "detail" && detailTitle
@@ -852,7 +856,7 @@ function renderBreadcrumbs(page, detailTitle, extraCrumb = null) {
   }
 
   const label = page === "detail" ? detailTitle : pages.get(page);
-  const parent = page === "detail" ? inferParent(detailTitle) : page === "history" ? "About" : "";
+  const parent = page === "detail" ? inferParent(detailTitle) : (page === "history" || page === "visitor-arrival-instructions") ? "About" : "";
   breadcrumbEl.classList.add("is-visible");
   const trail = [
     el("a", { href: "#home" }, ["Home"]),
