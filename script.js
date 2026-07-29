@@ -45,6 +45,13 @@ const PRODUCT_HERO_TREATMENTS = {
 // unfiltered view only.
 const FEATURED_PRODUCT_SLUGS = ["maritas", "matis", "jadis"];
 
+// Products Overview page's own Featured Systems tray can also include a
+// slug-less placeholder (e.g. Federated Mission, matched by `featuredKey`
+// instead of `slug` - see renderFeatured() below), kept separate from
+// FEATURED_PRODUCT_SLUGS so a placeholder doesn't leak onto the Home page's
+// Featured Products panel, which still reads FEATURED_PRODUCT_SLUGS only.
+const PRODUCTS_PAGE_FEATURED_KEYS = [...FEATURED_PRODUCT_SLUGS, "federated-mission"];
+
 // A section is enabled unless config.sections explicitly turns it off.
 const sectionFlags = config.sections || {};
 const isEnabled = (name) => sectionFlags[name] !== false;
@@ -537,16 +544,28 @@ function renderFilters() {
   document.querySelector("[data-product-filters]").replaceChildren(...buttons);
 }
 
-// Fixed curated set (FEATURED_PRODUCT_SLUGS), independent of the current
-// search/category state — always the same three tiles when shown at all.
+// Fixed curated set (PRODUCTS_PAGE_FEATURED_KEYS), independent of the
+// current search/category state — always the same tiles when shown at all.
+// Matched by `slug` for real products, or `featuredKey` for a slug-less
+// placeholder that has no detail page yet.
 function renderFeatured() {
-  const items = FEATURED_PRODUCT_SLUGS.map((slug) => publicProducts.find((item) => item.slug === slug)).filter(Boolean);
+  const items = PRODUCTS_PAGE_FEATURED_KEYS.map((key) => publicProducts.find((item) => (item.slug || item.featuredKey) === key)).filter(Boolean);
   document.querySelector("[data-products-featured-grid]").replaceChildren(...items.map(createFeaturedTile));
 }
 
+// A tile without a `slug` (e.g. a temporary placeholder with no detail page
+// yet) renders as a plain, non-interactive <div> instead of a link - same
+// classes/layout, just nothing to click. Mirrors createProductRow()'s
+// slug-less handling below.
 function createFeaturedTile(item) {
   const image = item.featuredTileImage;
-  return el("a", { class: "featured-tile", href: `#product/${item.slug}`, "aria-label": `${item.title} — ${item.summary}` }, [
+  const isPlaceholder = !item.slug;
+  return el(isPlaceholder ? "div" : "a", {
+    class: isPlaceholder ? "featured-tile featured-tile--placeholder" : "featured-tile",
+    href: isPlaceholder ? null : `#product/${item.slug}`,
+    "aria-disabled": isPlaceholder ? "true" : null,
+    "aria-label": isPlaceholder ? null : `${item.title} — ${item.summary}`
+  }, [
     el("img", { src: image.src, alt: image.alt, width: image.width, height: image.height, loading: "lazy" }),
     el("span", { class: "featured-tile__overlay" }),
     el("span", { class: "featured-tile__content" }, [

@@ -1971,6 +1971,18 @@ h3 {
   outline-offset: -4px;
 }
 
+/* Slug-less placeholder tile (see createFeaturedTile() in script.js) - same
+   layout as a real tile, just no click affordance since there's no detail
+   page to link to yet. */
+.featured-tile--placeholder {
+  cursor: default;
+}
+
+.featured-tile--placeholder:hover {
+  transform: none;
+  box-shadow: none;
+}
+
 .featured-tile img {
   position: absolute;
   inset: 0;
