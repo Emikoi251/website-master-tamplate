@@ -2283,6 +2283,22 @@ window.NaviData = (function () {
           theme: "tinted"
         }
       ],
+      subpages: [
+        // TODO: placeholder only - replace the summary and image with approved
+        // DIS Simulation content when it becomes available.
+        {
+          slug: "dis-simulation",
+          title: "DIS Simulation",
+          category: "Modules",
+          summary: "Description coming soon.",
+          image: {
+            src: "assets/products/simulation/simulation-hero.webp",
+            alt: "Placeholder image temporarily reused for DIS Simulation - final imagery to be added later",
+            width: 1920,
+            height: 735
+          }
+        }
+      ],
       sourceUrl: "https://www.navielektro.fi/simulation.html"
     },
     {
