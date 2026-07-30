@@ -1163,6 +1163,7 @@ window.NaviData = (function () {
         "enGuard CDS connects directly to Navielektro C2 and situational awareness systems such as MATIS/JADIS, letting tracks, chat, messaging, sensor data and video move securely between domains, using the same native protocols shared across the wider Navielektro product family.",
         "The enGuard Scrubber integrates with MATIS/JADIS but also works as a standalone secure file transfer point for other CIS systems via dedicated IMPEX workstations; both enGuard solutions log all transfer activity and can be brought under one centrally managed security policy."
       ],
+      subpagesHeading: "Cross Domain Solution Modules",
       // Product subpages: reachable only from this product's own page (see
       // PRODUCT_HERO_TREATMENTS "scrubber" entry and createProductSubpageCard/
       // renderProductSubpage in script.js) - not listed on the Products page,
@@ -1228,6 +1229,34 @@ window.NaviData = (function () {
           image: {
             src: "assets/products/enguard/enguard-hero.webp",
             alt: "Placeholder image temporarily reused for the Secure Printing system - final imagery to be added later",
+            width: 1600,
+            height: 1067
+          }
+        },
+        // TODO: placeholder only - replace the summary and image with approved
+        // Part A content when it becomes available.
+        {
+          slug: "part-a",
+          title: "Part A",
+          category: "Security",
+          summary: "Description coming soon.",
+          image: {
+            src: "assets/products/enguard/enguard-hero.webp",
+            alt: "Placeholder image temporarily reused for Part A - final imagery to be added later",
+            width: 1600,
+            height: 1067
+          }
+        },
+        // TODO: placeholder only - replace the summary and image with approved
+        // Part B content when it becomes available.
+        {
+          slug: "part-b",
+          title: "Part B",
+          category: "Security",
+          summary: "Description coming soon.",
+          image: {
+            src: "assets/products/enguard/enguard-hero.webp",
+            alt: "Placeholder image temporarily reused for Part B - final imagery to be added later",
             width: 1600,
             height: 1067
           }
