@@ -2472,7 +2472,16 @@ window.NaviData = (function () {
       slug: "electronic-warfare",
       title: "Electronic Warfare (EW)",
       category: "Modules",
-      summary: "Description coming soon."
+      summary: "Electronic Warfare information will be available soon.",
+      overviewHeading: "Overview",
+      overview: [
+        "Electronic Warfare information will be available soon.",
+        "Detailed Electronic Warfare (EW) content will be added here."
+      ],
+      breadcrumbParent: {
+        label: "Modules",
+        href: "#products/Modules"
+      }
     },
     // TODO: temporary placeholder module - replace with the real Data Analysis
     // content (copy, own image, slug, detail sections) once it's available.
