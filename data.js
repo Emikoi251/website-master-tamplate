@@ -641,7 +641,7 @@ window.NaviData = (function () {
     {
       slug: "navi-cis",
       title: "Navi CIS",
-      category: "Systems",
+      category: "Secure Platform",
       summary: "Description coming soon."
     },
     {
@@ -2457,6 +2457,7 @@ window.NaviData = (function () {
     { key: "Modules", label: "Modules", menuBlurb: "Operational workflow modules" },
     { key: "Sensors", label: "Sensors", menuBlurb: "Radar, CCTV & optronics" },
     { key: "Security", label: "Cyber Security", menuBlurb: "Cyber & infrastructure protection" },
+    { key: "Secure Platform", label: "Secure Platform", menuBlurb: "Secure platform capabilities" },
     { key: "Weather", label: "Weather", menuBlurb: "Environmental information" },
     { key: "Voice Communication", label: "Voice Communication", menuBlurb: "Control room & tactical voice" },
     { key: "Tactical Display Framework", label: "Software Platform", menuBlurb: "Tactical Display Framework" }
