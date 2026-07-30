@@ -634,6 +634,23 @@ window.NaviData = (function () {
       category: "Systems",
       summary: "Description coming soon."
     },
+    // TODO: placeholder only - no Navi CMS content has been approved yet.
+    // Replace the summary and overview with verified content once available.
+    {
+      slug: "navi-cms",
+      title: "Navi CMS",
+      category: "Systems",
+      summary: "Navi CMS information will be available soon.",
+      overviewHeading: "Overview",
+      overview: [
+        "Navi CMS information will be available soon.",
+        "Detailed Navi CMS content will be added here."
+      ],
+      breadcrumbParent: {
+        label: "Systems",
+        href: "#products/Systems"
+      }
+    },
     // TODO: placeholder only - no Navi CIS content has been approved yet.
     // Replace the summary and add verified imagery and detail sections once
     // final content is available. Do not invent specifications or product

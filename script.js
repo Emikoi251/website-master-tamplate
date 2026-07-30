@@ -812,7 +812,7 @@ function setProductCategory(category) {
 // loading="lazy" images behave exactly as before.
 let hasNavigatedOnce = false;
 
-function showPage(page, detailTitle = "", extraCrumb = null) {
+function showPage(page, detailTitle = "", extraCrumb = null, parentOverride = null) {
   const activeRoute = page === "detail" ? inferParent(detailTitle).toLowerCase() : page;
   // History and Visitor Arrival Instructions are both flat routes but belong
   // under the About dropdown, so the desktop "About" nav item stays
@@ -857,7 +857,7 @@ function showPage(page, detailTitle = "", extraCrumb = null) {
   document.querySelectorAll(".mobile-menu nav a").forEach((link) => {
     link.classList.toggle("is-active", link.dataset.route === activeRoute);
   });
-  renderBreadcrumbs(page, detailTitle, extraCrumb);
+  renderBreadcrumbs(page, detailTitle, extraCrumb, parentOverride);
   // Contact and product detail pages already provide a dedicated endpoint, so
   // repeating the site-wide contact strip would dilute the primary action.
   const hideContactStrip = page === "contact" || (page === "detail" && activeRoute === "products");
@@ -866,7 +866,7 @@ function showPage(page, detailTitle = "", extraCrumb = null) {
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
-function renderBreadcrumbs(page, detailTitle, extraCrumb = null) {
+function renderBreadcrumbs(page, detailTitle, extraCrumb = null, parentOverride = null) {
   if (page === "home") {
     breadcrumbEl.classList.remove("is-visible");
     breadcrumbEl.replaceChildren();
@@ -874,14 +874,14 @@ function renderBreadcrumbs(page, detailTitle, extraCrumb = null) {
   }
 
   const label = page === "detail" ? detailTitle : pages.get(page);
-  const parent = page === "detail" ? inferParent(detailTitle) : (page === "history" || page === "visitor-arrival-instructions") ? "About" : "";
+  const parent = page === "detail" ? (parentOverride?.label || inferParent(detailTitle)) : (page === "history" || page === "visitor-arrival-instructions") ? "About" : "";
   breadcrumbEl.classList.add("is-visible");
   const trail = [
     el("a", { href: "#home" }, ["Home"]),
     el("span", {}, ["/"])
   ];
   if (parent) {
-    trail.push(el("a", { href: `#${parent.toLowerCase()}` }, [parent]));
+    trail.push(el("a", { href: parentOverride?.href || `#${parent.toLowerCase()}` }, [parent]));
     trail.push(el("span", {}, ["/"]));
   }
   // Product subpages (see renderProductSubpage) pass their parent product
@@ -1206,7 +1206,7 @@ function renderDetailPage(kind, item, context = {}) {
   const shell = el("article", { class: shellClasses.join(" ") }, shellChildren);
 
   document.querySelector("#detail").replaceChildren(shell);
-  showPage("detail", item.detailTitle || item.title, context.parentCrumb);
+  showPage("detail", item.detailTitle || item.title, context.parentCrumb, item.breadcrumbParent);
 }
 
 function route() {
