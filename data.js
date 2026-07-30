@@ -651,6 +651,24 @@ window.NaviData = (function () {
         href: "#products/Systems"
       }
     },
+    // TODO: placeholder only - no Integrated System Monitoring content has
+    // been approved yet. Replace the summary and overview with verified
+    // content once available.
+    {
+      slug: "integrated-system-monitoring",
+      title: "Integrated System Monitoring",
+      category: "Systems",
+      summary: "Integrated System Monitoring information will be available soon.",
+      overviewHeading: "Overview",
+      overview: [
+        "Integrated System Monitoring information will be available soon.",
+        "Detailed Integrated System Monitoring content will be added here."
+      ],
+      breadcrumbParent: {
+        label: "Systems",
+        href: "#products/Systems"
+      }
+    },
     // TODO: placeholder only - no Navi CIS content has been approved yet.
     // Replace the summary and add verified imagery and detail sections once
     // final content is available. Do not invent specifications or product
