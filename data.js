@@ -1163,7 +1163,7 @@ window.NaviData = (function () {
         "enGuard CDS connects directly to Navielektro C2 and situational awareness systems such as MATIS/JADIS, letting tracks, chat, messaging, sensor data and video move securely between domains, using the same native protocols shared across the wider Navielektro product family.",
         "The enGuard Scrubber integrates with MATIS/JADIS but also works as a standalone secure file transfer point for other CIS systems via dedicated IMPEX workstations; both enGuard solutions log all transfer activity and can be brought under one centrally managed security policy."
       ],
-      subpagesHeading: "Cross Domain Solution Modules",
+      subpagesHeading: "Cross Domain Components",
       // Product subpages: reachable only from this product's own page (see
       // PRODUCT_HERO_TREATMENTS "scrubber" entry and createProductSubpageCard/
       // renderProductSubpage in script.js) - not listed on the Products page,
