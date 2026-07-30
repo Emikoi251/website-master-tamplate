@@ -624,6 +624,26 @@ window.NaviData = (function () {
       category: "Systems",
       summary: "Description coming soon."
     },
+    // TODO: placeholder only - no ISR content has been approved yet.
+    // Replace the summary and add verified imagery and detail sections once
+    // final content is available. Do not invent specifications or product
+    // claims here.
+    {
+      slug: "isr",
+      title: "ISR",
+      category: "Systems",
+      summary: "Description coming soon."
+    },
+    // TODO: placeholder only - no Navi CIS content has been approved yet.
+    // Replace the summary and add verified imagery and detail sections once
+    // final content is available. Do not invent specifications or product
+    // claims here.
+    {
+      slug: "navi-cis",
+      title: "Navi CIS",
+      category: "Systems",
+      summary: "Description coming soon."
+    },
     {
       slug: "tdf",
       title: "Software Platform",
@@ -2382,6 +2402,16 @@ window.NaviData = (function () {
         "For joint and coalition use cases, the integration works together with the Navielektro enGuard Cross Domain Solution to move track data, video, tactical drawings, chat and voice safely between security domains, and connects with NaviCall to enable voice communication between ATAK users and other voice system users."
       ]
     },
+    // TODO: placeholder only - no Electronic Warfare content has been
+    // approved yet. Replace the summary and add verified imagery and detail
+    // sections once final content is available. Do not invent specifications
+    // or product claims here.
+    {
+      slug: "electronic-warfare",
+      title: "Electronic Warfare (EW)",
+      category: "Modules",
+      summary: "Description coming soon."
+    },
     // TODO: temporary placeholder module - replace with the real Data Analysis
     // content (copy, own image, slug, detail sections) once it's available.
     // No `slug` on purpose: createProductRow() in script.js renders a
@@ -2795,6 +2825,15 @@ window.NaviData = (function () {
           }
         }
       ]
+    },
+    // TODO: placeholder only - no Critical Infrastructure industry content
+    // has been approved yet. Replace the summary and add verified imagery and
+    // detail sections once final content is available. Do not invent claims
+    // here.
+    {
+      title: "Critical Infrastructure",
+      slug: "critical-infrastructure",
+      summary: "Description coming soon."
     }
   ];
 

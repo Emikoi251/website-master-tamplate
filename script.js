@@ -95,6 +95,12 @@ const searchIndex = [
     summary: item.summary,
     url: `#product/${item.slug}`
   })),
+  ...(isEnabled("industries") ? industries : []).filter((item) => item.slug).map((item) => ({
+    type: "Industry",
+    title: item.title,
+    summary: item.summary,
+    url: `#industry/${item.slug}`
+  })),
   ...(isEnabled("services") ? services : []).map((item) => ({
     type: "Service",
     title: item.title,
