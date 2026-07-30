@@ -2934,6 +2934,7 @@ h3 {
 
 .contact-map {
   display: block;
+  aspect-ratio: 5 / 3;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   overflow: hidden;
@@ -2948,7 +2949,8 @@ h3 {
 .contact-map img {
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: contain;
 }
 
 .contact-map__attribution {
