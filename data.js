@@ -2464,19 +2464,19 @@ window.NaviData = (function () {
         "For joint and coalition use cases, the integration works together with the Navielektro enGuard Cross Domain Solution to move track data, video, tactical drawings, chat and voice safely between security domains, and connects with NaviCall to enable voice communication between ATAK users and other voice system users."
       ]
     },
-    // TODO: placeholder only - no Electronic Warfare content has been
+    // TODO: placeholder only - no Electronic Welfare content has been
     // approved yet. Replace the summary and add verified imagery and detail
     // sections once final content is available. Do not invent specifications
     // or product claims here.
     {
       slug: "electronic-warfare",
-      title: "Electronic Warfare (EW)",
+      title: "Electronic Welfare",
       category: "Modules",
-      summary: "Electronic Warfare information will be available soon.",
+      summary: "Electronic Welfare information will be available soon.",
       overviewHeading: "Overview",
       overview: [
-        "Electronic Warfare information will be available soon.",
-        "Detailed Electronic Warfare (EW) content will be added here."
+        "Electronic Welfare information will be available soon.",
+        "Detailed Electronic Welfare content will be added here."
       ],
       breadcrumbParent: {
         label: "Modules",
