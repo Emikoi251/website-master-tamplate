@@ -375,6 +375,10 @@ function createHomeIndustry(item) {
 
 function renderStaticLists() {
   // fill() is a no-op when a container is missing (e.g. a section disabled in config).
+  const cyberSecurity = publicProducts.find((item) => item.slug === "cybersecurity");
+  const industryRows = industries.map((item) => createIndustryRow(item));
+  if (cyberSecurity) industryRows.push(createIndustryRow(cyberSecurity, "#product/cybersecurity"));
+
   fill("[data-featured-products]", FEATURED_PRODUCT_SLUGS.map((slug) => publicProducts.find((item) => item.slug === slug)).filter(Boolean).map(createFeaturedProductPanel));
   fill("[data-featured-services]", services.map(createFeaturedServicePanel));
   fill("[data-reference-preview]", references.map((item) => createCard(item, "reference")));
@@ -383,7 +387,7 @@ function renderStaticLists() {
   fill("[data-news-grid]", news.map(createNewsItem));
   fill("[data-services-directory]", services.map((item) => createServiceRow(item)));
   fill("[data-industries-home]", industriesHome.map(createHomeIndustry));
-  fill("[data-industries]", industries.map((item) => createIndustryRow(item)));
+  fill("[data-industries]", industryRows);
   renderFilters();
   renderFeatured();
   renderIndustryMenu();
@@ -667,10 +671,11 @@ function createProductRow(item) {
 
 // Full Industries page's row list - identical pattern to createProductRow()
 // above (same classes, same arrow, no visible "View" label since the whole
-// row is the link), just pointed at an industry's detail page instead of a
-// product's. The homepage uses its own compact image index above.
-function createIndustryRow(item) {
-  return el("a", { class: "product-row", href: `#industry/${item.slug}` }, [
+// row is the link). An explicit href can point a directory item at an existing
+// page outside the industry collection, as Cyber Security does without
+// duplicating its product data. The homepage uses its own compact image index.
+function createIndustryRow(item, href = `#industry/${item.slug}`) {
+  return el("a", { class: "product-row", href }, [
     el("span", { class: "product-row__text" }, [
       el("span", { class: "product-row__name" }, [item.title]),
       el("span", { class: "product-row__summary" }, [item.summary])
