@@ -2946,6 +2946,10 @@ h3 {
   border-color: var(--red);
 }
 
+.history-section .visitor-arrival-map {
+  margin-top: clamp(32px, 5vw, 52px);
+}
+
 .contact-map img {
   display: block;
   width: 100%;
