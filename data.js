@@ -1564,14 +1564,14 @@ window.NaviData = (function () {
       slug: "grib",
       title: "Weather Forecast",
       category: "Weather",
-      summary: "Weather Forecasts - part of your information flow",
+      summary: "Weather Forecast - part of your situation awareness",
       image: {
         src: "assets/products/grib/grib-hero.webp",
         alt: "A weather forecast chart showing wind barbs and pressure isobars over a coastal region",
         width: 1920,
         height: 735
       },
-      overviewHeading: "Weather Forecasts - part of your information flow",
+      overviewHeading: "Weather Forecast - part of your situation awareness",
       overview: [
         "Navielektro offers GRIB Weather Information functionality, which provides the operator with both historical and forecast weather and environmental information including wind barb, air pressure and rain data. GRIB is a data format commonly used in meteorology to communicate and store historical and forecast weather information as computed by a weather model. Navielektro's solution is capable of receiving, managing and presenting the GRIB data on the TDF platform. Weather is completely integrated as part of the situation picture, and weather conditions can be predicted and simulated for the next 8-12 hours.",
         "Traditionally, the information provided by GRIB models has only been available in separate subsystems and displays, making it difficult for the operator to fully utilize the available information. Navielektro's solution presents the data as an integrated part of the chart, so that weather data automatically correlates with other situational awareness information.",
