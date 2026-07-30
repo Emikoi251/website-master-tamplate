@@ -556,7 +556,7 @@ window.NaviData = (function () {
       ],
       sourceUrl: "https://www.navielektro.fi/trafficaware.html"
     },
-    // TODO: temporary placeholder system - replace with the real Federated
+    // TODO: temporary placeholder sensor - replace with the real Federated
     // Mission content (copy, own image, slug, detail sections) once it's
     // available. No `slug` on purpose, same pattern as the Data Analysis
     // placeholder in the Modules category above: createProductRow() and
@@ -569,17 +569,17 @@ window.NaviData = (function () {
     {
       featuredKey: "federated-mission",
       title: "Federated Mission",
-      category: "Systems",
+      category: "Sensors",
       summary: "Description coming soon.",
       featuredTileImage: {
         src: "assets/products/jadis/jadis-overview-thumbnail.webp",
-        alt: "Placeholder image temporarily reused for the Federated Mission system - final imagery to be added later",
+        alt: "Placeholder image temporarily reused for the Federated Mission sensor - final imagery to be added later",
         width: 707,
         height: 1000
       },
       image: {
         src: "assets/products/jadis/jadis-hero.webp",
-        alt: "Placeholder image temporarily reused for the Federated Mission system - final imagery to be added later",
+        alt: "Placeholder image temporarily reused for the Federated Mission sensor - final imagery to be added later",
         width: 1600,
         height: 1067
       }
