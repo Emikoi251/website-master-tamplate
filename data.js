@@ -1390,6 +1390,75 @@ window.NaviData = (function () {
         height: 735
       }
     },
+    // TODO: placeholder only - no Data Centric Security (DCS) content has
+    // been approved yet. Replace `summary`/`image` (and add `overview`,
+    // `highlights`, `operationalUse`, `typicalApplications`, `integration`
+    // as needed) with real, verified copy once available - do not invent
+    // specs or claims here. A normal top-level product using the existing
+    // data structure/detail-page template as-is (see renderDetail in
+    // script.js) - not a subpage of enGuard or any other product.
+    {
+      slug: "data-centric-security",
+      title: "Data Centric Security (DCS)",
+      category: "Security",
+      // TODO: replace with real Data Centric Security (DCS) summary copy
+      // once approved.
+      summary: "Description coming soon.",
+      // TODO: reusing the Cyber Security product's own hero image as a
+      // generic placeholder - replace with a dedicated Data Centric
+      // Security (DCS) product image once available.
+      image: {
+        src: "assets/products/cybersecurity/cybersecurity-hero.webp",
+        alt: "Placeholder image temporarily reused for the Data Centric Security (DCS) product - final imagery to be added later",
+        width: 1920,
+        height: 735
+      },
+      subpagesHeading: "DCS Components",
+      // Product subpages: reachable only from this product's own page (see
+      // createProductSubpageCard/renderProductSubpage in script.js) - not
+      // listed on the Products page, not in search. Mirrors the pattern
+      // established for the `enguard` and `voice` products' subpages.
+      subpages: [
+        // TODO: placeholder only - no STANAG 4774 content has been approved
+        // yet. Replace `summary`/`image` (and add `overview`, `highlights`,
+        // `operationalUse`, `typicalApplications` as needed) with real,
+        // verified copy once available - do not invent specs or claims here.
+        // Reuses the generic subpage system as-is (see the `scrubber` entry
+        // under the `enguard` product and createProductSubpageCard/
+        // renderProductSubpage in script.js) - no routing/rendering changes
+        // needed for this entry.
+        {
+          slug: "stanag-4774",
+          title: "STANAG 4774",
+          category: "Security",
+          // TODO: replace with real STANAG 4774 summary copy once approved.
+          summary: "Description coming soon.",
+          // TODO: reusing the Cyber Security product's own hero image as a
+          // generic placeholder - replace with a dedicated STANAG 4774
+          // product image once available.
+          image: {
+            src: "assets/products/cybersecurity/cybersecurity-hero.webp",
+            alt: "Placeholder image temporarily reused for the STANAG 4774 system - final imagery to be added later",
+            width: 1920,
+            height: 735
+          }
+        },
+        // TODO: placeholder only - replace the summary and image with
+        // approved STANAG 4778 content when it becomes available.
+        {
+          slug: "stanag-4778",
+          title: "STANAG 4778",
+          category: "Security",
+          summary: "Description coming soon.",
+          image: {
+            src: "assets/products/cybersecurity/cybersecurity-hero.webp",
+            alt: "Placeholder image temporarily reused for the STANAG 4778 system - final imagery to be added later",
+            width: 1920,
+            height: 735
+          }
+        }
+      ]
+    },
     {
       slug: "radar-antennas",
       title: "Radar Antennas",
