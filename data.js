@@ -2577,6 +2577,12 @@ window.NaviData = (function () {
           theme: "tinted"
         }
       ],
+      subpagesHeading: "Training & Simulation Components",
+      // Product subpages: reachable only from this product's own page (see
+      // createProductSubpageCard/renderProductSubpage in script.js) - not
+      // listed on the Products page, not in search. Mirrors the pattern
+      // established for the `enguard`, `voice`, `data-centric-security` and
+      // `mmhs` products' subpages.
       subpages: [
         // TODO: placeholder only - replace the summary and image with approved
         // DIS Simulation content when it becomes available.
