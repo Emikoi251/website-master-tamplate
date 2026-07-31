@@ -952,6 +952,11 @@ function createDetailBlock({ heading, body, image, variant = "standard", imagePo
 
   const classes = ["detail-block"];
   if (!image) classes.push("detail-block--text-only");
+  // A block with neither a heading nor an image is a short, bare follow-up
+  // paragraph (e.g. one continuation sentence after a split image block) -
+  // the full heading-block padding below made these read as an oversized,
+  // near-empty box. See ".detail-block--bare" in style.css.
+  if (!heading && !image) classes.push("detail-block--bare");
   if (variant === "split") {
     classes.push("detail-block--split");
     if (imagePosition === "left") classes.push("detail-block--image-left");

@@ -2700,6 +2700,16 @@ h3 {
   padding-top: 0;
 }
 
+/* A "bare" block (see createDetailBlock in script.js) has neither a heading
+   nor an image - just a short follow-up paragraph. The full heading-block
+   padding above made a one- or two-sentence block read as an oversized,
+   empty-looking placeholder (the grey/dark "unfinished section" look) -
+   roughly half the padding is enough breathing room for that little text. */
+.detail-block--bare {
+  padding-top: clamp(28px, 3.5vw, 44px);
+  padding-bottom: clamp(28px, 3.5vw, 44px);
+}
+
 .detail-block__inner {
   display: grid;
   gap: 24px;
@@ -2793,6 +2803,18 @@ h3 {
 
 .detail-block--dark {
   background: var(--navy-deep);
+}
+
+/* Two consecutive full-bleed blocks of the same theme (e.g. a bare dark
+   intro sentence immediately followed by a dark tag-list) sit flush against
+   each other with no border between them, but each still carries its own
+   full vertical padding - stacked, that reads as one oversized, empty-
+   feeling block with no visible reason for the extra height. Collapse the
+   padding at their shared edge so they read as a single continuous section
+   instead of two doubled-up boxes. */
+.detail-block--tinted:not(.detail-block--split) + .detail-block--tinted:not(.detail-block--split),
+.detail-block--dark:not(.detail-block--split) + .detail-block--dark:not(.detail-block--split) {
+  padding-top: 0;
 }
 
 .detail-block--dark h3 {
