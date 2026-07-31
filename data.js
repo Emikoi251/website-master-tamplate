@@ -111,18 +111,6 @@ window.NaviData = (function () {
           variant: "split",
           imagePosition: "right",
           theme: "tinted"
-        },
-        {
-          heading: "Port Management",
-          text: "MARITAS can support port authorities in their daily tasks. Navielektro offers a port administration and management system that can be completely integrated with MARITAS, so that operators can manage information and events related to port visits effectively. Navielektro's port management system enables arrival and departure management, vessel port history, cargo and passenger management as well as vessel service order management – all presented as an integrated part of the RMP.",
-          image: {
-            src: "assets/products/maritas/maritas-port-management.webp",
-            alt: "Chart view with a port visit database dialog listing scheduled, arriving, berthed and departing vessels",
-            width: 550,
-            height: 276
-          },
-          variant: "split",
-          imagePosition: "left"
         }
       ],
       typicalApplicationsVariant: "backgroundImage",
