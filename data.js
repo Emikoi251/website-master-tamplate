@@ -2238,7 +2238,11 @@ window.NaviData = (function () {
         "SMS",
         "EMAIL/SMTP & IMAP",
         "TETRA/SDS",
-        "ADATP3"
+        "ADATP3",
+        "ACP-127",
+        "STANAG 4406",
+        "STANAG 5506",
+        "Iridium"
       ],
       operationalUse: [
         {
