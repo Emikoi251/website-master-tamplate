@@ -1223,10 +1223,6 @@ window.NaviData = (function () {
             "Secure file import/export between classification levels"
           ]
         },
-        // TODO: placeholder only - no Data Diode content has been approved
-        // yet. Replace `summary`/`image` (and add `overview`, `highlights`,
-        // `operationalUse`, `typicalApplications` as needed) with real,
-        // verified copy once available - do not invent specs or claims here.
         // Reuses the generic subpage system as-is (see the `scrubber` entry
         // above and createProductSubpageCard/renderProductSubpage in
         // script.js) - no routing/rendering changes needed for this entry.
@@ -1234,8 +1230,7 @@ window.NaviData = (function () {
           slug: "data-diode",
           title: "Data Diode",
           category: "Security",
-          // TODO: replace with real Data Diode summary copy once approved.
-          summary: "Description coming soon.",
+          summary: "The enGuard Cross Domain Solution provides high-assurance separation between different security domains using data diode technology.",
           // TODO: reusing enGuard's own hero image as a placeholder - replace
           // with a dedicated Data Diode product image once available.
           image: {
@@ -1243,7 +1238,12 @@ window.NaviData = (function () {
             alt: "Placeholder image temporarily reused for the Data Diode system - final imagery to be added later",
             width: 1600,
             height: 1067
-          }
+          },
+          overview: [
+            "The enGuard Cross Domain Solution provides high-assurance separation between different security domains using data diode technology. The system is designed to enable secure information sharing between networks while maintaining hardware-enforced domain separation.",
+            "The solution supports both unidirectional and bidirectional information sharing and is available in different hardware configurations for a range of operational environments. For Data Center deployments, the system is based on secured COTS server components and Navielektro L2 EtherNet DataDiodes, which provide the high-assurance separation.",
+            "The enGuard platform supports a wide range of military data protocols and enables secure information sharing between networks operating at different security classifications, including SECRET and Unclassified environments."
+          ]
         },
         // TODO: placeholder only - no Secure Printing content has been
         // approved yet. Replace `summary`/`image` (and add `overview`,
