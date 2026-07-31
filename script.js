@@ -1077,7 +1077,14 @@ function renderDetailPage(kind, item, context = {}) {
       if (section.note) {
         body.push(el("p", {}, [section.note]));
       }
-      return createDetailBlock({ heading: section.heading, body });
+      return createDetailBlock({
+        heading: section.heading,
+        body,
+        image: section.image,
+        variant: section.variant,
+        imagePosition: section.imagePosition,
+        theme: section.theme
+      });
     })));
   } else if ((kind === "product" || kind === "industry") && item.overview && item.overview.length) {
     if (item.overviewHeading) {

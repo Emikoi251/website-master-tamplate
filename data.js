@@ -1222,11 +1222,77 @@ window.NaviData = (function () {
             width: 1400,
             height: 552
           },
-          overview: [
-            "Where a system needs to stay air-gapped rather than continuously connected, the enGuard Scrubber provides a secure way to move files between security domains. Files are virus-scanned, verified and signed before being packed onto an approved, encrypted transfer drive, which is then carried to an IMPEX workstation on the receiving side to complete the import - or the reverse, for exporting data from a higher domain."
-          ],
-          typicalApplications: [
-            "Secure file import/export between classification levels"
+          detailSections: [
+            {
+              heading: "Secure File Import and Export Between Security Domains",
+              content: [
+                "The enGuard Scrubber provides a secure and seamless solution for importing and exporting files between different security domains. It verifies files before transfer using integrated virus scanning, file type verification, and optional file reconstruction and content inspection, helping ensure that transferred data complies with defined security policies."
+              ],
+              note: "After verification, approved files are digitally signed and stored in an encrypted file container on an approved USB transfer device. The transfer media can then be used together with an IMPEX workstation to securely import data into a higher security domain. The same process can also be used for exporting information from higher security domains."
+            },
+            {
+              heading: "Key Features",
+              list: [
+                "Secure file import and export between different security domains",
+                "Integrated virus scanning and file verification",
+                "Optional file reconstruction and content inspection",
+                "Strong authentication using integrated PKI/CA and smartcards",
+                "Separation of duties for management and operation",
+                "Policy-based access and user permissions",
+                "Digital signing and encrypted transfer media",
+                "Comprehensive logging of transfers, login attempts and management operations",
+                "Integrated virus signature updates",
+                "Support for both unidirectional and bidirectional deployments",
+                "Seamless integration with Navielektro MATIS/JADIS and compatibility with other CIS systems",
+                "Supports the Confidentiality, Integrity and Availability (CIA triad) security principles",
+                "Adheres to the general NATO CIS Security Directive as applicable to the device"
+              ],
+              listStyle: "capability"
+            },
+            {
+              heading: "Secure Design",
+              content: [
+                "The enGuard Scrubber is built according to secure design principles and provides an internal red-black separation implemented in hardware. The system supports policy-based operation, allowing authenticated users to perform different actions based on assigned permissions. It also maintains detailed logs of all transferred information, transfer attempts, user logins, and management activities."
+              ],
+              note: "The rugged, interoperable multiplatform system is delivered as an out-of-the-box turnkey solution for secure file transfers."
+            },
+            {
+              heading: "Air-Gap Protection",
+              content: [
+                "The enGuard Scrubber is designed to support secure file transfer to and from air-gapped environments. It provides multiple security mechanisms, including:"
+              ],
+              list: [
+                "Protection against bad USB devices",
+                "File and USB device whitelisting",
+                "File blacklisting",
+                "Digital signing of approved data",
+                "Strong user authentication",
+                "Zero-trust management model",
+                "Secure system management",
+                "Immutable operating system",
+                "Central policy support",
+                "Logging of all system actions",
+                "Secure software updates",
+                "Secure-by-design development principles"
+              ],
+              listStyle: "capability",
+              note: "Within the enGuard family, organizations can deploy an air gap, a Cross Domain Solution, or both, depending on preference and use case."
+            },
+            {
+              heading: "Transfer Workflow",
+              content: [
+                "The transfer process is designed to provide multiple stages of verification while remaining easy to use. Users authenticate using smartcards before selecting files for transfer. Files are scanned, validated, digitally signed and packaged into a secure file container before being transferred using approved transfer media or an enGuard Data Diode. When imported into the destination environment, signatures are validated, files are scanned again, and all import events are logged."
+              ],
+              image: {
+                src: "assets/products/enguard/enguard-scrubber-workflow-overview.webp",
+                alt: "Seven-step enGuard Scrubber workflow from USB and smartcard authentication through file scanning, signed transfer, import gateway, storage and logging",
+                width: 1800,
+                height: 2556
+              },
+              variant: "split",
+              imagePosition: "right",
+              theme: "tinted"
+            }
           ]
         },
         // Reuses the generic subpage system as-is (see the `scrubber` entry
