@@ -572,26 +572,6 @@ window.NaviData = (function () {
         height: 1067
       }
     },
-    // TODO: placeholder only - no Formal Messaging content has been
-    // approved yet. Replace the summary and add verified imagery and detail
-    // sections once final content is available. Do not invent specifications
-    // or product claims here.
-    {
-      slug: "formal-messaging",
-      title: "Formal Messaging",
-      category: "Systems",
-      summary: "Description coming soon."
-    },
-    // TODO: placeholder only - no Instant Messaging content has been
-    // approved yet. Replace the summary and add verified imagery and detail
-    // sections once final content is available. Do not invent specifications
-    // or product claims here.
-    {
-      slug: "instant-messaging",
-      title: "Instant Messaging",
-      category: "Systems",
-      summary: "Description coming soon."
-    },
     // TODO: placeholder only - no Joint Fires content has been approved yet.
     // Replace the summary and add verified imagery and detail sections once
     // final content is available. Do not invent specifications or product
@@ -2370,7 +2350,54 @@ window.NaviData = (function () {
           theme: "tinted"
         }
       ],
-      sourceUrl: "https://www.navielektro.fi/mmhs.html"
+      sourceUrl: "https://www.navielektro.fi/mmhs.html",
+      subpagesHeading: "Military Message Handling Components",
+      // Product subpages: reachable only from this product's own page (see
+      // createProductSubpageCard/renderProductSubpage in script.js) - not
+      // listed on the Products page, not in search. Mirrors the pattern
+      // established for the `enguard`, `voice` and `data-centric-security`
+      // products' subpages. Moved here from their former standalone
+      // top-level entries (former slugs unchanged; `category` updated from
+      // "Systems" to "Modules" to match this parent, consistent with the
+      // established subpage convention). The `image` field on each entry is
+      // newly added here, not "existing content" - createProductSubpageCard
+      // in script.js requires it unconditionally to render the subpage card
+      // grid, so it reuses the parent's own hero image as a placeholder,
+      // exactly like the `enguard`/`voice`/`data-centric-security` subpages.
+      subpages: [
+        // TODO: placeholder only - no Formal Messaging content has been
+        // approved yet. Replace the summary and add verified imagery and
+        // detail sections once final content is available. Do not invent
+        // specifications or product claims here.
+        {
+          slug: "formal-messaging",
+          title: "Formal Messaging",
+          category: "Modules",
+          summary: "Description coming soon.",
+          image: {
+            src: "assets/products/mmhs/mmhs-messaging.webp",
+            alt: "Placeholder image temporarily reused for the Formal Messaging system - final imagery to be added later",
+            width: 600,
+            height: 293
+          }
+        },
+        // TODO: placeholder only - no Instant Messaging content has been
+        // approved yet. Replace the summary and add verified imagery and
+        // detail sections once final content is available. Do not invent
+        // specifications or product claims here.
+        {
+          slug: "instant-messaging",
+          title: "Instant Messaging",
+          category: "Modules",
+          summary: "Description coming soon.",
+          image: {
+            src: "assets/products/mmhs/mmhs-instant-messaging.webp",
+            alt: "Placeholder image temporarily reused for the Instant Messaging system - final imagery to be added later",
+            width: 600,
+            height: 313
+          }
+        }
+      ]
     },
     {
       slug: "radar-processing",
