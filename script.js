@@ -1190,18 +1190,18 @@ function renderDetailPage(kind, item, context = {}) {
     // already give visitors a concrete next step.
     if (kind === "product") {
       const enquiryId = `product-enquiry-${item.slug}`;
-      const enquiryEmail = config.contact?.email;
-      const enquiryHref = enquiryEmail
-        ? `mailto:${enquiryEmail}?subject=${encodeURIComponent(`${item.title} product enquiry`)}`
-        : "#contact";
 
+      // Routes to the Contact page and scrolls to its contact details
+      // section (see the "[data-scroll-target]" handler below) rather than
+      // a mailto: link - mailto: silently does nothing on any device without
+      // a registered mail client, which made this button look broken.
       blocks.push(el("section", { class: "product-enquiry", "aria-labelledby": enquiryId }, [
         el("div", { class: "product-enquiry__copy" }, [
           el("p", { class: "eyebrow" }, ["Product enquiries"]),
           el("h3", { id: enquiryId }, [`Discuss ${item.title} with our team.`]),
           el("p", {}, ["Tell us about your operational requirements, integration needs or project scope. Our team will help identify the right configuration and next steps."])
         ]),
-        el("a", { class: "button button--primary product-enquiry__action", href: enquiryHref }, ["Send an enquiry"])
+        el("a", { class: "button button--primary product-enquiry__action", href: "#contact", "data-scroll-target": "#contact-details" }, ["Send an enquiry"])
       ]));
     }
 
@@ -1384,10 +1384,27 @@ window.addEventListener("hashchange", route);
 document.addEventListener("click", (event) => {
   const scrollLink = event.target.closest("[data-scroll-target]");
   if (scrollLink) {
-    const target = document.querySelector(scrollLink.dataset.scrollTarget);
-    if (target) {
-      event.preventDefault();
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    event.preventDefault();
+    const targetSelector = scrollLink.dataset.scrollTarget;
+    const scrollToTarget = () => {
+      const target = document.querySelector(targetSelector);
+      if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+    };
+    const href = scrollLink.getAttribute("href");
+    if (href && href !== location.hash) {
+      // The target can live on a page other than the one currently shown
+      // (e.g. a "Send an enquiry" button on a product page linking to
+      // #contact-details on the Contact page) - navigate there first and
+      // scroll once the resulting hashchange has swapped in its page,
+      // rather than scrolling to a currently-hidden element. This listener
+      // is added after route()'s own hashchange listener (registered once,
+      // at load), so it runs after showPage() has already shown the target
+      // page and issued its own scroll-to-top - this scroll runs last and
+      // wins, overriding that scroll-to-top.
+      window.addEventListener("hashchange", scrollToTarget, { once: true });
+      location.hash = href;
+    } else {
+      scrollToTarget();
     }
   }
 
