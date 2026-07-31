@@ -53,7 +53,7 @@ const FEATURED_PRODUCT_SLUGS = ["maritas", "matis", "jadis"];
 // Kept separate from FEATURED_PRODUCT_SLUGS so none of this leaks onto the
 // Home page's Featured Products panel, which still reads
 // FEATURED_PRODUCT_SLUGS only.
-const PRODUCTS_PAGE_FEATURED_KEYS = [...FEATURED_PRODUCT_SLUGS, "enguard"];
+const PRODUCTS_PAGE_FEATURED_KEYS = [...FEATURED_PRODUCT_SLUGS, "enguard", "navi-cms"];
 
 // A section is enabled unless config.sections explicitly turns it off.
 const sectionFlags = config.sections || {};
