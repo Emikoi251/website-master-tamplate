@@ -41,19 +41,17 @@ const PRODUCT_HERO_TREATMENTS = {
   "voice-tactical": { desktop: "18% center", tablet: "16% center", mobile: "14% center" }
 };
 
-// Products Overview page: fixed curated highlight set (see each product's
-// overviewImage in data.js), shown above the directory in the default,
-// unfiltered view only.
-const FEATURED_PRODUCT_SLUGS = ["maritas", "matis", "jadis"];
+// Shared curated "flagship" set: the Home page's Featured products panel
+// (see createFeaturedProductPanel()) and the Products page's Featured
+// systems tray (see renderFeatured()) both read this same array, so the two
+// can never drift out of sync the way they previously did (the Products
+// page tray had grown to 5 entries - "enguard", "navi-cms" - while the Home
+// page panel was still stuck showing only the original 3).
+const FEATURED_PRODUCT_SLUGS = ["maritas", "matis", "jadis", "enguard", "navi-cms"];
 
-// Products Overview page's own Featured Systems tray can include extra
-// entries beyond FEATURED_PRODUCT_SLUGS - a normal product from any category
-// (e.g. Cross Domain Solution, still filed under Security/Cyber Security
-// and unaffected there).
-// Kept separate from FEATURED_PRODUCT_SLUGS so none of this leaks onto the
-// Home page's Featured Products panel, which still reads
-// FEATURED_PRODUCT_SLUGS only.
-const PRODUCTS_PAGE_FEATURED_KEYS = [...FEATURED_PRODUCT_SLUGS, "enguard", "navi-cms"];
+// Kept as a separate name for readability at each call site, but always the
+// same array as FEATURED_PRODUCT_SLUGS above - see the comment there.
+const PRODUCTS_PAGE_FEATURED_KEYS = FEATURED_PRODUCT_SLUGS;
 
 // A section is enabled unless config.sections explicitly turns it off.
 const sectionFlags = config.sections || {};

@@ -609,7 +609,17 @@ window.NaviData = (function () {
       title: "Navi CMS",
       category: "Systems",
       summary: "Navi CMS information will be available soon.",
+      // TODO: reusing the same placeholder photo for both the Products page's
+      // small featured tile and the Home page's larger featured panel - no
+      // dedicated Navi CMS product image exists yet. Replace both once real
+      // imagery is available.
       featuredTileImage: {
+        src: "assets/home/hero/hero-operator-systems.jpg",
+        alt: "Operator monitoring mission systems in a control room",
+        width: 1920,
+        height: 1140
+      },
+      image: {
         src: "assets/home/hero/hero-operator-systems.jpg",
         alt: "Operator monitoring mission systems in a control room",
         width: 1920,
