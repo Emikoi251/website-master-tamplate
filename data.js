@@ -1375,34 +1375,6 @@ window.NaviData = (function () {
             width: 1600,
             height: 1067
           }
-        },
-        // TODO: placeholder only - replace the summary and image with approved
-        // Part A content when it becomes available.
-        {
-          slug: "part-a",
-          title: "Part A",
-          category: "Security",
-          summary: "Description coming soon.",
-          image: {
-            src: "assets/products/enguard/enguard-hero.webp",
-            alt: "Placeholder image temporarily reused for Part A - final imagery to be added later",
-            width: 1600,
-            height: 1067
-          }
-        },
-        // TODO: placeholder only - replace the summary and image with approved
-        // Part B content when it becomes available.
-        {
-          slug: "part-b",
-          title: "Part B",
-          category: "Security",
-          summary: "Description coming soon.",
-          image: {
-            src: "assets/products/enguard/enguard-hero.webp",
-            alt: "Placeholder image temporarily reused for Part B - final imagery to be added later",
-            width: 1600,
-            height: 1067
-          }
         }
       ]
     },
