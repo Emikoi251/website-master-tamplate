@@ -1806,7 +1806,52 @@ window.NaviData = (function () {
           theme: "tinted"
         }
       ],
-      sourceUrl: "https://www.navielektro.fi/voice.html"
+      sourceUrl: "https://www.navielektro.fi/voice.html",
+      subpagesHeading: "NaviCall Components",
+      // Product subpages: reachable only from this product's own page (see
+      // createProductSubpageCard/renderProductSubpage in script.js) - not
+      // listed on the Products page, not in search. Mirrors the pattern
+      // established for the `enguard` product's subpages.
+      subpages: [
+        // TODO: placeholder only - no NaviCall A content has been approved
+        // yet. Replace `summary`/`image` (and add `overview`, `highlights`,
+        // `operationalUse`, `typicalApplications` as needed) with real,
+        // verified copy once available - do not invent specs or claims here.
+        // Reuses the generic subpage system as-is (see the `scrubber` entry
+        // under the `enguard` product and createProductSubpageCard/
+        // renderProductSubpage in script.js) - no routing/rendering changes
+        // needed for this entry.
+        {
+          slug: "navicall-a",
+          title: "NaviCall A",
+          category: "Voice Communication",
+          // TODO: replace with real NaviCall A summary copy once approved.
+          summary: "Description coming soon.",
+          // TODO: reusing NaviCall's own hero image as a placeholder - replace
+          // with a dedicated NaviCall A product image once available.
+          image: {
+            src: "assets/products/voice/voice-hero.webp",
+            alt: "Placeholder image temporarily reused for the NaviCall A system - final imagery to be added later",
+            width: 1920,
+            height: 735
+          }
+        },
+        // TODO: placeholder only - no NaviCall B content has been approved
+        // yet. Replace the summary and image with approved NaviCall B content
+        // when it becomes available.
+        {
+          slug: "navicall-b",
+          title: "NaviCall B",
+          category: "Voice Communication",
+          summary: "Description coming soon.",
+          image: {
+            src: "assets/products/voice/voice-hero.webp",
+            alt: "Placeholder image temporarily reused for the NaviCall B system - final imagery to be added later",
+            width: 1920,
+            height: 735
+          }
+        }
+      ]
     },
     {
       slug: "voice-tactical",
