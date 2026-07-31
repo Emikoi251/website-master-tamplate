@@ -2396,6 +2396,23 @@ window.NaviData = (function () {
             width: 600,
             height: 313
           }
+        },
+        // TODO: placeholder only - no Naval content has been approved yet.
+        // Replace the summary and add verified imagery and detail sections
+        // once final content is available. Do not invent specifications or
+        // product claims here. A brand new placeholder subpage (not moved
+        // from an existing standalone product/System).
+        {
+          slug: "naval",
+          title: "Naval",
+          category: "Modules",
+          summary: "Description coming soon.",
+          image: {
+            src: "assets/products/mmhs/mmhs-tactical-drawings.webp",
+            alt: "Placeholder image temporarily reused for the Naval system - final imagery to be added later",
+            width: 600,
+            height: 320
+          }
         }
       ]
     },
