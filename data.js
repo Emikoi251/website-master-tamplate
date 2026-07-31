@@ -2242,7 +2242,7 @@ window.NaviData = (function () {
         "ACP-127",
         "STANAG 4406",
         "STANAG 5506",
-        "Iridium"
+        "IRIDIUM"
       ],
       operationalUse: [
         {
