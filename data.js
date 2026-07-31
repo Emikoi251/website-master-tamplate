@@ -1449,6 +1449,37 @@ window.NaviData = (function () {
         }
       ]
     },
+    // TODO: Replace temporary content when final product information becomes
+    // available. Update `summary`/`overview`/`image` (and add `highlights`,
+    // `operationalUse`, `typicalApplications`, `integration` as needed) with
+    // real, verified copy once available - do not invent specs or claims
+    // here. A normal top-level product using the existing data structure/
+    // detail-page template as-is (see renderDetail in script.js) - no
+    // page-specific layout.
+    {
+      slug: "high-assurance-security-system",
+      title: "High Assurance Security System",
+      category: "Security",
+      // TODO: Replace temporary content when final product information
+      // becomes available.
+      summary: "High Assurance Security System provides a secure platform for demanding operational environments. Detailed product information will be added later.",
+      // TODO: Replace temporary content when final product information
+      // becomes available - reusing the Cyber Security product's own hero
+      // image until a dedicated High Assurance Security System product
+      // image is ready.
+      image: {
+        src: "assets/products/cybersecurity/cybersecurity-hero.webp",
+        alt: "Placeholder image temporarily reused for the High Assurance Security System product - final imagery to be added later",
+        width: 1920,
+        height: 735
+      },
+      overviewHeading: "Overview",
+      // TODO: Replace temporary content when final product information
+      // becomes available.
+      overview: [
+        "More information about High Assurance Security System will be published here."
+      ]
+    },
     {
       slug: "radar-antennas",
       title: "Radar Antennas",
